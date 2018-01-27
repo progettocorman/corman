@@ -7,9 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-<<<<<<< HEAD
+
     protected $table = 'users';
-=======
     use Notifiable;
 
     /**
@@ -29,5 +28,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
->>>>>>> 8bbff71aeff76f0d5390b0dbfcbd450452764667
 }
