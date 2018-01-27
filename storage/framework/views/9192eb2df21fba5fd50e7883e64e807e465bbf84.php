@@ -39,7 +39,7 @@ form {
 
 <form method="POST" action='login'>
 
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
   <div class="form-group row">
     <label for="imputEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
