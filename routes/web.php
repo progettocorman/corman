@@ -10,14 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Illuminate\Http\Request;
-use App\Publication;
-use App\UsersPublication;
 
+//indirizza alla home
 Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/acceptance','Notification@acceptance');//Accettazione Notifica
@@ -33,3 +32,15 @@ Route::post('/login', 'UserController@verificaDati');//prende i dati dal databas
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
 Route::get('/acceptanceTest','Notification@acceptance');
+=======
+
+Route::get('formregister', function () {
+    return view('formview');
+});
+
+//inserisce i dati nel database
+Route::post('insert_form', 'Controller@inviaDati');
+
+//prende i dati dal database
+Route::post('login', 'Controller@verificaDati');
+>>>>>>> 8bbff71aeff76f0d5390b0dbfcbd450452764667
