@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use \App\Publication;
+use Illuminate\Database\QueryException;
 class Test extends Controller{
-    
 
-    public function test(Request $request){
-      $tempName[0]="Giuseppe";
-      $tempName[1]="Desoldo";
-      foreach(DB::table('users')->select('id')->where('name',$tempName[0])
-                                ->where('last_name',$tempName[1])->get() as $coAuthor){
-       var_dump($coAuthor);
-       echo "<br>";
+
+  public function test(Request $request){
+    $publication = new Publication;
+    $publication->title = "'A Visual Paradigm for Defining Task Automation.'";
+    $publication->year = "'2016'";
+    $publication->type = "'Conference and Workshop Papers'";
+    $publication->dbKey = md5($publication->title.$publication->year);
+    try{
+      $publication->save();
+    }catch (QueryException $exception){
+      echo "Sta già";
     }
   }
 
@@ -31,6 +35,11 @@ class Test extends Controller{
     curl_exec($ch);
 
     $jsonResult= json_decode(curl_multi_getcontent($ch));
+
+    if(!isset($jsonResult->result->hits->hit)){
+      echo "Vuoto";
+      return;
+    }
     //ESTRAE IN MODO APPROPRIATO I DATI DI INTERESSE DALLA VARIABILE
     //Array che contiene i nomi dei campi da utilizzare come chiavi(tranne authors, trattato separatamente);
     $field = array("title",//titolo della pubblicazione
@@ -64,7 +73,7 @@ class Test extends Controller{
       }else array_push($publication["authors"],$currentPub->info->authors->author);
 
       /*DEBUG*/
-      var_dump($publication);
+      // var_dump($publication);
       $publication["authors"] = array();//DATO CHE USIAMO SEMPRE LA STESSA VARIABILE, PER PULIRE L'ARRAY DEGLI AUTORI
       echo '<br><br><br>';
 

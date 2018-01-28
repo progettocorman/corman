@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
 
 <style>
 
-form { 
+form {
   margin:30px;
   margin-top: 8px;
   margin-left: 40px;
@@ -52,7 +51,7 @@ form {
 
 <style>
 
-form { 
+form {
   margin:30px;
   margin-top: 8px;
   margin-left: 40px;
@@ -90,5 +89,5 @@ form {
 <script src="js/bootstrap.min.js"></script>
 </body>
 
->>>>>>> 8bbff71aeff76f0d5390b0dbfcbd450452764667
+
 </html>

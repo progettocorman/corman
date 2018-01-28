@@ -12,11 +12,6 @@ use App\Http\Controllers\Auth;
 use Illuminate\Database\Seeder;
 use App\User;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
-use Illuminate\Database\Seeder;
-use App\Contatto;
-
 use DB;
 
 
