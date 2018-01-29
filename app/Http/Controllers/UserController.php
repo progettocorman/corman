@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use App\User;
+use App\Http\Controllers\Exception;
 use App\Http\Controllers\Auth;
 use Illuminate\Database\Seeder;
 use DB;
@@ -28,11 +30,15 @@ class UserController extends Controller
       $user->email = $request->input('user_email');
 
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
+      
       //verifica se c'è già la email
-      if(isset($query)){
-         //todo
-          return view ();
-          }
+       if($query != NULL){
+        print "Email  $user->email già utilizzata";
+        return view('formview');
+       }
+
+    
+
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
       $user->save();
