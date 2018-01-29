@@ -5,21 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Publication;
+use \App\UsersPublication;
+use \App\Notification;
 use Illuminate\Database\QueryException;
 class Test extends Controller{
 
 
   public function test(Request $request){
-    $publication = new Publication;
-    $publication->title = "'A Visual Paradigm for Defining Task Automation.'";
-    $publication->year = "'2016'";
-    $publication->type = "'Conference and Workshop Papers'";
-    $publication->dbKey = md5($publication->title.$publication->year);
-    try{
-      $publication->save();
-    }catch (QueryException $exception){
-      echo "Sta già";
-    }
+    //
   }
 
   public function apiTest(Request $request){
@@ -82,10 +75,4 @@ class Test extends Controller{
       curl_close($ch);
   }
 
-  public static function acceptanceTest(Request $request, $object_id, $notification_type_id){
-    $userId = 2;
-    \App\Notification::where('user_id',$userId)->where('object_id',$publication_id)
-                                                ->where('type_id',$notification_type_id)
-                                                ->delete();
-  }
 }

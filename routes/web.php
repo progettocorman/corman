@@ -19,7 +19,6 @@ Route::get('/', function () {
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
-Route::get('/acceptance','Notification@acceptance');//Accettazione Notifica
 
 //ANTONIO
 Route::get('/formregister', function () {
@@ -31,4 +30,3 @@ Route::post('/login', 'UserController@verificaDati');//prende i dati dal databas
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
-Route::get('/acceptanceTest','Notification@acceptance');

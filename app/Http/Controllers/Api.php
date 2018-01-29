@@ -12,8 +12,8 @@ use App\Notification;
 
 class Api extends Controller
 {
+    //SI OCCUPA DI INVOCARE LE RESTFUL API DI dblp E PROCESSARE IL RISULTATO
     public function dblpApi(Request $request){
-
       //IMPOSTA LA RISORSA curl CON L'URL DA INTERROGARE
       // $ch = curl_init("http://dblp.org/search/publ/api?q=author%3A".$name."%3A&format=json");
       $ch = curl_init("http://dblp.org/search/publ/api?q=author%3A".$request->name."%3A&format=json");
@@ -33,7 +33,7 @@ class Api extends Controller
       }
       //ESTRAE IN MODO APPROPRIATO I DATI DI INTERESSE DALLA VARIABILE
       //Array che contiene i nomi dei campi da utilizzare come chiavi(tranne authors, trattato separatamente);
-      $field = array("title",//titolo della pubblicazione
+      $fields = array("title",//titolo della pubblicazione
                     "venue",//rivista di pubblicazione
                     "volume",//volume della rivista
                     "number",//numero della rivista
@@ -45,119 +45,149 @@ class Api extends Controller
                     "ee",// Link alla risorsa (pdf o sito su cui comprare il pdf)
                     "url");// Link alla pagina di dblp
 
-  //CICLA SU TUTTE LE ISTANZE DI HIT CONTENUTE IN HITS (CONTENUTE IN RESULT)
-  foreach ($jsonResult->result->hits->hit as $currentPub) {
-    $publication = new Publication;
-    //PER OGNI CAMPO (descritto in $field)...
-    foreach ($field as $curField) {
+      //CICLA SU TUTTE LE ISTANZE DI HIT CONTENUTE IN HITS (CONTENUTE IN RESULT)
+      foreach ($jsonResult->result->hits->hit as $currentPub) {
+          $currentPubId = Api::processPublication($request, $currentPub->info, $fields);
 
-      //... SE IL CAMPO, PER QUELLA ISTANZA, NON è NULLO, ASSEGNA ALL'ARRAY DI SALVATAGGIO IL CORRISPONDENTE VALORE (no authors)
-      if(isset($currentPub->info->$curField)){
-          if(!is_array($currentPub->info->$curField)) $publication->$curField ="'".substr($currentPub->info->$curField,0,189)."'";
-          else{
-            foreach ($currentPub->info->$curField as $innerValue) {
-              $value = $innerValue." ";
-            }
-             $publication->$curField = "'".substr($value,0,189)."'";
+          if($currentPubId != -1){
+            Api::processCoAuthors($request,$currentPub->info->authors->author,$currentPubId);
           }
+
       }
-      else $publication->$curField = "//";
+      //LIBERA LA RISORSA ALLOCATA
+      curl_close($ch);
+      // return redirect('/');
     }
 
-    $publication->dbKey = md5($publication->title.$publication->year);
+    //SI OCCUPA DI PROCESSARE LE PUBBLICAZIONI
+    public static function processPublication(Request $request, $publication, $fields){
+      $user_name = Api::formatName($request->name);
+      $publicationModel = new Publication;
+      //PER OGNI CAMPO (descritto in $field)...
+      foreach ($fields as $curField) {
+        //... SE IL CAMPO, PER QUELLA ISTANZA, NON è NULLO, AVVALORA IL MODEL IL CORRISPONDENTE VALORE (no authors)
+        if(isset($publication->$curField)){
+            if(!is_array($publication->$curField)) $publicationModel->$curField ="'".substr($publication->$curField,0,189)."'";
+            else{
+              foreach ($publication->$curField as $innerValue) {
+                $value = $innerValue." ";
+              }
+               $publicationModel->$curField = "'".substr($value,0,189)."'";
+            }
+        }
+        else $publicationModel->$curField = "//";
+      }
 
-    try{
-      $publication->save();
-    }catch(QueryException $exception){
-      //TODO
-      //Aggiungi pubblicazione all'autore
-      $user_id = $request->session()->get('id');
+      $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);
+
+      //SE LA PUBBLICAZIONE È GIA' PRESENTE NEL DB, AGGIUNGILA ALL'UTENTE SENZA RE-INSERIRLA
+      try{
+        $publicationModel->save();
+      }catch(QueryException $exception){
+        //TODO Messaggio
+        //Aggiungi pubblicazione all'autore
+        $user_id = $request->session()->get('id');
+        $publication_id = \DB::table('publications')->select('id')->where('dbKey',$publicationModel->dbKey)->first();
+
+        Api::addPublicationToAuthor($request, $user_id, $publication_id->id ,$user_name);
+
+        echo $publicationModel->title."è già presente <br>";//DEBUG
+        return -1;
+      }
+      //...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
+      //Ritira l'id della Pubblicazione appena aggiunta al db
+      $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
+
+      return $publication_id->id;
+    }
+
+    //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE
+    public static function addPublicationToAuthor(Request $request, $user_id, $publication_id, $author){
       $user_publication = new UsersPublication;
       $user_publication->user_id = $user_id;
-      $publication_id = \DB::table('publications')->select('id')->where('dbKey',$publication->dbKey)->first();
-      $user_publication->publication_id = $publication_id->id;
+      $user_publication->publication_id = $publication_id;
       $user_publication->author_name = $author;
       $user_publication->save();
-
-      echo $publication->title."è già presente";
-      continue;
     }
 
-    $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
-    // var_dump($publication);
-    // echo "<br><br>";
-    //TRATTAZIONE DELL'ARRAY DI AUTORI: SE E' UN ARRAY (più autori)...
-    if(is_array($currentPub->info->authors->author)){
-      foreach ($currentPub->info->authors->author as $author) {
-        //ARRAY DI TUTTI GLI AUTORI, NON ANCORA TRATTATI
-        $coAuthorsNotDone = array();
-        array_push($coAuthorsNotDone,$author);
-        //FORMATTAZIONE DEL NOME
-        $user_name = Api::formatName($request->name);
-        //SE SE STESSO, PRENDI L'ID DALLA SESSIONE
-        if($user_name == $author){
-          $user_id = $request->session()->get('id');
-          // $user_id = 1;//For testing <-->Maria Francesca Costabile
-          $user_publication = new UsersPublication;
-          $user_publication->user_id = $user_id;
-          $user_publication->publication_id = $publication_id->id;
-          $user_publication->author_name = $author;
-          $user_publication->save();
-        }//...ALTRIMENTI PRENDI GLI ID DEI POSSIBILI COAUTORI
-        else{
-          $tempName = preg_split("/ /",$author);
+    //SI OCCUPA DI PROCESSARE I COAUTORI
+    public static function processCoAuthors(Request $request, $authors, $publication_id){
+      //FORMATTAZIONE DEL NOME
+      $user_name = Api::formatName($request->name);
+      $user_id = $request->session()->get('id');
+      //TRATTAZIONE DELL'ARRAY DI AUTORI: SE E' UN ARRAY (più autori)...
+      if(is_array($authors)){
+        foreach ($authors as $author) {
 
-          if(sizeof($tempName)==3){
-            $authorName = $tempName[0]." ".$tempName[1]." ".$tempName[2];
-            $coAuthors = \DB::table('users')->select('id','name','second_name','last_name')->where('name',$tempName[0])
-                                          ->where('second_name',$tempName[1])
-                                          ->where('last_name',$tempName[2])->get();
+          //ARRAY DI TUTTI GLI AUTORI, NON ANCORA TRATTATI
+          $coAuthorsNotDone = array();
+          array_push($coAuthorsNotDone,$author);
 
-          }else{
-            $authorName = $tempName[0]." ".$tempName[1];
-            $coAuthors = \DB::table('users')->select('id','name','last_name')->where('name',$tempName[0])
-                                          ->where('last_name',$tempName[1])->get();
+          //SE SE STESSO, PRENDI L'ID DALLA SESSIONE E AGGIUNGI LA PUBBLICAZIONE ALL'AUTORE
+          if($user_name == $author){
+            // $user_id = 1;//For testing <-->Maria Francesca Costabile
+            Api::addPublicationToAuthor($request,$user_id, $publication_id,$user_name);
           }
 
-          //ARRAY DI COAUTORI TROVATI NEL DATABASE ED ELABORATI
-          $coAuthorsDone = array();
+          //...ALTRIMENTI PRENDI GLI ID DEI POSSIBILI COAUTORI
+          else{
 
-          foreach ($coAuthors as $coAuthor) {
-            //COSTRUZIONE DELL'ARRAY DEI COAUTORI
-            $tempCoAuthor = $coAuthor->name." ";
-            if(isset($coAuthor->second_name))   $tempCoAuthor = $tempCoAuthor.$coAuthor->second_name." ";
-            $tempCoAuthor = $tempCoAuthor.$coAuthor->last_name;
-            array_push($coAuthorsDone,$tempCoAuthor);
-            //NOTIFICA AD OGNI COAUTORE
-            $notification = new Notification;
-            $notification->user_id = $coAuthor->id;
-            $notification->object_id = $publication_id->id;
-            $notification->type_id = 0;
-            $notification->save();
-          }
+            /////////////////////////////////////////////////////////////////////////////////////
+            //CONTROLLO SUL SECONDO NOME
+            $tempName = preg_split("/ /",$author);
+            if(sizeof($tempName)==3){
+              //RICOSTRUZIONE DEL NOME DELL'AUTORE CHE SI STA CONSIDERANDO
+              $authorName = $tempName[0]." ".$tempName[1]." ".$tempName[2];
 
-          foreach ($coAuthorsNotDone as $toDo) {
-            if(!in_array($toDo,$coAuthorsDone)){
-              $user_id = $request->session()->get('id');
-              $user_publication = new UsersPublication;
-              $user_publication->user_id = $user_id;
-              $user_publication->publication_id = $publication_id->id;
-              $user_publication->author_name = $toDo;
-              $user_publication->save();
+              $coAuthors = \DB::table('users')->select('id','name','second_name','last_name')->where('name',$tempName[0])
+                                            ->where('second_name',$tempName[1])
+                                            ->where('last_name',$tempName[2])->get();
+
+            }else{
+              //RICOSTRUZIONE DEL NOME DELL'AUTORE CHE SI STA CONSIDERANDO
+              $authorName = $tempName[0]." ".$tempName[1];
+              $coAuthors = \DB::table('users')->select('id','name','last_name')->where('name',$tempName[0])
+                                            ->where('last_name',$tempName[1])->get();
+                }
+            /////////////////////////////////////////////////////////////////////////////////////
+
+            //ARRAY DI COAUTORI TROVATI NEL DATABASE ED ELABORATI
+            $coAuthorsDone = array();
+
+            //PER OGNI COAUTORE PRESENTE NEL SISTEMA...
+            foreach ($coAuthors as $coAuthor) {
+              //COSTRUZIONE DELL'ARRAY DEI COAUTORI PRESENTI NEL DB E RICOSTRUZIONE DEI RISPETTIVI NOMI
+              $tempCoAuthor = $coAuthor->name." ";
+              if(isset($coAuthor->second_name))   $tempCoAuthor = $tempCoAuthor.$coAuthor->second_name." ";
+              $tempCoAuthor = $tempCoAuthor.$coAuthor->last_name;
+              array_push($coAuthorsDone,$tempCoAuthor);
+
+              //NOTIFICA AD OGNI COAUTORE PRESENTE NEL SISTEMA
+              Notification::notifieTo($request, 0, $coAuthor->id, $publication_id);
             }
-          }
+            //PER OGNI COAUTORE NON PRESENTE NEL SISTEMA...
+            foreach ($coAuthorsNotDone as $toDo) {
 
-
-        }
+              if(!in_array($toDo,$coAuthorsDone)){
+                //AGGIUNGE LA PUBBLICAZIONE ALL'AUTORE PER CUI SI STA FACENDO LA RICERCA, CON IL NOME DEL COAUTORE
+                Api::addPublicationToAuthor($request,$user_id, $publication_id,$toDo);
+              }
+            }
+          }//Gestione CoAutori
+        } //Per Ogni Autore (nell'Array) della Pubblicazione
+      }//Se è un Array di Autori
+      //SE NON VIENE RESTUITO UN ARRAY DI AUTORI, VUOL DIRE CHE L'AUTORE PER CUI SI STA FACENDO LA RICERCA E' L'UNICO PRESENTE
+      else{
+        echo "Nessun Coautore per '".$publication_id."'<br>"; //DEBUG
+        $user_id = $request->session()->get('id');
+        // $user_id = 1;//For testing <-->Maria Francesca Costabile
+        Api::addPublicationToAuthor($request,$user_id, $publication_id,$user_name);
       }
-    }
-  }
-  //LIBERA LA RISORSA ALLOCATA
-  curl_close($ch);
-  // return redirect('/');
-}
 
-  public function formatName($name){
+    }
+
+    //FORMATTA LA STRINGA PASSATA COME PARAMETRO
+    public static function  formatName($name){
       //FORMATTAZIONE DEL NOME
       $temp = preg_split("/_/", $name);
       if(sizeof($temp)==3){
@@ -167,4 +197,6 @@ class Api extends Controller
       }
       return $user_name;
     }
+
+
 }
