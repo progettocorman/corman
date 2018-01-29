@@ -57,8 +57,8 @@ form {
   </div>
 
   <div class="form-group">
-    <label >Date</label>
-    <input type="date" class="form-control" name="user_date">
+    <label >Date*</label>
+    <input type="date" class="form-control" name="user_date" required>
   </div>
 
   <div class="form-group">
@@ -79,6 +79,7 @@ form {
   <div class="form-group">
     <label>Email address*</label>
     <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
+  
 
   </div>
   <div class="form-group">

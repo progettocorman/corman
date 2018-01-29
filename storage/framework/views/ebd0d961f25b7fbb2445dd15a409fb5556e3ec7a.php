@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
 
 <style>
 
-form { 
+form {
   margin:30px;
   margin-top: 8px;
   margin-left: 40px;
@@ -46,18 +47,23 @@ form {
   </div>
 
   <div class="form-group">
+    <label >Second Name</label>
+    <input type="text" class="form-control" name="second_name" placeholder="name">
+  </div>
+
+  <div class="form-group">
     <label >Surname*</label>
     <input type="text" class="form-control" name="user_lastname" placeholder="cognome" required>
   </div>
 
   <div class="form-group">
-    <label >Date</label>
-    <input type="date" class="form-control" name="user_date">
+    <label >Date*</label>
+    <input type="date" class="form-control" name="user_date" required>
   </div>
 
   <div class="form-group">
     <label >Affiliation*</label>
-    <input type="text" class="form-control" name="user_affiliation" placeholder="cognome" required>
+    <input type="text" class="form-control" name="user_affiliation" placeholder="affiliation" required>
   </div>
 
 <div class="form-group">
@@ -73,7 +79,8 @@ form {
   <div class="form-group">
     <label>Email address*</label>
     <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
-   
+  
+
   </div>
   <div class="form-group">
     <label>Password*</label>
@@ -85,5 +92,4 @@ form {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
-
 </html>
