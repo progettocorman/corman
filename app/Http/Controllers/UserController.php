@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use App\User;
 use App\Http\Controllers\Exception;
 use App\Http\Controllers\Auth;
@@ -18,7 +19,7 @@ class UserController extends Controller
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public function inviaDati(Request $request)
+  public function registerData(Request $request)
   {
       $user = new \App\User;
       $user->name = $request->input('user_name');
@@ -37,8 +38,6 @@ class UserController extends Controller
         return view('formview');
        }
 
-    
-
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
       $user->save();
@@ -54,7 +53,7 @@ class UserController extends Controller
 
   }
 
-  public function verificaDati(Request $request)
+  public function loginData(Request $request)
   {
 
       $email = $request->input('user_email');
@@ -62,7 +61,6 @@ class UserController extends Controller
 
       $query = DB::table('users')->select('*')->where('email',$email)->first();
 
-      $user = new User;
 
       if(!isset($query)){
           return redirect('/?errore=email non presente ');
@@ -71,12 +69,33 @@ class UserController extends Controller
       if($email == $query->email && $password == ($query->password)){
          $request->session()->put('id',$query->id);
          $request->session()->put('password',$query->password);
-         echo $request->session()->get('id');
-         echo $request->session()->get('password');
-         return view('userlogindone');
+        return view('userlogindone');
           }else{
               return redirect('/?errore=password sbagliata ');
               }
   }
+
+
+
+
+  public function passDataToAccount(Request $request)
+  {
+     
+    $value = session('id');// mantego le info su un dato utente conservando l'id 
+   
+    $query = DB::table('users')->select('*')->where('id',$value)->first();
+    
+    /*restituisco la view settingaccount e le passo i dati sull'utente */
+    return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)
+    ->with("last_name", $query->last_name)->with("birth_date", $query->birth_date)->with("affiliation", $query->affiliation)
+    ->with("email", $query->email)->with("research", $query->research);
+    
+   }
+
+   public function modifyData(Request $request)
+   {
+    
+   }
+
 
 }

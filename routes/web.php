@@ -24,8 +24,15 @@ Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/formregister', function () {
     return view('formview');
 });
-Route::post('/insert_form', 'UserController@inviaDati');//inserisce i dati nel database
-Route::post('/login', 'UserController@verificaDati');//prende i dati dal database
+
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});
+
+Route::post('/insert_form', 'UserController@registerData');//registrazione al db
+Route::post('/login', 'UserController@loginData');//effettua login
+Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
+Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
