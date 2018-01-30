@@ -58,7 +58,7 @@ form {
 
   <div class="form-group">
     <label >Date*</label>
-    <input type="date" class="form-control" name="user_date" required>
+    <input type="date" class="form-control" max ="1993-12-31" min = "1900-01-01"  name="user_date" required>
   </div>
 
   <div class="form-group">

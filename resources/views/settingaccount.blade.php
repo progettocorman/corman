@@ -67,22 +67,22 @@ background:#2d2d2d;
 
 <div class="form-group">
     <label >Name*</label>
-    <input type="text" class="form-control" name="user_name" placeholder= {{$name}} required>
+    <input type="text" class="form-control" name="user_name" value= {{$name}} required>
   </div>
 
   <div class="form-group">
     <label >Second Name</label>
-    <input type="text" class="form-control" name="second_name" placeholder= {{$second_name}}>
+    <input type="text" class="form-control" name="second_name" value= {{$second_name}}>
   </div>
 
   <div class="form-group">
     <label >Surname*</label>
-    <input type="text" class="form-control" name="user_lastname" placeholder= {{$last_name}} required >
+    <input type="text" class="form-control" name="user_lastname" value= {{$last_name}} required >
   </div>
   
   <div class="form-group">
     <label >Date*</label>
-    <input type="date" class="form-control" name="user_date" value = "{{ $birth_date }}" required>
+    <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" value = "{{ $birth_date }}" required>
   </div>
 
   <div class="custom-control custom-radio">
@@ -101,12 +101,12 @@ background:#2d2d2d;
 
   <div class="form-group">
     <label >Affiliation*</label>
-    <input type="text" class="form-control" name="user_affiliation" placeholder= {{$affiliation}} required>
+    <input type="text" class="form-control" name="user_affiliation" value= {{$affiliation}} required>
   </div>
 
 <div class="form-group">
     <label for="exampleFormControlSelect1">Linee di ricerca</label>
-    <select class="form-control" name="user_research" placeholder= {{$research}} required>
+    <select class="form-control" name="user_research" value= {{$research}} required>
       <option>Artificial Intelligent</option>
       <option>Security</option>
       <option>Semantic web</option>
@@ -116,7 +116,7 @@ background:#2d2d2d;
   </div>
   <div class="form-group">
     <label>Email address*</label>
-    <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder= {{$email}}>
+    <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
 
 
     <div class = "form-grup">
