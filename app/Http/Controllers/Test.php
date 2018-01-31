@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Publication;
 use \App\UsersPublication;
-use \App\Notification;
+
 use Illuminate\Database\QueryException;
 class Test extends Controller{
 
 
   public function test(Request $request){
-    //
+    // 
   }
 
   public function apiTest(Request $request){
@@ -74,5 +74,4 @@ class Test extends Controller{
       //LIBERA LA RISORSA ALLOCATA
       curl_close($ch);
   }
-
 }

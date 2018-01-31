@@ -14,7 +14,12 @@ class CreateNTypesTable extends Migration
     public function up()
     {
         Schema::create('n_types', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            /*
+              0 = CoAuthor Notifications
+              1 = Group Partecipation Notifications
+              //todo
+            */
+            $table->integer('id')->unsigned()->primary();
             $table->string('description');
             $table->timestamps();
         });

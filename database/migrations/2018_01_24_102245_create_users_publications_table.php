@@ -14,8 +14,12 @@ class CreateUsersPublicationsTable extends Migration
     public function up()
     {
         Schema::create('users_publications', function (Blueprint $table) {
-            $table->integer('user_id')->foreign()->references('id')->on('users')->nullable();
-            $table->integer('publication_id')->foreign()->references('id')->on('publications')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->nullable();
+
+            $table->integer('publication_id')->unsigned();
+            $table->foreign('publication_id')->references('id')->on('publications')->nullable();
+
             $table->string('author_name')->nullable();
             $table->timestamps();
         });

@@ -163,7 +163,7 @@ class Api extends Controller
               array_push($coAuthorsDone,$tempCoAuthor);
 
               //NOTIFICA AD OGNI COAUTORE PRESENTE NEL SISTEMA
-              Notification::notifieTo($request, 0, $coAuthor->id, $publication_id);
+              Notification::sendNotification(0, $coAuthor->id, $publication_id,$user_id);
             }
             //PER OGNI COAUTORE NON PRESENTE NEL SISTEMA...
             foreach ($coAuthorsNotDone as $toDo) {
