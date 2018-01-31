@@ -12,32 +12,26 @@
 
 
 </head>
-
-
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <img src="image/corman.png">
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search researcher">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </ul>
-      </div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src="image/corman.png">
     </div>
-  </nav>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <div class="container-fluid text-center">
   <div class="row content">
@@ -52,7 +46,9 @@
       <p><a href="#">...</a></p>
     </div>
     <div class="col-sm-8 text-left">
-      <h1>Qui saranno pubblicati i post dei tuoi amici</h1>
+      <h1>Titolo del gruppo</h1>
+
+      <h1>Qui saranno pubblicati i post del gruppo</h1>
       <p>|----------------------------------------------------------------------------------------------|</p>
 
     </div>

@@ -1,10 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homepage</title>
+  <title>Document</title>
 
       <!-- Stiamo includendo lo stile di boodstrap dalla nostra cartella -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 </head>
 
 <body>
@@ -20,8 +22,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Corman</a>
-        <img src="corman.png">
+        <img src="image/corman.png">
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,36 +42,33 @@
 
 
 
-<form method="POST" action='login'>
-
-  <div id="grigio">
-   <form>
-     <div class="form-group_input">
-       <label for="exampleInputEmail1">Email address</label>
-       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-     </div>
-     <div class="form-group_input">
-       <label for="exampleInputPassword1">Password</label>
-       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-     </div>
-     <div class="form-check">
-       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-       <label class="form-check-label" for="exampleCheck1">Check me out</label>
-     </div>
-     <button type="submit" class="btn btn-primary">Submit</button>
-   </form>
-
-  </div>
-</form>
-
-<button type="button" onClick="location.href='formregister'">Signin</button>
 
 
+  <form method="POST" action='login'>
 
-<!-- Stiamo includendo la jquery di google è imoportante metterla prima altrimenti bootstrap non funziona -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Stiamo includendo i javascript di boodstrap dalla nostra cartella -->
-<script src="js/bootstrap.min.js"></script>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group row">
+      <label for="imputEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" name="user_password" placeholder="Password">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+  <button type="button" onClick="location.href='formregister'">Signin</button>
+
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  </body>
 
 
 </body>
