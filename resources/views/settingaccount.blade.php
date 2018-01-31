@@ -6,17 +6,15 @@
 
 <script>
     function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
                     $('#blah')
-                        .attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+                    .attr('src', e.target.result);
+                    };
+          reader.readAsDataURL(input.files[0]);
+          }
+      }
 </script>
 
 
@@ -87,11 +85,11 @@ background:#2d2d2d;
 
   <div class="custom-control custom-radio">
    <p><label>Gender</label></P>
-    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+    <input type="radio" class="custom-control-input" id="customControlValidation2" name="user_sex" required>
     <label class="custom-control-label" for="customControlValidation2">Male</label>
     </div>
     <div class="custom-control custom-radio mb-3">
-    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+    <input type="radio" class="custom-control-input" id="customControlValidation3" name="user_sex" required>
     <label class="custom-control-label" for="customControlValidation3">Female</label>
     
 </div>
@@ -120,7 +118,7 @@ background:#2d2d2d;
 
 
     <div class = "form-grup">
-    <input type='file' onchange="readURL(this);" />
+    <input type='file' onchange="readURL(this);" name = "user_image"/>
     <img id="blah" src="http://placehold.it/180" alt="your image" />
   </div>
 
