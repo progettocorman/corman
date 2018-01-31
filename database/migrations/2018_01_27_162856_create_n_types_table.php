@@ -14,7 +14,7 @@ class CreateNTypesTable extends Migration
     public function up()
     {
         Schema::create('n_types', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->unsigned()->primary();
             $table->string('description');
             $table->timestamps();
         });
