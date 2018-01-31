@@ -19,6 +19,7 @@ class CreateGroupsTable extends Migration
             $table->string('group_description');
             $table->string('group_image');
             $table->boolean('group_public');
+            $table->integer('created_by')->unsigned();
             $table->timestamps();
         });
     }
