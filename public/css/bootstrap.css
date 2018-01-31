@@ -28,7 +28,13 @@ aside,
 details,
 figcaption,
 figure,
-footer,
+footer{
+  background-color: #555;
+  color: white;
+  padding: 15px;
+  height: 50px;
+  margin-top: 10%;
+}
 header,
 hgroup,
 main,
