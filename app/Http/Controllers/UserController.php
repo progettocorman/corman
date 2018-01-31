@@ -34,9 +34,10 @@ class UserController extends Controller
       
       //verifica se c'è già la email
        if($query != NULL){
+        //todo ottimizzazione nel caso vi sia gia user con stessa mail
         print "Email  $user->email già utilizzata";
         return view('formview');
-       }
+        }
 
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
@@ -81,9 +82,9 @@ class UserController extends Controller
   public function passDataToAccount(Request $request)
   {
      
-    $value = session('id');// mantego le info su un dato utente conservando l'id 
+    $id = session('id');// mantego le info su un dato utente conservando l'id 
    
-    $query = DB::table('users')->select('*')->where('id',$value)->first();
+    $query = DB::table('users')->select('*')->where('id',$id)->first();
     
     /*restituisco la view settingaccount e le passo i dati sull'utente */
     return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)
@@ -94,8 +95,55 @@ class UserController extends Controller
 
    public function modifyData(Request $request)
    {
+
+        $id = session('id');// mantego le info su un dato utente conservando l'id 
     
-   }
+
+        $user = new \App\User;
+        $user->name = $request->input('user_name');
+        $user->second_name = $request->input('second_name');
+        $user->last_name = $request->input('user_lastname');
+        $user->birth_date = $request->input('user_date');
+        $user->affiliation = $request->input('user_affiliation');
+        $user->email = $request->input('user_email');
+        $user->research = $request->input('user_research');
+        $user->user_image = $request->input('user_image');
+        $user->sex = $request->input('user_sex');
+       
+
+        $query = DB::table('users')->select('email')->where('email',$user->email)->first();
+        
+        //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount  
+         if(($query != NULL) && ($query->id != $id)){
+          //todo ottimizzazione nel caso vi sia gia user con stessa mail
+          print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
+          return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)
+          ->with("last_name", $user->last_name)->with("user_research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
+          }
+
+       
+        //aggiornamento dei dati nel DB
+        DB::table('users')
+        ->where('id', $id)
+        ->update(['name' =>  $user->name])
+        ->update(['second_name' => $user->second_name])
+        ->update(['last_name' => $user->last_name])
+        ->update(['birth_date' => $user->birth_date])
+        ->update(['affiliation' =>  $user->affiliation])
+        ->update(['email' =>  $user->email])
+        ->update(['affiliation' =>  $user->affiliation])
+        ->update(['research' => $user->research])
+        ->update(['user_image' =>  $user->user_image])
+        ->update(['sex' => $user->sex ]);
+
+        $user->save();
+
+        $query = DB::table('users')->select('password')->where('email',$user->email)->first();
+        $request->session()->put('id',$id);
+        $request->session()->put('password',$query);
+
+        return view('userprofile');
+    }
 
 
 }
