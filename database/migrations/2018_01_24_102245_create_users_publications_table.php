@@ -20,6 +20,8 @@ class CreateUsersPublicationsTable extends Migration
             $table->integer('publication_id')->unsigned();
             $table->foreign('publication_id')->references('id')->on('publications')->nullable();
 
+            $table->integer('visibility')->unsigned();
+
             $table->string('author_name')->nullable();
             $table->timestamps();
         });

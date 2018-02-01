@@ -28,6 +28,9 @@ Route::get('/formregister', function () {
 Route::get('/userprofile', function () {
     return view('userprofile');
 });
+Route::get('/group', function () {
+    return view('group');
+});
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login

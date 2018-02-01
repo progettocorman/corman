@@ -34,6 +34,9 @@ footer{
   padding: 15px;
   height: 50px;
   margin-top: 10%;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 header,
 hgroup,
@@ -1116,6 +1119,7 @@ html {
 }
 body {
   background: linear-gradient(to bottom left, #abbbd4 , #eaeceb );
+  background-attachment:fixed;
 }
 
 input,

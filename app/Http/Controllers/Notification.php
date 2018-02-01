@@ -38,8 +38,8 @@ class Notification extends Controller
                                  ->where('sender_id',$sender_id)
                                  ->delete();
               break;
-          case 2:
-              //todo
+          case 2://Notifica di invito a partecipare ad un gruppo
+              Group::addUser($user_id,$object_id,false);
               break;
       }
 

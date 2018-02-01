@@ -17,8 +17,15 @@ class N_TypesSeeder extends Seeder
       ]);
 
       DB::table('n_types')->insert([
-        'id' => 0,
+        'id' => 1,
         'description' => "Group Partecipation Notifications",
       ]);
     }
+
+    DB::table('n_types')->insert([
+      'id' => 2,
+      'description' => "Group Partecipation Invitations Notifications",
+    ]);
+  }
+
 }

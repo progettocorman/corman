@@ -17,6 +17,7 @@ class CreateNTypesTable extends Migration
             /*
               0 = CoAuthor Notifications
               1 = Group Partecipation Notifications
+              2 = Group Partecipation Invitations Notifications
               //todo
             */
             $table->integer('id')->unsigned()->primary();
