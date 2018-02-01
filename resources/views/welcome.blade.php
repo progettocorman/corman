@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+                    $('#blah')
+                    .attr('src', e.target.result);
+                    };
+          reader.readAsDataURL(input.files[0]);
+          }
+      }
+</script>
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
@@ -47,9 +59,8 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
-
+    <button type="button" onClick="location.href='formregister'">Signin</button>
   </form>
-  <button type="button" onClick="location.href='formregister'">Signin</button>
   </div>
 
   <div class="col-sm-6 sidenav">
@@ -61,21 +72,16 @@
   </div>
 
 </div>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
-
 </div>
-
-
-
 </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
 
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
 
 
 
