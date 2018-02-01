@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
           $table->string('email')->unique();
           $table->string('password');
           $table->string('research');
-          $table->string('user_image');
-          $table->char('sex');
+          $table->string('user_image')->nullable();
+          $table->char('sex')->nullable();
         });
     }
 

@@ -12,8 +12,19 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    // 
+    // Test::inviteUser(1,2,1);
+    Notification:: notificationAcceptance(2,1,2,1);
   }
+
+
+  public static function inviteUser($groupId, $userId, $senderId){
+    Notification::sendNotification(2,$userId,$groupId,$senderId);
+  }
+
+
+
+
+
 
   public function apiTest(Request $request){
     //IMPOSTA LA RISORSA curl CON L'URL DA INTERROGARE

@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <form class="navbar-form navbar-left">
+        <form class="navbar-form">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search researcher">
           </div>
@@ -21,3 +21,25 @@
     </div>
   </div>
 </nav>
+
+<style>
+.navbar-form{
+  position: absolute;
+  left: 100%;
+}
+.active{
+  left: 100%;
+}
+.navbar-form{
+  left: 50%;
+}
+img{
+  width: 5%;
+  height: 80%;
+  left: auto;
+  position:absolute;
+}
+.navbar{
+  height: 20%;
+}
+</style>
