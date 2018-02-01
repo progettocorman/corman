@@ -72,7 +72,8 @@ class UserController extends Controller
       if($email == $query->email && $password == ($query->password)){
          $request->session()->put('id',$query->id);
          $request->session()->put('password',$query->password);
-        return view('userlogindone');
+        return view('userlogindone')->with("name", $query->name)
+        ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
           }else{
               return redirect('/?errore=password sbagliata ');
               }

@@ -72,10 +72,9 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>Qui sara presente il tuo profilo</p>
-        <p>Nome e cognome</p>
-        <p>Età e sesso</p>
-        <p>ecc</p>
+        <p><?php echo e($name); ?></p>
+        <p><?php echo e($last_name); ?></p>
+        <p><?php echo e($affiliation); ?></p>
         <button type="button" onClick="location.href='userprofile'">vai al profilo utente</button>
       </div>
     </div>
