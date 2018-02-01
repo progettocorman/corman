@@ -74,7 +74,7 @@ class Group extends Controller
         $admins = \DB::table("partecipations")->select('user_id')->where('group_id',$groupId)->where('is_amministrator',true)->get();
 
         foreach ($admins as $admin) {
-          Notification::notifieTo(1,$admin->user_id,$groupId,$userId,$userId);
+          Notification::sendNotification(1,$admin->user_id,$groupId,$userId);
         }
 
       }
@@ -85,6 +85,10 @@ class Group extends Controller
 
     public static function addImage($groupImage,$groupId){
         \DB::table('groups')->where('id', $groupId)->update(['group_image' => $groupImage]);
+    }
+
+    public static function inviteUser($groupId, $userId, $senderId){
+      Notification::sendNotification(2,$userId,$groupId,$senderId);
     }
 
 }
