@@ -84,14 +84,11 @@ background:#2d2d2d;
   </div>
 
   <div class="custom-control custom-radio">
+    <fieldset>
    <p><label>Gender</label></P>
-    <input type="radio" class="custom-control-input" id="customControlValidation2" name="user_sex" required>
-    <label class="custom-control-label" for="customControlValidation2">Male</label>
-    </div>
-    <div class="custom-control custom-radio mb-3">
-    <input type="radio" class="custom-control-input" id="customControlValidation3" name="user_sex" required>
-    <label class="custom-control-label" for="customControlValidation3">Female</label>
-    
+   <input type="radio" name="gender[]"  value='M' checked> Male<br>
+   <input type="radio" name="gender[]" value='F'> Female<br>
+  </fieldset>
 </div>
 
 

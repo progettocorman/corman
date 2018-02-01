@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use  Input, Redirect;
+
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Http\Controllers\Controller;
@@ -108,36 +110,37 @@ class UserController extends Controller
         $user->email = $request->input('user_email');
         $user->research = $request->input('user_research');
         $user->user_image = $request->input('user_image');
-        $user->sex = $request->input('user_sex');
-       
-
-        $query = DB::table('users')->select('email')->where('email',$user->email)->first();
         
-        //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount  
-         if(($query != NULL) && ($query->id != $id)){
-          //todo ottimizzazione nel caso vi sia gia user con stessa mail
-          print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
-          return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)
-          ->with("last_name", $user->last_name)->with("user_research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
-          }
+        /*ASSEGNA IL SESSO */
+        $gender =  $_POST['gender'];
+        foreach ($gender as $value) {
+                 $user->sex = $value;
+                }
+
 
        
+         //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount 
+         $queryid = DB::table('users')->select('id')->where('email', $user->email)->first();
+         $queryemail = DB::table('users')->select('email')->where('email',$user->email)->first();
+         
+         if(($queryemail != NULL) && ($queryid->id != $id)){
+             print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
+             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)
+                    ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
+            }
+        
+        
+
+
+
         //aggiornamento dei dati nel DB
-        DB::table('users')
-        ->where('id', $id)
-        ->update(['name' =>  $user->name])
-        ->update(['second_name' => $user->second_name])
-        ->update(['last_name' => $user->last_name])
-        ->update(['birth_date' => $user->birth_date])
-        ->update(['affiliation' =>  $user->affiliation])
-        ->update(['email' =>  $user->email])
-        ->update(['affiliation' =>  $user->affiliation])
-        ->update(['research' => $user->research])
-        ->update(['user_image' =>  $user->user_image])
-        ->update(['sex' => $user->sex ]);
-
-        $user->save();
-
+         DB::table('users')->where('id',$id)
+         ->update(array('name' =>$user->name,'second_name'=>$user->second_name,'last_name'=>$user->last_name,
+                        'birth_date'=>$user->birth_date,'affiliation'=>$user->affiliation,
+                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex,
+                        'user_image'=>$user->user_image));
+        
+        /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
         $request->session()->put('id',$id);
         $request->session()->put('password',$query);
@@ -145,5 +148,23 @@ class UserController extends Controller
         return view('userprofile');
     }
 
+    
+    /*controlla se che la mail sia inserita correttamnete a prescindere che la si voglia modificare
+    @param $email stringa contenete la mail dell'user
+    @param $id intero rappresentante l'id dell'user
+    @param $user oggetto tipo User avvalorato dall'utente alla compilazione del form  */
+  /*  public static function controlEmail( $email, $id , $user)
+    {
+        $queryid = DB::table('users')->select('*')->where('email',$email)->first();
+        $queryemail = DB::table('users')->select('email')->where('email',$email)->first();
+        
+        //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount  
+         if(($queryemail != NULL) && ($query->id != $id)){
+          print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
+          return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)
+          ->with("last_name", $user->last_name)->with("user_research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
+          }
+
+    } */
 
 }
