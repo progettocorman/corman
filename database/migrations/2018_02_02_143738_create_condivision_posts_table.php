@@ -18,7 +18,7 @@ class CreateCondivisionPostsTable extends Migration
           $table->foreign('user_id')->references('id')->on('users');
 
           $table->integer('post_id')->unsigned();
-          $table->foreign('posts_id')->references('id')->on('posts')->nullable();
+          $table->foreign('post_id')->references('id')->on('posts')->nullable();
 
           $table->boolean('group_boolean')->unsigned();
           $table->integer('group_id')->unsigned();

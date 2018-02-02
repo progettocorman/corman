@@ -18,7 +18,7 @@ class CreateCondivisionPublicationsTable extends Migration
           $table->foreign('user_id')->references('id')->on('users');
 
           $table->integer('publication_id')->unsigned();
-          $table->foreign('publications_id')->references('id')->on('publications');
+          $table->foreign('publication_id')->references('id')->on('publications');
 
           $table->boolean('group_boolean')->unsigned();
           $table->integer('group_id')->unsigned();
