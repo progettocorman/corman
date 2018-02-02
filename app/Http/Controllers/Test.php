@@ -6,20 +6,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Publication;
 use \App\UsersPublication;
+use Follow;
 
 use Illuminate\Database\QueryException;
 class Test extends Controller{
 
 
   public function test(Request $request){
-    // Test::inviteUser(1,2,1);
-    Notification:: notificationAcceptance(2,1,2,1);
+    Follow::followRequest(1,2);
+    //Follow::followAccept(1,2);
+    //Follow::addFriendship(2,1);
   }
 
 
-  public static function inviteUser($groupId, $userId, $senderId){
-    Notification::sendNotification(2,$userId,$groupId,$senderId);
-  }
+
 
 
 
