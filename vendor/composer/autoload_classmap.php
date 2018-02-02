@@ -37,7 +37,10 @@ return array(
     'App\\Http\\Controllers\\Group' => $baseDir . '/app/Http/Controllers/Group.php',
     'App\\Http\\Controllers\\Notification' => $baseDir . '/app/Http/Controllers/Notification.php',
     'App\\Http\\Controllers\\PublicationController' => $baseDir . '/app/Http/Controllers/PublicationController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\Search' => $baseDir . '/app/Http/Controllers/Search.php',
+=======
+>>>>>>> 64e5f6d5deb1426ee014aaf14a9807527e5ad688
     'App\\Http\\Controllers\\Test' => $baseDir . '/app/Http/Controllers/Test.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

@@ -354,7 +354,10 @@ class ComposerStaticInitb8d64d48536eaec768d3487ddec87aa0
         'App\\Http\\Controllers\\Group' => __DIR__ . '/../..' . '/app/Http/Controllers/Group.php',
         'App\\Http\\Controllers\\Notification' => __DIR__ . '/../..' . '/app/Http/Controllers/Notification.php',
         'App\\Http\\Controllers\\PublicationController' => __DIR__ . '/../..' . '/app/Http/Controllers/PublicationController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\Search' => __DIR__ . '/../..' . '/app/Http/Controllers/Search.php',
+=======
+>>>>>>> 64e5f6d5deb1426ee014aaf14a9807527e5ad688
         'App\\Http\\Controllers\\Test' => __DIR__ . '/../..' . '/app/Http/Controllers/Test.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
