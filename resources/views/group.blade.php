@@ -26,9 +26,7 @@
         <a href='group'>L'universo</a>
     </div>
     <div class="col-sm-8 text-left">
-      <h1>Qui appariranno i post che saranno pubblicati dai membri del gruppo</h1>
-      <p>|-------------------------------------------------------------------------------------------------|</p>
-      <hr>
+    <p>Qui ci saranno i post </p>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

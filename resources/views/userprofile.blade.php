@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>User Profile</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="css/userprofile.css" type="text/css" />
@@ -26,9 +26,7 @@
           <a href='group'>L'universo</a>
   </div>
       <div class="col-sm-8 text-left">
-        <h1>Qui saranno pubblicati i post dell utente</h1>
-        <p>|----------------------------------------------------------------------------------------------|</p>
-
+    <p>Qui ci saranno i post </p>
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
