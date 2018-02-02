@@ -7,9 +7,5 @@ use App\Http\Controllers\Controller;
 
 class Search extends Controller
 {
-    public static function searchByTitle(Request $request){
-
-      
-
-    }
+//
 }
