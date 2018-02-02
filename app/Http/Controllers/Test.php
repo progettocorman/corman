@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Publication;
 use \App\UsersPublication;
-use Follow;
 
 use Illuminate\Database\QueryException;
 class Test extends Controller{
 
 
   public function test(Request $request){
-    Follow::followRequest(1,2);
-    //Follow::followAccept(1,2);
-    //Follow::addFriendship(2,1);
+    //Follow::followRequest(2,3);
+    //Follow::followAccept(2,3);
+    //Follow::addFriendship(3,2);
+    Follow::deleteFriendship(2,3);
   }
 
 

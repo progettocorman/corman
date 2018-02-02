@@ -42,7 +42,7 @@ class Notification extends Controller
               Group::addUser($user_id,$object_id,false);
               break;
          case 3://Notifica di segui
-              Follow::addFriendship($user_id, $sender_id);
+              Follow::addFriendship($sender_id, $user_id);
               break;
       }
 

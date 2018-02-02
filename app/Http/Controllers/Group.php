@@ -19,7 +19,7 @@ class Group extends Controller
       if(isset($groupImage)) $group->group_image = $groupImage;
       if(isset($groupDescription)) $group->group_description = $groupDescription;
 
-      $group->searchable();
+      // $group->searchable();
       $group->save();
 
       $groupId = \DB::table('groups')->select('id')->orderBy('id','desc')->first();

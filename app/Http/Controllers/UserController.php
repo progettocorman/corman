@@ -43,7 +43,7 @@ class UserController extends Controller
 
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
-      $user->searchable();
+      // $user->searchable();
       $user->save();
 
       $query = DB::table('users')->select('id')->where('email',$user->email)->first();
@@ -142,7 +142,7 @@ class UserController extends Controller
                         'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex,
                         'user_image'=>$user->user_image));
 
-        $updater->searchable();//Aggiornamento per ricerca
+        // $updater->searchable();//Aggiornamento per ricerca
 
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();

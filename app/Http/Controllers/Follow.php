@@ -23,5 +23,8 @@ class Follow extends Controller
 
       $friendship-> save();
     }
-
+    public static function deleteFriendship($follower_id, $my_id){
+      \App\Friendship::where('user_id',$my_id)->where('user_follow',$follower_id)
+                                                ->delete();
+    }
 }
