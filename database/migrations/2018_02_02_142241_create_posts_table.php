@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('group_name');
-            $table->text('group_description')->nullable();
-            $table->string('group_image')->nullable();
-            $table->boolean('group_public');
-            $table->integer('created_by')->unsigned();
             $table->timestamps();
+
+            $table->text("text");//testo del posts_group
+            $table->boolean("attachments"); //boolean per vedere se ci sono allegati
         });
     }
 
@@ -31,6 +29,6 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('posts');
     }
 }

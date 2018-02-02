@@ -16,18 +16,18 @@ class CreatePublicationsTable extends Migration
         Schema::create('publications', function (Blueprint $table) {
           $table->increments('id');
           $table->timestamps();
-          $table->string("title");//titolo della pubblicazione
-          $table->string("venue")->nullable();//rivista di pubblicazione
-          $table->string("volume")->nullable();//volume della rivista
-          $table->string("number")->nullable();//numero della rivista
-          $table->string("pages")->nullable();//pagine della rivista
-          $table->string("year");//anno di pubblicazione
-          $table->string("type");//tipo di pubblicazione
-          $table->string("key")->nullable();//The key can also be found as the "key" attribute of the record in the record's XML export.(dal faq di dblp)
-          $table->string("doi")->nullable();// id identificativo della pubblicazione (http://dblp.uni-trier.de/doi/)
-          $table->string("ee")->nullable();// Link alla risorsa (pdf o sito su cui comprare il pdf)
-          $table->string("url")->nullable();// Link alla pagina di dblp
-          $table->string("dbKey")->unique();//Chiave di riconoscimento pubblicazione nel db <-> md5(title)
+          $table->text("title");//titolo della pubblicazione
+          $table->text("venue")->nullable();//rivista di pubblicazione
+          $table->text("volume")->nullable();//volume della rivista
+          $table->text("number")->nullable();//numero della rivista
+          $table->text("pages")->nullable();//pagine della rivista
+          $table->text("year");//anno di pubblicazione
+          $table->text("type");//tipo di pubblicazione
+          $table->text("key")->nullable();//The key can also be found as the "key" attribute of the record in the record's XML export.(dal faq di dblp)
+          $table->text("doi")->nullable();// id identificativo della pubblicazione (http://dblp.uni-trier.de/doi/)
+          $table->text("ee")->nullable();// Link alla risorsa (pdf o sito su cui comprare il pdf)
+          $table->text("url")->nullable();// Link alla pagina di dblp
+          $table->text("dbKey")->unique();//Chiave di riconoscimento pubblicazione nel db <-> md5(title)
         });
     }
 

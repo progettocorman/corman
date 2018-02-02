@@ -4,11 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Condivision extends Model
+class CondivisionPublication extends Model
 {
     //
-    protected $table = 'condivisions';
-
-
-
 }
