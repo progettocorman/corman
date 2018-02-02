@@ -6,33 +6,27 @@
   <title>Document</title>
 
       <!-- Stiamo includendo lo stile di boodstrap dalla nostra cartella -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+      <link rel="stylesheet" href="css/welcome.css" type="text/css" />
+
+
 </head>
 
 <body>
-
-
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <img src="image/corman.png">
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+        <a class="navbar-brand" href="#">Corman</a>
       </div>
     </div>
   </nav>
 
-
   <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-6 sidenav">
-  <form method="POST" action='login'>
+  <div class="row content">
+  <div class="col-sm-6 sidenav">
+    <form method="POST" action='login'>
 
   <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
     <div class="form-group row">
@@ -48,30 +42,20 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
-    <button type="button" onClick="location.href='formregister'">Signin</button>
   </form>
   </div>
-
-  <div class="col-sm-6 sidenav">
+  <div class="col-sm-6 text-left">
     <h1>Welcome</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <hr>
-    <h3>Test</h3>
-    <p>Lorem ipsum...</p>
+    <h3></h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+      <button type="button" onClick="location.href='formregister'"class="btn btn-primary">Signin</button>
   </div>
-
-</div>
+  </div>
 </div>
 </body>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
-
-
-
 </html>

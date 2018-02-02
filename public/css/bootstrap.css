@@ -9,35 +9,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-
-.form-group_input{
-  width: 20%;
+body {
+  margin: 0;
 }
-
-
-form-group{
-position:absolute;
-width: 15%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
 article,
 aside,
 details,
 figcaption,
 figure,
-footer{
-  background-color: #555;
-  color: white;
-  padding: 15px;
-  height: 50px;
-  margin-top: 10%;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
+footer,
 header,
 hgroup,
 main,
@@ -103,19 +83,9 @@ sup {
 sub {
   bottom: -.25em;
 }
-
-
 img {
-
-    width: 5%;
-    height: 80%;
-    left: 5%;
-    top: 9%;
-    position:absolute;
-
+  border: 0;
 }
-
-
 svg:not(:root) {
   overflow: hidden;
 }
@@ -252,18 +222,12 @@ th {
     display: table-header-group;
   }
   tr,
-
   img {
     page-break-inside: avoid;
-    width: 40%;
-     height: 20%;
-     overflow: hidden;
   }
-
   img {
     max-width: 100% !important;
   }
-
   p,
   h2,
   h3 {
@@ -1118,10 +1082,12 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  background: linear-gradient(to bottom left, #abbbd4 , #eaeceb );
-  background-attachment:fixed;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
 }
-
 input,
 button,
 select,
@@ -6787,12 +6753,5 @@ button.close {
   .hidden-print {
     display: none !important;
   }
-}
-#grigio>img{
-  width: 30%;
-  height: 80%;
-  left: 25%;
-  top: 9%;
-  position:absolute;
 }
 /*# sourceMappingURL=bootstrap.css.map */
