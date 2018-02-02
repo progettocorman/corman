@@ -16,18 +16,3 @@
   }
   .row.content {height:auto;}
 }
-img {
-  width: 35%;
-}
-
-.form-control {
-  width: 53%;
-}
-td {
-    width: 40%
-}
-table{
-      padding-top: 20px;
-     border-collapse: separate;
-     border-spacing: 5px;
-   }
