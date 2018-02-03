@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Publication;
 use App\UsersPublication;
 use App\User;
-use App\Notification;
+
 
 class Api extends Controller
 {
@@ -107,8 +107,8 @@ class Api extends Controller
       $user_publication->user_id = $user_id;
       $user_publication->publication_id = $publication_id;
       $user_publication->author_name = $author;
-      $user_publication->visibility = 1; // Private di default 
-      // $user_publication->searchable(); //Per la ricerca
+      $user_publication->visibility = 1; // Private di default
+
       $user_publication->save();
     }
 

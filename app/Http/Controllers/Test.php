@@ -12,17 +12,13 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    //Follow::followRequest(2,3);
-    //Follow::followAccept(2,3);
-    //Follow::addFriendship(3,2);
-    Follow::deleteFriendship(2,3);
+    $users = \App\Publication::search('Concept')->get();
+
+    foreach ($users as $user) {
+      echo $user->title;
+      echo "<br>";
+    }
   }
-
-
-
-
-
-
 
 
 
