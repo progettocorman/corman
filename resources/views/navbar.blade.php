@@ -1,5 +1,6 @@
 
 <link rel="stylesheet" href="css/navbar.css" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -13,6 +14,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#">Home</a></li>
+        <li><a href="#"><form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+<input type="text" placeholder="Search.." name="search2">
+<button type="submit"><i class="fa fa-search"></i></button>
+</form></a></li>
       </ul>
     </div>
   </div>

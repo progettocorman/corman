@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -8,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/userprofile.css" type="text/css" />
+    <link rel="stylesheet" href="css/logged.css" type="text/css" />
   </head>
 
 <body>
@@ -24,9 +23,60 @@
         <p><a href="#">-</a></p>
         <p><a href="#">...</a></p>
           <a href='group'>L'universo</a>
+          <p><a href="#">-</a></p>
+          <p><a href="#">-</a></p>
+          <p><a href="#">...</a></p>
+          <button type="button" onClick="location.href='post'">crea post</button>
+
   </div>
       <div class="col-sm-8 text-left">
-    <p>Qui ci saranno i post </p>
+
+        <table width="50%" border="1">
+        <tr>
+          <td>
+              <p>Nome e cognome utente</p>
+          </td>
+          </tr>
+            <tr>
+          <td>
+          <p>Data</p>
+          </td>
+        </tr>
+        <tr>
+      <td>
+      <p>Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente</p>
+      </td>
+    </tr>
+    <tr>
+  <td>
+  <p>Commenti</p>
+  </td>
+  </tr>
+        </table>
+
+      </table>
+        <table width="50%" border="1">
+        <tr>
+          <td>
+              <p>Nome e cognome utente</p>
+          </td>
+          </tr>
+            <tr>
+          <td>
+          <p>Data</p>
+          </td>
+        </tr>
+        <tr>
+      <td>
+      <p>Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente Qui ci sarà la ricerca pubbicata dall utente</p>
+      </td>
+    </tr>
+    <tr>
+    <td>
+    <p>Commenti</p>
+    </td>
+    </tr>
+        </table>
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
@@ -43,11 +93,4 @@
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  </html>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-
-</html>
+   </html>

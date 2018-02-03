@@ -35,6 +35,10 @@
           <p><a href="#">-</a></p>
           <p><a href="#">...</a></p>
             <a href='group'>L'universo</a>
+            <p><a href="#">-</a></p>
+            <p><a href="#">-</a></p>
+            <p><a href="#">...</a></p>
+            <button type="button" onClick="location.href='post'">crea post</button>
         </div>
         <div class="col-sm-8 text-left">
           <form method="POST" action='modify_user_settings'>
@@ -46,100 +50,99 @@
               <label >Name*</label>
             </td>
             <td>
-            <label >Surname*</label>
+              <label >Surname*</label>
             </td>
             <td>
                <p><label>Gender</label></P>
             </td>
-        </tr>
+          </tr>
 
-        <tr>
-          <td>
+         <tr>
+           <td>
               <input type="text" class="form-control" name="user_name" value= {{$name}} required>
-              </td>
-              <td>
-                <input type="text" class="form-control" name="user_lastname" value= {{$last_name}} required >
-              </td>
-              <td>
-                <input type="radio" name="gender[]"  value='M' checked> Male<br>
-                <input type="radio" name="gender[]" value='F'> Female<br>
-              </td>
+           </td>
+           <td>
+              <input type="text" class="form-control" name="user_lastname" value= {{$last_name}} required >
+           </td>
+            <td>
+              <input type="radio" name="gender[]"  value='M' checked> Male<br>
+              <input type="radio" name="gender[]" value='F'> Female<br>
+            </td>
          </tr>
 
-              <tr>
-                <td>
-                  <label >Second Name</label>
-                </td>
-                <td>
-                    <label >Date*</label>
-                </td>
+          <tr>
+            <td>
+               <label >Second Name</label>
+            </td>
+            <td>
+                <label >Date*</label>
+            </td>
+          </tr>
 
-              </tr>
+          <tr>
+            <td>
+              <input type="text" class="form-control" name="second_name" value= {{$second_name}}>
+            </td>
+            <td>
+              <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" value = "{{ $birth_date }}" required>
+            </td>
+          </tr>
 
-              <tr>
-                <td>
-                 <input type="text" class="form-control" name="second_name" value= {{$second_name}}>
-                </td>
-                <td>
-                  <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" value = "{{ $birth_date }}" required>
-                </td>
+          <tr>
+            <td>
+              <label >Affiliation*</label>
+            </td>
+            <td>
+               <label for="exampleFormControlSelect1">Linee di ricerca</label>
+            </td>
+          </tr>
 
-              </tr>
+          <tr>
+            <td>
+              <input type="text" class="form-control" name="user_affiliation" value= {{$affiliation}} required>
+            </td>
+            <td>
+              <select class="form-control" name="user_research" value= {{$research}} required>
+                <option>Artificial Intelligent</option>
+                <option>Security</option>
+                <option>Semantic web</option>
+                <option>Other</option>
+                <option>Other two</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Email address*</label>
+           </td>
+          </tr>
 
-              <tr>
-                <td>
-                    <label >Affiliation*</label>
-                </td>
-                <td>
-                   <label for="exampleFormControlSelect1">Linee di ricerca</label>
-                </td>
+          <tr>
+            <td>
+              <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
+            </td>
+          </tr>
 
-              </tr>
+           <tr>
+           </tr>
 
-              <tr>
-                <td>
-                  <input type="text" class="form-control" name="user_affiliation" value= {{$affiliation}} required>
-                </td>
-                <td>
-                  <select class="form-control" name="user_research" value= {{$research}} required>
-                    <option>Artificial Intelligent</option>
-                    <option>Security</option>
-                    <option>Semantic web</option>
-                    <option>Other</option>
-                    <option>Other two</option>
-                  </select>
-                </td>
-                </tr>
-<tr>
-  <td>
-    <label>Email address*</label>
-  </td>
-</tr>
+           <tr>
+             <td>
+               <input type='file' onchange="readURL(this);" name = "user_image"/>
+             </td>
+            </tr>
 
-<tr>
-  <td>
-    <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
-  </td>
-</tr>
-<tr>
-</tr>
-              <tr>
-                <td>
-                  <input type='file' onchange="readURL(this);" name = "user_image"/>
-                </td>
-                </tr>
+            <tr>
+             <td>
+                <img id="blah" src="http://placehold.it/180" alt="your image" />
+             </td>
+            </tr>
 
-                  <tr>
-                    <td>
-                    <img id="blah" src="http://placehold.it/180" alt="your image" />
-                  </td>
-                  </tr>
-
-                    <tr>
-                      <td>
-                      <button type="submit" class="btn btn-primary">modify</button>
-                    </td>
-                        </tr>
+             <tr>
+              <td>
+                <button type="submit" class="btn btn-primary">modify</button>
+              </td>
+             </tr>
       </table>
           </form>
         </div>

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Group</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Stiamo includendo lo stile di boodstrap dalla nostra cartella -->
-
+   <meta charset="utf-8">
+  <title>User Group</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/group.css" type="text/css" />
+   <link rel="stylesheet" href="css/logged.css" type="text/css" />
 </head>
 <body>
   @include('navbar')
@@ -26,7 +23,52 @@
         <a href='group'>L'universo</a>
     </div>
     <div class="col-sm-8 text-left">
-    <p>Qui ci saranno i post </p>
+      <table width="50%" border="1">
+      <tr>
+        <td>
+            <p>Name e cognome utente del gruppo</p>
+        </td>
+        </tr>
+          <tr>
+        <td>
+        <p>Data</p>
+        </td>
+      </tr>
+      <tr>
+    <td>
+    <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
+    </td>
+  </tr>
+  <tr>
+<td>
+<p>Commenti</p>
+</td>
+</tr>
+      </table>
+
+    </table>
+      <table width="50%" border="1">
+      <tr>
+        <td>
+            <p>Name e cognome utente del gruppo</p>
+        </td>
+        </tr>
+          <tr>
+        <td>
+        <p>Data</p>
+        </td>
+      </tr>
+      <tr>
+    <td>
+    <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
+    </td>
+  </tr>
+  <tr>
+  <td>
+  <p>Commenti</p>
+  </td>
+  </tr>
+      </table>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
