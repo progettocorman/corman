@@ -29,7 +29,25 @@ class Search extends Controller
 
       // todo
     }
-    
+
+    public static function searchByTag(Request $request){
+      //todo
+    }
+
+    public static function searchByCategory(Request $request){
+      //todo
+    }
+
+    public static function searchByTopic(Request $request){
+      //todo
+    }
+
+    public static function searchByPost(Request $request){
+      //todo
+    }
+
+
+
 
   //Ricerca di Pubblicazioni
     public static function publicationSearch($publicationKeyword){
