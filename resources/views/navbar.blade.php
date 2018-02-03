@@ -13,7 +13,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="#"><form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
 <input type="text" placeholder="Search.." name="search2">
 <button type="submit"><i class="fa fa-search"></i></button>

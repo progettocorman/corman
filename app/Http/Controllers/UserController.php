@@ -149,6 +149,14 @@ class UserController extends Controller
         return view('userprofile');
     }
 
-  
+    public function getHome(Request $request)
+    {
+
+        $id = session('id'); // mantego le info su un dato utente conservando l'id
+        $query = DB::table('users')->select('*')->where('id', $id)->first();
+        return view('userlogindone')->with("name", $query->name)
+        ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+
+    }
 
 }
