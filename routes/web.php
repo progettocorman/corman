@@ -21,7 +21,7 @@ Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con 
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
-
+Route::get('/search','Search@generalSearch');
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');

@@ -8,17 +8,28 @@ use App\Http\Controllers\Controller;
 class Search extends Controller
 {
 
-    public static function generalSearch($keyword){
+    public static function generalSearch(Request $request){
+
+      $keyword = $request->keyword;
 
       $publications = Search::publicationSearch($keyword);
+      if(empty($publications))echo "Nessuna Pubblicazione";
+      else var_dump($publications);
+      echo "<br>";
+
       $users = Search::userSearch($keyword);
+      if(empty($users))echo "Nessun Utente";
+      else var_dump($users);
+      echo "<br>";
+
       $groups = Search::groupSearch($keyword);
-      $categories = Search::categorySearch($keyword);
-      $posts = Search::postSearch($keyword);
+      if(empty($groups))echo "Nessun Gruppo";
+      else var_dump($groups);
+      echo "<br>";
 
-      //todo
-
+      // todo
     }
+    
 
   //Ricerca di Pubblicazioni
     public static function publicationSearch($publicationKeyword){
@@ -26,7 +37,7 @@ class Search extends Controller
       $tempResults = \App\Publication::search($publicationKeyword)->get();
       $result = array();
 
-      foreach ($tempResult as $tempResult) {
+      foreach ($tempResults as $tempResult) {
         array_push($result, $tempResult->id);
       }
 
@@ -39,7 +50,7 @@ class Search extends Controller
       $tempResults = \App\User::search($userKeyword)->get();
       $result = array();
 
-      foreach ($tempResult as $tempResult) {
+      foreach ($tempResults as $tempResult) {
         array_push($result, $tempResult->id);
       }
 
@@ -49,10 +60,10 @@ class Search extends Controller
     //Ricerca di Gruppi
     public static function groupSearch($groupKeyword){
 
-      $tempResults = \App\User::search($groupKeyword)->get();
+      $tempResults = \App\Group::search($groupKeyword)->get();
       $result = array();
 
-      foreach ($tempResult as $tempResult) {
+      foreach ($tempResults as $tempResult) {
         array_push($result, $tempResult->id);
       }
 
@@ -62,10 +73,10 @@ class Search extends Controller
     //Ricerca di Categorie
     public static function categorySearch($categoryKeyword){
 
-      $tempResults = \App\User::search($categoryKeyword)->get();
+      $tempResults = \App\Category::search($categoryKeyword)->get();
       $result = array();
 
-      foreach ($tempResult as $tempResult) {
+      foreach ($tempResults as $tempResult) {
         array_push($result, $tempResult->id);
       }
 
@@ -75,15 +86,27 @@ class Search extends Controller
     //Ricerca di Post
     public static function postSearch($postKeyword){
 
-      $tempResults = \App\User::search($postKeyword)->get();
+      $tempResults = \App\Post::search($postKeyword)->get();
       $result = array();
 
-      foreach ($tempResult as $tempResult) {
+      foreach ($tempResults as $tempResult) {
         array_push($result, $tempResult->id);
       }
 
       return $result; //Ritorna l'insieme degli id delle opere trovate per
     }
 
+    //Ricerca di Post
+    public static function topicSearch($postKeyword){
+
+      $tempResults = \App\Post::search($postKeyword)->get();
+      $result = array();
+
+      foreach ($tempResults as $tempResult) {
+        array_push($result, $tempResult->id);
+      }
+
+      return $result; //Ritorna l'insieme degli id delle opere trovate per
+    }
 
 }

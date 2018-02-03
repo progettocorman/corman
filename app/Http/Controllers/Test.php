@@ -12,12 +12,8 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    $users = \App\Publication::search('Concept')->get();
-
-    foreach ($users as $user) {
-      echo $user->title;
-      echo "<br>";
-    }
+    $request->session()->put('id',17);
+    Group::createGroup($request, "Gruppo2", true, null, null);
   }
 
 

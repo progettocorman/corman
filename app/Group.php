@@ -17,6 +17,7 @@ class Group extends Model
       $newArray = array();
 
       foreach ($attributes as $attribute) {
+        if(!isset($array[$attribute])) continue;
         array_push($newArray,$array[$attribute]);
       }
 
