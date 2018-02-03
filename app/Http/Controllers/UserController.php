@@ -79,9 +79,6 @@ class UserController extends Controller
               }
   }
 
-
-
-
   public function passDataToAccount(Request $request)
   {
      
@@ -116,7 +113,7 @@ class UserController extends Controller
         $gender =  $_POST['gender'];
         foreach ($gender as $value) {
                  $user->sex = $value;
-                }
+                }   
 
 
        
@@ -149,23 +146,6 @@ class UserController extends Controller
         return view('userprofile');
     }
 
-    
-    /*controlla se che la mail sia inserita correttamnete a prescindere che la si voglia modificare
-    @param $email stringa contenete la mail dell'user
-    @param $id intero rappresentante l'id dell'user
-    @param $user oggetto tipo User avvalorato dall'utente alla compilazione del form  */
-  /*  public static function controlEmail( $email, $id , $user)
-    {
-        $queryid = DB::table('users')->select('*')->where('email',$email)->first();
-        $queryemail = DB::table('users')->select('email')->where('email',$email)->first();
-        
-        //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount  
-         if(($queryemail != NULL) && ($query->id != $id)){
-          print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
-          return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)
-          ->with("last_name", $user->last_name)->with("user_research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
-          }
-
-    } */
+  
 
 }
