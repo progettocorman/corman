@@ -48,3 +48,6 @@ Route::post('/modify_user_settings', 'UserController@modifyData');//consente all
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
+
+Storage::disk('local')->put('file.txt', 'Contents');
+
