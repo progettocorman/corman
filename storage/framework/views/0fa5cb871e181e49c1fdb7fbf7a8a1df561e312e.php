@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
    <link rel="stylesheet" href="css/logged.css" type="text/css" />
 </head>
+
+
   <body>
   <?php echo $__env->make('navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div class="container-fluid text-center">
@@ -77,6 +79,7 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
+        <p> C:\xampp\htdocs\corman\storage\app\file.txt\<?php echo e($image); ?> </p>
         <p><?php echo e($name); ?></p>
         <p><?php echo e($last_name); ?></p>
         <p><?php echo e($affiliation); ?></p>

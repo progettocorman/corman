@@ -21,7 +21,7 @@ Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con 
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
-Route::get('/search','Search@generalSearch');
+
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
@@ -41,7 +41,6 @@ Route::get('/post', function() {
 });
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
-Route::post('/update_file', 'UpdateFile@fileUpdate');//Update file
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
@@ -50,5 +49,5 @@ Route::post('/modify_user_settings', 'UserController@modifyData');//consente all
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
 
-Storage::disk('local')->put('file.txt', 'Contents');
+
 
