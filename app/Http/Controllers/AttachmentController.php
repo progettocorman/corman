@@ -24,6 +24,6 @@ class AttachmentController extends Controller
         $attachment->typefile= $type_file;
         $attachment-> save();
       }
-      $path = $request->file($file_name)->storeAs('uploads','$type_subject-$id_subject-$name_attachment');
+
     }
 }

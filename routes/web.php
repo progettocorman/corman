@@ -41,6 +41,7 @@ Route::get('/post', function() {
 });
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
+Route::post('/update_file', 'UpdateFile@fileUpdate');//Update file
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
