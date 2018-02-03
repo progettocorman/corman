@@ -12,17 +12,9 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    //Follow::followRequest(2,3);
-    //Follow::followAccept(2,3);
-    //Follow::addFriendship(3,2);
-    Follow::deleteFriendship(2,3);
+    $request->session()->put('id',17);
+    Group::createGroup($request, "Gruppo2", true, null, null);
   }
-
-
-
-
-
-
 
 
 

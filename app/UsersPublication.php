@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class UsersPublication extends Model
 {
-    use Searchable;
+    // 
 }
