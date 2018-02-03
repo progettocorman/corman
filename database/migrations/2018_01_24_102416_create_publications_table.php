@@ -27,7 +27,7 @@ class CreatePublicationsTable extends Migration
           $table->text("doi")->nullable();// id identificativo della pubblicazione (http://dblp.uni-trier.de/doi/)
           $table->text("ee")->nullable();// Link alla risorsa (pdf o sito su cui comprare il pdf)
           $table->text("url")->nullable();// Link alla pagina di dblp
-          $table->text("dbKey")->unique();//Chiave di riconoscimento pubblicazione nel db <-> md5(title)
+          $table->string("dbKey")->unique();//Chiave di riconoscimento pubblicazione nel db <-> md5(title)
         });
     }
 

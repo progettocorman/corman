@@ -29,18 +29,24 @@
     <form method="POST" action='login'>
 
   <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-    <div class="form-group row">
-      <label for="imputEmail" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" name="user_password" placeholder="Password">
-      </div>
-    </div>
+  <table width="40%" border="0">
+        <tr>
+          <td>
+            <label for="imputEmail" class="col-sm-2 col-form-label">Email</label>
+          </td>
+          <td>
+            <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
+          </td>
+          </tr>
+            <tr>
+          <td>
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          </td>
+          <td>
+             <input type="password" class="form-control" name="user_password" placeholder="Password">
+          </td>
+      </tr>
+</table>
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
   </div>

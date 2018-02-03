@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="css/navbar.css" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -6,42 +9,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="image/corman.png">
+      <a class="navbar-brand" href="#">Corman</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-
+        <li><a href="#">Home</a></li>
+        <li><a href="#"><form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+<input type="text" placeholder="Search.." name="search2">
+<button type="submit"><i class="fa fa-search"></i></button>
+</form></a></li>
       </ul>
-      <form class="navbar-form">
-        <div class="form-group">
-          <input type="search" class="form-control" placeholder="Search researcher">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
     </div>
   </div>
 </nav>
-
-<style>
-.navbar-form{
-  position: absolute;
-  left: 100%;
-}
-.active{
-  left: 100%;
-}
-.navbar-form{
-  left: 50%;
-}
-img{
-  width: 5%;
-  height: 80%;
-  left: auto;
-  position:absolute;
-}
-.navbar{
-  height: 20%;
-  width: 100%;
-}
-</style>

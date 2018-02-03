@@ -31,6 +31,12 @@ Route::get('/userprofile', function () {
 Route::get('/group', function () {
     return view('group');
 });
+Route::get('/test2', function () {
+    return view('test');
+});
+Route::get('/post', function() {
+  return view('post');
+});
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login

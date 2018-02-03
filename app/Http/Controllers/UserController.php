@@ -33,7 +33,7 @@ class UserController extends Controller
       $user->email = $request->input('user_email');
 
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
-      
+
       //verifica se c'è già la email
        if($query != NULL){
         //todo ottimizzazione nel caso vi sia gia user con stessa mail
@@ -43,6 +43,7 @@ class UserController extends Controller
 
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
+      // $user->searchable();
       $user->save();
 
       $query = DB::table('users')->select('id')->where('email',$user->email)->first();
@@ -81,23 +82,23 @@ class UserController extends Controller
 
   public function passDataToAccount(Request $request)
   {
-     
-    $id = session('id');// mantego le info su un dato utente conservando l'id 
-   
+
+    $id = session('id');// mantego le info su un dato utente conservando l'id
+
     $query = DB::table('users')->select('*')->where('id',$id)->first();
-    
+
     /*restituisco la view settingaccount e le passo i dati sull'utente */
     return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)
     ->with("last_name", $query->last_name)->with("birth_date", $query->birth_date)->with("affiliation", $query->affiliation)
     ->with("email", $query->email)->with("research", $query->research);
-    
+
    }
 
    public function modifyData(Request $request)
    {
 
-        $id = session('id');// mantego le info su un dato utente conservando l'id 
-    
+        $id = session('id');// mantego le info su un dato utente conservando l'id
+
 
         $user = new \App\User;
         $user->name = $request->input('user_name');
@@ -108,7 +109,7 @@ class UserController extends Controller
         $user->email = $request->input('user_email');
         $user->research = $request->input('user_research');
         $user->user_image = $request->input('user_image');
-        
+
         /*ASSEGNA IL SESSO */
         $gender =  $_POST['gender'];
         foreach ($gender as $value) {
@@ -116,18 +117,18 @@ class UserController extends Controller
                 }   
 
 
-       
-         //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount 
+
+         //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount
          $queryid = DB::table('users')->select('id')->where('email', $user->email)->first();
          $queryemail = DB::table('users')->select('email')->where('email',$user->email)->first();
-         
+
          if(($queryemail != NULL) && ($queryid->id != $id)){
              print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
              return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)
                     ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
             }
-        
-        
+
+
 
 
 
@@ -137,7 +138,9 @@ class UserController extends Controller
                         'birth_date'=>$user->birth_date,'affiliation'=>$user->affiliation,
                         'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex,
                         'user_image'=>$user->user_image));
-        
+
+        // $updater->searchable();//Aggiornamento per ricerca
+
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
         $request->session()->put('id',$id);

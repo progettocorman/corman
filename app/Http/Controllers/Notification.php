@@ -41,6 +41,9 @@ class Notification extends Controller
           case 2://Notifica di invito a partecipare ad un gruppo
               Group::addUser($user_id,$object_id,false);
               break;
+         case 3://Notifica di segui
+              Follow::addFriendship($sender_id, $user_id);
+              break;
       }
 
 

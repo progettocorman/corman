@@ -12,14 +12,14 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    // Test::inviteUser(1,2,1);
-    Notification:: notificationAcceptance(2,1,2,1);
+    //Follow::followRequest(2,3);
+    //Follow::followAccept(2,3);
+    //Follow::addFriendship(3,2);
+    Follow::deleteFriendship(2,3);
   }
 
 
-  public static function inviteUser($groupId, $userId, $senderId){
-    Notification::sendNotification(2,$userId,$groupId,$senderId);
-  }
+
 
 
 

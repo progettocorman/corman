@@ -17,7 +17,6 @@ class CreateFriendshipsTable extends Migration
             //$table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('user_follow')->unsigned();
-            $table->date('date');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('user_follow')->references('id')->on ('users');

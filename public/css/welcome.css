@@ -1,9 +1,20 @@
-
-
-   /* Remove the navbar's default margin-bottom and rounded borders */
-   .navbar {
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
      margin-bottom: 0;
      border-radius: 0;
+   }
+   .form-control {
+     width: 500%;
+     margin-left: 0%;
+     margin-right: auto;
+
+   }
+   td{
+     width:70%;
+   }
+   table{
+     border-collapse: separate;
+     border-spacing: 5px;
    }
 
    body{

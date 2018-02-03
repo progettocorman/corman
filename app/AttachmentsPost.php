@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contatto extends Model
+class AttachmentsPost extends Model
 {
-     protected $table = 'user';
+    //
 }
