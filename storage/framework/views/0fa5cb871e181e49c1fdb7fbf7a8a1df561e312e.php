@@ -79,7 +79,7 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p> C:\xampp\htdocs\corman\storage\app\file.txt\<?php echo e($image); ?> </p>
+        <p>  </p>
         <p><?php echo e($name); ?></p>
         <p><?php echo e($last_name); ?></p>
         <p><?php echo e($affiliation); ?></p>

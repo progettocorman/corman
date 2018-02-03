@@ -79,7 +79,7 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p> C:\xampp\htdocs\corman\storage\app\file.txt\{{$image}} </p>
+        <p>  </p>
         <p>{{$name}}</p>
         <p>{{$last_name}}</p>
         <p>{{$affiliation}}</p>
