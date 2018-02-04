@@ -44,10 +44,7 @@ Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
-
+Route::post('/publicPost','PostController@addUserPost');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
-
-
-
