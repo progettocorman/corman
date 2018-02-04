@@ -78,11 +78,11 @@
         </td>
         <td>
           <select class="form-control" name="user_research" placeholder="Research">
-            <option>Artificial Intelligent</option>
-            <option>Security</option>
-            <option>Semantic web</option>
+            <option>Artificial Intelligence</option>
+            <option>CyberSecurity</option>
+            <option>Semantic Web</option>
+            <option>Human Computer Interaction</option>
             <option>Other</option>
-            <option>Other two</option>
           </select>
         </td>
       </tr>

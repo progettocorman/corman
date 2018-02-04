@@ -44,7 +44,6 @@ class UserController extends Controller
 
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
-      // $user->searchable();
       $user->save();
 
       $query = DB::table('users')->select('id')->where('email',$user->email)->first();
@@ -66,14 +65,14 @@ class UserController extends Controller
 
     $query = DB::table('users')->select('*')->where('email',$email)->first();
     $userimage = $query->user_image;
-    $image =  Storage::disk('local')->get('file.txt',$userimage);
-  
-    
+    // $image =  Storage::disk('local')->get('file.txt',$userimage);
+
+
 
       if(!isset($query)){
           return redirect('/?errore=email non presente ');
       }
-    
+
       /**verifico correttezza di email e password ed evenuatuale presenza imagine profilo */
       if($email == $query->email && $password == ($query->password)){
         $request->session()->put('id',$query->id);
@@ -114,13 +113,13 @@ class UserController extends Controller
         $user->email = $request->input('user_email');
         $user->research = $request->input('user_research');
         $user->user_image = $request->input('user_image');
-        Storage::disk('local')->put('file.txt',  $user->user_image);/*memorizza il file  $user->user_image in storage/app/file.txt*/
+        // Storage::disk('local')->put('file.txt',  $user->user_image);/*memorizza il file  $user->user_image in storage/app/file.txt*/
 
         /*ASSEGNA IL SESSO */
         $gender =  $_POST['gender'];
         foreach ($gender as $value) {
                  $user->sex = $value;
-                }   
+                }
 
 
 
