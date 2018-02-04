@@ -23,9 +23,15 @@ class AttachmentController extends Controller
       //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
         $attachment = new AttachmentPost;
+        $attachment->posts_id = $id_subject;
+        $attachment->namefile =
+        $attachment->typefile =
       }
       else { //publication
         $attachment = new AttachmentPublication;
+        $attachment->publication_id = $id_subject;
+        $attachment->namefile =
+        $attachment->typefile =
 
     }
 }
