@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,23 +9,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //indirizza alla home
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con passaggio parametri
-
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
+Route::get('/search','Search@generalSearch');
 
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
 });
-
 Route::get('/userprofile', function () {
     return view('userprofile');
 });
