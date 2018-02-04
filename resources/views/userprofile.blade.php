@@ -30,11 +30,7 @@
 
   </div>
   <div>
-        <form method='post' action='publicPost' {{ csrf_field() }}>
-                {{ csrf_field() }}
-                <input type="text" name='user_post'>
-                <button type="submit" class="btn btn-primary">NEW POST</button>
-        </form>
+    
 
     </div>
       <div class="col-sm-8 text-left">

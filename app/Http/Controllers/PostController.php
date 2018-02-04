@@ -12,7 +12,7 @@ class PostController extends Controller
           $id = session('id');
           $user = \App\User::find($id);
           $post = new \App\Post;
-          $post->text = $request->input('user_post');
+          $post->text = $request->input('testo');
           $post->attachments = 0;
           $post->save();
           $post->users()->attach($id,['visibility' => 0]);

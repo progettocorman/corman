@@ -25,6 +25,8 @@
           <a href='group'>L'universo</a>
   </div>
       <div class="col-sm-8 text-left">
+        <form method='post' action='publicPost' >
+          {{ csrf_field() }}
         <table width="100%" border="0">
             <tr>
               <td>
@@ -47,7 +49,7 @@
               </td>
              </tr>
         </table>
-
+      </form>
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
