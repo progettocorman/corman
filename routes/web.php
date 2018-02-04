@@ -18,6 +18,7 @@ Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
+
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
@@ -37,6 +38,7 @@ Route::get('/post', function() {
 Route::get('/pubblicazione', function() {
   return view('pubblicazione');
 });
+
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/login', 'UserController@loginData');//effettua login
