@@ -29,7 +29,11 @@
         <p><a href="#">-</a></p>
         <p><a href="#">-</a></p>
         <p><a href="#">...</a></p>
+<<<<<<< HEAD
+        <button type="button" onClick="location.href='post'">Aggiungi Pubblicazione</button>
+=======
 
+>>>>>>> 39ae69131da29d1e00592a4b43aa207b5829081c
     </div>
     <div class="col-sm-8 text-left">
 

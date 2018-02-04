@@ -8,6 +8,12 @@ class User extends Model
 {
    use Searchable;
 
+   protected $table='users';
+   //Define relationshi with post
+   public function posts(){
+      return $this->belongsToMany('\App\Post','users_posts','user_id','posts_id')->withPivot('visibility');
+   }
+
    public function toSearchableArray(){
      $array =  $this->toArray();
 
