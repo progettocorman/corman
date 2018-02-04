@@ -15,7 +15,7 @@
       if (input.files && input.files[0]) {
           var reader = new FileReader();
           reader.onload = function (e) {
-                    $('#blah')
+                    $('#blah2')
                     .attr('src', e.target.result);
                     };
           reader.readAsDataURL(input.files[0]);
@@ -43,6 +43,7 @@
         </div>
         <div class="col-sm-8 text-left">
           <form method="POST" action='modify_user_settings'>
+          {{csrf_field()}}
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
           <table width="100%" border="0">
@@ -117,7 +118,7 @@
               <label>Email address*</label>
            </td>
           </tr>
-
+        
           <tr>
             <td>
               <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
@@ -126,18 +127,6 @@
 
            <tr>
            </tr>
-
-           <tr>
-             <td>
-               <input type='file' onchange="readURL(this);" name = "user_image"/>
-             </td>
-            </tr>
-
-            <tr>
-             <td>
-                <img id="blah" src="http://placehold.it/180" alt="your image" />
-             </td>
-            </tr>
 
              <tr>
               <td>
@@ -159,6 +148,33 @@
         </div>
       </div>
       </div>
+
+     </div> 
+  <form action="update_image_profile" method="POST" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <table width="50%" border="0">
+    <tr>
+    <td>
+   
+      <input type="file"  onchange="readURL(this);" name="user_image" multiple>
+      </tr>
+      </td>
+      <tr>
+             <td>
+                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
+             </td>
+            </tr>
+      <tr>
+      <td>
+      <button type="submit" class="btn btn-primary">Load</button>
+      </tr>
+      </td>
+      </table >
+  </form>
+  </div>
+
+
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

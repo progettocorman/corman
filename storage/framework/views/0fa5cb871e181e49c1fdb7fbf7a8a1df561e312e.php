@@ -27,7 +27,7 @@
         <p><a href="#">-</a></p>
         <p><a href="#">-</a></p>
         <p><a href="#">...</a></p>
-        <button type="button" onClick="location.href='post'">crea post</button>
+        <button type="button" onClick="location.href='post'">Aggiungi Pubblicazione</button>
     </div>
     <div class="col-sm-8 text-left">
       <table width="50%" border="1">
@@ -79,7 +79,6 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>  </p>
         <p><?php echo e($name); ?></p>
         <p><?php echo e($last_name); ?></p>
         <p><?php echo e($affiliation); ?></p>
@@ -88,6 +87,10 @@
     </div>
   </div>
   </div>
+
+ 
+
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

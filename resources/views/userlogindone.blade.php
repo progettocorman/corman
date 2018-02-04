@@ -79,7 +79,6 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>  </p>
         <p>{{$name}}</p>
         <p>{{$last_name}}</p>
         <p>{{$affiliation}}</p>
@@ -88,6 +87,10 @@
     </div>
   </div>
   </div>
+
+ 
+
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

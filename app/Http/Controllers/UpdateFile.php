@@ -16,5 +16,12 @@ class UpdateFile extends Controller
           $file = $request->file('fileUpload1')->store('uploads');
           return $file;
         }
+
+        $id = session('id');// mantego le info su un dato utente conservando l'id
+
+        $user = new \App\User;
+        $user->user_image = $file;
+
     }
 }
+

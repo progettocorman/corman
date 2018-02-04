@@ -48,6 +48,6 @@ Route::post('/modify_user_settings', 'UserController@modifyData');//consente all
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
-
+Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
 

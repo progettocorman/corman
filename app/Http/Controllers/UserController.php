@@ -18,6 +18,7 @@ use Illuminate\Database\Seeder;
 use DB;
 
 
+
 class UserController extends Controller
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -65,9 +66,6 @@ class UserController extends Controller
 
     $query = DB::table('users')->select('*')->where('email',$email)->first();
     $userimage = $query->user_image;
-    // $image =  Storage::disk('local')->get('file.txt',$userimage);
-
-
 
       if(!isset($query)){
           return redirect('/?errore=email non presente ');
@@ -78,12 +76,13 @@ class UserController extends Controller
         $request->session()->put('id',$query->id);
         $request->session()->put('password',$query->password);
         return view('userlogindone')->with("name", $query->name)
-       ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+        ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
           }else{
               return redirect('/?errore=password sbagliata ');
               }
-  }
+    }
 
+ 
   public function passDataToAccount(Request $request)
   {
 
@@ -103,7 +102,6 @@ class UserController extends Controller
 
         $id = session('id');// mantego le info su un dato utente conservando l'id
 
-
         $user = new \App\User;
         $user->name = $request->input('user_name');
         $user->second_name = $request->input('second_name');
@@ -112,18 +110,14 @@ class UserController extends Controller
         $user->affiliation = $request->input('user_affiliation');
         $user->email = $request->input('user_email');
         $user->research = $request->input('user_research');
-        $user->user_image = $request->input('user_image');
-        // Storage::disk('local')->put('file.txt',  $user->user_image);/*memorizza il file  $user->user_image in storage/app/file.txt*/
-
+       
         /*ASSEGNA IL SESSO */
         $gender =  $_POST['gender'];
         foreach ($gender as $value) {
                  $user->sex = $value;
                 }
 
-
-
-         //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount
+        //verifica se c'è già la email asseganta ad altri, in caso restiuisce la view settingaccount
          $queryid = DB::table('users')->select('id')->where('email', $user->email)->first();
          $queryemail = DB::table('users')->select('email')->where('email',$user->email)->first();
 

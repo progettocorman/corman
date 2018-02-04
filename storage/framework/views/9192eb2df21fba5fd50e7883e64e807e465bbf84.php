@@ -47,7 +47,7 @@
           </td>
       </tr>
 </table>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">SignIn</button>
   </form>
   </div>
   <div class="col-sm-6 text-left">
@@ -59,7 +59,7 @@
     <p></p>
     <p></p>
     <p></p>
-      <button type="button" onClick="location.href='formregister'"class="btn btn-primary">Signin</button>
+      <button type="button" onClick="location.href='formregister'"class="btn btn-primary">SignUp</button>
   </div>
   </div>
 </div>
