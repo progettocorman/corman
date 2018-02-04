@@ -1,7 +1,3 @@
 *
 !.gitignore
-<<<<<<< HEAD
-  laravel.log
-=======
 laravel.log
->>>>>>> 4c4b9e5b5418514bd7e651535ad23f8e5db5c639

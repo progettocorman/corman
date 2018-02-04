@@ -22,6 +22,7 @@
           }
       }
 </script>
+
   <body>
     @include('navbar')
     <div class="container-fluid text-center">
