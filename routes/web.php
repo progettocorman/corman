@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,23 +9,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //indirizza alla home
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con passaggio parametri
-
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
+Route::get('/search','Search@generalSearch');
 
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
 });
-
 Route::get('/userprofile', function () {
     return view('userprofile');
 });
@@ -39,15 +35,22 @@ Route::get('/test2', function () {
 Route::get('/post', function() {
   return view('post');
 });
+Route::get('/pubblicazione', function() {
+  return view('pubblicazione');
+});
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
+Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
-
+Route::post('/publicPost','PostController@addUserPost');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
+<<<<<<< HEAD
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
 
+=======
+>>>>>>> 370864dc0e5b444653586c7902afd43f679cdede

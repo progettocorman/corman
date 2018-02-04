@@ -9,19 +9,27 @@ use Illuminate\Support\Facades\Storage;
 class UpdateFile extends Controller
 {
     public static function fileUpdate(Request $request){
-      // var_dump($request->file());
       if ($request->file('fileUpload1') == null) {
           echo "Errore";
         }else{
           $file = $request->file('fileUpload1')->store('uploads');
-          return $file;
+          echo $file;
         }
+<<<<<<< HEAD
 
         $id = session('id');// mantego le info su un dato utente conservando l'id
 
         $user = new \App\User;
         $user->user_image = $file;
 
+=======
+        $pieces = explode(".", $file);
+        echo "</br> Percorso + nome ---> ";
+        echo $pieces[0]; // piece1
+        echo "</br> Estensione ---> ";
+        echo $pieces[1]; // piece2
+        echo "</br>";
+>>>>>>> 370864dc0e5b444653586c7902afd43f679cdede
     }
 }
 

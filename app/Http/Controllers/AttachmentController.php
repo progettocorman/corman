@@ -9,21 +9,32 @@ use App\AttachmentPublication;
 
 class AttachmentController extends Controller
 {
-    public static function addAttachment($id_subject, $type_subject, $name_attachment, $type_file, $file_name){
+    public static function addAttachment($id_subject, $type_subject, $fileinpost){
+      //passare $request->file('fileUpload1') come $fileinpost
+
+      //CARICAMENTO FILE
+          if ($fileinpost== null) {
+              echo "Errore";
+            }else{
+              $file = $fileinpost->store('uploads');
+              return $file;
+            }
+
+            $pieces = explode(".", $file);
+             // Estensione $pieces[1]
+
+      //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
         $attachment = new AttachmentPost;
         $attachment->posts_id = $id_subject;
-        $attachment->namefile = "$type_subject-$id_subject-$name_attachment";
-        $attachment->typefile= $type_file;
-        $attachment-> save();
+        $attachment->namefile = $file;
+        $attachment->typefile = $pieces[1];
       }
       else { //publication
         $attachment = new AttachmentPublication;
-        $attachment->posts_id = $id_subject;
-        $attachment->namefile = "$type_subject-$id_subject-$name_attachment";
-        $attachment->typefile= $type_file;
-        $attachment-> save();
-      }
+        $attachment->publication_id = $id_subject;
+        $attachment->namefile = $file;
+        $attachment->typefile = $pieces[1];
 
     }
 }

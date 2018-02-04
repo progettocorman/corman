@@ -29,6 +29,10 @@
           <button type="button" onClick="location.href='post'">crea post</button>
 
   </div>
+  <div>
+    
+
+    </div>
       <div class="col-sm-8 text-left">
 
         <table width="50%" border="1">

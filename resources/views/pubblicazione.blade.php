@@ -25,31 +25,83 @@
           <a href='group'>L'universo</a>
   </div>
       <div class="col-sm-8 text-left">
-        <form method='post' action='publicPost' >
-          {{ csrf_field() }}
         <table width="100%" border="0">
             <tr>
               <td>
-                <label >Inserisci il tuo post </label>
+                <label >Titolo</label>
+              </td>
+              <td>
+                <label >Rivista</label>
               </td>
             </tr>
+
+           <tr>
+             <td>
+                <input type="text" class="form-control" name="user_name" required>
+             </td>
+             <td>
+                <input type="text" class="form-control" name="user_lastname" required >
+             </td>
+           </tr>
+
             <tr>
               <td>
-                <textarea name="testo" style="width: 100%; height: 100px;"></textarea>
+                 <label >Volume</label>
+              </td>
+              <td>
+                  <label >Numero</label>
               </td>
             </tr>
+
             <tr>
               <td>
-                <input type="file" name="fileUpload1" multiple>
+                <input type="text" class="form-control" name="second_name">
+              </td>
+              <td>
+                <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" required>
               </td>
             </tr>
+
+            <tr>
+              <td>
+                <label>Pagina</label>
+              </td>
+              <td>
+                 <label>Anno di pubblicazione</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input type="text" class="form-control" name="user_affiliation"required>
+              </td>
+              <td>
+                <input type="text" class="form-control" name="user_affiliation" required>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label>Allegati</label>
+             </td>
+            </tr>
+
+            <tr>
+            </tr>
+
+            <tr>
+              <td>
+                <input type='file' onchange="readURL(this);" name = "user_image"/>
+              </td>
+            </tr>
+
              <tr>
               <td>
                 <button type="submit" class="btn btn-primary">Pubblica</button>
               </td>
              </tr>
         </table>
-      </form>
+
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
