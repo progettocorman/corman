@@ -39,6 +39,8 @@ Route::get('/pubblicazione', function() {
   return view('pubblicazione');
 });
 
+Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
+
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/login', 'UserController@loginData');//effettua login
@@ -48,9 +50,6 @@ Route::post('/publicPost','PostController@addUserPost');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
-<<<<<<< HEAD
-Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
 
-=======
->>>>>>> 370864dc0e5b444653586c7902afd43f679cdede
+
