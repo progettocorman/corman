@@ -13,7 +13,13 @@ class UpdateFile extends Controller
           echo "Errore";
         }else{
           $file = $request->file('fileUpload1')->store('uploads');
-          return $file;
+          echo $file;
         }
+        $pieces = explode(".", $file);
+        echo "</br> Percorso + nome ---> ";
+        echo $pieces[0]; // piece1
+        echo "</br> Estensione ---> ";
+        echo $pieces[1]; // piece2
+        echo "</br>";
     }
 }

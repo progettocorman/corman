@@ -20,18 +20,21 @@ class AttachmentController extends Controller
               return $file;
             }
 
+            $pieces = explode(".", $file);
+             // Estensione $pieces[1]
+
       //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
         $attachment = new AttachmentPost;
         $attachment->posts_id = $id_subject;
-        $attachment->namefile =
-        $attachment->typefile =
+        $attachment->namefile = $file;
+        $attachment->typefile = $pieces[1];
       }
       else { //publication
         $attachment = new AttachmentPublication;
         $attachment->publication_id = $id_subject;
-        $attachment->namefile =
-        $attachment->typefile =
+        $attachment->namefile = $file;
+        $attachment->typefile = $pieces[1];
 
     }
 }
