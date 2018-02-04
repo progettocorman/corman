@@ -28,73 +28,19 @@
         <table width="100%" border="0">
             <tr>
               <td>
-                <label >Titolo</label>
-              </td>
-              <td>
-                <label >Rivista</label>
+                <label >Inserisci il tuo post </label>
               </td>
             </tr>
-
-           <tr>
-             <td>
-                <input type="text" class="form-control" name="user_name" required>
-             </td>
-             <td>
-                <input type="text" class="form-control" name="user_lastname" required >
-             </td>
-           </tr>
-
             <tr>
               <td>
-                 <label >Volume</label>
-              </td>
-              <td>
-                  <label >Numero</label>
+                <textarea name="testo" style="width: 100%; height: 100px;"></textarea>
               </td>
             </tr>
-
             <tr>
               <td>
-                <input type="text" class="form-control" name="second_name">
-              </td>
-              <td>
-                <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" required>
+                <input type="file" name="fileUpload1" multiple>
               </td>
             </tr>
-
-            <tr>
-              <td>
-                <label>Pagina</label>
-              </td>
-              <td>
-                 <label>Anno di pubblicazione</label>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <input type="text" class="form-control" name="user_affiliation"required>
-              </td>
-              <td>
-                <input type="text" class="form-control" name="user_affiliation" required>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <label>Allegati</label>
-             </td>
-            </tr>
-
-            <tr>
-            </tr>
-
-            <tr>
-              <td>
-                <input type='file' onchange="readURL(this);" name = "user_image"/>
-              </td>
-            </tr>
-
              <tr>
               <td>
                 <button type="submit" class="btn btn-primary">Pubblica</button>
