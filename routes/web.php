@@ -39,6 +39,9 @@ Route::get('/test2', function () {
 Route::get('/post', function() {
   return view('post');
 });
+Route::get('/pubblicazione', function() {
+  return view('pubblicazione');
+});
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Update file
