@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Web Accessibility Checker report</title>
+<meta name="author" content="AChecker - Web Accessibility Checker http://www.atutor.ca/achecker/" /> 
+	
+<style type="text/css">
+ul {font-family: Arial; margin-bottom: 0px; margin-top: 0px; margin-right: 0px;}
+li.msg_err, li.msg_info { font-family: Arial; margin-bottom: 20px;list-style: none;}
+span.msg{font-family: Arial; line-height: 150%;}
+code.input { margin-bottom: 2ex; background-color: #F8F8F8; line-height: 130%;}
+span.err_type{ padding: .1em .5em; font-size: smaller;}
+span.info_msg { line-height: 100%; color: blue; padding: 1em 1em; font-size: large; font-weight: bold;}
+span.congrats_msg { line-height: 120%; color: green; padding: 1em 1em; font-size: large; font-weight: bold; white-space: nowrap;}
+</style>
+</head>
+<body>
+<p>
+<strong>Result: </strong>
+<span style="background-color: red; border: solid green; padding-right: 1em; padding-left: 1em">FAIL</span>&nbsp;&nbsp;
+<span style="color:red"><span style="font-weight: bold;">10 Errors&nbsp;&nbsp;0 Likely Problems&nbsp;&nbsp;11 Potential Problems&nbsp;&nbsp;</span></span>
+<strong><br />
+<strong>Guides: </strong><a title="Stanca Act(link opens in a new window)" target="_new" href="https://achecker.ca/guideline/view_guideline.php?id=3">Stanca Act(link opens in a new window)</a>&nbsp;&nbsp;
+</p>
+<h3>Accessibility Review</h3>
+<h4>Errors</h4>
+<div id="errors" style="margin-top:1em">
+	<ul>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 2, Column 1</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=225"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=225'); return false;" 
+               target="_new">Strict doctype is not declared.</a>
+         </span>
+         <pre><code class="input">&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+   &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;User Group&lt;/title&gt;
+  &lt;link rel=&quot;style ...</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Insert a 'strict' doctype declaration at the start of the document.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 2, Column 1</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=232"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=232'); return false;" 
+               target="_new">Document does not validate.</a>
+         </span>
+         <pre><code class="input">&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+   &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;User Group&lt;/title&gt;
+  &lt;link rel=&quot;style ...</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Validate the document using a validator service.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 16, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;Lista dei gruppi a cui ti sei iscritto&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 17, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 18, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 19, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 20, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 21, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 22, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+      <li class="msg_err">
+         <span class="err_type"><img src="https://achecker.ca/images/error.png" alt="Error" title="Error" width="15" height="15" /></span>
+         <em>Line 23, Column 9</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=190"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=190'); return false;" 
+               target="_new">Anchor element missing a <code>title</code> attribute.</a>
+         </span>
+         <pre><code class="input">&lt;a href='group'&gt;L'universo&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+                  <span style="font-weight:bold">Repair: </span>Add a <code>title</code> attribute to your <code>a</code> (anchor) element.
+
+         
+         
+       </li>
+</ul>
+</div><br/><h4>Likely Problems</h4>
+<div id="likely_problems" style="margin-top:1em">
+	<ul><li class='msg_info'><span id='AC_congrats_msg_for_likely' class='congrats_msg'>
+						<img src='https://achecker.ca/images/feedback.gif' alt='Feedback' />  Congratulations! No likely problems.
+					</span></ul></li><ul>
+</ul>
+</div><br/><h4>Potential Problems</h4>
+<div id="potential_problems" style="margin-top:1em">
+	<ul>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 11, Column 1</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=28"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=28'); return false;" 
+               target="_new">Document may be missing a "skip to content" link.</a>
+         </span>
+         <pre><code class="input">&lt;body&gt;
+  @include('navbar')
+&lt;div class=&quot;container-fluid text-center&quot;&gt;
+  &lt;div class=&quot;row content&quot;&gt; ...</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 16, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;Lista dei gruppi a cui ti sei iscritto&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 17, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 18, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 19, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 20, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 21, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;-&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 22, Column 10</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 23, Column 9</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=197"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=197'); return false;" 
+               target="_new">Anchor text may not identify the link destination.</a>
+         </span>
+         <pre><code class="input">&lt;a href='group'&gt;L'universo&lt;/a&gt;</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 26, Column 7</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=136"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=136'); return false;" 
+               target="_new">Data <code>table</code> may require <code>th</code> elements.</a>
+         </span>
+         <pre><code class="input">&lt;table width=&quot;50%&quot; border=&quot;1&quot;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+            &lt;p&gt;Name e cognome utente del g ...</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+      <li class="msg_info">
+         <span class="err_type"><img src="https://achecker.ca/images/info.png" alt="Manual Check Required" title="Manual Check Required" width="15" height="15" /></span>
+         <em>Line 26, Column 7</em>:
+         <span class="msg">
+            <a href="https://achecker.ca/checker/suggestion.php?id=133"
+               onclick="AChecker.popup('https://achecker.ca/checker/suggestion.php?id=133'); return false;" 
+               target="_new">Layout <code>table</code> may not linearize.</a>
+         </span>
+         <pre><code class="input">&lt;table width=&quot;50%&quot; border=&quot;1&quot;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+            &lt;p&gt;Name e cognome utente del g ...</code></pre>
+         
+         <p class="helpwanted">
+         </p>
+         
+         
+         
+       </li>
+</ul>
+</div>
+
+</body></html>
