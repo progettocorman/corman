@@ -17,8 +17,8 @@ class CreateAttachmentsPublicationsTable extends Migration
           $table->integer('publication_id')->unsigned();
           $table->foreign('publication_id')->references('id')->on('publications');
 
-          $table->text('namefile');
-          $table->integer('typefile')->unsigned();
+          $table->longtext('namefile');
+          $table->text('typefile');
           /*
           1 pdf
           2 images

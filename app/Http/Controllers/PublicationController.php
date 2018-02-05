@@ -8,6 +8,54 @@ use App\Http\Controllers\Controller;
 class PublicationController extends Controller
 {
 
+  public static function manualAdd(Request $request){
+    $user_id = $request->session()->get('id');
+
+    $publicationModel = new \App\Publication;
+    $publicationModel->title = $request->input('title');
+    $publicationModel->venue = $request->input('venue');
+    $publicationModel->volume = $request->input('volume');
+    $publicationModel->number = $request->input('number');
+    $publicationModel->pages = $request->input('pages');
+    $publicationModel->year = $request->input('year');
+    $publicationModel->type = $request->input('type');
+
+    $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);
+
+    //Ricostruzione del nome dell'utente
+    $query_user_name = \DB::table('users')->where('id',$user_id)->first();
+    if(isset($query_user_name->second_name)){
+      $user_name = $query_user_name->name.' '.$query_user_name->second_name.' '.$query_user_name->last_name;
+    }
+    else {
+      $user_name = $query_user_name->name.' '.$query_user_name->last_name;
+    }
+
+    //SE LA PUBBLICAZIONE È GIA' PRESENTE NEL DB, AGGIUNGILA ALL'UTENTE SENZA RE-INSERIRLA
+    try{
+      $publicationModel->save();
+    }catch(QueryException $exception){
+      //TODO Messaggio
+      //Aggiungi pubblicazione all'autore
+
+      $publication_id = \DB::table('publications')->select('id')->where('dbKey',$publicationModel->dbKey)->first();
+
+      PublicationController::addPublicationToAuthor($user_id, $publication_id->id ,$user_name);
+
+      echo $publicationModel->title."è già presente <br>";//DEBUG
+
+    }//...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
+
+    $fileinpost =$request->file('fileUpload1');
+    //Aggiunta allegato
+    if(isset($fileinpost)){
+      //Ritira l'id della Pubblicazione appena aggiunta al db
+        $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
+
+        AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
+      }
+
+  }
 
   //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE
   public static function addPublicationToAuthor($user_id, $publication_id, $author){
@@ -41,6 +89,8 @@ class PublicationController extends Controller
 
     $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);
 
+
+
     //SE LA PUBBLICAZIONE È GIA' PRESENTE NEL DB, AGGIUNGILA ALL'UTENTE SENZA RE-INSERIRLA
     try{
       $publicationModel->save();
@@ -58,6 +108,7 @@ class PublicationController extends Controller
     //...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
     //Ritira l'id della Pubblicazione appena aggiunta al db
     $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
+
 
     return $publication_id->id;
   }
