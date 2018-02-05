@@ -13,7 +13,7 @@ class PostController extends Controller
           $user = \App\User::find($id);
           $post = new \App\Post;
           $post->text = $request->input('testo');
-          $post->attachments = 0;
+          //$post->attachments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
           $post->save();
           $post->users()->attach($id,['visibility' => 0]);
 
