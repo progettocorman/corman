@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Publication extends Model
 {
     use Searchable;
+    protected $table = 'publications';
+
+    public function users(){
+        return $this->belongsToMany('\App\User','users_publication','publication_id','user_id')->withPivot('visibility','author_name');
+    }
 
     public function toSearchableArray(){
       $array =  $this->toArray();

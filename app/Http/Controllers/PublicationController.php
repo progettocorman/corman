@@ -189,5 +189,13 @@ class PublicationController extends Controller
 
   }
 
+  public function modifyPostVisibility(Request $request){
+    $user_id = session('id');
+    $publication_id = $request('post_id');
+    $user = \App\User::find($user_id);
+    $publication = $user->publications()->where('publication_id',$publication_id)->get();
+    $publication->pivot->visibility = $request('visibility');
+  }
+
 
 }

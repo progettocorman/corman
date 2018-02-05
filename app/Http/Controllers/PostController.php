@@ -19,4 +19,12 @@ class PostController extends Controller
 
           return view('/userprofile');
     }
+
+    public function modifyPublicationVisibility(Request $request){
+      $user_id = session('id');
+      $post_id = $request('post_id');
+      $user = \App\User::find($user_id);
+      $post = $user->posts()->where('posts_id',$post_id)->get();
+      $post->pivot->visibility = $request('visibility');
+    }
 }
