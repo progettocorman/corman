@@ -88,6 +88,14 @@
             <td>
               <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" value = "{{ $birth_date }}" required>
             </td>
+            <td>
+            <form action="update_image_profile" method="POST" enctype="multipart/form-data">
+              {{ csrf_field() }}
+               <input type="file"  onchange="readURL(this);" name="user_image" multiple>
+                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
+                <button type="submit" class="btn btn-primary">Load</button>
+              </form>
+            </td>
           </tr>
 
           <tr>
@@ -150,27 +158,7 @@
       </div>
 
      </div> 
-  <form action="update_image_profile" method="POST" enctype="multipart/form-data">
-    {{ csrf_field() }}
-    <table width="50%" border="0">
-    <tr>
-    <td>
-   
-      <input type="file"  onchange="readURL(this);" name="user_image" multiple>
-      </tr>
-      </td>
-      <tr>
-             <td>
-                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
-             </td>
-            </tr>
-      <tr>
-      <td>
-      <button type="submit" class="btn btn-primary">Load</button>
-      </tr>
-      </td>
-      </table >
-  </form>
+
   </div>
 
 
