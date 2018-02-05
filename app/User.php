@@ -14,6 +14,10 @@ class User extends Model
       return $this->belongsToMany('\App\Post','users_posts','user_id','posts_id')->withPivot('visibility');
    }
 
+   public function publications(){
+     return $this->belongsToMany('\App\Publication','users_publication','user_id','publication_id')->withPivot('visibility','author_name');
+   }
+
    public function toSearchableArray(){
      $array =  $this->toArray();
 
