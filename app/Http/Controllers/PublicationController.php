@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 
 class PublicationController extends Controller
 {
@@ -76,12 +77,12 @@ class PublicationController extends Controller
     foreach ($fields as $curField) {
       //... SE IL CAMPO, PER QUELLA ISTANZA, NON è NULLO, AVVALORA IL MODEL IL CORRISPONDENTE VALORE (no authors)
       if(isset($publication->$curField)){
-          if(!is_array($publication->$curField)) $publicationModel->$curField ="'".substr($publication->$curField,0,189)."'";
+          if(!is_array($publication->$curField)) $publicationModel->$curField =$publication->$curField;
           else{
             foreach ($publication->$curField as $innerValue) {
               $value = $innerValue." ";
             }
-             $publicationModel->$curField = "'".substr($value,0,189)."'";
+             $publicationModel->$curField = "'".$value;
           }
       }
       else $publicationModel->$curField = "//";
@@ -187,6 +188,20 @@ class PublicationController extends Controller
       PublicationController::addPublicationToAuthor($user_id, $publication_id,$user_name);
     }
 
+  }
+
+  public static function modifyPublication(Request $request){
+    //Bisonga vedere come passare l'id della pubblicazione
+    $newDbKey = md5($request->input('title').$request->input('year'));
+    \DB::table('publications')->where('id',$publication_id)//id passato con get
+    ->update(array('title' =>$request->input('title'),
+                  'venue'=>$request->input('venue'),
+                  'volume'=>$request->input('volume'),
+                  'number'=>$request->input('number'),
+                  'pages'=>$request->input('pages'),
+                  'year'=>$request->input('year'),
+                  'type'=>$request->input('type'),
+                  'dbKey'=>$newDbKey ));
   }
 
   public function modifyPostVisibility(Request $request){
