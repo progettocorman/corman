@@ -78,12 +78,13 @@
   <p>Commenti</p>
   </td>
   </tr>
-      </table>
+  </table>
     </div>    
     <div class="col-sm-2 sidenav">
       <div class="well">  
-      {{URL::asset('/corman/storage/app/public/<?php echo ($user_image); ?>')}}
-        <p><img src="{{URL::asset('/corman/storage/app/public/<?php echo ($user_image); ?>')}}" style="width:80px;height:80px;"></p>
+      
+     <link href="{{URL::asset('storage/app/public/<?php echo ($user_image); ?>');}}" >
+        <p><img src="{{URL::asset('app/public/<?php echo ($user_image); ?>');}}" style="width:80px;height:80px;"></p>
         <p><?php echo e($name); ?></p>
         <p><?php echo e($last_name); ?></p>
         <p><?php echo e($affiliation); ?></p>

@@ -26,6 +26,7 @@ class UpdateImageProfile extends Controller
              $file = $request->file('user_image')->store('profile_images','public');
              $id = session('id');
              DB::table('users')->where('id',$id)->update(['user_image'=>$file]);
+             echo $file;
              $query = DB::table('users')->select('*')->where('id',$id)->first();
         }
         
