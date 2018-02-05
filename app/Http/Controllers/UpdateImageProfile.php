@@ -23,7 +23,7 @@ class UpdateImageProfile extends Controller
       
         if ($request->file('user_image') != null) {
             
-             $file = $request->file('user_image')->store('profile_images');
+             $file = $request->file('user_image')->store('profile_images','public');
              $id = session('id');
              DB::table('users')->where('id',$id)->update(['user_image'=>$file]);
              $query = DB::table('users')->select('*')->where('id',$id)->first();
