@@ -29,11 +29,7 @@
         <p><a href="#">-</a></p>
         <p><a href="#">-</a></p>
         <p><a href="#">...</a></p>
-<<<<<<< HEAD
-        <button type="button" onClick="location.href='post'">Aggiungi Pubblicazione</button>
-=======
 
->>>>>>> 370864dc0e5b444653586c7902afd43f679cdede
     </div>
     <div class="col-sm-8 text-left">
 
@@ -83,13 +79,14 @@
   </td>
   </tr>
       </table>
-    </div>
+    </div>    
     <div class="col-sm-2 sidenav">
-      <div class="well">
+      <div class="well">  
+        <p><img src="/corman/storage/app/<?php echo e($user_image); ?>" style="width:48px;height:48px;"></p>
         <p><?php echo e($name); ?></p>
         <p><?php echo e($last_name); ?></p>
         <p><?php echo e($affiliation); ?></p>
-        <button type="button" onClick="location.href='userprofile'">vai al profilo utente</button>
+        <button type="button" onClick="location.href='userprofile'">profile</button>
       </div>
     </div>
   </div>

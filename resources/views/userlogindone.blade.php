@@ -79,13 +79,14 @@
   </td>
   </tr>
       </table>
-    </div>
+    </div>    
     <div class="col-sm-2 sidenav">
-      <div class="well">
+      <div class="well">  
+        <p><img src="/corman/storage/app/{{$user_image}}" style="width:48px;height:48px;"></p>
         <p>{{$name}}</p>
         <p>{{$last_name}}</p>
         <p>{{$affiliation}}</p>
-        <button type="button" onClick="location.href='userprofile'">vai al profilo utente</button>
+        <button type="button" onClick="location.href='userprofile'">profile</button>
       </div>
     </div>
   </div>

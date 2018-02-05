@@ -26,11 +26,10 @@ class UpdateImageProfile extends Controller
              $file = $request->file('user_image')->store('profile_images');
              $id = session('id');
              DB::table('users')->where('id',$id)->update(['user_image'=>$file]);
-             echo  $file;
              $query = DB::table('users')->select('*')->where('id',$id)->first();
         }
         
-        return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)->with("email", $query->email)
+        return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)->with("email", $query->email)->with("user_image", $query->user_image)
         ->with("last_name", $query->last_name)->with("research",$query->research)->with("birth_date", $query->birth_date)->with("affiliation", $query->affiliation);
     }
 }

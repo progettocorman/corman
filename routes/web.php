@@ -13,7 +13,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'UserController@getHome'); //reindirizzamneto alla home con passaggio parametri
+Route::get('/home', 'UserController@getHome'); //indirizzamneto alla home con passaggio parametri
+
+Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al profilo utente con passaggio parametri
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
@@ -23,9 +25,7 @@ Route::get('/search','Search@generalSearch');
 Route::get('/formregister', function () {
     return view('formview');
 });
-Route::get('/userprofile', function () {
-    return view('userprofile');
-});
+
 Route::get('/group', function () {
     return view('group');
 });

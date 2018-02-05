@@ -138,11 +138,11 @@
         </div>
         <div class="col-sm-2 sidenav">
           <div class="well">
-            <p>Qui sara presente il tuo profilo</p>
-            <p>Nome e cognome</p>
-            <p>Età e sesso</p>
-            <p>ecc</p>
-            <button type="button" onClick="location.href='userprofile'">vai al profilo utente</button>
+            <p><img src="/corman/storage/app/{{$user_image}}" style="width:48px;height:48px;"></p>
+            <p>{{$name}}</p>
+            <p>{{$last_name}}</p>
+            <p>{{$affiliation}}</p>
+            <button type="button" onClick="location.href='userprofile'">profile</button>
           </div>
 
         </div>
