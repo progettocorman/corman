@@ -17,8 +17,8 @@ class CreateAttachmentsPostsTable extends Migration
           $table->integer('posts_id')->unsigned();
           $table->foreign('posts_id')->references('id')->on('posts')->nullable();
 
-          $table->text('namefile');
-          $table->integer('typefile')->unsigned();
+          $table->longtext('namefile');
+          $table->text('typefile');
           /*
           1 pdf
           2 images

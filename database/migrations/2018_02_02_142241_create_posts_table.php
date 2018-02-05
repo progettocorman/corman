@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->timestamps();
 
             $table->text("text");//testo del posts_group
-            $table->boolean("attachments"); //boolean per vedere se ci sono allegati
         });
     }
 

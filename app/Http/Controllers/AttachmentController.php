@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\AttachmentPost;
-use App\AttachmentPublication;
+use \App\AttachmentsPost;
+use \App\AttachmentsPublication;
+use Illuminate\Support\Facades\Storage;
 
 class AttachmentController extends Controller
 {
@@ -17,24 +18,27 @@ class AttachmentController extends Controller
               echo "Errore";
             }else{
               $file = $fileinpost->store('uploads');
-              return $file;
             }
-
-            $pieces = explode(".", $file);
+      $pieces = explode(".", $file);
              // Estensione $pieces[1]
+
 
       //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
-        $attachment = new AttachmentPost;
+        $attachment = new AttachmentsPost;
         $attachment->posts_id = $id_subject;
         $attachment->namefile = $file;
         $attachment->typefile = $pieces[1];
+        $attachment->save();
       }
       else { //publication
-        $attachment = new AttachmentPublication;
+        $attachment = new AttachmentsPublication;
         $attachment->publication_id = $id_subject;
         $attachment->namefile = $file;
         $attachment->typefile = $pieces[1];
+        $attachment->save();
+
+      }
 
     }
 }
