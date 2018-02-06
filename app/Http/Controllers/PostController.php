@@ -34,7 +34,7 @@ class PostController extends Controller
           ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
         }
 
-    public function modifyPublicationVisibility(Request $request){
+    public function modifyPostVisibility(Request $request){
       $user_id = session('id');
       $post_id = $request('post_id');
       $user = \App\User::find($user_id);
@@ -42,10 +42,22 @@ class PostController extends Controller
       $post->pivot->visibility = $request('visibility');
     }
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+    public function modifyPost(Request $reuest){
+      $id = 10;
+      $post = \App\Post::find($id);
+      $post->update([
+          'text' => $reuest->input('testo');
+      ]);
+
+      //AttachmentController::addAttachment($id,0,);
+    }
+>>>>>>> 5d823e81dd2ffe1444e58a5591d1b0d9a3893789
 }

@@ -22,6 +22,7 @@ Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/addPublication', 'PublicationController@manualAdd'); //Caricamento manuale
+Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 
 //ANTONIO
 Route::get('/formregister', function () {
