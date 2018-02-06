@@ -204,7 +204,7 @@ class PublicationController extends Controller
                   'dbKey'=>$newDbKey ));
   }
 
-  public function modifyPostVisibility(Request $request){
+  public function modifyPublicationVisibility(Request $request){
     $user_id = session('id');
     $publication_id = $request('post_id');
     $user = \App\User::find($user_id);
