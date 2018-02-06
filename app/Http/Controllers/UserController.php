@@ -175,4 +175,14 @@ class UserController extends Controller
       return $mostfollowed;
     }
 
+    public function getProfile(Request $request)
+    {
+
+        $id = session('id'); // mantego le info su un dato utente conservando l'id
+        $query = DB::table('users')->select('*')->where('id', $id)->first();
+        return view('userprofile')->with("name", $query->name)->with("user_image", $query->user_image)
+        ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+
+    }
+
 }
