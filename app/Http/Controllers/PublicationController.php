@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
+use DB;
 
 class PublicationController extends Controller
 {
+
+  
+  public function getPubblicazioneView(Request $request)
+  {
+
+    $id = session('id');
+    $query = DB::table('users')->select('*')->where('id', $id)->first();
+    return view('/pubblicazione')->with("name",$query->name)->with("last_name",$query->last_name)
+    ->with("user_image", $query->user_image)->with("affiliation",$query->affiliation);
+    
+
+  }
 
   public static function manualAdd(Request $request){
     $user_id = $request->session()->get('id');
