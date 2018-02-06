@@ -180,8 +180,12 @@ optgroup {
   font-weight: bold;
 }
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+  box-shadow: 10px 10px 5px #dedede;
+  border-collapse: separate;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5%;
+  border: 0px;
 }
 td,
 th {
@@ -2261,9 +2265,12 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
+  box-shadow: 10px 10px 5px #dedede;
+  border-collapse: separate;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5%;
+  border: 0px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,

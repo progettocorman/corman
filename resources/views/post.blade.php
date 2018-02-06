@@ -15,14 +15,7 @@
   <div class="container-fluid text-center">
   <div class="row content">
   <div class="col-sm-2 sidenav">
-        <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">...</a></p>
-          <a href='group'>L'universo</a>
+      @include('group_bar')
   </div>
       <div class="col-sm-8 text-left">
         <form method='post' action='publicPost' >
@@ -36,6 +29,16 @@
             <tr>
               <td>
                 <textarea name="testo" style="width: 100%; height: 100px;"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label >Tag </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <textarea class="form-control" rows="5" id="comment">Scrivi tag</textarea>
               </td>
             </tr>
             <tr>

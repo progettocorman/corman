@@ -28,17 +28,7 @@
     <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
-          <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">...</a></p>
-            <a href='group'>L'universo</a>
-            <p><a href="#">-</a></p>
-            <p><a href="#">-</a></p>
-            <p><a href="#">...</a></p>
+          @include('group_bar')
             <button type="button" onClick="location.href='post'">crea post</button>
         </div>
         <div class="col-sm-8 text-left">
@@ -126,7 +116,7 @@
               <label>Email address*</label>
            </td>
           </tr>
-        
+
           <tr>
             <td>
               <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
@@ -146,10 +136,7 @@
         </div>
         <div class="col-sm-2 sidenav">
           <div class="well">
-      
-            <p>{{$name}}</p>
-            <p>{{$last_name}}</p>
-            <p>{{$affiliation}}</p>
+            @include('profile_bar')
             <button type="button" onClick="location.href='userprofile'">profile</button>
           </div>
 
@@ -157,7 +144,7 @@
       </div>
       </div>
 
-     </div> 
+     </div>
 
   </div>
 
