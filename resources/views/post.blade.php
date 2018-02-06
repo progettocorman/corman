@@ -38,7 +38,7 @@
             </tr>
             <tr>
               <td>
-                <textarea class="form-control" rows="5" id="comment">Scrivi tag</textarea>
+                <textarea class="form-control" name="tags_value" rows="5" id="comment">Scrivi tag</textarea>
               </td>
             </tr>
             <tr>

@@ -18,9 +18,8 @@ class PublicationController extends Controller
     $query = DB::table('users')->select('*')->where('id', $id)->first();
     return view('/pubblicazione')->with("name",$query->name)->with("last_name",$query->last_name)
     ->with("user_image", $query->user_image)->with("affiliation",$query->affiliation);
-    
-
   }
+
 
   public static function manualAdd(Request $request){
     $user_id = $request->session()->get('id');
@@ -68,6 +67,15 @@ class PublicationController extends Controller
 
         AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
       }
+
+
+      //sezione per salvare i tag della pubblicazione
+      /*$tagspublications = new \App\Publications_tags;
+      $tagspublications->value = $request->input('publications_tags');
+      $queryforid = DB::table('publications')->select('id')->orderBy('created_at', 'desc')->first();
+      $tagspublications->publications_id = $queryforid->id;
+      $tagspublications->save();  */
+      //sezione per salvare i tags della pubbicazione//
 
   }
 

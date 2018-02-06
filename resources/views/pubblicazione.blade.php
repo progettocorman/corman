@@ -93,7 +93,7 @@
                   <input type="text" class="form-control" name="type"required>
                 </td>
                 <td>
-                    <textarea class="form-control" rows="5" id="comment">Scrivi tag</textarea>
+                    <textarea class="form-control" name="publications_tags" rows="5" id="comment">Scrivi tag</textarea>
                 </td>
               </tr>
             <tr>

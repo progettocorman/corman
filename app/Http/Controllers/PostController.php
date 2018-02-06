@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\TagsPostsController;
 use DB;
 
 class PostController extends Controller
@@ -29,6 +29,14 @@ class PostController extends Controller
           $post->save();
           $post->users()->attach($id,['visibility' => 0]);
 
+          //sezione per  salvare i tags
+          $tagsposts = new \App\Posts_tags;
+          $tagsposts->value = $request->input('tags_value');
+          $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
+          $tagsposts->posts_id = $queryforid->id;
+          $tagsposts->save();  
+         //sezione per salvare i tags//
+
           $query = DB::table('users')->select('*')->where('id', $id)->first();
           return view('/userprofile')->with("name",$query->name)->with("last_name",$query->last_name)
           ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
@@ -43,7 +51,7 @@ class PostController extends Controller
     }
 
 
-
+    
 
 
 

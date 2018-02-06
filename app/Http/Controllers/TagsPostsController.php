@@ -23,11 +23,7 @@ class TagsPostsController extends Controller
 
   public function saveTags(Request $request)
   {
-    $tagsposts = new \App\Posts_tags;
-
-    $tagsposts->value = $request->input('value');
-    $tagsposts->save();
-     //todo  
+   //todo
   }
 
 

@@ -6,5 +6,5 @@ use Laravel\Scout\Searchable;
 
 class Publications_tags extends Model
 {
-   protected $table='publications_tags';
+   protected $table='publications_tag';
 }

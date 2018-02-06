@@ -23,10 +23,6 @@ class TagsPublicationsController extends Controller
 
   public function saveTags(Request $request)
   {
-    $tagspublications = new \App\Publications_tags;
-
-    $tagspublications->value = $request->input('value');
-    $tagspublications->save();
      //todo  
   }
 
