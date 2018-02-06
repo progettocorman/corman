@@ -18,6 +18,12 @@ class AttachmentController extends Controller
               echo "Errore";
             }else{
               $file = $fileinpost->store('uploads');
+              Storage::delete($file);
+              $nomefiledacaricare = explode("/", $file);
+              $filee = $fileinpost->move(public_path('uploads'),$nomefiledacaricare[1]);
+              ?>
+              <img src="uploads/<?php echo $nomefiledacaricare[1]; ?>">
+              <?php
             }
       $pieces = explode(".", $file);
              // Estensione $pieces[1]
