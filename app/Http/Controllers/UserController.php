@@ -65,7 +65,6 @@ class UserController extends Controller
     $password =md5($request->input('user_password'));
 
     $query = DB::table('users')->select('*')->where('email',$email)->first();
-    $userimage = $query->user_image;
 
       if(!isset($query)){
           return redirect('/?errore=email non presente ');
@@ -75,8 +74,7 @@ class UserController extends Controller
       if($email == $query->email && $password == ($query->password)){
         $request->session()->put('id',$query->id);
         $request->session()->put('password',$query->password);
-        return view('userlogindone')->with("name", $query->name)
-        ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+        return view('userlogindone')->with("name", $query->name)->with("user_image", $query->user_image)->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
           }else{
               return redirect('/?errore=password sbagliata ');
               }
@@ -93,7 +91,7 @@ class UserController extends Controller
     /*restituisco la view settingaccount e le passo i dati sull'utente */
     return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)
     ->with("last_name", $query->last_name)->with("birth_date", $query->birth_date)->with("affiliation", $query->affiliation)
-    ->with("email", $query->email)->with("research", $query->research);
+    ->with("email", $query->email)->with("research", $query->research)->with("user_image", $query->user_image);
 
    }
 
@@ -123,7 +121,7 @@ class UserController extends Controller
 
          if(($queryemail != NULL) && ($queryid->id != $id)){
              print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
-             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)
+             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image)
                     ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
             }
 
@@ -145,7 +143,7 @@ class UserController extends Controller
         $request->session()->put('id',$id);
         $request->session()->put('password',$query);
 
-        return view('userprofile');
+        return view('userprofile')->with("name", $user->name)->with("last_name", $user->last_name)->with("affiliation",$user->affiliation)->with("user_image", $user->user_image);
     }
 
     public function getHome(Request $request)
@@ -153,7 +151,7 @@ class UserController extends Controller
 
         $id = session('id'); // mantego le info su un dato utente conservando l'id
         $query = DB::table('users')->select('*')->where('id', $id)->first();
-        return view('userlogindone')->with("name", $query->name)
+        return view('userlogindone')->with("name", $query->name)->with("user_image", $query->user_image)
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
 
     }

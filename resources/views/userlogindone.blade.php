@@ -78,21 +78,21 @@
   <p>Commenti</p>
   </td>
   </tr>
-      </table>
-    </div>
+  </table>
+    </div>    
     <div class="col-sm-2 sidenav">
-      <div class="well">
+      <div class="well">  
+      
+     <link href="{{URL::asset('storage/app/public/<?php echo ($user_image); ?>');}}" >
+        <p><img src="{{URL::asset('app/public/<?php echo ($user_image); ?>');}}" style="width:80px;height:80px;"></p>
         <p>{{$name}}</p>
         <p>{{$last_name}}</p>
         <p>{{$affiliation}}</p>
-        <button type="button" onClick="location.href='userprofile'">vai al profilo utente</button>
+        <button type="button" onClick="location.href='userprofile'">profile</button>
       </div>
     </div>
   </div>
   </div>
-
- 
-
 
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -20,11 +20,21 @@ class PostController extends Controller
           return view('/userprofile');
     }
 
-    public function modifyPublicationVisibility(Request $request){
+    public function modifyPostVisibility(Request $request){
       $user_id = session('id');
       $post_id = $request('post_id');
       $user = \App\User::find($user_id);
       $post = $user->posts()->where('posts_id',$post_id)->get();
       $post->pivot->visibility = $request('visibility');
+    }
+
+    public function modifyPost(Request $reuest){
+      $id = 10;
+      $post = \App\Post::find($id);
+      $post->update([
+          'text' => $reuest->input('testo');
+      ]);
+
+      //AttachmentController::addAttachment($id,0,);
     }
 }
