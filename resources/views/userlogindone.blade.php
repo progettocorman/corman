@@ -9,6 +9,16 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
    <link rel="stylesheet" href="css/logged.css" type="text/css" />
 </head>
+<style>
+table {
+  box-shadow: 10px 10px 5px #dedede;
+  border-collapse: separate;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5%;
+  border: 0px;
+}
+</style>
 
 
   <body>
@@ -18,25 +28,27 @@
     <div class="col-sm-2 sidenav">
     <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
     <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
-      <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">...</a></p>
-        <a href='group'>L'universo</a>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">...</a></p>
+      @include('group_bar')
 
     </div>
     <div class="col-sm-8 text-left">
 
-      <table width="50%" border="1">
+      <table width="50%" border="0">
       <tr>
         <td>
             <p>Nome e cognome del seguito </p>
+        </td>
+        <td>
+          <div class="btn-group">
+           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+           <span class="caret"></span>
+          </button>
+         <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Pubblico</a><br/>
+          <a class="dropdown-item" href="#">Solo amici</a><br/>
+          <a class="dropdown-item" href="#">Privato</a><br/>
+         </div>
+        </div>
         </td>
         </tr>
           <tr>
@@ -51,16 +63,28 @@
   </tr>
   <tr>
 <td>
-<p>Commenti</p>
+<textarea class="form-control" rows="5" id="comment"> Commenta...</textarea>
 </td>
 </tr>
       </table>
 
     </table>
-      <table width="50%" border="1">
+      <table width="50%" border="0">
       <tr>
         <td>
             <p>Name Surname</p>
+        </td>
+        <td>
+          <div class="btn-group">
+           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+           <span class="caret"></span>
+          </button>
+         <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Pubblico</a><br/>
+          <a class="dropdown-item" href="#">Solo amici</a><br/>
+          <a class="dropdown-item" href="#">Privato</a><br/>
+         </div>
+        </div>
         </td>
         </tr>
           <tr>
@@ -75,19 +99,14 @@
   </tr>
   <tr>
   <td>
-  <p>Commenti</p>
+  <textarea class="form-control" rows="5" id="comment"> Commenta...</textarea>
   </td>
   </tr>
   </table>
-    </div>    
+    </div>
     <div class="col-sm-2 sidenav">
-      <div class="well">  
-      
-     <link href="{{URL::asset('storage/app/public/<?php echo ($user_image); ?>');}}" >
-        <p><img src="{{URL::asset('app/public/<?php echo ($user_image); ?>');}}" style="width:80px;height:80px;"></p>
-        <p>{{$name}}</p>
-        <p>{{$last_name}}</p>
-        <p>{{$affiliation}}</p>
+      <div class="well">
+        @include('profile_bar')
         <button type="button" onClick="location.href='userprofile'">profile</button>
       </div>
     </div>

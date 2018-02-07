@@ -74,13 +74,13 @@ class UserController extends Controller
       if($email == $query->email && $password == ($query->password)){
         $request->session()->put('id',$query->id);
         $request->session()->put('password',$query->password);
-        return view('userlogindone')->with("name", $query->name)->with("user_image", $query->user_image)->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+        return view('userlogindone')->with("user_image", $query->user_image)->with("name", $query->name)->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
           }else{
               return redirect('/?errore=password sbagliata ');
               }
     }
 
- 
+
   public function passDataToAccount(Request $request)
   {
 
@@ -108,7 +108,7 @@ class UserController extends Controller
         $user->affiliation = $request->input('user_affiliation');
         $user->email = $request->input('user_email');
         $user->research = $request->input('user_research');
-       
+
         /*ASSEGNA IL SESSO */
         $gender =  $_POST['gender'];
         foreach ($gender as $value) {
@@ -156,11 +156,35 @@ class UserController extends Controller
 
     }
 
+    public function mostfollowed()
+    {
+      $users = DB::table('users')
+                  ->select('id as idutente', DB::raw('count(*) as contatore'))
+                  ->join('friendships', 'friendships.user_id', '=', 'users.id')
+                  ->groupBy('id')
+                  ->orderBy('contatore', 'desc')
+                  ->get();
+      $i = 0;
+      foreach ($users as $current_user) {
+          $mostfollowed[$i]=$current_user->idutente;
+          if($i == 9){
+            break;
+          }
+          $i++;
+      }
+      return $mostfollowed;
+    }
+
     public function getProfile(Request $request)
     {
+
         $id = session('id'); // mantego le info su un dato utente conservando l'id
         $query = DB::table('users')->select('*')->where('id', $id)->first();
         return view('userprofile')->with("name", $query->name)->with("user_image", $query->user_image)
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
+
     }
+   
+
+
 }

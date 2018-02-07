@@ -13,14 +13,7 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">-</a></p>
-      <p><a href="#">...</a></p>
-        <a href='group'>L'universo</a>
+      @include('group_bar')
     </div>
     <div class="col-sm-8 text-left">
       <table width="50%" border="1">

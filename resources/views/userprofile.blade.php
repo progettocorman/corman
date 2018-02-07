@@ -15,22 +15,12 @@
   <div class="container-fluid text-center">
   <div class="row content">
   <div class="col-sm-2 sidenav">
-        <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">...</a></p>
-          <a href='group'>L'universo</a>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">...</a></p>
+        @include('group_bar')
           <button type="button" onClick="location.href='post'">crea post</button>
 
   </div>
   <div>
-    
+
 
     </div>
       <div class="col-sm-8 text-left">
@@ -84,10 +74,7 @@
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
-        <p><img src="/corman/storage/app/{{$user_image}}" style="width:48px;height:48px;"></p>
-        <p>{{$name}}</p>
-        <p>{{$last_name}}</p>
-        <p>{{$affiliation}}</p>
+        @include('profile_bar')
           <button type="button" onClick="location.href='settingaccount'">Settings</button>
         </div>
 

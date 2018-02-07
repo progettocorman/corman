@@ -1,28 +1,14 @@
 <!DOCTYPE html>
   <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Pubblicazione</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/post.css" type="text/css" />
-  </head>
+  @include('bootstrap')
 
 <body>
   @include('navbar')
   <div class="container-fluid text-center">
   <div class="row content">
   <div class="col-sm-2 sidenav">
-        <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">-</a></p>
-        <p><a href="#">...</a></p>
-          <a href='group'>L'universo</a>
+        @include('group_bar')
   </div>
 
       <div class="col-sm-8 text-left">
@@ -91,7 +77,7 @@
                   <label>Tipologia</label>
                 </td>
                 <td>
-
+                  <label>Tag</label>
                 </td>
               </tr>
 
@@ -100,14 +86,25 @@
                   <input type="text" class="form-control" name="type"required>
                 </td>
                 <td>
-
+                    <input type="text" value="Inserisci il tag"  name ="tags" data-role="tagsinput" />
                 </td>
               </tr>
+              <tr>
+
+                   <td>
+                     <label>Co-Autori</label>
+                 </td>
+               </tr>
+               <tr>
+
+                 <td>
+                         <input type="text" value="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
+                     </td>
+                </tr>
             <tr>
               <td>
                 <label>Allegati</label>
              </td>
-            </tr>
 
             <tr>
             </tr>
@@ -115,7 +112,8 @@
             <tr>
               <td>
               <input type="file" name="fileUpload1" multiple>
-              </td>
+            </td>
+
             </tr>
 
              <tr>
@@ -130,10 +128,7 @@
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
-          <p>Qui sara presente il tuo profilo</p>
-          <p>Nome e cognome</p>
-          <p>Età e sesso</p>
-          <p>ecc</p>
+           @include('profile_bar')
             <button type="button" onClick="location.href='userprofile'">Profilo Utente</button>
         </div>
 

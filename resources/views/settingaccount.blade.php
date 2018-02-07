@@ -28,17 +28,7 @@
     <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
-          <p><a href="#">Lista dei gruppi a cui ti sei iscritto</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">-</a></p>
-          <p><a href="#">...</a></p>
-            <a href='group'>L'universo</a>
-            <p><a href="#">-</a></p>
-            <p><a href="#">-</a></p>
-            <p><a href="#">...</a></p>
+          @include('group_bar')
             <button type="button" onClick="location.href='post'">crea post</button>
         </div>
         <div class="col-sm-8 text-left">
@@ -88,14 +78,7 @@
             <td>
               <input type="date" class="form-control" max ="1993-12-31" min = "1908-01-01" name="user_date" value = "{{ $birth_date }}" required>
             </td>
-            <td>
-            <form action="update_image_profile" method="POST" enctype="multipart/form-data">
-              {{ csrf_field() }}
-               <input type="file"  onchange="readURL(this);" name="user_image" multiple>
-                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
-                <button type="submit" class="btn btn-primary">Load</button>
-              </form>
-            </td>
+
           </tr>
 
           <tr>
@@ -126,7 +109,7 @@
               <label>Email address*</label>
            </td>
           </tr>
-        
+
           <tr>
             <td>
               <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" value = {{$email}}>
@@ -143,13 +126,18 @@
              </tr>
       </table>
           </form>
+          <td>
+            <form method="POST"action='update_image_profile'  enctype="multipart/form-data">
+              {{ csrf_field() }}
+               <input type="file"  onchange="readURL(this);" name="user_image" multiple>
+                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
+                <button type="submit" class="btn btn-primary">Load</button>
+              </form>
+            </td>
         </div>
         <div class="col-sm-2 sidenav">
           <div class="well">
-            <p><img src="/corman/storage/app/{{$user_image}}" style="width:48px;height:48px;"></p>
-            <p>{{$name}}</p>
-            <p>{{$last_name}}</p>
-            <p>{{$affiliation}}</p>
+            @include('profile_bar')
             <button type="button" onClick="location.href='userprofile'">profile</button>
           </div>
 
@@ -157,7 +145,7 @@
       </div>
       </div>
 
-     </div> 
+     </div>
 
   </div>
 

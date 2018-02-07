@@ -22,24 +22,25 @@ Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/addPublication', 'PublicationController@manualAdd'); //Caricamento manuale
+Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
 });
 
-Route::get('/group', function () {
-    return view('group');
-});
+Route::get('/group', 'Group@getViewGroup' );//indirizzamneto ali gruppi con passaggio parametri
+
+
 Route::get('/test2', function () {
     return view('test');
 });
-Route::get('/post', function() {
-  return view('post');
-});
-Route::get('/pubblicazione', function() {
-  return view('pubblicazione');
-});
+
+Route::get('/post', 'PostController@getPostView'); //restituisce la view post con passaggio parametri
+
+Route::get('/pubblicazione', 'PublicationController@getPubblicazioneView');//  return view('pubblicazione')con parametri;
+
+Route::post('/publicPost','PostController@addUserPost');
 
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
@@ -48,6 +49,7 @@ Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
 Route::post('/publicPost','PostController@addUserPost');
+
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
