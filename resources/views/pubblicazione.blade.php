@@ -118,7 +118,7 @@
                <tr>
 
                  <td>
-                         <input type="text" value="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
+                         <input type="text" placeholder="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
                      </td>
                 </tr>
             <tr>
