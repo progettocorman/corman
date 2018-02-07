@@ -17,17 +17,31 @@ Route::get('/home', 'UserController@getHome'); //indirizzamneto alla home con pa
 
 Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al profilo utente con passaggio parametri
 
+Route::get('/logout','UserController@logout');//logout utente da ogni pagina
+
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/addPublication', 'PublicationController@manualAdd'); //Caricamento manuale
 Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
+Route::get('/logout', 'UserController@logout');//uscire dal profilo
+
 
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
 });
+
+Route::get('/tot_pubblicazioni', function () {
+    return view('tot_pubblicazioni');
+});
+
+Route::get('/tot_post', function () {
+    return view('tot_post');
+});
+
+
 
 Route::get('/group',function(){
     $id = session('id');

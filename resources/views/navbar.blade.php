@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="css/navbar.css" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-inverse">
@@ -18,6 +17,15 @@
 <input type="text" class="ricercainput" placeholder="Search.." name="keyword">
 <button type="submit"><i class="fa fa-search"></i></button>
 </form></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+             <li><a href="home"><img src="image/con_notifica.jpg"></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/logout">Exit  </a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

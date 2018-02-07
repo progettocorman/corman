@@ -5,7 +5,4 @@
   <p><a href="#">-</a></p>
   <p><a href="#">-</a></p>
   <p><a href="#">...</a></p>
-    <a href='group'>L'universo</a>
-  <p><a href="#">-</a></p>
-  <p><a href="#">-</a></p>
-  <p><a href="#">...</a></p>
+    <a href='group'>L'universo</a> </br>

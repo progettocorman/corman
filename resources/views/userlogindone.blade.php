@@ -15,10 +15,10 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-    <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
       @include('group_bar')
-
+      
+      <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
     </div>
     <div class="col-sm-8 text-left">
 
@@ -77,7 +77,7 @@
   </tr>
   <tr>
   <td>
-  <input class="Commenti" placeholder="Commenta" id="comment"> 
+  <input class="Commenti" placeholder="Commenta" id="comment">
   </td>
   </tr>
   </table>
@@ -85,7 +85,7 @@
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')
-        <button type="button" onClick="location.href='userprofile'">profile</button>
+        <button class="btn btn-primary" onClick="location.href='userprofile'">profile</button>
       </div>
     </div>
   </div>
