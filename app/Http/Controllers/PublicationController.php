@@ -35,6 +35,7 @@ class PublicationController extends Controller
 
     $authors = explode(",", $request->input('coautori'));
 
+
     $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);
 
     //Ricostruzione del nome dell'utente
@@ -45,6 +46,10 @@ class PublicationController extends Controller
     else {
       $user_name = $query_user_name->name.' '.$query_user_name->last_name;
     }
+
+    if($authors[0]=="")$authors[sizeof($authors)-1] = $user_name;
+    else $authors[sizeof($authors)] = $user_name;
+    var_dump($authors);
 
     //SE LA PUBBLICAZIONE È GIA' PRESENTE NEL DB, AGGIUNGILA ALL'UTENTE SENZA RE-INSERIRLA
     try{
@@ -71,10 +76,11 @@ class PublicationController extends Controller
       }
     PublicationController::processCoAuthors($request, $user_name,$user_id,$authors,$publication_id->id);
       //invoca la funzione per salvare i tag della pubblicazione
-    
+
       $tags =  explode(",",$request->input('tags'));
       foreach($tags as $tag){
-      TagsPublicationsController::saveTags($tag,$publication_id->id);
+        if($tag =="")continue;
+        TagsPublicationsController::saveTags($tag,$publication_id->id);
       }
 
   }
@@ -194,7 +200,6 @@ class PublicationController extends Controller
           foreach ($coAuthorsNotDone as $toDo) {
 
             if(!in_array($toDo,$coAuthorsDone)){
-              echo $toDo;
               //AGGIUNGE LA PUBBLICAZIONE ALL'AUTORE PER CUI SI STA FACENDO LA RICERCA, CON IL NOME DEL COAUTORE
               PublicationController::addPublicationToAuthor($user_id, $publication_id,$toDo);
             }

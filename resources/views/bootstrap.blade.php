@@ -21,9 +21,10 @@
   <script src="/assets/app_bs3.js"></script>
   <?php $id = session('id'); ?>
 </head>
+
 <?php
     $mioid = session('id');
     if($mioid==""){
-      return redirect('welcome.blade.php');  
+      return redirect('welcome.blade.php');
     }
  ?>

@@ -58,7 +58,7 @@ class Api extends Controller
       }
       //LIBERA LA RISORSA ALLOCATA
       curl_close($ch);
-      // return redirect('/');
+      return view('userlogindone');
     }
 
 
