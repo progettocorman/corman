@@ -57,3 +57,6 @@ Route::post('/publicPost','PostController@addUserPost');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
+
+
+Route::get('/test89','Notification@notificationforUser');
