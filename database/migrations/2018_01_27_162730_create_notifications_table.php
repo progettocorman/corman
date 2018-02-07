@@ -24,6 +24,7 @@ class CreateNotificationsTable extends Migration
             $table->integer('object_id')->unsigned();
             //Mittente della notifica
             $table->integer('sender_id')->unsigned();
+            $table->foreign('sender_id')->references('id')->on('users');
 
             $table->timestamps();
         });

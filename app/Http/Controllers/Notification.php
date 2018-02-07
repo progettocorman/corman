@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\UsersPublication;
+use DB;
 
 class Notification extends Controller
 {
@@ -59,4 +60,25 @@ class Notification extends Controller
 
       $notification->save();
     }
+
+    //RESTITUISCE un array di query con le notifiche ricevute da un utente
+    public static function notificationforUser()
+    {
+        $id = session('id');
+        $query = DB::table('notifications')->select('*')->where('user_id', $id)->get();
+        $notifications_array = array();
+
+        $i = 0;
+        foreach($query as $notification){
+            $notifications_array[$i] = $notification;
+            $i = $i+1;
+            }
+            
+        return ($notifications_array);
+           
+    }
+
 }
+
+
+

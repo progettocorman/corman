@@ -130,7 +130,7 @@
             <form method="POST"action='update_image_profile'  enctype="multipart/form-data">
               {{ csrf_field() }}
                <input type="file"  onchange="readURL(this);" name="user_image" multiple>
-                <img id="blah2" src="http://placehold.it/180" alt="your image" width=30 height=30  name="image_profile" />
+                <img id="blah2" src="http://placehold.it/180" alt="your image" width=100 height=50  name="image_profile" />
                 <button type="submit" class="btn btn-primary">Load</button>
               </form>
             </td>

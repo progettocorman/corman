@@ -17,6 +17,8 @@ Route::get('/home', 'UserController@getHome'); //indirizzamneto alla home con pa
 
 Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al profilo utente con passaggio parametri
 
+Route::get('/logout','UserController@logout');//logout utente da ogni pagina
+
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');

@@ -63,11 +63,6 @@
   </div>
   </div>
 </div>
-<!-- <?php
-    if(session('id')==2){
-      return redirect('/home');
-      echo session('id');
-    }
-?> -->
+
 </body>
 </html>

@@ -185,6 +185,10 @@ class UserController extends Controller
 
     }
    
+    public static function logout(Request $request){
 
+        $request->session()->flush();
+        return redirect('/');
+    }
 
 }
