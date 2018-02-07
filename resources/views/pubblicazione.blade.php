@@ -1,14 +1,7 @@
 <!DOCTYPE html>
   <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Pubblicazione</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/post.css" type="text/css" />
-  </head>
+  @include('bootstrap')
 
 <body>
   @include('navbar')
@@ -93,7 +86,7 @@
                   <input type="text" class="form-control" name="type"required>
                 </td>
                 <td>
-                    <textarea class="form-control" name="publications_tags" rows="5" id="comment">Scrivi tag</textarea>
+                    <input type="text" value="Inserisci il tag" data-role="tagsinput" />
                 </td>
               </tr>
             <tr>
