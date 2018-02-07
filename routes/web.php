@@ -29,8 +29,12 @@ Route::get('/formregister', function () {
     return view('formview');
 });
 
-Route::get('/group', 'Group@getViewGroup' );//indirizzamneto ali gruppi con passaggio parametri
-
+Route::get('/group',function(){
+    $id = session('id');
+    $query = DB::table('users')->select('*')->where('id', $id)->first();
+    return view('group')->with("name",$query->name)->with("last_name",$query->last_name)
+    ->with("affiliation",$query->affiliation);
+});//indirizzamneto ai gruppi 
 
 Route::get('/test2', function () {
     return view('test');

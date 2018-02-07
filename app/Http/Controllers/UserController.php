@@ -33,7 +33,7 @@ class UserController extends Controller
       $user->affiliation = $request->input('user_affiliation');
 
       $user->email = $request->input('user_email');
-
+      $user->user_image = "defaultprofile.png"; 
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
 
       //verifica se c'è già la email

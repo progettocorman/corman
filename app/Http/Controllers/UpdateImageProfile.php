@@ -21,19 +21,18 @@ class UpdateImageProfile extends Controller
 {
     public static function imageUpdate(Request $request){
       
-     
+        $id = session('id');
         $fileinpost = $request->file('user_image');
         if ( $fileinpost != null) {
-            $id = session('id');
             $file =  $fileinpost->store('profile_images');
             Storage::delete($file);
             $nomefiledacaricare = explode("/", $file);
             $filee = $fileinpost->move(public_path('profile_images'),$id.".png");
-
-
-             DB::table('users')->where('id',$id)->update(['user_image'=>$id.".png" ]);
-            
-             $query = DB::table('users')->select('*')->where('id',$id)->first();
+            DB::table('users')->where('id',$id)->update(['user_image'=>$id.".png" ]);
+            $query = DB::table('users')->select('*')->where('id',$id)->first();
+        }else{
+            DB::table('users')->where('id',$id)->update(['user_image'=>"defaultprofile.png" ]);
+            $query = DB::table('users')->select('*')->where('id',$id)->first();
         }
         
         return view('settingaccount')->with("name", $query->name)->with("second_name", $query->second_name)->with("email", $query->email)->with("user_image", $query->user_image)
