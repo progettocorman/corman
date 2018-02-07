@@ -13,6 +13,9 @@ class Publication extends Model
     public function users(){
         return $this->belongsToMany('\App\User','users_publication','publication_id','user_id')->withPivot('visibility','author_name');
     }
+    public function condivisions(){
+      return $this->morphMany('\App\Condivision', 'shareable');
+    }
 
     public function toSearchableArray(){
       $array =  $this->toArray();

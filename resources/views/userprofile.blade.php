@@ -17,13 +17,14 @@
   <div class="col-sm-2 sidenav">
         @include('group_bar')
           <button type="button" onClick="location.href='post'">crea post</button>
-
   </div>
   <div>
 
 
     </div>
       <div class="col-sm-8 text-left">
+       @include('navbar_profile')
+
         <table class="tables" width="50%" border="0">
         <tr>
           <td>

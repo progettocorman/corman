@@ -1,0 +1,55 @@
+.navbar {
+  height: 20%;
+}
+.riga{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-top: 1px solid #eee;
+    height: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    overflow: hidden;
+}
+
+.oneprofilenavbar {
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 50px;
+}
+
+#profilenavbar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+a:focus {
+  color: #black;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.btn-link:focus {
+  color: #23527c;
+  text-decoration: none;
+  background-color: transparent;
+}
