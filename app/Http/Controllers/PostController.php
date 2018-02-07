@@ -28,11 +28,11 @@ class PostController extends Controller
       $post->pivot->visibility = $request('visibility');
     }
 
-    public function modifyPost(Request $reuest){
+    public function modifyPost(Request $request){
       $id = 10;
       $post = \App\Post::find($id);
       $post->update([
-          'text' => $reuest->input('testo');
+          'text' => $request->input('testo')
       ]);
 
       //AttachmentController::addAttachment($id,0,);
