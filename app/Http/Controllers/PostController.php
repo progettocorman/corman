@@ -19,7 +19,8 @@ class PostController extends Controller
     }
 
 
-    public static function addUserPost(Request $request){
+    public static function addUserPost(Request $request)
+    {
 
           $id = session('id');
           $user = \App\User::find($id);
@@ -32,15 +33,16 @@ class PostController extends Controller
 
           //sezione per  salvare i tags
           $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
-          TagsPostsController::saveTags($request->input('tags_value'), $queryforid->id);
+          TagsPostsController::saveTags($request->input('tags'), $queryforid->id);
          //sezione per salvare i tags//
 
           $query = DB::table('users')->select('*')->where('id', $id)->first();
           return view('/userprofile')->with("name",$query->name)->with("last_name",$query->last_name)
           ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
-        }
+    }
 
-    public static function modifyPostVisibility(Request $request){
+    public static function modifyPostVisibility(Request $request)
+    {
       $user_id = session('id');
       $post_id = $request('post_id');
       $user = \App\User::find($user_id);
