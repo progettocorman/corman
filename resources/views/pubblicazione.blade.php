@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+    $id = session('id');
+    $query = DB::table('topics')->select('topic_name')->get();
+?>
+
+
+
+
   <html lang="en">
 
   @include('bootstrap')
@@ -94,6 +102,18 @@
                    <td>
                      <label>Co-Autori</label>
                  </td>
+
+               
+               <td>
+                <label>Topic</label>
+          <select class="form-control" name="topics" placeholder="Topic">
+            @foreach ($query as $topic)
+                <option>{{$topic->topic_name}}</option>
+            @endforeach
+          </select>
+          </td>
+        
+
                </tr>
                <tr>
 

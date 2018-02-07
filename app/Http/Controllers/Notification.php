@@ -61,12 +61,9 @@ class Notification extends Controller
       $notification->save();
     }
 
-
-    
-    //Metodo per capire da chi l'utent riceve notifiche 
+    //RESTITUISCE un array di query con le notifiche ricevute da un utente
     public static function notificationforUser()
     {
-         
         $id = session('id');
         $query = DB::table('notifications')->select('*')->where('user_id', $id)->get();
         $notifications_array = array();
