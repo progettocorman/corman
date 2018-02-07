@@ -69,10 +69,13 @@ class PublicationController extends Controller
       //Ritira l'id della Pubblicazione appena aggiunta al db
        AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
       }
-    var_dump($authors);
     PublicationController::processCoAuthors($request, $user_name,$user_id,$authors,$publication_id->id);
       //invoca la funzione per salvare i tag della pubblicazione
-    TagsPublicationsController::saveTags($request->input('tags'),$publication_id->id);
+    
+      $tags =  explode(",",$request->input('tags'));
+      foreach($tags as $tag){
+      TagsPublicationsController::saveTags($tag,$publication_id->id);
+      }
 
   }
 

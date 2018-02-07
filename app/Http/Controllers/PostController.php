@@ -33,7 +33,11 @@ class PostController extends Controller
 
           //sezione per  salvare i tags
           $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
-          TagsPostsController::saveTags($request->input('tags'), $queryforid->id);
+
+          $tags =  explode(",",$request->input('tags'));
+          foreach($tags as $tag){
+          TagsPostsController::saveTags($tag, $queryforid->id);
+          }
          //sezione per salvare i tags//
 
           $query = DB::table('users')->select('*')->where('id', $id)->first();
