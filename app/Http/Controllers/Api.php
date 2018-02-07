@@ -49,10 +49,10 @@ class Api extends Controller
 
       //CICLA SU TUTTE LE ISTANZE DI HIT CONTENUTE IN HITS (CONTENUTE IN RESULT)
       foreach ($jsonResult->result->hits->hit as $currentPub) {
-          $currentPubId = PublicationController::processPublication($user_name, $currentPub->info, $fields);
+          $currentPubId = PublicationController::processPublication($request, $user_name, $currentPub->info, $fields);
 
           if($currentPubId != -1){
-            PublicationController::processCoAuthors($user_name, $user_id,$currentPub->info->authors->author,$currentPubId);
+            PublicationController::processCoAuthors($request, $user_name, $user_id,$currentPub->info->authors->author,$currentPubId);
           }
 
       }

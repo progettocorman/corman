@@ -10,7 +10,7 @@ use DB;
 class PublicationController extends Controller
 {
 
-  
+
   public function getPubblicazioneView(Request $request)
   {
 
@@ -32,6 +32,8 @@ class PublicationController extends Controller
     $publicationModel->pages = $request->input('pages');
     $publicationModel->year = $request->input('year');
     $publicationModel->type = $request->input('type');
+
+    $authors = explode(",", $request->input('coautori'));
 
     $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);
 
@@ -58,17 +60,20 @@ class PublicationController extends Controller
       echo $publicationModel->title."è già presente <br>";//DEBUG
 
     }//...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
+
     $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
+
     $fileinpost =$request->file('fileUpload1');
     //Aggiunta allegato
     if(isset($fileinpost)){
       //Ritira l'id della Pubblicazione appena aggiunta al db
        AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
       }
-
+    var_dump($authors);
+    PublicationController::processCoAuthors($request, $user_name,$user_id,$authors,$publication_id->id);
       //invoca la funzione per salvare i tag della pubblicazione
-      TagsPublicationsController::saveTags($request->input('publications_tags'),$publication_id->id);
-    
+      TagsPublicationsController::saveTags($request->input('tags'),$publication_id->id);
+
   }
 
   //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE
@@ -83,7 +88,7 @@ class PublicationController extends Controller
   }
 
   //SI OCCUPA DI PROCESSARE LE PUBBLICAZIONI
-  public static function processPublication($user_name, $publication, $fields){
+  public static function processPublication(Request $request, $user_name, $publication, $fields){
 
     $publicationModel = new \App\Publication;
     //PER OGNI CAMPO (descritto in $field)...
@@ -130,7 +135,7 @@ class PublicationController extends Controller
 
 
   //SI OCCUPA DI PROCESSARE I COAUTORI
-  public static function processCoAuthors($user_name, $user_id, $authors, $publication_id){
+  public static function processCoAuthors(Request $request, $user_name, $user_id, $authors, $publication_id){
 
     //TRATTAZIONE DELL'ARRAY DI AUTORI: SE E' UN ARRAY (più autori)...
     if(is_array($authors)){
@@ -186,6 +191,7 @@ class PublicationController extends Controller
           foreach ($coAuthorsNotDone as $toDo) {
 
             if(!in_array($toDo,$coAuthorsDone)){
+              echo $toDo;
               //AGGIUNGE LA PUBBLICAZIONE ALL'AUTORE PER CUI SI STA FACENDO LA RICERCA, CON IL NOME DEL COAUTORE
               PublicationController::addPublicationToAuthor($user_id, $publication_id,$toDo);
             }
