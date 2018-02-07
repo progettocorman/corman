@@ -58,25 +58,17 @@ class PublicationController extends Controller
       echo $publicationModel->title."è già presente <br>";//DEBUG
 
     }//...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
-
+    $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
     $fileinpost =$request->file('fileUpload1');
     //Aggiunta allegato
     if(isset($fileinpost)){
       //Ritira l'id della Pubblicazione appena aggiunta al db
-        $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
-
-        AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
+       AttachmentController::addAttachment($publication_id->id, 1, $fileinpost);
       }
 
-
-      //sezione per salvare i tag della pubblicazione
-      /*$tagspublications = new \App\Publications_tags;
-      $tagspublications->value = $request->input('publications_tags');
-      $queryforid = DB::table('publications')->select('id')->orderBy('created_at', 'desc')->first();
-      $tagspublications->publications_id = $queryforid->id;
-      $tagspublications->save();  */
-      //sezione per salvare i tags della pubbicazione//
-
+      //invoca la funzione per salvare i tag della pubblicazione
+      TagsPublicationsController::saveTags($request->input('publications_tags'),$publication_id->id);
+    
   }
 
   //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE

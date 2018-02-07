@@ -30,11 +30,8 @@ class PostController extends Controller
           $post->users()->attach($id,['visibility' => 0]);
 
           //sezione per  salvare i tags
-          $tagsposts = new \App\Posts_tags;
-          $tagsposts->value = $request->input('tags_value');
           $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
-          $tagsposts->posts_id = $queryforid->id;
-          $tagsposts->save();  
+          TagsPostsController::saveTags($request->input('tags_value'), $queryforid->id);
          //sezione per salvare i tags//
 
           $query = DB::table('users')->select('*')->where('id', $id)->first();

@@ -29,9 +29,8 @@ Route::get('/formregister', function () {
     return view('formview');
 });
 
-Route::get('/group', function () {
-    return view('group');
-});
+Route::get('/group', 'Group@getViewGroup' );//indirizzamneto ali gruppi con passaggio parametri
+
 
 Route::get('/test2', function () {
     return view('test');
@@ -42,7 +41,6 @@ Route::get('/post', 'PostController@getPostView'); //restituisce la view post co
 Route::get('/pubblicazione', 'PublicationController@getPubblicazioneView');//  return view('pubblicazione')con parametri;
 
 Route::post('/publicPost','PostController@addUserPost');
-
 
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 

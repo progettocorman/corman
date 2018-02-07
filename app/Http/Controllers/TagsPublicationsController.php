@@ -21,9 +21,14 @@ class TagsPublicationsController extends Controller
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public function saveTags(Request $request)
+  public static function saveTags($request_tag, $publicationsid)
   {
-     //todo  
+    
+    $tagspublications = new \App\Publications_tags;
+    $tagspublications->value = $request_tag;
+    $tagspublications->publications_id = $publicationsid;
+    $tagspublications->save(); 
+    
   }
 
 

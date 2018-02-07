@@ -21,9 +21,12 @@ class TagsPostsController extends Controller
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public function saveTags(Request $request)
+  public static function saveTags($request_tag, $postid)
   {
-   //todo
+    $tagsposts = new \App\Posts_tags;
+    $tagsposts->value = $request_tag;
+    $tagsposts->posts_id =$postid;
+    $tagsposts->save(); 
   }
 
 

@@ -92,4 +92,9 @@ class Group extends Controller
       Notification::sendNotification(2,$userId,$groupId,$senderId);
     }
 
+   /* public static function getViewGroup(){
+      DB::table('groups')->select('id')->orderBy('id','desc')->first();
+      return view('group');
+    }*/
+
 }

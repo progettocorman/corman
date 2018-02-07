@@ -19,4 +19,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
   <script src="/assets/app.js"></script>
   <script src="/assets/app_bs3.js"></script>
+  <?php $id = session('id'); ?>
 </head>
