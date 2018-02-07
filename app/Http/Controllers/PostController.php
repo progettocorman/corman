@@ -10,7 +10,7 @@ use DB;
 class PostController extends Controller
 {
 
-    public function getPostView(Request $request){
+    public static function getPostView(Request $request){
 
       $id = session('id');
       $query = DB::table('users')->select('*')->where('id', $id)->first();
@@ -18,16 +18,17 @@ class PostController extends Controller
       ->with("user_image", $query->user_image)->with("affiliation",$query->affiliation);
     }
 
-    
-    public function addUserPost(Request $request){
-          
+
+    public static function addUserPost(Request $request){
+
           $id = session('id');
           $user = \App\User::find($id);
           $post = new \App\Post;
           $post->text = $request->input('testo');
-          //$post->attachments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
+          $visibility = 0 /*$request->input('visibility')*/;
+          //$post->attac hments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
           $post->save();
-          $post->users()->attach($id,['visibility' => 0]);
+          $post->users()->attach($id,['visibility' => $visibility]);
 
           //sezione per  salvare i tags
           $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
@@ -39,7 +40,7 @@ class PostController extends Controller
           ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
         }
 
-    public function modifyPostVisibility(Request $request){
+    public static function modifyPostVisibility(Request $request){
       $user_id = session('id');
       $post_id = $request('post_id');
       $user = \App\User::find($user_id);
@@ -47,17 +48,16 @@ class PostController extends Controller
       $post->pivot->visibility = $request('visibility');
     }
 
-<<<<<<< HEAD
-    public function modifyPost(Request $request){
+
+    public static function modifyPost(Request $request){
       $id = 10;
       $post = \App\Post::find($id);
       $post->update([
           'text' => $request->input('testo')
       ]);
-=======
->>>>>>> 02e4c749baafb73cff74fda4da5df0123d047502
+    }
 
-    
+
 
 
 

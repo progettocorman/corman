@@ -72,7 +72,7 @@ class PublicationController extends Controller
     var_dump($authors);
     PublicationController::processCoAuthors($request, $user_name,$user_id,$authors,$publication_id->id);
       //invoca la funzione per salvare i tag della pubblicazione
-      TagsPublicationsController::saveTags($request->input('tags'),$publication_id->id);
+    TagsPublicationsController::saveTags($request->input('tags'),$publication_id->id);
 
   }
 
@@ -223,7 +223,7 @@ class PublicationController extends Controller
                   'dbKey'=>$newDbKey ));
   }
 
-  public function modifyPublicationVisibility(Request $request){
+  public static function modifyPublicationVisibility(Request $request){
     $user_id = session('id');
     $publication_id = $request('post_id');
     $user = \App\User::find($user_id);
