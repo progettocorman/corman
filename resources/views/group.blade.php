@@ -34,7 +34,7 @@
   </tr>
   <tr>
 <td>
-<p>Commenti</p>
+<input class="Commenti" placeholder="Commenta" id="comment">
 </td>
 </tr>
       </table>
@@ -58,7 +58,7 @@
   </tr>
   <tr>
   <td>
-  <p>Commenti</p>
+  <input class="Commenti" placeholder="Commenta" id="comment">
   </td>
   </tr>
       </table>

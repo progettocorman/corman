@@ -15,7 +15,7 @@
         <!----------------------------------------FORM ----------------------------------->
         <form action="addPublication" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
-        <table width="100%" border="0">
+        <table class="tables" width="100%" border="0">
             <tr>
               <td>
                 <label >Titolo</label>
@@ -86,7 +86,7 @@
                   <input type="text" class="form-control" name="type"required>
                 </td>
                 <td>
-                    <input type="text" value="Inserisci il tag"  name ="tags" data-role="tagsinput" />
+                    <input type="text" placeholder="Inserisci il tag" name ="tags" data-role="tagsinput" />
                 </td>
               </tr>
               <tr>

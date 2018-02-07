@@ -27,7 +27,14 @@ td {
     width: 40%
 }
 table{
-      padding-top: 20px;
-     border-collapse: separate;
-     border-spacing: 5px;
+
+}
+.tables{
+      border-collapse: separate;
+      border-spacing: 5px;
+      box-shadow: 10px 10px 5px #dedede;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top: 5%;
+      border: 0px;
    }
