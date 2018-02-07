@@ -8,18 +8,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
    <link rel="stylesheet" href="css/logged.css" type="text/css" />
-</head>
-<style>
-table {
-  box-shadow: 10px 10px 5px #dedede;
-  border-collapse: separate;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top: 5%;
-  border: 0px;
-}
-</style>
-
+ </head>
 
   <body>
   @include('navbar')
@@ -33,7 +22,7 @@ table {
     </div>
     <div class="col-sm-8 text-left">
 
-      <table width="50%" border="0">
+      <table class="tables" width="50%" border="0">
       <tr>
         <td>
             <p>Nome e cognome del seguito </p>
@@ -63,29 +52,18 @@ table {
   </tr>
   <tr>
 <td>
-<textarea class="form-control" rows="5" id="comment"> Commenta...</textarea>
+<input class="Commenti" placeholder="Commenta" id="comment">
 </td>
 </tr>
       </table>
 
     </table>
-      <table width="50%" border="0">
+      <table class="tables" width="50%" border="0">
       <tr>
         <td>
             <p>Name Surname</p>
         </td>
-        <td>
-          <div class="btn-group">
-           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-           <span class="caret"></span>
-          </button>
-         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Pubblico</a><br/>
-          <a class="dropdown-item" href="#">Solo amici</a><br/>
-          <a class="dropdown-item" href="#">Privato</a><br/>
-         </div>
-        </div>
-        </td>
+
         </tr>
           <tr>
         <td>
@@ -99,7 +77,7 @@ table {
   </tr>
   <tr>
   <td>
-  <textarea class="form-control" rows="5" id="comment"> Commenta...</textarea>
+  <input class="Commenti" placeholder="Commenta" id="comment"> 
   </td>
   </tr>
   </table>

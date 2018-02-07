@@ -36,7 +36,7 @@
           {{csrf_field()}}
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-          <table width="100%" border="0">
+          <table class="tables" width="100%" border="0">
           <tr>
             <td>
               <label >Name*</label>

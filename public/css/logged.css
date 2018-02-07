@@ -19,12 +19,13 @@
 
 }
 table {
-  border: 2px  solid black;
-  border-collapse: separate;
-  border-spacing: 10%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top: 5%;
+}
+.tables {
+    box-shadow: 10px 10px 5px #dedede;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 5%;
+    border: 0px;
 }
 
 .form-control {
@@ -32,6 +33,10 @@ table {
   margin-left: 0%;
   margin-right: auto;
 
+}
+
+.Commenti {
+  width: 100%;
 }
 td {
     width: 0%
