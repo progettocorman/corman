@@ -15,6 +15,10 @@ class Post extends Model
     public function users(){
       return $this->belongsToMany('\App\User','users_posts','posts_id','user_id')->withPivot('visibility');
   	}
+
+    public function condivisions(){
+      return $this->morphMany('\App\Condivision', 'shareable');
+    }
     public function toSearchableArray(){
       $array =  $this->toArray();
 

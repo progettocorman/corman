@@ -66,6 +66,7 @@ Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
 Route::post('/publicPost','PostController@addUserPost');
 
+
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
