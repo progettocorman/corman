@@ -33,7 +33,7 @@ class UserController extends Controller
       $user->affiliation = $request->input('user_affiliation');
 
       $user->email = $request->input('user_email');
-      $user->user_image = "defaultprofile.png"; 
+      $user->user_image = "defaultprofile.png";
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
 
       //verifica se c'è già la email
@@ -184,7 +184,15 @@ class UserController extends Controller
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
 
     }
-   
 
+    public function getFollow(){
+      $users = DB::table('users')->where('user_id',$user_id)->count();
+      return $users;
+    }
+
+    public function getFollower(){
+      $users = DB::table('users')->where('user_follow',$user_id)->count();
+      return $users;
+    }
 
 }
