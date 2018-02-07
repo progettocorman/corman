@@ -18,7 +18,7 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Corman</a>
+        <a class="navbar-brand" >Corman</a>
       </div>
     </div>
   </nav>
@@ -63,5 +63,11 @@
   </div>
   </div>
 </div>
+<!-- <?php
+    if(session('id')==2){
+      return redirect('/home');
+      echo session('id');
+    }
+?> -->
 </body>
 </html>

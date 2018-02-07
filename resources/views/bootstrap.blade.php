@@ -25,6 +25,6 @@
 <?php
     $mioid = session('id');
     if($mioid==""){
-      return redirect('welcome.blade.php');
+      return redirect('/');
     }
  ?>
