@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/post.css" type="text/css" />
+  <link rel="stylesheet" href="css/logged.css" type="text/css" />
   <!-Librerie tag->
   <link rel="stylesheet" href="/dist/bootstrap-tagsinput.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -24,6 +24,6 @@
 <?php
     $mioid = session('id');
     if($mioid==""){
-      return redirect('welcome.blade.php');  
+      return redirect('welcome.blade.php');
     }
  ?>

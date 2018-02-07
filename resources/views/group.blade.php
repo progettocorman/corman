@@ -16,7 +16,7 @@
       @include('group_bar')
     </div>
     <div class="col-sm-8 text-left">
-      <table width="50%" border="1">
+      <table class="tables" width="50%" border="0">
       <tr>
         <td>
             <p>Name e cognome utente del gruppo</p>
@@ -38,9 +38,8 @@
 </td>
 </tr>
       </table>
-
-    </table>
-      <table width="50%" border="1">
+      
+      <table class="tables" width="50%" border="0">
       <tr>
         <td>
             <p>Name e cognome utente del gruppo</p>
