@@ -226,4 +226,22 @@ class PublicationController extends Controller
   }
 
 
+  public static function addCondivison(Request $request,$group){
+        $publication_id = 1/*$request->input('publication_id')*/;
+        $publication  = \App\Publication::find($publication_id);
+
+
+        $condivision = new \App\Condivision;
+        $condivision->user_id = 2 /*session('id')*/;
+        if($group == 1){
+          $condivision->group_boolean = true;
+          $condivision->group_id = $request->input('group_id');
+        } else{
+          $condivision->group_boolean = false;
+          //$condivision->group_id = NULL;
+        }
+
+        $publication->condivisions()->save($condivision);
+  }
+
 }

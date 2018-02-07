@@ -34,7 +34,7 @@ Route::get('/group',function(){
     $query = DB::table('users')->select('*')->where('id', $id)->first();
     return view('group')->with("name",$query->name)->with("last_name",$query->last_name)
     ->with("affiliation",$query->affiliation);
-});//indirizzamneto ai gruppi 
+});//indirizzamneto ai gruppi
 
 Route::get('/test2', function () {
     return view('test');
@@ -53,6 +53,7 @@ Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
 Route::post('/publicPost','PostController@addUserPost');
+
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');

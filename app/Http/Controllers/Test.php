@@ -12,8 +12,7 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-    $request->session()->put('id',17);
-    Group::createGroup($request, "Gruppo2", true, null, null);
+      PostController::addCondivison($request,0);
   }
 
 

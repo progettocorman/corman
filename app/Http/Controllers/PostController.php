@@ -58,6 +58,24 @@ class PostController extends Controller
     }
 
 
+    public static function addCondivison(Request $request,$group){
+          $post_id = 1/*$request->input('post_id')*/;
+          $post  = \App\Post::find($post_id);
+
+
+          $condivision = new \App\Condivision;
+          $condivision->user_id = 2 /*session('id')*/;
+          if($group == 1){
+            $condivision->group_boolean = true;
+            $condivision->group_id = $request->input('group_id');
+          } else{
+            $condivision->group_boolean = false;
+            //$condivision->group_id = NULL;
+          }
+
+          $post->condivisions()->save($condivision);
+    }
+
 
 
 
