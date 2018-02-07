@@ -86,14 +86,25 @@
                   <input type="text" class="form-control" name="type"required>
                 </td>
                 <td>
-                    <input type="text" value="Inserisci il tag" data-role="tagsinput" />
+                    <input type="text" value="Inserisci il tag"  name ="tags" data-role="tagsinput" />
                 </td>
               </tr>
+              <tr>
+
+                   <td>
+                     <label>Co-Autori</label>
+                 </td>
+               </tr>
+               <tr>
+
+                 <td>
+                         <input type="text" value="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
+                     </td>
+                </tr>
             <tr>
               <td>
                 <label>Allegati</label>
              </td>
-            </tr>
 
             <tr>
             </tr>
@@ -101,7 +112,8 @@
             <tr>
               <td>
               <input type="file" name="fileUpload1" multiple>
-              </td>
+            </td>
+
             </tr>
 
              <tr>

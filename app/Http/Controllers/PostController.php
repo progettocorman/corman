@@ -47,6 +47,15 @@ class PostController extends Controller
       $post->pivot->visibility = $request('visibility');
     }
 
+<<<<<<< HEAD
+    public function modifyPost(Request $request){
+      $id = 10;
+      $post = \App\Post::find($id);
+      $post->update([
+          'text' => $request->input('testo')
+      ]);
+=======
+>>>>>>> 02e4c749baafb73cff74fda4da5df0123d047502
 
     
 

@@ -31,7 +31,7 @@
             </tr>
             <tr>
               <td>
-              <input type="text" value="Inserisci il tag" data-role="tagsinput" />
+              <input type="text" value="Inserisci il tag"  name ="tags" data-role="tagsinput" />
               </td>
             </tr>
             <tr>
