@@ -10,7 +10,7 @@ use DB;
 class PublicationController extends Controller
 {
 
-  
+
   public function getPubblicazioneView(Request $request)
   {
 
@@ -68,7 +68,7 @@ class PublicationController extends Controller
 
       //invoca la funzione per salvare i tag della pubblicazione
       TagsPublicationsController::saveTags($request->input('publications_tags'),$publication_id->id);
-    
+
   }
 
   //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE
@@ -217,7 +217,7 @@ class PublicationController extends Controller
                   'dbKey'=>$newDbKey ));
   }
 
-  public function modifyPublicationVisibility(Request $request){
+  public static function modifyPublicationVisibility(Request $request){
     $user_id = session('id');
     $publication_id = $request('post_id');
     $user = \App\User::find($user_id);
