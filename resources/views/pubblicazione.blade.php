@@ -116,10 +116,7 @@
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
-           <p><img src="/corman/storage/app/{{$user_image}}" style="width:48px;height:48px;"></p>
-          <p>{{$name}}</p>
-          <p>{{$last_name}}</p>
-          <p>{{$affiliation}}</p>
+           @include('profile_bar')
             <button type="button" onClick="location.href='userprofile'">Profilo Utente</button>
         </div>
 
