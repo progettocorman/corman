@@ -12,22 +12,24 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-      // PostController::addCondivison($request,0);
-      $id=2;
-      $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
-                      // ->join('attachments_publications','attachments_publications.publication_id','=','users_publications.publication_id')
-                                ->select('users_publications.publication_id',
-                                       'users.name','users.second_name', 'users.last_name',
-                                       'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year'
-                                )->where('user_id',$id)->distinct();
+      // // PostController::addCondivison($request,0);
+      $id=3;
+      $publications = \DB::table('friendships')->select('friendships.user_id')->join('users_publications', 'users_publications.user_id', '=', 'friendships.user_id')
+                                ->select('publication_id')
+                                ->join('publications','publications.id','=','users_publications.publication_id')
+                                ->join('users','users.id','=','friendships.user_id')
+                                ->select('publications.id','publications.created_at','publications.title')
+                                ->where('friendships.user_follow',$id)->distinct();
 
-      // $all = $query->join('attachments_publications','attachments_publications.publication_id','=','users_publications.publication_id')->get();
-      $all = $query->get();
-      // $results = $result->addSelect('')->get();
-      // foreach ($result as $res) {
-      //   echo $res->publication_id."<br>";
-      // }
-      var_dump($all);
+      $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
+                                ->select('posts_id')
+                                ->join('posts','posts.id','=','users_posts.posts_id')
+                                ->join('users','users.id','=','friendships.user_id')
+                                ->select('posts.id','posts.created_at','posts.text')
+                                ->where('friendships.user_follow',$id)->distinct();
+
+    // $results = $posts->unionAll($publications)->orderBy('postId','desc')->get();
+    $results = $publications->union($posts)->orderBy('created_at','desc')->get();
   }
 
 

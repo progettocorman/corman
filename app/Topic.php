@@ -7,7 +7,7 @@ use Laravel\Scout\Searchable;
 
 class Topic extends Model
 {
-    use Searchable();
+    use Searchable;
 
     public function toSearchableArray(){
       $array =  $this->toArray();
