@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="utf-8">
-  <title>User Group</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-   <link rel="stylesheet" href="css/logged.css" type="text/css" />
-</head>
+
+  @include('bootstrap')
+
 <body>
   @include('navbar')
 <div class="container-fluid text-center">
@@ -38,7 +33,7 @@
 </td>
 </tr>
       </table>
-      
+
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
@@ -71,7 +66,5 @@
     </div>
   </div>
   </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+ </body>
 </html>
