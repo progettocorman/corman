@@ -82,7 +82,7 @@
             <!--Dati della Pubblicazione  -->
           <p> {{$result->title}}
               <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
+            
               Published on: {{$result->venue}} <br>
               @if(isset($result->volume))Volume:{{$result->volume}}@endif
               @if(isset($result->number)), Number: {{$result->number}} ,@endif
