@@ -133,10 +133,10 @@ class UserController extends Controller
          DB::table('users')->where('id',$id)
          ->update(array('name' =>$user->name,'second_name'=>$user->second_name,'last_name'=>$user->last_name,
                         'birth_date'=>$user->birth_date,'affiliation'=>$user->affiliation,
-                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex,
-                        'user_image'=>$user->user_image));
+                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex
+                      ));
 
-        // $updater->searchable();//Aggiornamento per ricerca
+        
 
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
