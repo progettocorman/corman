@@ -41,7 +41,7 @@
      <!--Tags -->
         <?php $tags = DB::table('publications_tag')->select('value')->where('publications_id',$result->publication_id)->get(); ?>
       <!--Topic -->
-        <?php $tags = DB::table('publications_tag')->select('value')->where('publications_id',$result->publication_id)->get(); ?>
+        <?php $topic = DB::table('publications')->join('topics','topics_id','=','topics.id')->select('topic_name')->where('publications.id',$result->publication_id)->first(); ?>
 
         <div class="riga">
           <hr>
@@ -80,7 +80,11 @@
           <td>
 
             <!--Dati della Pubblicazione  -->
-          <p> {{$result->title}} <br> {{$result->type}}<br><br> Published on: {{$result->venue}} <br> Volume:{{$result->volume}} Number: {{$result->number}}, Pages: {{$result->pages}}</p>
+          <p> {{$result->title}}
+              <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br> 
+              Published on: {{$result->venue}} <br>
+              Volume:{{$result->volume}} Number: {{$result->number}}, Pages: {{$result->pages}}</p>
           <!--Allegati  -->
           <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
                 <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
