@@ -33,7 +33,7 @@ class UserController extends Controller
       $user->affiliation = $request->input('user_affiliation');
 
       $user->email = $request->input('user_email');
-      $user->user_image = "defaultprofile.png"; 
+      $user->user_image = "defaultprofile.png";
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
 
       //verifica se c'è già la email
@@ -133,10 +133,10 @@ class UserController extends Controller
          DB::table('users')->where('id',$id)
          ->update(array('name' =>$user->name,'second_name'=>$user->second_name,'last_name'=>$user->last_name,
                         'birth_date'=>$user->birth_date,'affiliation'=>$user->affiliation,
-                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex,
-                        'user_image'=>$user->user_image));
+                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex
+                      ));
 
-        // $updater->searchable();//Aggiornamento per ricerca
+        
 
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
@@ -184,7 +184,16 @@ class UserController extends Controller
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
 
     }
-   
+
+    public function getFollow(){
+      $users = DB::table('users')->where('user_id',$user_id)->count();
+      return $users;
+    }
+
+    public function getFollower(){
+      $users = DB::table('users')->where('user_follow',$user_id)->count();
+      return $users;
+}
     public static function logout(Request $request){
 
         $request->session()->flush();

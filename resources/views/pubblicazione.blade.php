@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
     $id = session('id');
     $query = DB::table('topics')->select('topic_name')->get();
 ?>
@@ -103,7 +103,7 @@
                      <label>Co-Autori</label>
                  </td>
 
-               
+
                <td>
                 <label>Topic</label>
           <select class="form-control" name="topics" placeholder="Topic">
@@ -112,7 +112,7 @@
             @endforeach
           </select>
           </td>
-        
+
 
                </tr>
                <tr>
@@ -156,6 +156,4 @@
     </div>
     </div>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   </html>
