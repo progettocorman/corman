@@ -83,6 +83,7 @@ class PublicationController extends Controller
         TagsPublicationsController::saveTags($tag,$publication_id->id);
       }
 
+      return redirect('home');
   }
 
   //PERMETTE DI AGGIUNGERE UNA PUBBLICAZIONE AD UN AUTORE
@@ -112,7 +113,7 @@ class PublicationController extends Controller
              $publicationModel->$curField = "'".$value;
           }
       }
-      else $publicationModel->$curField = "//";
+      // else $publicationModel->$curField = "//";
     }
 
     $publicationModel->dbKey = md5($publicationModel->title.$publicationModel->year);

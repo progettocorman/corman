@@ -1,4 +1,13 @@
+<?php
+  $id= session('id');
+  $query = \DB::table('users_posts')->join('posts', 'users_posts.posts_id', '=', 'posts.id')->join('users','users.id','=','user_id')
+                            ->select('users_posts.posts_id',
+                                   'users.name','users.second_name', 'users.last_name',
+                                   'posts.text','posts.created_at'
+                            )->where('user_id',$id)->orderBy('posts.created_at','desc')->distinct();
+ $results = $query->get();
 
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 @include('bootstrap')
@@ -21,6 +30,12 @@
           </div>
         </div>
       </nav>
+      @if (sizeof($results)==0) <p>Non hai ancora fatto un post! Che aspetti?!</p>@endif
+      @foreach ($results as $result)
+      <!--Allegati  -->
+        <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
+     <!--Tags -->
+        <?php $tags = DB::table('posts_tags')->select('value')->where('posts_id',$result->posts_id)->get(); ?>
 
         <div class="riga">
           <hr>
@@ -30,10 +45,11 @@
           <p></p>
           <p></p>
         </div>
+
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
-            <p>Nome e cognome del seguito </p>
+            <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
         <td>
           <div class="btn-group">
@@ -50,45 +66,37 @@
         </tr>
           <tr>
         <td>
-        <p>Data</p>
+          <!--Data Post -->
+        <p>{{$result->created_at}}</p>
         </td>
-      </tr>
-      <tr>
-    <td>
-    <p>Qui ci sarà il post del ricercatore che segui Qui ci sarà il post del ricercatore che segui Qui ci sarà il post del ricercatore che segui Qui ci sarà il post del ricercatore che segui Qui ci sarà il post del ricercatore che segui Qui ci sarà il post del ricercatore che segui v Qui ci sarà il post del ricercatore che segui</p>
-    </td>
-  </tr>
-  <tr>
-<td>
-<input class="Commenti" placeholder="Commenta" id="comment">
-</td>
-</tr>
-      </table>
+            </tr>
+            <tr>
+          <td>
 
-    </table>
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-            <p>Name Surname</p>
-        </td>
+            <!--Dati del Post  -->
+          <p> {{$result->text}}</p>
+          <!--Allegati  -->
+          <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+                <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
+            @endforeach
+          </p>
+          <!--Tags-->
+          <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> @foreach($tags as $tag)
+              <!--TODO visualizzazione tag-->
+              {{$tag->value}}
+            @endforeach
+          </p>
 
-        </tr>
+            </td>
+          </tr>
           <tr>
         <td>
-        <p>Data</p>
+        <input class="Commenti" placeholder="Commenta" id="comment">
         </td>
-      </tr>
-      <tr>
-    <td>
-    <p>Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore</p>
-    </td>
-  </tr>
-  <tr>
-  <td>
-  <input class="Commenti" placeholder="Commenta" id="comment">
-  </td>
-  </tr>
-  </table>
+        </tr>
+      </table>
+      @endforeach
+
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

@@ -15,4 +15,4 @@
 <p>{{$affiliation}}</p>
 <br>
 <p><a class="_t98z6" href="followers"> Follower: <span class="_fd86t" title="360">{{$user_follower}}</span></a></p>
-<p><a class="_t98z6" href="follow"> Follower: <span class="_fd86t" title="360">{{$user_follow}}</span></a></p>
+<p><a class="_t98z6" href="follow"> Followed: <span class="_fd86t" title="360">{{$user_follow}}</span></a></p>

@@ -4,7 +4,7 @@
                             ->select('users_publications.publication_id',
                                    'users.name','users.second_name', 'users.last_name',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type'
-                            )->where('user_id',$id)->distinct();
+                            )->where('user_id',$id)->orderBy('publications.created_at','desc')->distinct();
  $results = $query->get();
 
  ?>
@@ -82,9 +82,11 @@
             <!--Dati della Pubblicazione  -->
           <p> {{$result->title}}
               <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br> 
+              @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
               Published on: {{$result->venue}} <br>
-              Volume:{{$result->volume}} Number: {{$result->number}}, Pages: {{$result->pages}}</p>
+              @if(isset($result->volume))Volume:{{$result->volume}}@endif
+              @if(isset($result->number)), Number: {{$result->number}} ,@endif
+              @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
           <!--Allegati  -->
           <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
                 <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
