@@ -20,7 +20,6 @@
             <p>Nome e cognome del seguito </p>
         </td>
         <td>
-        <a href="modify"><img src="image/modifica_1.png"></a>
       </td>
         <td>
           <div class="btn-group">
@@ -52,30 +51,7 @@
 </tr>
       </table>
 
-  
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-            <p>Name Surname</p>
-        </td>
-
-        </tr>
-          <tr>
-        <td>
-        <p>Data</p>
-        </td>
-      </tr>
-      <tr>
-    <td>
-    <p>Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore Qui ci sara il post del ricercatore</p>
-    </td>
-  </tr>
-  <tr>
-  <td>
-  <input class="Commenti" placeholder="Commenta" id="comment">
-  </td>
-  </tr>
-  </table>
+      
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

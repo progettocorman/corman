@@ -20,8 +20,11 @@
             <p>Nome e cognome del seguito </p>
         </td>
         <td>
+        <a href="modify"><img src="image/modifica_1.png"></a>
+      </td>
+        <td>
           <div class="btn-group">
-           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+           <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
@@ -49,7 +52,7 @@
 </tr>
       </table>
 
-    </table>
+  
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
