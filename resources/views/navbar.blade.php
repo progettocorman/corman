@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="home">Corman</a>
+      <a class="navbar-brand">Corman</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -19,7 +19,8 @@
 </form></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-             <li><a href="notifications"><img src="image/con_notifica.jpg"></a></li>
+             <li><a href="notifications"><img src="image/senza_notifica.png"></a></li>
+             <li><a href="notifications"><img src="image/notifica_arrivata.png"></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
           <ul class="dropdown-menu">

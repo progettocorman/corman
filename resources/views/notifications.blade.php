@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-   <link rel="stylesheet" href="css/logged.css" type="text/css" />
+   <link rel="stylesheet" href="css/notifications.css" type="text/css" />
  </head>
 
   <body>
@@ -22,7 +22,7 @@
     </div>
     <div class="col-sm-8 text-left">
 
-      <table class="tables" width="50%" border="0">
+      <table class="tables" width="50%" border="2">
       <tr>
         <td>
           <p> Nicola vuole seguirti </p>
@@ -30,10 +30,87 @@
 
         <td>
           <td>
-            <button type=”submit”>  Accetta </button>
+            <button class="pushA" type=”submit”>  Accetta </button>
           </td>
           <td>
-            <button type=”submit”>  Rifiuta </button>
+            <button class="pushR" type=”submit”>  Rifiuta </button>
+          </td>
+        </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p> Antonio vuole seguirti </p>
+          </td>
+
+          <td>
+            <td>
+              <button class="pushA" type=”submit”>  Accetta </button>
+            </td>
+            <td>
+              <button class="pushR" type=”submit”>  Rifiuta </button>
+            </td>
+          </td>
+          </tr>
+
+          <tr>
+            <td>
+              <p> Riccardo vuole seguirti </p>
+            </td>
+
+            <td>
+              <td>
+                <button class="pushA" type=”submit”>  Accetta </button>
+              </td>
+              <td>
+                <button class="pushR" type=”submit”>  Rifiuta </button>
+              </td>
+            </td>
+            </tr>
+
+            <tr>
+              <td>
+                <p> Giovanni vuole seguirti </p>
+              </td>
+
+              <td>
+                <td>
+                  <button class="pushA" type=”submit”>  Accetta </button>
+                </td>
+                <td>
+                  <button class="pushR" type=”submit”>  Rifiuta </button>
+                </td>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p> Enrico vuole seguirti </p>
+                </td>
+
+                <td>
+                  <td>
+                    <button class="pushA" type=”submit”>  Accetta </button>
+                  </td>
+                  <td>
+                    <button class="pushR" type=”submit”>  Rifiuta </button>
+                  </td>
+                </td>
+                </tr>
+      </table>
+
+      <table class="tables" width="50%" border="2">
+      <tr>
+        <td>
+          <p> Christian vuole seguirti </p>
+        </td>
+
+        <td>
+          <td>
+            <button class="pushA" type=”submit”>  Accetta </button>
+          </td>
+          <td>
+            <button class="pushR" type=”submit”>  Rifiuta </button>
           </td>
         </td>
         </tr>
@@ -45,144 +122,60 @@
 
           <td>
             <td>
-              <button type=”submit”>  Accetta </button>
+              <button class="pushA" type=”submit”>  Accetta </button>
             </td>
             <td>
-              <button type=”submit”>  Rifiuta </button>
+              <button class="pushR" type=”submit”>  Rifiuta </button>
             </td>
           </td>
           </tr>
 
           <tr>
             <td>
-              <p> Nicola vuole seguirti </p>
+              <p> Giovanni vuole seguirti </p>
             </td>
 
             <td>
               <td>
-                <button type=”submit”>  Accetta </button>
+                <button class="pushA" type=”submit”>  Accetta </button>
               </td>
               <td>
-                <button type=”submit”>  Rifiuta </button>
+                <button class="pushR" type=”submit”>  Rifiuta </button>
               </td>
             </td>
             </tr>
 
             <tr>
               <td>
-                <p> Nicola vuole seguirti </p>
+                <p> Enrico vuole seguirti </p>
               </td>
 
               <td>
                 <td>
-                  <button type=”submit”>  Accetta </button>
+                  <button class="pushA" type=”submit”>  Accetta </button>
                 </td>
                 <td>
-                  <button type=”submit”>  Rifiuta </button>
+                  <button class="pushR" type=”submit”>  Rifiuta </button>
                 </td>
               </td>
               </tr>
 
               <tr>
                 <td>
-                  <p> Nicola vuole seguirti </p>
+                  <p> Antonio vuole seguirti </p>
                 </td>
 
                 <td>
                   <td>
-                    <button type=”submit”>  Accetta </button>
+                    <button class="pushA" type=”submit”>  Accetta </button>
                   </td>
                   <td>
-                    <button type=”submit”>  Rifiuta </button>
-                  </td>
-                </td>
-                </tr>
-
-
-
-
-      </table>
-
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-          <p> Nicola vuole seguirti </p>
-        </td>
-
-        <td>
-          <td>
-            <button type=”submit”>  Accetta </button>
-          </td>
-          <td>
-            <button type=”submit”>  Rifiuta </button>
-          </td>
-        </td>
-        </tr>
-
-        <tr>
-          <td>
-            <p> Nicola vuole seguirti </p>
-          </td>
-
-          <td>
-            <td>
-              <button type=”submit”>  Accetta </button>
-            </td>
-            <td>
-              <button type=”submit”>  Rifiuta </button>
-            </td>
-          </td>
-          </tr>
-
-          <tr>
-            <td>
-              <p> Nicola vuole seguirti </p>
-            </td>
-
-            <td>
-              <td>
-                <button type=”submit”>  Accetta </button>
-              </td>
-              <td>
-                <button type=”submit”>  Rifiuta </button>
-              </td>
-            </td>
-            </tr>
-
-            <tr>
-              <td>
-                <p> Nicola vuole seguirti </p>
-              </td>
-
-              <td>
-                <td>
-                  <button type=”submit”>  Accetta </button>
-                </td>
-                <td>
-                  <button type=”submit”>  Rifiuta </button>
-                </td>
-              </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <p> Nicola vuole seguirti </p>
-                </td>
-
-                <td>
-                  <td>
-                    <button type=”submit”>  Accetta </button>
-                  </td>
-                  <td>
-                    <button type=”submit”>  Rifiuta </button>
+                    <button class="pushR" type=”submit”>  Rifiuta </button>
                   </td>
                 </td>
                 </tr>
-
-
-
-
       </table>
+
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

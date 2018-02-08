@@ -28,8 +28,10 @@
     <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
+          <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
+          <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
           @include('group_bar')
-            <button type="button" onClick="location.href='post'">crea post</button>
+
         </div>
         <div class="col-sm-8 text-left">
           <form method="POST" action='modify_user_settings'>
@@ -138,7 +140,7 @@
         <div class="col-sm-2 sidenav">
           <div class="well">
             @include('profile_bar')
-            <button type="button" onClick="location.href='userprofile'">profile</button>
+            <button class="btn btn-primary" onClick="location.href='userprofile'">profile</button>
           </div>
 
         </div>
