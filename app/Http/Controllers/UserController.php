@@ -121,7 +121,7 @@ class UserController extends Controller
 
          if(($queryemail != NULL) && ($queryid->id != $id)){
              print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
-             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image
+             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image)
                     ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
             }
 
@@ -133,9 +133,10 @@ class UserController extends Controller
          DB::table('users')->where('id',$id)
          ->update(array('name' =>$user->name,'second_name'=>$user->second_name,'last_name'=>$user->last_name,
                         'birth_date'=>$user->birth_date,'affiliation'=>$user->affiliation,
-                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex));
+                        'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex
+                      ));
 
-        // $updater->searchable();//Aggiornamento per ricerca
+        
 
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
