@@ -14,12 +14,11 @@
   <?php echo $__env->make('navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-      
+      <div class="col-sm-2 sidenav">
       <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
       <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
-    </div>
+        <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
     <div class="col-sm-8 text-left">
 
       <table class="tables" width="50%" border="0">
