@@ -37,6 +37,10 @@ Route::get('/tot_pubblicazioni', function () {
     return view('tot_pubblicazioni');
 });
 
+Route::get('/notifications', function () {
+    return view('notifications');
+});
+
 Route::get('/tot_post', function () {
     return view('tot_post');
 });

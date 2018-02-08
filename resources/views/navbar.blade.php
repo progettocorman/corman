@@ -19,7 +19,7 @@
 </form></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-             <li><a href="home"><img src="image/con_notifica.jpg"></a></li>
+             <li><a href="notifications"><img src="image/con_notifica.jpg"></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
           <ul class="dropdown-menu">
