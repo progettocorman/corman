@@ -18,6 +18,16 @@ class CreateTopicsTable extends Migration
             $table->text('topic_name');
             $table->timestamps();
         });
+
+        $types = array("Internet of Things ","Linked Opend Data","Mashup","Advance Paradigms of Interaction");
+
+        foreach ($types as $type) {
+          $typeModel = new \App\Topic;
+          $typeModel->topic_name = $type;
+          $typeModel->save();
+        }
+
+
     }
 
     /**
