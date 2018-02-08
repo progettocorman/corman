@@ -184,7 +184,6 @@ class UserController extends Controller
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
 
     }
-<<<<<<< HEAD
 
     public function getFollow(){
       $users = DB::table('users')->where('user_id',$user_id)->count();
@@ -194,13 +193,11 @@ class UserController extends Controller
     public function getFollower(){
       $users = DB::table('users')->where('user_follow',$user_id)->count();
       return $users;
-=======
-   
+}
     public static function logout(Request $request){
 
         $request->session()->flush();
         return redirect('/');
->>>>>>> 8207dca4e83904474301d617dd1e528bb0e80f70
     }
 
 }
