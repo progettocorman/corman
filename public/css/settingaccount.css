@@ -16,11 +16,7 @@
   }
   .row.content {height:auto;}
 }
-img {
-  width: 35%;
-}
-
-.form-control {
+  .form-control {
   width: 53%;
 }
 td {

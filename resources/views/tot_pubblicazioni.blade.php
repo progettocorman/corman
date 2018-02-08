@@ -32,6 +32,12 @@
           <div  id="profilenavbar" class="navbar-nav">
               <a class="oneprofilenavbar"  href='tot_pubblicazioni'style="color:DodgerBlue;"> Pubblicazioni </a>
               <a class="oneprofilenavbar" href='tot_post'> Post </a>
+              <a <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/logout">Exit  </a></li>
+                </ul>
+              </li> </a>
           </div>
         </div>
       </nav>
@@ -118,7 +124,7 @@
     </div>
   </div>
   </div>
-
-  </body>
-
+   </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
 </html>

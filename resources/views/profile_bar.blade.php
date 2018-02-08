@@ -9,7 +9,7 @@
     $user_follow = \App\Http\Controllers\UserController::getFollow($id);
     $user_follower = \App\Http\Controllers\UserController::getFollower($id);
 
-?> " style="width:48px;height:48px;"></p>
+?> " style="width:56px;height:56px;"></p>
 <p>{{$name}}</p>
 <p>{{$last_name}}</p>
 <p>{{$affiliation}}</p>
