@@ -28,7 +28,7 @@ class CreatePublicationsTable extends Migration
           $table->text("ee")->nullable();// Link alla risorsa (pdf o sito su cui comprare il pdf)
           $table->text("url")->nullable();// Link alla pagina di dblp
           $table->string("dbKey")->unique();//Chiave di riconoscimento pubblicazione nel db <-> md5(title)
-          $table->integer('topics_id')->unsigned();// Link 
+          $table->integer('topics_id')->unsigned()->nullable();// Link 
           $table->foreign('topics_id')->references('id')->on('topics');//Chiave di riconoscimento pubblicazione nel db topics
 
         });

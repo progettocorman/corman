@@ -12,7 +12,22 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-      PostController::addCondivison($request,0);
+      // PostController::addCondivison($request,0);
+      $id=2;
+      $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
+                      // ->join('attachments_publications','attachments_publications.publication_id','=','users_publications.publication_id')
+                                ->select('users_publications.publication_id',
+                                       'users.name','users.second_name', 'users.last_name',
+                                       'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year'
+                                )->where('user_id',$id)->distinct();
+
+      // $all = $query->join('attachments_publications','attachments_publications.publication_id','=','users_publications.publication_id')->get();
+      $all = $query->get();
+      // $results = $result->addSelect('')->get();
+      // foreach ($result as $res) {
+      //   echo $res->publication_id."<br>";
+      // }
+      var_dump($all);
   }
 
 
