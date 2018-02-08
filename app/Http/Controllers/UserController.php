@@ -136,7 +136,7 @@ class UserController extends Controller
                         'email'=>$user->email,'research'=>$user->research,'sex'=>  $user->sex
                       ));
 
-        
+
 
         /*Salvo id e password per le session */
         $query = DB::table('users')->select('password')->where('email',$user->email)->first();
@@ -185,13 +185,13 @@ class UserController extends Controller
 
     }
 
-    public function getFollow(){
-      $users = DB::table('users')->where('user_id',$user_id)->count();
+    public static function getFollow($user_id){
+      $users = DB::table('friendships')->where('user_id',$user_id)->count();
       return $users;
     }
 
-    public function getFollower(){
-      $users = DB::table('users')->where('user_follow',$user_id)->count();
+    public static function getFollower($user_id){
+      $users = DB::table('friendships')->where('user_follow',$user_id)->count();
       return $users;
 }
     public static function logout(Request $request){

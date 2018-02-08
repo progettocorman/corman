@@ -25,6 +25,17 @@ class CreateNTypesTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        $types = array("CoAuthor Notifications","Group Partecipation Notifications","Group Partecipation Invitations Notifications","User follow request Notifications");
+        $i = 0;
+        foreach ($types as $type) {
+          $typeModel = new \App\NType;
+          $typeModel->id = $i;
+          $typeModel->description = $type;
+          $typeModel->save();
+          $i++;
+        }
+
     }
 
     /**

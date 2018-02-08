@@ -2,6 +2,7 @@
 <?php
     $id = session('id');
     $query = DB::table('topics')->select('topic_name')->get();
+    $types = DB::table('types')->select('value')->distinct()->get();
 ?>
 
 
@@ -91,7 +92,11 @@
 
               <tr>
                 <td>
-                  <input type="text" class="form-control" name="type"required>
+                  <select class="form-control" name="type" placeholder="Type">
+                    @foreach ($types as $type)
+                        <option>{{$type->value}}</option>
+                    @endforeach
+                  </select>
                 </td>
                 <td>
                     <input type="text" placeholder="Inserisci il tag" name ="tags" data-role="tagsinput" />
@@ -117,8 +122,8 @@
                </tr>
                <tr>
 
-                 <td>
-                         <input type="text" placeholder="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
+                  <td>
+                       <input type="text" placeholder="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
                      </td>
                 </tr>
             <tr>
