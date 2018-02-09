@@ -20,17 +20,17 @@ class User extends Model
 
 
    public function followers(){
-   		return $this->belongsToMany('User', 'friendships', 'user_follow', 'user_id');
+   		return $this->belongsToMany('\App\User', 'friendships', 'user_follow', 'user_id');
     }
 
     public function follows(){
-      return $this->belongsToMany('User', 'friendships', 'user_id', 'user_follow');
+      return $this->belongsToMany('\App\User', 'friendships', 'user_id', 'user_follow');
     }
 
 
    public function getFullName()
    {
-          return $this->first_name . ' ' . $this->last_name;
+          return $this->name + ' ' + $this->last_name;
    }
    public function toSearchableArray(){
      $array =  $this->toArray();

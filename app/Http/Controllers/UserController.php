@@ -197,14 +197,20 @@ class UserController extends Controller
 
     public static function getFollow(){
       $user_id = session('id');
-      $users = DB::table('friendships')->where('user_id',$user_id);
-      return view('follow')->with(['follows' => $users]);
+      $user = \App\User::find($user_id);
+
+      $follows = $user->follows();
+
+      return view('follow')->with(['follows' => $follows]);
     }
 
     public static function getFollower(){
-       $user_id = session('id');
-        $users = DB::table('friendships')->where('user_follow',$user_id);
-        return view('follower')->with(['followers' => $users]);
+      $user_id = session('id');
+      $user = \App\User::find($user_id);
+
+      $followers = $user->followers();
+
+      return view('follower')->with(['followers' => $followers]);
     }
     public static function logout(Request $request){
 
