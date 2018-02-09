@@ -27,7 +27,7 @@ class Search extends Controller
       // else var_dump($groups);
       // echo "<br>";
 
-        return view('search_result')->with('users',$users);
+        return view('search_result')->with('users',$users)->with('groups',$groups)->with('publications',$publications);
     }
 
     public static function searchByTag(Request $request){

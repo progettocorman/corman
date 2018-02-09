@@ -67,21 +67,22 @@
             <td>
                 <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
             </td>
-            <td>
+            <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
-          </td>
+          </td> -->
+            <!--
             <td>
               <div class="btn-group">
                <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
-            </div>
+            </div> -->
             </td>
             </tr>
               <tr>
             <td>
               <!--Data Post -->
-            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
+            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </td>
                 </tr>
                 <tr>

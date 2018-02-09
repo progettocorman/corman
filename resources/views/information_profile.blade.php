@@ -1,7 +1,7 @@
 
 <?php
-    $user_follow = \App\Http\Controllers\UserController::getFollow(session('id'));
-    $user_follower = \App\Http\Controllers\UserController::getFollower(session('id'));
+    $user_follow = \App\Http\Controllers\UserController::getNumberFollow(session('id'));
+    $user_follower = \App\Http\Controllers\UserController::getNumberFollower(session('id'));
 
 ?>
 
