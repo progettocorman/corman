@@ -38,6 +38,10 @@ Route::get('/modify', function () {
     return view('modify');
 });
 
+Route::get('/setting_group', function () {
+    return view('setting_group');
+});
+
 Route::get('/tot_pubblicazioni', function () {
     return view('tot_pubblicazioni');
 });
