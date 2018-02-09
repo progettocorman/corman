@@ -11,8 +11,8 @@
     $last_name = $query->last_name;
     $affiliation = $query->affiliation;
     echo $query->user_image;
-    $user_follow = \App\Http\Controllers\UserController::getFollow($id);
-    $user_follower = \App\Http\Controllers\UserController::getFollower($id);
+    $user_follow = \App\Http\Controllers\UserController::getNumberFollow($id);
+    $user_follower = \App\Http\Controllers\UserController::getNumberFollower($id);
 
 ?> " style="width:20%;height:20%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px; float:left; margin-right: 5%;"></p>
 </div>
@@ -27,10 +27,14 @@
 <br>
 <ul class="_h9luf">
   <div class="_bnq48">
- <a class="_t98z6" href="followers"> Follower: <span class="_fd86t" title="360">{{$user_follower}}</a>
+    <a class="_t98z6" href="javascript:;" onclick="window.open('/followers', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
+          Follower: <span class="_fd86t" title="360">{{$user_follower}}</span>
+    </a>
  </div>
   <div class="_bnq48">
-  <a class="_t98z6" href="follow"> Followed: <span class="_fd86t" title="360">{{$user_follow}}</a>
+    <a class="_t98z6" href="javascript:;" onclick="window.open('/follows', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
+          Followed: <span class="_fd86t" title="360">{{$user_follow}}</span>
+    </a>
   </div>
 </ul>
 </section>
