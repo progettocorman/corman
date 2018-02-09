@@ -10,7 +10,7 @@
     $user_follower = \App\Http\Controllers\UserController::getNumberFollower($id);
 
 ?>
-<p><img src="/profile_images/{{$image}}" style="width:56px;height:56px;"></p>
+<p><img src="/profile_images/{{$image}}" style="width:55%; height:55%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></p>
 <p>{{$name}}</p>
 <p>{{$last_name}}</p>
 <p>{{$affiliation}}</p>
