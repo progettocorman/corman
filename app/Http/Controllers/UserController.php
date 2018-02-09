@@ -185,15 +185,25 @@ class UserController extends Controller
 
     }
 
-    public static function getFollow($user_id){
+    public static function getNumberFollow($user_id){
       $users = DB::table('friendships')->where('user_id',$user_id)->count();
       return $users;
     }
 
-    public static function getFollower($user_id){
+    public static function getNumberFollower($user_id){
       $users = DB::table('friendships')->where('user_follow',$user_id)->count();
       return $users;
-}
+    }
+
+    public static function getFollow(){
+      $users = DB::table('friendships')->where('user_id',$user_id);
+      return view('followModal')->with(['follows' => $users]);
+    }
+
+    public static function getFollower(){
+        $users = DB::table('friendships')->where('user_follow',$user_id);
+        return view('followerModal')->with(['followers' => $users]);
+    }
     public static function logout(Request $request){
 
         $request->session()->flush();
