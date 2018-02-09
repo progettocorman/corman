@@ -140,8 +140,9 @@ class PublicationController extends Controller
 
 
     //AGGIUNGE ALLEGATI (SE PRESENTI) ALLA PUBBLICAZIONE
-    if($publicationModel->ee != NULL)  AttachmentController::addAttachment($publication_id->id, 1, $publicationModel->ee);
-    
+    if($publicationModel->ee != NULL)  AttachmentController::addAttachmentToPublication($publication_id->id,$publicationModel->ee,"pdf");
+    if($publicationModel->url != NULL)  AttachmentController::addAttachmentToPublication($publication_id->id,$publicationModel->url,"dblp");
+
     return $publication_id->id;
   }
 

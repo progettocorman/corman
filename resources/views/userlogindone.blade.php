@@ -18,8 +18,8 @@
                                    'users.name','users.second_name', 'users.last_name',
                                    'posts.text','posts.created_at'
                             )->where('friendships.user_follow',$id)->orderBy('posts.created_at','desc')->distinct()->get();
+  $results = array();
   $i = 0;
-
   foreach ($publications as $publication) {
     $results[$i] = $publication;
     $i++;
@@ -46,7 +46,7 @@
     <div class="col-sm-8 text-left">
 
       @foreach ($results as $result)
- 
+
         @if (isset($result->posts_id))
           <!--Allegati  -->
             <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
