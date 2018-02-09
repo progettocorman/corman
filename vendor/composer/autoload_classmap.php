@@ -75,6 +75,7 @@ return array(
     'App\\PublicationGroup' => $baseDir . '/app/PublicationGroup.php',
     'App\\Publications_tags' => $baseDir . '/app/Publications_tags.php',
     'App\\Topic' => $baseDir . '/app/Topic.php',
+    'App\\Types' => $baseDir . '/app/Types.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\UsersPost' => $baseDir . '/app/UsersPost.php',
     'App\\UsersPublication' => $baseDir . '/app/UsersPublication.php',

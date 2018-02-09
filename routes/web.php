@@ -81,3 +81,6 @@ Route::get('/follows','UserController@getFollow');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 Route::get('/test','Test@test');
+
+
+
