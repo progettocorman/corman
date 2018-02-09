@@ -1,7 +1,7 @@
 
 <?php
-    $user_follow = \App\Http\Controllers\UserController::getFollow(session('id'));
-    $user_follower = \App\Http\Controllers\UserController::getFollower(session('id'));
+    $user_follow = \App\Http\Controllers\UserController::getNumberFollow(session('id'));
+    $user_follower = \App\Http\Controllers\UserController::getNumberFollower(session('id'));
 
 ?>
 
@@ -17,9 +17,9 @@
 
 <section class="_o6mpc">
 <div class="_ienqf">
-<h1>{{$name}} {{$last_name}} {{$affiliation}}  @if($id ==session('id'))<button class="btn btn-primary" type="button" onClick="location.href='settingaccount'">Settings</button> </h1>@endif
+<h1>{{$name}} {{$last_name}} @if($id ==session('id'))<button class="btn btn-primary" type="button" onClick="location.href='settingaccount'">Settings</button> </h1>@endif
+<h2>{{$affiliation}}</h2>
 </div>
-<br>
 <br>
 <ul class="_h9luf">
   <div class="_bnq48">
