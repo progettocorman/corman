@@ -48,18 +48,26 @@ class PostController extends Controller
     public static function modifyPostVisibility(Request $request)
     {
       $user_id = session('id');
-      $post_id = $request('post_id');
-      $user = \App\User::find($user_id);
-      $post = $user->posts()->where('posts_id',$post_id)->get();
-      $post->pivot->visibility = $request('visibility');
+      $post_id = $request->post_id;
+      DB::table('users_posts')->where('user_id',$user_id)->where('posts_id',$post_id)
+        ->update(array("visibility"=>$request->visibility));
+
+      //
+      // $post_id = $request->post_id;
+      // $user_id = session('id');
+      // $user = \App\User::find($user_id);
+      // $post = $user->posts()->where('posts_id',$post_id)->get();
+      // // $post->pivot->visibility = $request->visibility;
+      // $post->updateExistingPivot($post_id,$request->visibility);
+      return redirect('tot_post');
     }
 
 
     public static function modifyPost(Request $request){
-      $id = 10;
-      $post = \App\Post::find($id);
+      $post_id = $request('post_id');
+      $post = \App\Post::find($post_id);
       $post->update([
-          'text' => $request->input('testo')
+          'text' => $request->input('text')
       ]);
     }
 

@@ -21,12 +21,15 @@ Route::get('/logout','UserController@logout');//logout utente da ogni pagina
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
-Route::get('/search','Search@generalSearch');
+Route::get('/search', function(){
+  return view('search_result');
+});
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/addPublication', 'PublicationController@manualAdd'); //Caricamento manuale
 Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 Route::get('/logout', 'UserController@logout');//uscire dal profilo
-
+Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
+Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
 
 //ANTONIO
 Route::get('/formregister', function () {
@@ -80,7 +83,4 @@ Route::get('/follows','UserController@getFollow');
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
-Route::get('/test','Test@test');
-
-
-
+// Route::get('/test','Test@test');
