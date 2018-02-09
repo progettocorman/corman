@@ -199,7 +199,7 @@ class UserController extends Controller
       $user_id = session('id');
       $user = \App\User::find($user_id);
 
-      $follows = $user->follows();
+      $follows = $user->follows;
 
       return view('follow')->with(['follows' => $follows]);
     }
@@ -208,7 +208,7 @@ class UserController extends Controller
       $user_id = session('id');
       $user = \App\User::find($user_id);
 
-      $followers = $user->followers();
+      $followers = $user->followers;
 
       return view('follower')->with(['followers' => $followers]);
     }

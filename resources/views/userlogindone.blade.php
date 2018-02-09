@@ -41,6 +41,8 @@
       <div class="col-sm-2 sidenav">
       <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
       <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='setting_group'">Crea Gruppo</button></br></br>
+
         @include('group_bar')
       </div>
     <div class="col-sm-8 text-left">
@@ -67,21 +69,22 @@
             <td>
                 <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
             </td>
-            <td>
+            <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
-          </td>
+          </td> -->
+            <!--
             <td>
               <div class="btn-group">
                <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
-            </div>
+            </div> -->
             </td>
             </tr>
               <tr>
             <td>
               <!--Data Post -->
-            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
+            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </td>
                 </tr>
                 <tr>

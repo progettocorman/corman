@@ -100,10 +100,6 @@
       <div class="col-sm-2 sidenav">
         <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
         <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
-        <div class="well">
-
-        </div>
-
       </div>
     </div>
     </div>

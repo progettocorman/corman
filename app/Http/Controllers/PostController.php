@@ -41,7 +41,7 @@ class PostController extends Controller
          //sezione per salvare i tags//
 
           $query = DB::table('users')->select('*')->where('id', $id)->first();
-          return view('/userprofile')->with("name",$query->name)->with("last_name",$query->last_name)
+          return view('/userprofile')->with('id',$user->id)->with("name",$query->name)->with("last_name",$query->last_name)
           ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
     }
 

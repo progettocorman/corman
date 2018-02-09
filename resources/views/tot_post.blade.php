@@ -52,6 +52,9 @@
             <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
         <td>
+        <a href="modify"><img src="image/modifica_1.png"></a>
+      </td>
+        <td>
           <div class="btn-group">
            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
            <span class="caret"></span>
