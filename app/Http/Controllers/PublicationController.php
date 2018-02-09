@@ -139,6 +139,10 @@ class PublicationController extends Controller
     $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
 
 
+    //AGGIUNGE ALLEGATI (SE PRESENTI) ALLA PUBBLICAZIONE
+    if($publicationModel->ee != NULL)  AttachmentController::addAttachmentToPublication($publication_id->id,$publicationModel->ee,"pdf");
+    if($publicationModel->url != NULL)  AttachmentController::addAttachmentToPublication($publication_id->id,$publicationModel->url,"dblp");
+
     return $publication_id->id;
   }
 

@@ -1,16 +1,20 @@
+<<<<<<< HEAD
 
 <p><img src="/profile_images/
+=======
+>>>>>>> 1f2b88d0ad24418af0a6f8884c24e7b3e7186c98
 <?php
     $id = session('id');
     $query = DB::table('users')->select('*')->where('id',$id)->first();
     $name = $query->name;
     $last_name = $query->last_name;
     $affiliation = $query->affiliation;
-    echo $query->user_image;
-    $user_follow = \App\Http\Controllers\UserController::getNumberFollow($id);
-    $user_follower = \App\Http\Controllers\UserController::getNumberFollower($id);
+    $image =  $query->user_image;
+    $user_follow = \App\Http\Controllers\UserController::getFollow($id);
+    $user_follower = \App\Http\Controllers\UserController::getFollower($id);
 
-?> " style="width:56px;height:56px;"></p>
+?>
+<p><img src="/profile_images/{{$image}}" style="width:56px;height:56px;"></p>
 <p>{{$name}}</p>
 <p>{{$last_name}}</p>
 <p>{{$affiliation}}</p>

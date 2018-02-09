@@ -21,9 +21,6 @@ class AttachmentController extends Controller
               Storage::delete($file);
               $nomefiledacaricare = explode("/", $file);
               $filee = $fileinpost->move(public_path('uploads'),$nomefiledacaricare[1]);
-              ?>
-              <img src="uploads/<?php echo $nomefiledacaricare[1]; ?>">
-              <?php
             }
       $pieces = explode(".", $file);
              // Estensione $pieces[1]
@@ -31,20 +28,27 @@ class AttachmentController extends Controller
 
       //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
-        $attachment = new AttachmentsPost;
-        $attachment->posts_id = $id_subject;
-        $attachment->namefile = $file;
-        $attachment->typefile = $pieces[1];
-        $attachment->save();
+        AttachmentController::addAttachmentToPost($id_subject,$file,$pieces[1]);
       }
       else { //publication
-        $attachment = new AttachmentsPublication;
-        $attachment->publication_id = $id_subject;
-        $attachment->namefile = $file;
-        $attachment->typefile = $pieces[1];
-        $attachment->save();
-
+        AttachmentController::addAttachmentToPublication($id_subject,$file,$pieces[1]);
       }
 
+    }
+
+    public static function addAttachmentToPost($post_id,$name_file,$type_file){
+      $attachment = new AttachmentsPost;
+      $attachment->posts_id = $post_id;
+      $attachment->namefile = $name_file;
+      $attachment->typefile = $type_file;
+      $attachment->save();
+    }
+
+    public static function addAttachmentToPublication($publication_id,$name_file,$type_file){
+      $attachment = new AttachmentsPublication;
+      $attachment->publication_id = $publication_id;
+      $attachment->namefile = $name_file;
+      $attachment->typefile = $type_file;
+      $attachment->save();
     }
 }
