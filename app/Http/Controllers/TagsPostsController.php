@@ -30,9 +30,21 @@ class TagsPostsController extends Controller
   }
 
 
-  public function showTags(Request $request)
+  public function showTags($idpost)
   {
-    //todo
+
+    $query = DB::table('posts_tags')->select('*')->where('posts_id',$idpost)->orderby('created_at	','cresc')->get();
+    
+    $tags = array();
+    $i = 0;
+    
+    foreach($query as $query->value){
+        $tags[i] = $query->value;
+        $i=$i+1;
+        }
+  
+    return $tags;
+  
   }
 
 }
