@@ -2,7 +2,6 @@
 <?php
     $user_follow = \App\Http\Controllers\UserController::getNumberFollow(session('id'));
     $user_follower = \App\Http\Controllers\UserController::getNumberFollower(session('id'));
-
 ?>
 
 <link rel="stylesheet" href="css/information_profile.css" type="text/css" />
