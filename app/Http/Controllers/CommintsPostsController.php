@@ -40,14 +40,16 @@ class CommintsPostsController extends Controller
 
     $commints = array();
     $i = 0;
+    
     foreach($query as $singlevalue){
         $queryname = DB::table('users')->select('name','last_name')->where('id',$singlevalue->user_id)->first();
         $commints[i] = "$queryname->name  $queryname->last_name: $singlevalue->value";
         $i=$i+1;
-    }
+        }
   
     return $comints;
-}
+  
+   }
 
 
 }

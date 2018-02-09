@@ -3,9 +3,7 @@
         <title>Follower </title>
     </head>
     <body>
-        @foreach($followers as $follower)
-          <p> this is a follower </p>
-        @endforeach
+      <h2 class="subheader">Follower</h2>
 
     <body>
 </html>
