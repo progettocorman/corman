@@ -16,7 +16,7 @@
     </div>
       <div class="col-sm-8 text-left">
       @include('information_profile')
-       @include('navbar_profile')
+      @include('navbar_profile')
 
         <table class="tables" width="50%" border="0">
         <tr>
@@ -49,6 +49,9 @@
     <tr>
   <td>
   <input class="Commenti" placeholder="Commenta" id="comment">
+  </td>
+  <td>
+  <button type=”submit”>invia</button>
   </td>
   </tr>
         </table>
@@ -84,7 +87,12 @@
     </tr>
     <tr>
     <td>
-    <input class="Commenti" placeholder="Commenta" id="comment">
+    <input class="Commenti" placeholder="Commenta" id="comment" >
+    </td>
+    <td>
+    <button type=”submit”>
+      invia
+    </button>
     </td>
     </tr>
         </table>
@@ -93,7 +101,7 @@
         <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
         <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
         <div class="well">
-        
+
         </div>
 
       </div>

@@ -13,21 +13,21 @@ class Search extends Controller
       $keyword = $request->keyword;
 
       $publications = Search::publicationSearch($keyword);
-      if(empty($publications))echo "Nessuna Pubblicazione";
-      else var_dump($publications);
-      echo "<br>";
+      // if(empty($publications))echo "Nessuna Pubblicazione";
+      // else var_dump($publications);
+      // echo "<br>";
 
       $users = Search::userSearch($keyword);
-      if(empty($users))echo "Nessun Utente";
-      else var_dump($users);
-      echo "<br>";
+      // if(empty($users))echo "Nessun Utente";
+      // else var_dump($users);
+      // echo "<br>";
 
       $groups = Search::groupSearch($keyword);
-      if(empty($groups))echo "Nessun Gruppo";
-      else var_dump($groups);
-      echo "<br>";
+      // if(empty($groups))echo "Nessun Gruppo";
+      // else var_dump($groups);
+      // echo "<br>";
 
-      // todo
+        return view('search_result')->with('users',$users);
     }
 
     public static function searchByTag(Request $request){

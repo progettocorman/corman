@@ -192,7 +192,7 @@
     <div class="col-sm-2 sidenav">
       <div class="well">
         <?php echo $__env->make('profile_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        <button class="btn btn-primary" onClick="location.href='userprofile'">profile</button>
+        <button class="btn btn-primary" onClick="location.href='userprofile?id=<?php echo e(session('id')); ?>'">Profile</button>
       </div>
     </div>
   </div>

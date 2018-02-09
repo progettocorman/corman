@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +13,25 @@
       @include('group_bar')
     </div>
     <div class="col-sm-8 text-left">
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-            <p><img src="/profile_images" style="width:56px;height:56px;"></p>
-            <button type="button" class="btn btn-primary active">Segui</button>
-            <button type="button" class="btn btn-primary disabled">Segui già</button>
-        </td>
-        <td>
-            <p>Name e cognome ricercatore</p>
-            <p>Affiliation</p>
-            <button class="btn btn-primary" onClick="location.href=''">Vai al profilo ricercatore</button></br></br>
-        </td>
-      </tr>
-      </table>
 
+      @foreach ($users as $user)
+        <?php $userInfo = DB::table('users')->where('id',$user)->first() ?>
+        <?php $followed = DB::table('friendships')->where('user_id',$user)->where('user_follow',session('id'))->first()?>
+        <table class="tables" width="50%" border="0">
+        <tr>
+          <td>
+              <p><img src="/profile_images/{{$userInfo->user_image}}" style="width:56px;height:56px;"></p>
+              @if($followed == null && $user != session('id'))<button type="button" class="btn btn-primary active">Segui</button>
+              @elseif($followed != null && $user != session('id'))<button type="button" class="btn btn-primary disabled">Segui già</button>@endif
+          </td>
+          <td>
+              <p>{{$userInfo->name}} {{$userInfo->second_name}} {{$userInfo->last_name}}</p>
+              <p>{{$userInfo->affiliation}}</p>
+              <button class="btn btn-primary" onClick="location.href='userprofile?id={{$user}}'">User Profile</button></br></br>
+          </td>
+        </tr>
+        </table>
+      @endforeach
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
@@ -72,7 +78,7 @@
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')
-        <button class="btn btn-primary" onClick="location.href='userprofile'">vai al profilo utente</button>
+        <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">User profile</button>
       </div>
 
     </div>
