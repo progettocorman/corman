@@ -1,5 +1,5 @@
 <?php
-  $id= session('id');
+  $id = $_GET['id'];
   $query = \DB::table('users_posts')->join('posts', 'users_posts.posts_id', '=', 'posts.id')->join('users','users.id','=','user_id')
                             ->select('users_posts.posts_id','users_posts.visibility',
                                    'users.name','users.second_name', 'users.last_name',
@@ -30,8 +30,8 @@
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <div class="collapse navbar-collapse" id="navbarNav">
           <div  id="profilenavbar" class="navbar-nav">
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni'> Pubblicazioni </a>
-              <a class="oneprofilenavbar" href='tot_post'style="color:DodgerBlue;"> Post </a>
+              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'> Pubblicazioni </a>
+              <a class="oneprofilenavbar" href='tot_post?id={{$id}}'style="color:DodgerBlue;"> Post </a>
           </div>
         </div>
       </nav>

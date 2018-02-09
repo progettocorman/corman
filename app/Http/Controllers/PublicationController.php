@@ -62,7 +62,7 @@ class PublicationController extends Controller
 
       PublicationController::addPublicationToAuthor($user_id, $publication_id->id ,$user_name);
 
-      echo $publicationModel->title."è già presente <br>";//DEBUG
+      // echo $publicationModel->title."è già presente <br>";//DEBUG
 
     }//...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA
 
@@ -131,7 +131,7 @@ class PublicationController extends Controller
 
       PublicationController::addPublicationToAuthor($user_id, $publication_id->id ,$user_name);
 
-      echo $publicationModel->title."è già presente <br>";//DEBUG
+      // echo $publicationModel->title."è già presente <br>";//DEBUG
       return -1;
     }
     //...SE INVECE LA PUBBLICAZIONE NON È ANCORA PRESENTE NEL DB, VIENE INSERITA

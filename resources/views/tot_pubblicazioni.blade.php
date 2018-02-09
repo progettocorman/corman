@@ -1,5 +1,5 @@
 <?php
-  $id= session('id');
+  $id = $_GET['id'];
   $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
                             ->select('users_publications.publication_id','users_publications.visibility',
                                    'users.name','users.second_name', 'users.last_name',
@@ -39,7 +39,7 @@
             <table class "tables" width="50%" border="0" style="margin:auto;">
               <tr>
                 <td>
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni'style="color:DodgerBlue;"> Pubblicazioni </a>
+              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'style="color:DodgerBlue;"> Pubblicazioni </a>
               <div class="btn-group">
                <button type="button" data-toggle="dropdown">
                <span class="caret"></span>
@@ -52,7 +52,7 @@
             </div>
           </td>
           <td>
-              <a class="oneprofilenavbar" href='tot_post'> Post </a>
+              <a class="oneprofilenavbar" href='tot_post?id={{$id}}'> Post </a>
             </td>
           </tr>
         </table>
@@ -81,8 +81,8 @@
         <td>
             <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
-        <td>
-        <a href="modify"><img src="image/modifica_1.png"></a>
+        @if($id == session('id'))<td>
+          <a href="modify"><img src="image/modifica_1.png"></a>
       </td>
         <td>
           <div class="btn-group">
@@ -95,7 +95,7 @@
           <a class="dropdown-item" href="/setVisibilityPub?visibility=2&publication_id={{$result->publication_id}}">Solo Io</a><br/>
          </div>
         </div>
-        </td>
+        </td>@endif
         </tr>
           <tr>
         <td>
