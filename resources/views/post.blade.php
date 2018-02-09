@@ -26,9 +26,22 @@
             </tr>
             <tr>
               <td>
+                 <p><label>Visibility</label></P>
+              </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="radio" name="visibility[]"  value='publico' checked> Pubblico<br>
+                  <input type="radio" name="visibility[]" value='privato'> Privato<br>
+                  <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
+                </td>
+              </tr>
+              <tr>
+              <td>
                 <label >Tag </label>
               </td>
             </tr>
+
             <tr>
               <td>
               <input type="text" placeholder="Inserisci il tag"  name ="tags" data-role="tagsinput" />

@@ -47,6 +47,7 @@
              <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Ordina per topics</a><br/>
               <a class="dropdown-item" href="#">Ordina per categorie</a><br/>
+              <a class="dropdown-item" href="#">Ordina per visibilità</a><br/>
              </div>
             </div>
           </td>

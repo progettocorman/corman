@@ -103,44 +103,47 @@
                 </td>
               </tr>
               <tr>
-
-                   <td>
+                <td>
                      <label>Co-Autori</label>
                  </td>
+                 <td>
+                  <label>Topic</label>
+            </td>
+              </tr>
 
 
-               <td>
-                <label>Topic</label>
-          <select class="form-control" name="topics" placeholder="Topic">
-            @foreach ($query as $topic)
-                <option>{{$topic->topic_name}}</option>
-            @endforeach
-          </select>
-          </td>
 
-
-               </tr>
                <tr>
 
                   <td>
                        <input type="text" placeholder="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
-                     </td>
+                  </td>
+                  <td>
+                    <select class="form-control" name="topics" placeholder="Topic">
+                      @foreach ($query as $topic)
+                          <option>{{$topic->topic_name}}</option>
+                      @endforeach
+                    </select>
+                  </td>
                 </tr>
             <tr>
               <td>
                 <label>Allegati</label>
              </td>
-
-            <tr>
-            </tr>
-
-            <tr>
+             <td>
+                <p><label>Visibility</label></P>
+             </td>
+           </tr>
+             <tr>
               <td>
               <input type="file" name="fileUpload1" multiple>
             </td>
-
+            <td>
+              <input type="radio" name="visibility[]"  value='publico' checked> Pubblico
+              <input type="radio" name="visibility[]" value='privato'> Privato
+              <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
+            </td>
             </tr>
-
              <tr>
               <td>
                 <button type="submit" class="btn btn-primary">Pubblica</button>
