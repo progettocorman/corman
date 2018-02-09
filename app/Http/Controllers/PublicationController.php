@@ -238,11 +238,18 @@ class PublicationController extends Controller
 
   public static function modifyPublicationVisibility(Request $request){
     $user_id = session('id');
-    $publication_id = $request('post_id');
-    $user = \App\User::find($user_id);
-    $publication = $user->publications()->where('publication_id',$publication_id)->get();
-    $publication->pivot->visibility = $request('visibility');
+    $publication_id = $request->publication_id;
+    \DB::table('users_publications')->where('user_id',$user_id)->where('publication_id',$publication_id)
+      ->update(array("visibility"=>$request->visibility));
+    // $user_id = session('id');
+    // $publication_id = $request->publication_id;
+    // $user = \App\User::find($user_id);
+    // $publication = $user->publications()->where('publication_id',$publication_id)->get();
+    // $publication->pivot->visibility = $request->visibility;
+
+    return redirect('/tot_pubblicazioni');
   }
+
 
 
   public static function addCondivison(Request $request,$group){

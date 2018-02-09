@@ -1,7 +1,7 @@
 <?php
   $id= session('id');
   $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
-                            ->select('users_publications.publication_id',
+                            ->select('users_publications.publication_id','users_publications.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type'
                             )->where('user_id',$id)->orderBy('publications.created_at','desc')->distinct();
@@ -80,9 +80,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Pubblico</a><br/>
-          <a class="dropdown-item" href="#">Solo amici</a><br/>
-          <a class="dropdown-item" href="#">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?visibility=0&publication_id={{$result->publication_id}}">Pubblico</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?visibility=1&publication_id={{$result->publication_id}}">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?visibility=2&publication_id={{$result->publication_id}}">Solo Io</a><br/>
          </div>
         </div>
         </td>
@@ -90,7 +90,12 @@
           <tr>
         <td>
           <!--Data Pubblicazione -->
-        <p>{{$result->year}}</p>
+        <p>{{$result->year}} @if(isset($result->visibility)) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              @if($result->visibility == 0)Pubblico
+                                                @elseif($result->visibility == 1) Privato
+                                                @elseif($result->visibility == 2) Solo Io
+                                              @endif
+                                    @endif</p>
         </td>
             </tr>
             <tr>

@@ -5,19 +5,19 @@
                             ->select('publication_id')
                             ->join('publications','publications.id','=','users_publications.publication_id')
                             ->join('users','users.id','=','friendships.user_id')
-                            ->select('users_publications.publication_id',
+                            ->select('users_publications.publication_id','users_publications.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type','publications.created_at'
-                            )->where('friendships.user_follow',$id)->orderBy('publications.id','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orderBy('publications.id','desc')->distinct()->get();
 
   $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
                             ->select('posts_id')
                             ->join('posts','posts.id','=','users_posts.posts_id')
                             ->join('users','users.id','=','friendships.user_id')
-                            ->select('users_posts.posts_id',
+                            ->select('users_posts.posts_id', 'users_posts.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'posts.text','posts.created_at'
-                            )->where('friendships.user_follow',$id)->orderBy('posts.created_at','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orderBy('posts.created_at','desc')->distinct()->get();
   $results = array();
   $i = 0;
   foreach ($publications as $publication) {
@@ -75,18 +75,13 @@
                <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
-             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Pubblico</a><br/>
-              <a class="dropdown-item" href="#">Solo amici</a><br/>
-              <a class="dropdown-item" href="#">Privato</a><br/>
-             </div>
             </div>
             </td>
             </tr>
               <tr>
             <td>
               <!--Data Post -->
-            <p>{{$result->created_at}}</p>
+            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
             </td>
                 </tr>
                 <tr>
@@ -152,7 +147,7 @@
                 <tr>
               <td>
                 <!--Data Pubblicazione -->
-              <p>{{$result->year}}</p>
+              <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
               </td>
                   </tr>
                   <tr>

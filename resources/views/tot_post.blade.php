@@ -1,7 +1,7 @@
 <?php
   $id= session('id');
   $query = \DB::table('users_posts')->join('posts', 'users_posts.posts_id', '=', 'posts.id')->join('users','users.id','=','user_id')
-                            ->select('users_posts.posts_id',
+                            ->select('users_posts.posts_id','users_posts.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'posts.text','posts.created_at'
                             )->where('user_id',$id)->orderBy('posts.created_at','desc')->distinct();
@@ -57,9 +57,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Pubblico</a><br/>
-          <a class="dropdown-item" href="#">Solo amici</a><br/>
-          <a class="dropdown-item" href="#">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?visibility=0&post_id={{$result->posts_id}}">Pubblico</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?visibility=1&post_id={{$result->posts_id}}">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?visibility=2&post_id={{$result->posts_id}}">Solo Io</a><br/>
          </div>
         </div>
         </td>
@@ -67,7 +67,12 @@
           <tr>
         <td>
           <!--Data Post -->
-        <p>{{$result->created_at}}</p>
+          <p>{{$result->created_at}} @if(isset($result->visibility)) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                @if($result->visibility == 0)Pubblico
+                                                  @elseif($result->visibility == 1) Privato
+                                                  @elseif($result->visibility == 2) Solo Io
+                                                @endif
+                                      @endif</p>
         </td>
             </tr>
             <tr>

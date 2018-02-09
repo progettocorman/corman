@@ -12,9 +12,22 @@ class Test extends Controller{
 
 
   public function test(Request $request){
-
+    echo $request->visibility;
   }
 
+
+  public static function formatTimestamp ($created_at, $flag){
+    //ELABORAZIONE DATA E ORA PER ORDINAMENTO
+    $tmpDate = explode("-",$created_at);
+    $tmpTime = explode(":",$tmpDate[2]);
+    $day = explode(" ",$tmpTime[0]);
+
+    $date = $tmpDate[0].$tmpDate[1].$day[0];
+    $time = $day[1].$tmpTime[1].$tmpTime[2];
+
+    if($flag ==1) return $date.$time;
+    else return $time;
+  }
 
 
   public function apiTest(Request $request){
