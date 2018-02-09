@@ -67,21 +67,22 @@
             <td>
                 <p><?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
             </td>
-            <td>
+            <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
-          </td>
+          </td> -->
+            <!--
             <td>
               <div class="btn-group">
                <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
-            </div>
+            </div> -->
             </td>
             </tr>
               <tr>
             <td>
               <!--Data Post -->
-            <p><?php echo e($result->created_at); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e($result->visibility); ?></p>
+            <p><?php echo e($result->created_at); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </td>
                 </tr>
                 <tr>
