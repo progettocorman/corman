@@ -30,8 +30,25 @@
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <div class="collapse navbar-collapse" id="navbarNav">
           <div  id="profilenavbar" class="navbar-nav">
+            <table class "tables" width="50%" border="0" style="margin:auto;">
+              <tr>
+                <td>
               <a class="oneprofilenavbar"  href='tot_pubblicazioni'style="color:DodgerBlue;"> Pubblicazioni </a>
+              <div class="btn-group">
+               <button type="button" data-toggle="dropdown">
+               <span class="caret"></span>
+              </button>
+             <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Ordina per topics</a><br/>
+              <a class="dropdown-item" href="#">Ordina per categorie</a><br/>
+             </div>
+            </div>
+          </td>
+          <td>
               <a class="oneprofilenavbar" href='tot_post'> Post </a>
+            </td>
+          </tr>
+        </table>
           </div>
         </div>
       </nav>
@@ -82,7 +99,7 @@
             <!--Dati della Pubblicazione  -->
           <p> {{$result->title}}
               <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
+
               Published on: {{$result->venue}} <br>
               @if(isset($result->volume))Volume:{{$result->volume}}@endif
               @if(isset($result->number)), Number: {{$result->number}} ,@endif
@@ -118,7 +135,7 @@
     </div>
   </div>
   </div>
-
-  </body>
-
+   </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
 </html>

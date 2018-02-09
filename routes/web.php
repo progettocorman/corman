@@ -33,6 +33,10 @@ Route::get('/formregister', function () {
     return view('formview');
 });
 
+Route::get('/modify', function () {
+    return view('modify');
+});
+
 Route::get('/tot_pubblicazioni', function () {
     return view('tot_pubblicazioni');
 });

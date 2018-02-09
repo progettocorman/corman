@@ -46,7 +46,7 @@
     <div class="col-sm-8 text-left">
 
       @foreach ($results as $result)
-
+ 
         @if (isset($result->posts_id))
           <!--Allegati  -->
             <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
@@ -68,8 +68,11 @@
                 <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
             </td>
             <td>
+            <a href="modify"><img src="image/modifica_1.png"></a>
+          </td>
+            <td>
               <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+               <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
              <div class="dropdown-menu">
@@ -198,5 +201,6 @@
   </div>
 
   </body>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </html>
