@@ -22,9 +22,11 @@
              <li><a href="notifications"><img src="image/senza_notifica.png"></a></li>
              <li><a href="notifications"><img src="image/notifica_arrivata.png"></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="image/punta_freccia.jpg"></a>
           <ul class="dropdown-menu">
-            <li><a href="/logout">Exit  </a></li>
+            <li><a href="/logout">Exit </a></li>
+            <p>____________________</p>
+            <li><a href="/logout">Help </a></li>
           </ul>
         </li>
       </ul>

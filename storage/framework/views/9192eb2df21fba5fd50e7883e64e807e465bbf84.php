@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Corman-Welcome</title>
 
       <!-- Stiamo includendo lo stile di boodstrap dalla nostra cartella -->
 
