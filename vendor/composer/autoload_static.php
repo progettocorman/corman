@@ -438,6 +438,7 @@ class ComposerStaticInitb8d64d48536eaec768d3487ddec87aa0
         'App\\PublicationGroup' => __DIR__ . '/../..' . '/app/PublicationGroup.php',
         'App\\Publications_tags' => __DIR__ . '/../..' . '/app/Publications_tags.php',
         'App\\Topic' => __DIR__ . '/../..' . '/app/Topic.php',
+        'App\\Types' => __DIR__ . '/../..' . '/app/Types.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\UsersPost' => __DIR__ . '/../..' . '/app/UsersPost.php',
         'App\\UsersPublication' => __DIR__ . '/../..' . '/app/UsersPublication.php',

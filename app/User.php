@@ -18,6 +18,20 @@ class User extends Model
      return $this->belongsToMany('\App\Publication','users_publication','user_id','publication_id')->withPivot('visibility','author_name');
    }
 
+
+   public function followers(){
+   		return $this->belongsToMany('User', 'friendships', 'user_follow', 'user_id');
+    }
+
+    public function follows(){
+      return $this->belongsToMany('User', 'friendships', 'user_id', 'user_follow');
+    }
+
+
+   public function getFullName()
+   {
+          return $this->first_name . ' ' . $this->last_name;
+   }
    public function toSearchableArray(){
      $array =  $this->toArray();
 

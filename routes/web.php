@@ -21,7 +21,9 @@ Route::get('/logout','UserController@logout');//logout utente da ogni pagina
 
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
-Route::get('/search','Search@generalSearch');
+Route::get('/search', function(){
+  return view('search_result');
+});
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
 Route::post('/addPublication', 'PublicationController@manualAdd'); //Caricamento manuale
 Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
@@ -76,7 +78,8 @@ Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
 Route::post('/modify_user_settings', 'UserController@modifyData');//consente all'user loggato di modificare l'account
 Route::post('/publicPost','PostController@addUserPost');
-
+Route::get('/followers','UserController@getFollower');
+Route::get('/follows','UserController@getFollow');
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
