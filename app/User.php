@@ -30,7 +30,7 @@ class User extends Model
 
    public function getFullName()
    {
-          return $this->name + ' ' + $this->last_name;
+          return $this->name . ' ' . $this->second_name . ' ' . $this->last_name;
    }
    public function toSearchableArray(){
      $array =  $this->toArray();
