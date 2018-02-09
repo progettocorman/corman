@@ -6,7 +6,11 @@
                                    'posts.text','posts.created_at'
                             )->where('user_id',$id)->orderBy('posts.created_at','desc')->distinct();
  $results = $query->get();
-
+ $inf = \DB::table('users')->select('*')->where('id',$id)->first();
+ $user_image = $inf->user_image;
+ $name = $inf->name;
+ $last_name = $inf->last_name;
+ $affiliation = $inf->affiliation;
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +26,7 @@
       @include('group_bar')
     </div>
     <div class="col-sm-8 text-left">
+      @include('information_profile')
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <div class="collapse navbar-collapse" id="navbarNav">
           <div  id="profilenavbar" class="navbar-nav">

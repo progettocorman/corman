@@ -17,11 +17,16 @@
 
 <section class="_o6mpc">
 <div class="_ienqf">
-<h1>Nome gruppo </h1>
+<h1>{{$name}}</h1>
 <div class"bla">
-<h3>Privato</h3>
+  @if($visibility==1)
+      <h3>Pubblico</h3>
+  @else
+      <h3>Privato</h3>
+  @endif
+  <h5>numero partecipanti : {{$partecipants}} </h5>
 </div>
-<h5>Descrizione del gruppo</h5>
+<h5>{{$description}}</h5>
 </div>
 <br>
 <ul class="_h9luf">
