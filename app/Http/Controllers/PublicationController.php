@@ -270,4 +270,17 @@ class PublicationController extends Controller
         $publication->condivisions()->save($condivision);
   }
 
+  public static function modify(Request $request,$publication_id)
+  {
+    \DB::table('publications')->where('id',$publication_id)//id passato con get
+    ->update(array('title' =>$request->input('title'),
+                  'venue'=>$request->input('venue'),
+                  'volume'=>$request->input('volume'),
+                  'number'=>$request->input('number'),
+                  'pages'=>$request->input('pages'),
+                  'year'=>$request->input('year'),
+                  'type'=>$request->input('type'),
+                  'dbKey'=>$newDbKey ));
+  }
+
 }

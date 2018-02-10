@@ -63,9 +63,7 @@ Route::get('/group',function(){
     ->with("affiliation",$query->affiliation);
 });//indirizzamneto ai gruppi
 
-Route::get('/test2', function () {
-    return view('test');
-});
+
 
 Route::get('/post', 'PostController@getPostView'); //restituisce la view post con passaggio parametri
 
@@ -87,3 +85,10 @@ Route::get('/group','Group@getViewGroup');
 Route::get('/apiTest','Test@apiTest');
 // Route::get('/test','Test@test');
 
+
+
+Route::get('/modify', function () {
+    return view('publication_modify');
+});
+
+Route::post('/modify_publication', 'PublicationController@modify');
