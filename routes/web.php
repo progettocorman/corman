@@ -34,6 +34,7 @@ Route::get('/createGroup','Group@createGroup');
 Route::get('/condivisione', function () {  return view('condivisione');});
 Route::get('/condivisione2','CondivisionController@addcondivision');
 Route::get('/createGroup','Group@createGroup');
+Route::get('/modifyGroup','Group@modifyGroup');
 
 //ANTONIO
 Route::get('/formregister', function () {

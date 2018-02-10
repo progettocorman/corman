@@ -43,6 +43,34 @@ class Group extends Controller
               ->with('partecipants',$number)
               ->with('is_amministrator',true);
     }
+    public function modifyGroup(Request $request){
+  $group_id = $request->group_id;
+  $group = \App\Group::find($group_id);
+
+if($request->has('description') && $request->has('group_name')){
+  $group->group_name = $request->input('description');
+  $group->group_description = $request->input('group_name');
+  if($request->visibility[0] == "1")
+        $group->group_public = true;
+  else
+        $group->group_public = false;
+
+  $group->save();
+}
+/*
+$query = \DB::table('groups')->select('*')->where('id',$request->group_id)->first();
+$number =\DB::table('partecipations')->select('*')->where('group_id',$request->group_id)->count();
+return view('group')
+->with('id',$request->group_id)
+->with('name',$query->group_name)
+->with('description',$query->group_description)
+->with('image',$query->group_image)
+->with('visibility',$query->group_public)
+->with('partecipants',$number)
+->with('is_amministrator',true);*/
+
+Group::getViewGroup($request);
+}
 
 
 
@@ -143,7 +171,7 @@ class Group extends Controller
           DB::table('users')->where('id',$id)->update(['user_image'=>"defaultprofile.png" ]);
           $query = DB::table('users')->select('*')->where('id',$id)->first();
       }
-      
+
     }
 
 

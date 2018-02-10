@@ -70,6 +70,7 @@ body{
            <tr>
             <td>
               <button type="submit" class="btn btn-primary">Crea</button>
+              <button class="btn btn-primary" type="button" onClick="location.href='modifyGroup'">Modifica</button>
             </td>
            </tr>
     </table>
