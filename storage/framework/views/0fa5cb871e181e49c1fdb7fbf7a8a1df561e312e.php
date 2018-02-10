@@ -8,7 +8,7 @@
                             ->select('users_publications.publication_id','users_publications.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type','publications.created_at'
-                            )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orderBy('publications.id','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orWhere('users_publications.visibility',1)->orderBy('publications.id','desc')->distinct()->get();
 
   $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
                             ->select('posts_id')
@@ -17,7 +17,7 @@
                             ->select('users_posts.posts_id', 'users_posts.visibility',
                                    'users.name','users.second_name', 'users.last_name',
                                    'posts.text','posts.created_at'
-                            )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orderBy('posts.created_at','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orWhere('users_posts.visibility',1)->orderBy('posts.created_at','desc')->distinct()->get();
   $results = array();
   $i = 0;
   foreach ($publications as $publication) {

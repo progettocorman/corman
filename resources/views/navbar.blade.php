@@ -28,7 +28,7 @@
              @if($notificationNumber==0)<li><a href="notifications"><img src="image/senza_notifica.png"></a></li>
              @else<li><a href="notifications"><img src="image/notifica_arrivata.png"></a></li>@endif
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="image/punta_freccia.jpg"></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="image/exit.png"></a>
           <ul class="dropdown-menu">
             <li><a href="/logout">Exit </a></li>
             <p>____________________</p>

@@ -15,12 +15,13 @@
     height: auto;
     padding: 15px;
   }
-  .row.content {height:auto;}
+  .row.content {
+    height:auto;
+  }
 }
 
-}
-table {
-}
+table{}
+  
 .tables {
     box-shadow: 10px 10px 5px #dedede;
     margin-left:auto;
