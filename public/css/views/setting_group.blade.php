@@ -9,14 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/settingaccount.css" type="text/css" />
 </head>
-<style>
-body{
-  width:100%;
-  height:100%;
-  padding:0;
-  overflow:hidden;
-}
-</style>
+
 <body>
   @include('navbar')
   <div class="container-fluid text-center">
@@ -28,7 +21,7 @@ body{
 
       </div>
       <div class="col-sm-8 text-left">
-        <form method="get" action='createGroup'>
+        <form method="POST" action='modify_user_settings'>
         {{csrf_field()}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -47,8 +40,8 @@ body{
             <input type="text" class="form-control" name="group_name" >
          </td>
          <td>
-           <input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
-           <input type="radio" name="visibility[]" value='0'> Privato<br>
+           <input type="radio" name="gender[]"  value='M' checked> Pubblico<br>
+           <input type="radio" name="gender[]" value='F'> Privato<br>
           </td>
        </tr>
 
@@ -60,7 +53,7 @@ body{
 
         <tr>
           <td>
-            <input type="text" class="form-control" name="description" aria-describedby="description">
+            <input type="email" class="form-control" name="description" aria-describedby="description">
           </td>
         </tr>
 

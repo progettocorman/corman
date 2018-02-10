@@ -22,14 +22,7 @@
           }
       }
 </script>
-<style>
-body{
-  width:100%;
-  height:100%;
-  padding:0;
-  overflow:hidden;
-}
-</style>
+
   <body>
     @include('navbar')
     <div class="container-fluid text-center">
