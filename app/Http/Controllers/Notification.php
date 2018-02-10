@@ -27,7 +27,8 @@ class Notification extends Controller
       switch ($notification_type_id) {
           case 0://Notifica per gestione opere di coautori
               //$other[0] = Nome Autore
-              Api::addPublicationToAuthor($request,$user_id, $publication_id,$other);
+              PublicationController::addPublicationToAuthor($user_id, $object_id,$other[0]);
+              return redirect('home');
               break;
           case 1://Notifica per richiesta partecipazione ad un gruppo
               //$other[0] = NULL
@@ -73,12 +74,9 @@ class Notification extends Controller
             $notifications_array[$i] = $notification;
             $i = $i+1;
             }
-            
+
         return ($notifications_array);
-           
+
     }
 
 }
-
-
-
