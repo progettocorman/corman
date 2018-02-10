@@ -59,7 +59,7 @@ class PostController extends Controller
       // $post = $user->posts()->where('posts_id',$post_id)->get();
       // // $post->pivot->visibility = $request->visibility;
       // $post->updateExistingPivot($post_id,$request->visibility);
-      return redirect('tot_post');
+return redirect('/tot_post?id='.$request->id);
     }
 
 

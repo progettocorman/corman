@@ -247,7 +247,7 @@ class PublicationController extends Controller
     // $publication = $user->publications()->where('publication_id',$publication_id)->get();
     // $publication->pivot->visibility = $request->visibility;
 
-    return redirect('/tot_pubblicazioni');
+    return redirect('/tot_pubblicazioni?id='.$request->id);
   }
 
 
