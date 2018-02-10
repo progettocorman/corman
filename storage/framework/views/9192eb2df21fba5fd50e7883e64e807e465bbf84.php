@@ -47,6 +47,9 @@
           </td>
       </tr>
 </table>
+<div class="alert alert-warning">
+  <strong>Warning!</strong><a href="#" class="alert-link">Password o email errati</a>.
+</div>
     <button type="submit" class="btn btn-primary">SignIn</button>
   </form>
   </div>

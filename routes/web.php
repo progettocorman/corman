@@ -64,7 +64,9 @@ Route::get('/tot_post', function () {
 Route::get('/modifica_post', function () {
     return view('modifica_post');
 });
-
+Route::get('/f.a.q', function () {
+    return view('faq');
+});
 Route::post('/modifyPost', 'PostController@modifyPost');//modifica post
 
 Route::get('/group',function(){

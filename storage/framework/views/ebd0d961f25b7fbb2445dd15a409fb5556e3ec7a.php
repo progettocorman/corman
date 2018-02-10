@@ -22,6 +22,9 @@
   <div class="container-fluid">
   <div class="row content">
   <div class="col-sm-6 sidenav">
+    <div class="alert alert-warning">
+      <strong>Warning!</strong><a href="#" class="alert-link">Email già presente</a>.
+    </div>
     <form method="POST" action='insert_form'>
       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
       <div class="form-group">

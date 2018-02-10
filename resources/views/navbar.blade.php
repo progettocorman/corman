@@ -32,7 +32,7 @@
           <ul class="dropdown-menu">
             <li><a href="/logout">Exit </a></li>
             <p>____________________</p>
-            <li><a href="/logout">Help </a></li>
+            <li><a href="/f.a.q">Help </a></li>
           </ul>
         </li>
       </ul>
