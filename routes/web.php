@@ -77,6 +77,8 @@ Route::post('/publicPost','PostController@addUserPost');
 
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
+Route::post('/update_image_group', 'Group@imageUpdate');
+
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
