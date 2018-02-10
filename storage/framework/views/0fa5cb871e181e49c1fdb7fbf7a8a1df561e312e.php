@@ -6,18 +6,18 @@
                             ->join('publications','publications.id','=','users_publications.publication_id')
                             ->join('users','users.id','=','friendships.user_id')
                             ->select('users_publications.publication_id','users_publications.visibility',
-                                   'users.name','users.second_name', 'users.last_name',
+                                   'users.name','users.second_name', 'users.last_name','users.user_image',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type','publications.created_at'
-                            )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orWhere('users_publications.visibility',1)->orderBy('publications.id','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orWhere('users_publications.visibility',1)->where('friendships.user_follow',$id)->orderBy('publications.id','desc')->distinct()->get();
 
   $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
                             ->select('posts_id')
                             ->join('posts','posts.id','=','users_posts.posts_id')
                             ->join('users','users.id','=','friendships.user_id')
                             ->select('users_posts.posts_id', 'users_posts.visibility',
-                                   'users.name','users.second_name', 'users.last_name',
+                                   'users.name','users.second_name', 'users.last_name','users.user_image',
                                    'posts.text','posts.created_at'
-                            )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orWhere('users_posts.visibility',1)->orderBy('posts.created_at','desc')->distinct()->get();
+                            )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orWhere('users_posts.visibility',1)->where('friendships.user_follow',$id)->orderBy('posts.created_at','desc')->distinct()->get();
   $results = array();
   $i = 0;
   foreach ($publications as $publication) {
@@ -67,7 +67,8 @@
           <table class="tables" width="50%" border="0">
           <tr>
             <td>
-                <p><?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
+                <p><img src="/profile_images/<?php echo e($result->user_image); ?>"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                  &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
             </td>
             <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
@@ -133,9 +134,10 @@
             <table class="tables" width="50%" border="0">
             <tr>
               <td>
-                  <p><?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
+                  <p><img src="/profile_images/<?php echo e($result->user_image); ?>"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                    &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
               </td>
-              <td>
+              <!-- <td>
                 <div class="btn-group">
                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                  <span class="caret"></span>
@@ -146,7 +148,7 @@
                 <a class="dropdown-item" href="#">Privato</a><br/>
                </div>
               </div>
-              </td>
+              </td> -->
               </tr>
                 <tr>
               <td>
