@@ -17,8 +17,8 @@
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <div class="collapse navbar-collapse" id="navbarNav">
           <div  id="profilenavbar" class="navbar-nav">
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{session('id')}}'> Pubblicazioni </a>
-              <a class="oneprofilenavbar" href='"tot_post?id={{session('id')}}'> Post </a>
+              <a class="oneprofilenavbar"  href='tot_pubblicazioni'> Pubblicazioni </a>
+              <a class="oneprofilenavbar" href='tot_post'> Post </a>
           </div>
         </div>
       </nav>

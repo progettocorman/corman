@@ -28,14 +28,19 @@ Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 Route::get('/logout', 'UserController@logout');//uscire dal profilo
 Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
+<<<<<<< HEAD
+=======
+Route::get('/follow','Follow@followManager');
+Route::get('/createGroup','Group@createGroup');
+>>>>>>> ece50e18e017d683821063b7f53b322d1b57585f
 
 //ANTONIO
 Route::get('/formregister', function () {
     return view('formview');
 });
 
-Route::get('/modify', function () {
-    return view('modify');
+Route::get('/pubblicazionemod', function () {
+    return view('pubblicazionemod');
 });
 
 Route::get('/setting_group', function () {

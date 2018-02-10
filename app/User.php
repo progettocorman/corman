@@ -20,11 +20,11 @@ class User extends Model
 
 
    public function followers(){
-   		return $this->belongsToMany('\App\User', 'friendships', 'user_follow', 'user_id');
+   		return $this->belongsToMany('\App\User', 'friendships', 'user_id', 'user_follow');
     }
 
     public function follows(){
-      return $this->belongsToMany('\App\User', 'friendships', 'user_id', 'user_follow');
+      return $this->belongsToMany('\App\User', 'friendships', 'user_follow', 'user_id');
     }
 
 

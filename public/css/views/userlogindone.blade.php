@@ -30,10 +30,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php echo $__env->make('bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@include('bootstrap')
 
   <body>
-  <?php echo $__env->make('navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  @include('navbar')
 <div class="container-fluid text-center">
   <div class="row content">
       <div class="col-sm-2 sidenav">
@@ -41,13 +41,13 @@
       <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
       <button class="btn btn-primary" onClick="location.href='setting_group'">Crea Gruppo</button></br></br>
 
-        <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        @include('group_bar')
       </div>
     <div class="col-sm-8 text-left">
 
-      <?php $__currentLoopData = $results; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      @foreach ($results as $result)
 
-        <?php if(isset($result->posts_id)): ?>
+        @if (isset($result->posts_id))
           <!--Allegati  -->
             <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
          <!--Tags -->
@@ -65,8 +65,8 @@
           <table class="tables" width="50%" border="0">
           <tr>
             <td>
-                <p><img src="/profile_images/<?php echo e($result->user_image); ?>"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
-                  &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
+                <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                  &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
             </td>
             <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
@@ -83,25 +83,24 @@
               <tr>
             <td>
               <!--Data Post -->
-            <p><?php echo e($result->created_at); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </td>
                 </tr>
                 <tr>
               <td>
 
                 <!--Dati del Post  -->
-              <p> <?php echo e($result->text); ?></p>
+              <p> {{$result->text}}</p>
               <!--Allegati  -->
-              <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> <?php $__currentLoopData = $attachments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attachment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href=<?php echo e($attachment->namefile); ?>> <?php echo e($attachment->typefile); ?> </a>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+                    <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
+                @endforeach
               </p>
               <!--Tags-->
-              <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> @foreach($tags as $tag)
                   <!--TODO visualizzazione tag-->
-                  <?php echo e($tag->value); ?>
-
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  {{$tag->value}}
+                @endforeach
               </p>
 
                 </td>
@@ -112,7 +111,7 @@
             </td>
             </tr>
           </table>
-            <?php else: ?>
+            @else
             <!--Allegati  -->
               <?php $attachments = DB::table('attachments_publications')->select('*')->where('publication_id',$result->publication_id)->get(); ?>
            <!--Tags -->
@@ -132,8 +131,8 @@
             <table class="tables" width="50%" border="0">
             <tr>
               <td>
-                  <p><img src="/profile_images/<?php echo e($result->user_image); ?>"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
-                    &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
+                  <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                    &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
               </td>
               <!-- <td>
                 <div class="btn-group">
@@ -151,34 +150,30 @@
                 <tr>
               <td>
                 <!--Data Pubblicazione -->
-              <p><?php echo e($result->year); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e($result->visibility); ?></p>
+              <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
               </td>
                   </tr>
                   <tr>
                 <td>
 
                   <!--Dati della Pubblicazione  -->
-                <p> <?php echo e($result->title); ?>
-
-                    <br> <?php echo e($result->type); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    
-
-                    Published on: <?php echo e($result->venue); ?> <br>
-                    <?php if(isset($result->volume)): ?>Volume:<?php echo e($result->volume); ?><?php endif; ?>
-                    <?php if(isset($result->number)): ?>, Number: <?php echo e($result->number); ?> ,<?php endif; ?>
-                    <?php if(isset($result->pages)): ?>Pages: <?php echo e($result->pages); ?></p><?php endif; ?>
+                <p> {{$result->title}}
+                    <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
+                    Published on: {{$result->venue}} <br>
+                    @if(isset($result->volume))Volume:{{$result->volume}}@endif
+                    @if(isset($result->number)), Number: {{$result->number}} ,@endif
+                    @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
                 <!--Allegati  -->
-                <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> <?php $__currentLoopData = $attachments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attachment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <a href=<?php echo e($attachment->namefile); ?>> <?php echo e($attachment->typefile); ?> </a>
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+                      <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
+                  @endforeach
                 </p>
                 <!--Tags-->
-                <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> @foreach($tags as $tag)
                     <!--TODO visualizzazione tag-->
-                    #<?php echo e($tag->value); ?>
-
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    #{{$tag->value}}
+                  @endforeach
                 </p>
 
                   </td>
@@ -189,15 +184,15 @@
               </td>
               </tr>
             </table>
-            <?php endif; ?>
+            @endif
 
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      @endforeach
 
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <?php echo $__env->make('profile_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        <button class="btn btn-primary" onClick="location.href='userprofile?id=<?php echo e(session('id')); ?>'">Profile</button>
+        @include('profile_bar')
+        <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
       </div>
     </div>
   </div>
