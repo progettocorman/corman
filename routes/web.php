@@ -61,7 +61,7 @@ Route::get('/modifica_post', function () {
     return view('modifica_post');
 });
 
-Route::post('modifyPost', 'PostController@modifyPost');//modifica post
+Route::post('/modifyPost', 'PostController@modifyPost');//modifica post
 
 Route::get('/group',function(){
     $id = session('id');
