@@ -1,21 +1,19 @@
 <?php
   $id= session('id');
-
   $publications = \DB::table('friendships')->select('friendships.user_id')->join('users_publications', 'users_publications.user_id', '=', 'friendships.user_id')
                             ->select('publication_id')
                             ->join('publications','publications.id','=','users_publications.publication_id')
                             ->join('users','users.id','=','friendships.user_id')
                             ->select('users_publications.publication_id','users_publications.visibility',
-                                   'users.name','users.second_name', 'users.last_name',
+                                   'users.name','users.second_name', 'users.last_name','users.user_image',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type','publications.created_at'
                             )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orWhere('users_publications.visibility',1)->where('friendships.user_follow',$id)->orderBy('publications.id','desc')->distinct()->get();
-
   $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
                             ->select('posts_id')
                             ->join('posts','posts.id','=','users_posts.posts_id')
                             ->join('users','users.id','=','friendships.user_id')
                             ->select('users_posts.posts_id', 'users_posts.visibility',
-                                   'users.name','users.second_name', 'users.last_name',
+                                   'users.name','users.second_name', 'users.last_name','users.user_image',
                                    'posts.text','posts.created_at'
                             )->where('friendships.user_follow',$id)->where('users_posts.visibility',0)->orWhere('users_posts.visibility',1)->where('friendships.user_follow',$id)->orderBy('posts.created_at','desc')->distinct()->get();
   $results = array();
@@ -67,9 +65,19 @@
           <table class="tables" width="50%" border="0">
           <tr>
             <td>
-                <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
+                <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                  &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
             </td>
-
+            <!-- <td>
+            <a href="modify"><img src="image/modifica_1.png"></a>
+          </td> -->
+            <!--
+            <td>
+              <div class="btn-group">
+               <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+               <span class="caret"></span>
+              </button>
+            </div> -->
             </td>
             </tr>
               <tr>
@@ -123,9 +131,21 @@
             <table class="tables" width="50%" border="0">
             <tr>
               <td>
-                  <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
+                  <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                    &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
               </td>
-
+              <!-- <td>
+                <div class="btn-group">
+                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                 <span class="caret"></span>
+                </button>
+               <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Pubblico</a><br/>
+                <a class="dropdown-item" href="#">Solo amici</a><br/>
+                <a class="dropdown-item" href="#">Privato</a><br/>
+               </div>
+              </div>
+              </td> -->
               </tr>
                 <tr>
               <td>
@@ -139,7 +159,7 @@
                   <!--Dati della Pubblicazione  -->
                 <p> {{$result->title}}
                     <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                    @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
                     Published on: {{$result->venue}} <br>
                     @if(isset($result->volume))Volume:{{$result->volume}}@endif
                     @if(isset($result->number)), Number: {{$result->number}} ,@endif
