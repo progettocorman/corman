@@ -31,9 +31,9 @@
               </tr>
               <tr>
                 <td>
-                  <input type="radio" name="visibility[]"  value='publico' checked> Public<br>
-                  <input type="radio" name="visibility[]" value='privato'> Private<br>
-                  <input type="radio" name="visibility[]" value='solo io'> Just me<br>
+                  <input type="radio" name="visibility[]"  value='publico' checked> Pubblico<br>
+                  <input type="radio" name="visibility[]" value='privato'> Privato<br>
+                  <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
                 </td>
               </tr>
               <tr>

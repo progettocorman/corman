@@ -71,9 +71,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Public</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Private</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Just me</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Pubblico</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Solo io</a><br/>
          </div>
         </div>
         </td>

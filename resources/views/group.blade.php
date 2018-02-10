@@ -12,17 +12,7 @@
     </div>
     <div class="col-sm-8 text-left">
       @include('information_group')
-      <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
-
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div  id="profilenavbar" class="navbar-nav">
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{session('id')}}'> Pubblicazioni </a>
-              <a class="oneprofilenavbar" href='"tot_post?id={{session('id')}}'> Post </a>
-          </div>
-        </div>
-      </nav>
-
+       <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
         <div class="riga">
           <hr>
           <h3></h3>
@@ -31,7 +21,8 @@
           <p></p>
           <p></p>
         </div>
-
+        <div class="box">
+          <div class="box-inner">
 
       <table class="tables" width="50%" border="0">
       <tr>
@@ -78,6 +69,8 @@
   </td>
   </tr>
       </table>
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
