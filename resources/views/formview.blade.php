@@ -41,7 +41,7 @@
           <input type="text" class="form-control" name="user_name" placeholder="name" required>
         </td>
         <td>
-         <input type="text" class="form-control" name="user_lastname" placeholder="cognome" required>
+         <input type="text" class="form-control" name="user_lastname" placeholder="surname" required>
         </td>
       </tr>
 
@@ -68,7 +68,7 @@
           <label >Affiliation*</label>
         </td>
         <td>
-         <label for="exampleFormControlSelect1">Linee di ricerca</label>
+         <label for="exampleFormControlSelect1">Lines of research</label>
         </td>
       </tr>
 

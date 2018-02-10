@@ -21,8 +21,8 @@
 <div class="container-fluid text-center">
   <div class="row content">
      <div class="col-sm-2 sidenav">
-      <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
       @include('group_bar')
     </div>
     <div class="col-sm-8 text-left">
@@ -30,7 +30,7 @@
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <div class="collapse navbar-collapse" id="navbarNav">
           <div  id="profilenavbar" class="navbar-nav">
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'> Pubblicazioni </a>
+              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'> Publication </a>
               <a class="oneprofilenavbar" href='tot_post?id={{$id}}'style="color:DodgerBlue;"> Post </a>
           </div>
         </div>
@@ -67,9 +67,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Pubblico</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Privato</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Solo Io</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Public</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Private</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Just me</a><br/>
          </div>
         </div>
         </td>

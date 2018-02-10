@@ -5,7 +5,7 @@ $groups_partecipation = DB::table('groups')->join('partecipations','groups.id','
  ?>
 
 
-<h4>Lista dei gruppi a cui ti sei iscritto</h4>
+<h4>List of groups</h4>
 @foreach($groups_partecipation as $group)
       <p><a method="get" href="group?group_id={{$group->id}}">{{$group->group_name}}</a></p>
 @endforeach
