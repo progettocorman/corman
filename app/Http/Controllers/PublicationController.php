@@ -33,6 +33,8 @@ class PublicationController extends Controller
     $publicationModel->year = $request->input('year');
     $publicationModel->type = $request->input('type');
 
+
+
     $authors = explode(",", $request->input('coautori'));
 
 
@@ -68,6 +70,8 @@ class PublicationController extends Controller
 
     $publication_id =  \DB::table('publications')->select('id')->orderBy('id','desc')->first();
 
+
+
     $fileinpost =$request->file('fileUpload1');
     //Aggiunta allegato
     if(isset($fileinpost)){
@@ -83,6 +87,14 @@ class PublicationController extends Controller
         TagsPublicationsController::saveTags($tag,$publication_id->id);
       }
 
+
+      foreach ($request->input('visibility') as $vis) {
+        if($vis == "publico")$visibility = 0;
+        if($vis == "privato")$visibility = 1;
+        if($vis == "solo io")$visibility = 2;
+      }
+      \DB::table('users_publications')->where('user_id',$user_id)->where('publication_id',$publication_id->id)
+            ->update(array("visibility"=>$visibility));
       return redirect('home');
   }
 
