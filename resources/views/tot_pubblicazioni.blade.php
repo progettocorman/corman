@@ -65,6 +65,8 @@
           </div>
         </div>
       </nav>
+      <div class="box">
+        <div class="box-inner">
       @foreach ($results as $result)
       <!--Allegati  -->
         <?php $attachments = DB::table('attachments_publications')->select('*')->where('publication_id',$result->publication_id)->get(); ?>
@@ -146,8 +148,9 @@
         </tr>
       </table>
       @endforeach
-
-    </div> 
+    </div>
+   </div>
+    </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')

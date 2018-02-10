@@ -37,9 +37,9 @@
 <div class="container-fluid text-center">
   <div class="row content">
       <div class="col-sm-2 sidenav">
-      <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='setting_group'">Crea Gruppo</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
 
         <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       </div>
@@ -162,7 +162,7 @@
 
                     <br> <?php echo e($result->type); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <?php if(sizeof($topic)!=0): ?><?php echo e($topic->topic_name); ?><?php endif; ?><br><br>
+
 
                     Published on: <?php echo e($result->venue); ?> <br>
                     <?php if(isset($result->volume)): ?>Volume:<?php echo e($result->volume); ?><?php endif; ?>
