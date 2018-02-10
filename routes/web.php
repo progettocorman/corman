@@ -87,8 +87,9 @@ Route::get('/apiTest','Test@apiTest');
 
 
 
-Route::get('/modify', function () {
+Route::get('/modify_pub{$pub_id}', function () {
     return view('publication_modify');
 });
+
 
 Route::post('/modify_publication', 'PublicationController@modify');

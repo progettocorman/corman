@@ -3,6 +3,8 @@
     $id = session('id');
     $query = DB::table('topics')->select('topic_name')->get();
     $types = DB::table('types')->select('value')->distinct()->get();
+    $pubid = $pub_id;
+    echo $pubid;
 ?>
 
 

@@ -82,7 +82,7 @@
             <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
         @if($id == session('id'))<td>
-          <a href="modify"><img src="image/modifica_1.png"></a>
+          <a href="modify_pub?pub_id={{$id}}"><img src="image/modifica_1.png"></a>
       </td>
         <td>
           <div class="btn-group">
