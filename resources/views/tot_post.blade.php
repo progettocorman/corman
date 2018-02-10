@@ -8,8 +8,8 @@
  $results = $query->get();
  $inf = \DB::table('users')->select('*')->where('id',$id)->first();
  $user_image = $inf->user_image;
- 
- 
+
+
  $name = $inf->name;
  $last_name = $inf->last_name;
  $affiliation = $inf->affiliation;
@@ -62,8 +62,8 @@
             <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
         <td>
-                                     
         <a href="modifica_post?idpost={{$result->posts_id}}"><img src="image/modifica_1.png"></a>
+        <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
       </td>
         <td>
           <div class="btn-group">
