@@ -140,8 +140,7 @@
         </tr>
       </table>
       @endforeach
-
-    </div>
+  </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')
