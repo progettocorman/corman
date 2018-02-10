@@ -20,6 +20,7 @@ Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al pro
 Route::get('/logout','UserController@logout');//logout utente da ogni pagina
 Route::get('/notAcc','Notification@notificationManager');
 //ENRICO E RICCARDO
+
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
@@ -28,11 +29,8 @@ Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 Route::get('/logout', 'UserController@logout');//uscire dal profilo
 Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
-<<<<<<< HEAD
-=======
 Route::get('/follow','Follow@followManager');
 Route::get('/createGroup','Group@createGroup');
->>>>>>> ece50e18e017d683821063b7f53b322d1b57585f
 
 //ANTONIO
 Route::get('/formregister', function () {
@@ -70,6 +68,13 @@ Route::get('/group',function(){
 
 
 
+Route::get('/modifica_pubblicazione', function () { //mostra l'uri per la modifica delle
+    return view('modifica_pubblicazione');
+});
+
+
+Route::post('modifyPublication', 'PublicationController@modifyPublication');//modifica pubblicazioni
+
 Route::get('/post', 'PostController@getPostView'); //restituisce la view post con passaggio parametri
 
 Route::get('/pubblicazione', 'PublicationController@getPubblicazioneView');//  return view('pubblicazione')con parametri;
@@ -89,11 +94,3 @@ Route::get('/group','Group@getViewGroup');
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 // Route::get('/test','Test@test');
-
-
-Route::get('/modifica_pubblicazione', function () {
-    return view('modifica_pubblicazione');
-});
-
-
-Route::post('modifyPublication', 'PublicationController@modifyPublication');
