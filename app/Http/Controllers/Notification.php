@@ -79,4 +79,22 @@ class Notification extends Controller
 
     }
 
+    public static function notificationManager(Request $request){
+      if($request->accept == "1") {
+        $user = \DB::table('users')->where('id',session('id'))->first();
+
+        if(isset($user->second_name)){
+          $user_name = $user->name.' '.$user->second_name.' '.$user->last_name;
+        }
+        else {
+          $user_name = $user->name.' '.$user->last_name;
+        }
+        \App\Http\Controllers\Notification::notificationAcceptance($request->u,$request->o,$request->t,$request->s,$user_name);
+      }
+      else if($request->accept == "0"){
+          \App\Http\Controllers\Notification::notificationRefusement($request->u,$request->o,$request->t);
+      }
+      return redirect('/notifications');
+    }
+
 }

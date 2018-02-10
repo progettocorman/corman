@@ -18,10 +18,7 @@ Route::get('/home', 'UserController@getHome'); //indirizzamneto alla home con pa
 Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al profilo utente con passaggio parametri
 
 Route::get('/logout','UserController@logout');//logout utente da ogni pagina
-// Route::get('/notificationAnsw',function($request){
-//   if($request->answ == "y") \App\Http\Controllers\Notification
-//   else if($request->answ == "n")
-// });
+Route::get('/notAcc','Notification@notificationManager');
 //ENRICO E RICCARDO
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');

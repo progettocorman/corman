@@ -1,28 +1,7 @@
 <?php
   $id = session('id');
   $notifications = \App\Http\Controllers\Notification::notificationforUser();
-  $user = \DB::table('users')->where('id',$id)->first();
 
-  if(isset($user->second_name)){
-    $user_name = $user->name.' '.$user->second_name.' '.$user->last_name;
-  }
-  else {
-    $user_name = $user->name.' '.$user->last_name;
-  }
-
-  if(isset($_GET['acceptance']) && $_GET['acceptance']==1){
-    $u = $_GET['u'];
-    $o = $_GET['o'];
-    $t = $_GET['t'];
-    $s = $_GET['s'];
-  \App\Http\Controllers\Notification::notificationAcceptance($u,$o,$t,$s,$user_name);
-  }else if(isset($_GET['acceptance']) && $_GET['acceptance']==0){
-    $u = $_GET['u'];
-    $o = $_GET['o'];
-    $t = $_GET['t'];
-    \App\Http\Controllers\Notification::notificationRefusement($u,$o,$t);
-    
-  }
  ?>
 
 <!DOCTYPE html>
@@ -77,10 +56,10 @@
 
             <td>
               <td>
-                <button class="pushA" onClick="location.href = 'notifications?acceptance=1&s={{$notification->sender_id}}&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Accetta </button>
+                <button class="pushA" onClick="location.href = 'notAcc?accept=1&s={{$notification->sender_id}}&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Accetta </button>
               </td>
               <td>
-                <button class="pushR" onClick="location.href = 'notifications?acceptance=0&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Rifiuta </button>
+                <button class="pushR" onClick="location.href = 'notAcc?accept=0&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Rifiuta </button>
               </td>
             </td>
             </tr>
