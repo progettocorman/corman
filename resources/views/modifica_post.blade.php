@@ -2,7 +2,7 @@
 <?php
     $id = session('id');
     $postid= $_GET ['idpost'];
-    
+
     $post = DB::table('posts')->select('*')->where('id',$postid)->first();
     $textValue= $post->text;
     $post_tags = DB::table('posts_tags')->select('*')->where('posts_id',$postid)->get();
@@ -10,7 +10,7 @@
     foreach($post_tags  as $tag){
         $tags = $tag->value ;
         }
- 
+
 ?>
 
 
@@ -29,6 +29,7 @@
       <div class="col-sm-8 text-left">
         <form method='post' action='modifyPost' >
           {{ csrf_field() }}
+          <input type="hidden" name="postid" value="{{$postid}}">
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
@@ -60,8 +61,9 @@
 
             <tr>
               <td>
-   
-              <input type="text"  value={{$tags}} name ="tags" data-role="tagsinput" />
+
+                @if ($tags==null)<input type="text" name ="tags" placeholder="Nessun Tag" vadata-role="tagsinput" />
+                @else <input type="text" name ="tags" value="{{$tags}}" vadata-role="tagsinput" /> @endif
               </td>
             </tr>
             <tr>

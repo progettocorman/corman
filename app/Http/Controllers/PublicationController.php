@@ -237,9 +237,10 @@ class PublicationController extends Controller
   public static function modifyPublication(Request $request){
     //Bisonga vedere come passare l'id della pubblicazione
     $iduser = session('id');
-    
+    $idpub = $request->input('pubid');
+
     $newDbKey = md5($request->input('title').$request->input('year'));
-    \DB::table('publications')->where('id',1)//id passato con get
+    \DB::table('publications')->where('id',$idpub)//id passato con get
     ->update(array('title' =>$request->input('title'),
                   'venue'=>$request->input('venue'),
                   'volume'=>$request->input('volume'),
@@ -249,9 +250,9 @@ class PublicationController extends Controller
                   'type'=>$request->input('type'),
                   'dbKey'=>$newDbKey ));
 
-    \DB::table('publications_tag')->where('publications_id',1)//id passato con get
-    ->update(array('value' =>$request->input('tags')));     
-    
+    \DB::table('publications_tag')->where('publications_id',$idpub)//id passato con get
+    ->update(array('value' =>$request->input('tags')));
+
       /*ASSEGNA IL visibilità */
       $visibility =  $_POST['visibility'];
       foreach ($visibility as $values) {
@@ -266,10 +267,10 @@ class PublicationController extends Controller
            $number = 2;
         }
 
-    \DB::table('users_publications')->select('author_name','visibility')->where('publication_id',1)//id passato con get
-    ->update(array('author_name' =>$request->input('coautori'), 
+    \DB::table('users_publications')->select('author_name','visibility')->where('publication_id',$idpub)//id passato con get
+    ->update(array('author_name' =>$request->input('coautori'),
                   'visibility'=> $number ));
-  
+
      return redirect('/userprofile?id='. $iduser);
   }
 

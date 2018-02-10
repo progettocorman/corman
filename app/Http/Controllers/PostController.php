@@ -31,7 +31,7 @@ class PostController extends Controller
             if($vis == "privato")$visibility = 1;
             if($vis == "solo io")$visibility = 2;
           }
-          
+
           //$post->attac hments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
           $post->save();
           $post->users()->attach($id,['visibility' => $visibility]);
@@ -71,13 +71,13 @@ class PostController extends Controller
     public static function modifyPost(Request $request)
     {
       $iduser = session('id');
-      $post_id = 10;
+      $post_id = $request->input('postid');
       $post = \App\Post::find($post_id);
-     
 
-      \DB::table('posts_tags')->where('posts_id', $post_id)
-        ->update(array('value' =>$request->input('tags')));     
-    
+
+      if($request->input('tags')!=null)\DB::table('posts_tags')->where('posts_id', $post_id)
+        ->update(array('value' =>$request->input('tags')));
+
       /*ASSEGNA IL visibilità */
       $visibility = $_POST['visibility'];
       foreach ($visibility as $values) {
@@ -94,7 +94,7 @@ class PostController extends Controller
 
         DB::table('users_posts')->where('posts_id',$post_id)
         ->update(array('visibility'=>$number));
-       
+
         DB::table('posts')->where('id',$post_id)
         ->update(array('text'=>$request->input('testo')));
 

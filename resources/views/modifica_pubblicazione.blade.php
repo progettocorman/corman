@@ -8,7 +8,7 @@
     $publication = DB::table('publications')->select('*')->where('id',$idpub)->first();
     $tagspub = DB::table('publications_tag')->select('*')->where('publications_id',$idpub)->get();
     $user_publications = DB::table('users_publications')->select('*')->where('publication_id',$idpub)->get();
-    
+
     $title =  $publication->title;
     $venue = $publication->venue;
     $volume = $publication->volume;
@@ -16,9 +16,9 @@
     $pages = $publication->pages;
     $year = $publication->year;
     $type = $publication->type;
-    
+
     //PER I TAGS
-    
+    $tags = null;
    foreach($tagspub as $tag){
         $tags = $tag->value ;
         }
@@ -28,7 +28,7 @@
         $coautors =  $coauthor->author_name;
        }
 
-   
+
 ?>
 
 
@@ -49,6 +49,7 @@
         <!----------------------------------------FORM ----------------------------------->
         <form action="modifyPublication" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
+        <input type="hidden" name="idpub" value="{{$idpub}}">
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
@@ -62,7 +63,7 @@
            <tr>
              <td>
                 <input type="text" class="form-control" name="title" value={{$title}}  required>
-                
+
              </td>
              <td>
                 <input type="text" class="form-control" name="venue" value={{$venue}} required >
@@ -125,10 +126,11 @@
                   </select>
                 </td>
                 <td>
-                 
-                <input type="text" name ="tags" value={{$tags}} vadata-role="tagsinput" />
-            
-                  
+
+                @if ($tags==null)<input type="text" name ="tags" placeholder="Nessun Tag" vadata-role="tagsinput" />
+                @else <input type="text" name ="tags" value="{{$tags}}" vadata-role="tagsinput" /> @endif
+
+
                 </td>
               </tr>
               <tr>
