@@ -16,7 +16,7 @@
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
-                <label >Inserisci il tuo post </label>
+                <label >Insert your post </label>
               </td>
             </tr>
             <tr>
@@ -31,9 +31,9 @@
               </tr>
               <tr>
                 <td>
-                  <input type="radio" name="visibility[]"  value='publico' checked> Pubblico<br>
-                  <input type="radio" name="visibility[]" value='privato'> Privato<br>
-                  <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
+                  <input type="radio" name="visibility[]"  value='publico' checked> Public<br>
+                  <input type="radio" name="visibility[]" value='privato'> Private<br>
+                  <input type="radio" name="visibility[]" value='solo io'> Just me<br>
                 </td>
               </tr>
               <tr>
@@ -44,7 +44,7 @@
 
             <tr>
               <td>
-              <input type="text" placeholder="Inserisci il tag"  name ="tags" data-role="tagsinput" />
+              <input type="text" placeholder="Add tag"  name ="tags" data-role="tagsinput" />
               </td>
             </tr>
             <tr>
@@ -54,7 +54,7 @@
             </tr>
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">Pubblica</button>
+                <button type="submit" class="btn btn-primary">Share</button>
               </td>
              </tr>
         </table>

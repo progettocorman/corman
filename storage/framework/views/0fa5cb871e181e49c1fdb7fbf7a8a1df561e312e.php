@@ -44,7 +44,8 @@
         <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       </div>
     <div class="col-sm-8 text-left">
-
+      <div class="box">
+        <div class="box-inner">
       <?php $__currentLoopData = $results; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <?php if(isset($result->posts_id)): ?>
@@ -192,7 +193,8 @@
             <?php endif; ?>
 
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
