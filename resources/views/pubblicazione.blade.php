@@ -27,10 +27,10 @@
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
-                <label >Titolo</label>
+                <label >Title</label>
               </td>
               <td>
-                <label >Rivista</label>
+                <label >Magazine</label>
               </td>
             </tr>
 
@@ -48,7 +48,7 @@
                  <label >Volume</label>
               </td>
               <td>
-                  <label >Numero</label>
+                  <label >Number</label>
               </td>
             </tr>
 
@@ -64,10 +64,10 @@
 
             <tr>
               <td>
-                <label>Pagine</label>
+                <label>Pages</label>
               </td>
               <td>
-                 <label>Anno di pubblicazione</label>
+                 <label>Year of publication</label>
               </td>
             </tr>
 
@@ -83,7 +83,7 @@
 
               <tr>
                 <td>
-                  <label>Tipologia</label>
+                  <label>Type</label>
                 </td>
                 <td>
                   <label>Tag</label>
@@ -99,12 +99,12 @@
                   </select>
                 </td>
                 <td>
-                    <input type="text" placeholder="Inserisci il tag" name ="tags" data-role="tagsinput" />
+                    <input type="text" placeholder="Add tag" name ="tags" data-role="tagsinput" />
                 </td>
               </tr>
               <tr>
                 <td>
-                     <label>Co-Autori</label>
+                     <label>Co-Authors</label>
                  </td>
                  <td>
                   <label>Topic</label>
@@ -116,7 +116,7 @@
                <tr>
 
                   <td>
-                       <input type="text" placeholder="Inserisci co-autori" name ="coautori" data-role="tagsinput" />
+                       <input type="text" placeholder="Add co-authors" name ="coautori" data-role="tagsinput" />
                   </td>
                   <td>
                     <select class="form-control" name="topics" placeholder="Topic">
@@ -128,7 +128,7 @@
                 </tr>
             <tr>
               <td>
-                <label>Allegati</label>
+                <label>Attachments</label>
              </td>
              <td>
                 <p><label>Visibility</label></P>
@@ -146,7 +146,7 @@
             </tr>
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">Pubblica</button>
+                <button type="submit" class="btn btn-primary">Share</button>
               </td>
              </tr>
         </table>

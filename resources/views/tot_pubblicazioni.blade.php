@@ -49,11 +49,11 @@
                <span class="caret"></span>
               </button>
              <div class="dropdown-menu">
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Order by topics</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Order by categories</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Order by visibility</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Order by date</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Order by year</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Ordina per topics</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Ordina per categorie</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Ordina per visibilità</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Ordina per data</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Ordina per anno</a><br/>
              </div>
             </div>
           </td>
