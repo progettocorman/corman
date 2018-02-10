@@ -1,3 +1,8 @@
+<?php
+  $id = session('id');
+  $notifications = \App\Http\Controllers\Notification::notificationforUser();
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,157 +28,42 @@
     <div class="col-sm-8 text-left">
 
       <table class="tables" width="50%" border="2">
-      <tr>
-        <td>
-          <p> Nicola vuole seguirti </p>
-        </td>
-
-        <td>
-          <td>
-            <button class="pushA" type=”submit”>  Accetta </button>
-          </td>
-          <td>
-            <button class="pushR" type=”submit”>  Rifiuta </button>
-          </td>
-        </td>
-        </tr>
-
-        <tr>
-          <td>
-            <p> Antonio vuole seguirti </p>
-          </td>
-
-          <td>
-            <td>
-              <button class="pushA" type=”submit”>  Accetta </button>
-            </td>
-            <td>
-              <button class="pushR" type=”submit”>  Rifiuta </button>
-            </td>
-          </td>
-          </tr>
+        @foreach($notifications as $notification)
+        <?php $sender = \DB::table('users')->where('id',$notification->sender_id)->first();  ?>
 
           <tr>
             <td>
-              <p> Riccardo vuole seguirti </p>
+              <p><a href="userprofile?id={{$sender->id}}">{{$sender->name}} {{$sender->second_name}} {{$sender->last_name}}</a> @switch($notification->type_id)
+                                    @case(0)
+                                        <?php $publication = \DB::table('publications')->where('id',$notification->object_id)->first();  ?>
+                                        ha aggiunto la pubblicazione "{{$publication->title}}" di cui potresti essere coautore
+                                        @break
+
+                                    @case(1)
+                                        <?php $group = \DB::table('groups')->where('id',$notification->object_id)->first();  ?>
+                                        ha richiesto di partecipare al tuo gruppo "{{$group->group_name}}"
+                                        @break
+
+                                    @case(2)
+                                        <?php $group = \DB::table('groups')->where('id',$notification->object_id)->first(); ?>
+                                        ti ha invitato a partecipare al gruppo "{{$group->group_name}}"
+                                        @break
+                                    @case(3)
+                                        ha richiesto di seguirti
+                                @endswitch
+                            </p>
             </td>
 
             <td>
               <td>
-                <button class="pushA" type=”submit”>  Accetta </button>
+                <button class="pushA" onClick="location.href = 'notAcc?accept=1&s={{$notification->sender_id}}&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Accetta </button>
               </td>
               <td>
-                <button class="pushR" type=”submit”>  Rifiuta </button>
+                <button class="pushR" onClick="location.href = 'notAcc?accept=0&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Rifiuta </button>
               </td>
             </td>
             </tr>
-
-            <tr>
-              <td>
-                <p> Giovanni vuole seguirti </p>
-              </td>
-
-              <td>
-                <td>
-                  <button class="pushA" type=”submit”>  Accetta </button>
-                </td>
-                <td>
-                  <button class="pushR" type=”submit”>  Rifiuta </button>
-                </td>
-              </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <p> Enrico vuole seguirti </p>
-                </td>
-
-                <td>
-                  <td>
-                    <button class="pushA" type=”submit”>  Accetta </button>
-                  </td>
-                  <td>
-                    <button class="pushR" type=”submit”>  Rifiuta </button>
-                  </td>
-                </td>
-                </tr>
-      </table>
-
-      <table class="tables" width="50%" border="2">
-      <tr>
-        <td>
-          <p> Christian vuole seguirti </p>
-        </td>
-
-        <td>
-          <td>
-            <button class="pushA" type=”submit”>  Accetta </button>
-          </td>
-          <td>
-            <button class="pushR" type=”submit”>  Rifiuta </button>
-          </td>
-        </td>
-        </tr>
-
-        <tr>
-          <td>
-            <p> Nicola vuole seguirti </p>
-          </td>
-
-          <td>
-            <td>
-              <button class="pushA" type=”submit”>  Accetta </button>
-            </td>
-            <td>
-              <button class="pushR" type=”submit”>  Rifiuta </button>
-            </td>
-          </td>
-          </tr>
-
-          <tr>
-            <td>
-              <p> Giovanni vuole seguirti </p>
-            </td>
-
-            <td>
-              <td>
-                <button class="pushA" type=”submit”>  Accetta </button>
-              </td>
-              <td>
-                <button class="pushR" type=”submit”>  Rifiuta </button>
-              </td>
-            </td>
-            </tr>
-
-            <tr>
-              <td>
-                <p> Enrico vuole seguirti </p>
-              </td>
-
-              <td>
-                <td>
-                  <button class="pushA" type=”submit”>  Accetta </button>
-                </td>
-                <td>
-                  <button class="pushR" type=”submit”>  Rifiuta </button>
-                </td>
-              </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <p> Antonio vuole seguirti </p>
-                </td>
-
-                <td>
-                  <td>
-                    <button class="pushA" type=”submit”>  Accetta </button>
-                  </td>
-                  <td>
-                    <button class="pushR" type=”submit”>  Rifiuta </button>
-                  </td>
-                </td>
-                </tr>
+        @endforeach
       </table>
 
     </div>

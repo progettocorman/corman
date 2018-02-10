@@ -13,12 +13,12 @@ use App\User;
 class Api extends Controller
 {
     //SI OCCUPA DI INVOCARE LE RESTFUL API DI dblp E PROCESSARE IL RISULTATO
-    public function dblpApi(Request $request){
-      $user_name = Api::formatName($request->name);
+    public static function dblpApi(Request $request,$name){
+      $user_name = Api::formatName($name);
       $user_id = $request->session()->get('id');
       //IMPOSTA LA RISORSA curl CON L'URL DA INTERROGARE
       // $ch = curl_init("http://dblp.org/search/publ/api?q=author%3A".$name."%3A&format=json");
-      $ch = curl_init("http://dblp.org/search/publ/api?q=author%3A".$request->name."%3A&format=json");
+      $ch = curl_init("http://dblp.org/search/publ/api?q=author%3A".$name."%3A&format=json");
 
       //IMPOSTA L'OPZIONE CURLOPT_RETURNTRANSFER A true IN MODO DA POTER CONSERVARE IL RISULTATO IN UNA VARIABILE
       //CON LA FUNZIONE curl_multi_getcontent();
@@ -30,8 +30,8 @@ class Api extends Controller
       $jsonResult= json_decode(curl_multi_getcontent($ch));
       //SE L'UTENTE NON È PRESENTE IN dblp, RIPORTA MESSAGGIO
       if(!isset($jsonResult->result->hits->hit)){
-        echo "L'utente non è presente il dblp";//TODO MESSAGGIO ERRORE
-        return redirect('/');
+        // echo "L'utente non è presente il dblp";//TODO MESSAGGIO ERRORE
+        // return redirect('/home');
       }
       //ESTRAE IN MODO APPROPRIATO I DATI DI INTERESSE DALLA VARIABILE
       //Array che contiene i nomi dei campi da utilizzare come chiavi(tranne authors, trattato separatamente);
@@ -58,7 +58,7 @@ class Api extends Controller
       }
       //LIBERA LA RISORSA ALLOCATA
       curl_close($ch);
-      return redirect('/home');
+      // return redirect('/home');
     }
 
 

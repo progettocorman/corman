@@ -54,7 +54,8 @@ class UserController extends Controller
       if(isset($user->second_name))$userName = $user->name."_".$user->second_name."_".$user->last_name;
       else $userName = $user->name."_".$user->last_name;
 
-      return redirect('/api?name='.$userName); //a seguito della registrazione indirizzaimo l'user in 'welcome'
+      Api::dblpApi($request,$userName);
+      return redirect('/home'); //a seguito della registrazione indirizzaimo l'user in 'welcome'
 
   }
 
@@ -143,7 +144,12 @@ class UserController extends Controller
         $request->session()->put('id',$id);
         $request->session()->put('password',$query);
 
-        return view('userprofile')->with("name", $user->name)->with("last_name", $user->last_name)->with("affiliation",$user->affiliation)->with("user_image", $user->user_image);
+        if(isset($user->second_name))$userName = $user->name."_".$user->second_name."_".$user->last_name;
+        else $userName = $user->name."_".$user->last_name;
+
+        Api::dblpApi($request, $userName);
+        return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image)
+               ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
     }
 
     public function getHome(Request $request)
@@ -180,7 +186,7 @@ class UserController extends Controller
 
         $id = $request->id; // mantego le info su un dato utente conservando l'id
         $query = DB::table('users')->select('*')->where('id', $id)->first();
-        return view('userprofile')->with('id',$query->id)->with("name", $query->name)->with("user_image", $query->user_image)
+        return view('userprofile')->with('id',$id)->with("name", $query->name)->with("user_image", $query->user_image)
         ->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
 
     }

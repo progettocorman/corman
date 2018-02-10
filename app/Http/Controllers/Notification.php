@@ -27,7 +27,8 @@ class Notification extends Controller
       switch ($notification_type_id) {
           case 0://Notifica per gestione opere di coautori
               //$other[0] = Nome Autore
-              Api::addPublicationToAuthor($request,$user_id, $publication_id,$other);
+              PublicationController::addPublicationToAuthor($user_id, $object_id,$other[0]);
+              return redirect('home');
               break;
           case 1://Notifica per richiesta partecipazione ad un gruppo
               //$other[0] = NULL
@@ -73,12 +74,27 @@ class Notification extends Controller
             $notifications_array[$i] = $notification;
             $i = $i+1;
             }
-            
+
         return ($notifications_array);
-           
+
+    }
+
+    public static function notificationManager(Request $request){
+      if($request->accept == "1") {
+        $user = \DB::table('users')->where('id',session('id'))->first();
+
+        if(isset($user->second_name)){
+          $user_name = $user->name.' '.$user->second_name.' '.$user->last_name;
+        }
+        else {
+          $user_name = $user->name.' '.$user->last_name;
+        }
+        \App\Http\Controllers\Notification::notificationAcceptance($request->u,$request->o,$request->t,$request->s,$user_name);
+      }
+      else if($request->accept == "0"){
+          \App\Http\Controllers\Notification::notificationRefusement($request->u,$request->o,$request->t);
+      }
+      return redirect('/notifications');
     }
 
 }
-
-
-
