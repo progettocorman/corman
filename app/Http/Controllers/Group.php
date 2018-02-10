@@ -126,6 +126,22 @@ class Group extends Controller
               ->with('partecipants',$number);
     }
 
+    public static function imageUpdate(Request $request){
+      $id = session('id');
+      $fileinpost = $request->file('user_image');
+      if ( $fileinpost != null) {
+          $file =  $fileinpost->store('profile_images');
+          Storage::delete($file);
+          $nomefiledacaricare = explode("/", $file);
+          $filee = $fileinpost->move(public_path('profile_images'),$id.".png");
+          DB::table('users')->where('id',$id)->update(['user_image'=>$id.".png" ]);
+          $query = DB::table('users')->select('*')->where('id',$id)->first();
+      }else{
+          DB::table('users')->where('id',$id)->update(['user_image'=>"defaultprofile.png" ]);
+          $query = DB::table('users')->select('*')->where('id',$id)->first();
+      }
+      
+    }
 
 
 
