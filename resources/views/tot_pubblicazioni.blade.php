@@ -90,12 +90,8 @@
             <p>{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
         </td>
         @if($id == session('id'))<td>
-<<<<<<< HEAD
                   
           <a href="modifica_pubblicazione?idpub={{$result->publication_id}}"><img src="image/modifica_1.png"></a>
-=======
-          <a href="modify"><img src="image/modifica_1.png"></a>
->>>>>>> cf13b08f3fcb1ef6e062330a47675d9d5587fa20
       </td>
         <td>
           <div class="btn-group">
