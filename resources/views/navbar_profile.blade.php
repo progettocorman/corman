@@ -3,7 +3,7 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <div class="collapse navbar-collapse" id="navbarNav">
     <div  id="profilenavbar" class="navbar-nav">
-        <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'> Pubblicazioni </a>
+        <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'> Publications </a>
         <a class="oneprofilenavbar" href='tot_post?id={{$id}}'> Post </a>
     </div>
   </div>

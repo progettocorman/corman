@@ -35,8 +35,8 @@ body{
     <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
-          <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-          <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
+          <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+          <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
           @include('group_bar')
 
         </div>
@@ -95,7 +95,7 @@ body{
               <label >Affiliation*</label>
             </td>
             <td>
-               <label for="exampleFormControlSelect1">Linee di ricerca</label>
+               <label for="exampleFormControlSelect1">Lines of research</label>
             </td>
           </tr>
 

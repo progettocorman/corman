@@ -64,16 +64,41 @@ class PostController extends Controller
       // $post = $user->posts()->where('posts_id',$post_id)->get();
       // // $post->pivot->visibility = $request->visibility;
       // $post->updateExistingPivot($post_id,$request->visibility);
-return redirect('/tot_post?id='.$request->id);
+    return redirect('/tot_post?id='.$request->id);
     }
 
 
-    public static function modifyPost(Request $request){
-      $post_id = $request('post_id');
+    public static function modifyPost(Request $request)
+    {
+      $iduser = session('id');
+      $post_id = 10;
       $post = \App\Post::find($post_id);
-      $post->update([
-          'text' => $request->input('text')
-      ]);
+     
+
+      \DB::table('posts_tags')->where('posts_id', $post_id)
+        ->update(array('value' =>$request->input('tags')));     
+    
+      /*ASSEGNA IL visibilità */
+      $visibility = $_POST['visibility'];
+      foreach ($visibility as $values) {
+               $visibility_value = $values;
+              }
+
+     if($visibility_value == 'Pubblico'){
+        $number = 0;
+        }else if($visibility_value == 'Privato'){
+          $number = 1;
+        }else {
+           $number = 2;
+        }
+
+        DB::table('users_posts')->where('posts_id',$post_id)
+        ->update(array('visibility'=>$number));
+       
+        DB::table('posts')->where('id',$post_id)
+        ->update(array('text'=>$request->input('testo')));
+
+        return redirect('/userprofile?id='. $iduser);
     }
 
 

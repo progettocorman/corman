@@ -37,14 +37,15 @@
 <div class="container-fluid text-center">
   <div class="row content">
       <div class="col-sm-2 sidenav">
-      <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='setting_group'">Crea Gruppo</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
 
         @include('group_bar')
       </div>
     <div class="col-sm-8 text-left">
-
+      <div class="box">
+        <div class="box-inner">
       @foreach ($results as $result)
 
         @if (isset($result->posts_id))
@@ -191,7 +192,8 @@
             @endif
 
       @endforeach
-
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

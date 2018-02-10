@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+<?php
+    $id = session('id');
+    $postid= $_GET ['idpost'];
+    
+    $post = DB::table('posts')->select('*')->where('id',$postid)->first();
+    $textValue= $post->text;
+    $post_tags = DB::table('posts_tags')->select('*')->where('posts_id',$postid)->get();
+
+    foreach($post_tags  as $tag){
+        $tags = $tag->value ;
+        }
+ 
+?>
+
+
+
   <html lang="en">
 
     @include('bootstrap')
@@ -11,17 +27,17 @@
       @include('group_bar')
   </div>
       <div class="col-sm-8 text-left">
-        <form method='post' action='publicPost' >
+        <form method='post' action='modifyPost' >
           {{ csrf_field() }}
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
-                <label >Insert your post </label>
+                <label >Modifica il tuo post </label>
               </td>
             </tr>
             <tr>
               <td>
-                <textarea name="testo" style="width: 100%; height: 100px;"></textarea>
+                <textarea name="testo"  style="width: 100%; height: 100px;">{{$textValue}}</textarea>
               </td>
             </tr>
             <tr>
@@ -31,9 +47,9 @@
               </tr>
               <tr>
                 <td>
-                  <input type="radio" name="visibility[]"  value='publico' checked> Public<br>
-                  <input type="radio" name="visibility[]" value='privato'> Private<br>
-                  <input type="radio" name="visibility[]" value='solo io'> Just me<br>
+                  <input type="radio" name="visibility[]"  value='publico' checked> Pubblico<br>
+                  <input type="radio" name="visibility[]" value='privato'> Privato<br>
+                  <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
                 </td>
               </tr>
               <tr>
@@ -44,7 +60,8 @@
 
             <tr>
               <td>
-              <input type="text" placeholder="Add tag"  name ="tags" data-role="tagsinput" />
+   
+              <input type="text"  value={{$tags}} name ="tags" data-role="tagsinput" />
               </td>
             </tr>
             <tr>
@@ -54,7 +71,7 @@
             </tr>
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">Share</button>
+                <button type="submit" class="btn btn-primary">Pubblica</button>
               </td>
              </tr>
         </table>

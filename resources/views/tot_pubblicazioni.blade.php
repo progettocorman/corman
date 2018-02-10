@@ -1,10 +1,14 @@
 <?php
   $id = $_GET['id'];
+
+  if(isset($_GET['ordBy'])){
+    $order = $_GET['ordBy'];
+  }else $order = "publications.created_at";
   $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
-                            ->select('users_publications.publication_id','users_publications.visibility',
+                            ->select('users_publications.publication_id','users_publications.visibility as visibility',
                                    'users.name','users.second_name', 'users.last_name',
-                                   'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type'
-                            )->where('user_id',$id)->orderBy('publications.created_at','desc')->distinct();
+                                   'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year as year', 'publications.type as type','publications.topics_id as topic'
+                            )->where('user_id',$id)->orderBy($order,'desc')->distinct();
  $results = $query->get();
  $inf = \DB::table('users')->select('*')->where('id',$id)->first();
  $user_image = $inf->user_image;
@@ -26,8 +30,8 @@
 <div class="container-fluid text-center">
   <div class="row content">
      <div class="col-sm-2 sidenav">
-      <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
       @include('group_bar')
     </div>
 
@@ -39,15 +43,17 @@
             <table class "tables" width="50%" border="0" style="margin:auto;">
               <tr>
                 <td>
-              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'style="color:DodgerBlue;"> Pubblicazioni </a>
+              <a class="oneprofilenavbar"  href='tot_pubblicazioni?id={{$id}}'style="color:DodgerBlue;"> Publications </a>
               <div class="btn-group">
                <button type="button" data-toggle="dropdown">
                <span class="caret"></span>
               </button>
              <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Ordina per topics</a><br/>
-              <a class="dropdown-item" href="#">Ordina per categorie</a><br/>
-              <a class="dropdown-item" href="#">Ordina per visibilità</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Order by topics</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Order by categories</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Order by visibility</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Order by date</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Order by year</a><br/>
              </div>
             </div>
           </td>
@@ -148,7 +154,7 @@
       @endforeach
     </div>
    </div>
-  </div>
+    </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')

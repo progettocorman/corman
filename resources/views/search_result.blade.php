@@ -45,7 +45,7 @@
       @if(sizeof($groups)==0) <p>Nessun Gruppo Trovato </p>@endif
       @foreach ($groups as $group)
           <?php $groupInfo = DB::table('groups')->where('id',$group)->first() ?>
-          <?php $partecipation = DB::table('$partecipation')->where('user_id',session('id'))->where('group_id',$group)->first()?>
+          <?php $partecipation = DB::table('partecipations')->where('user_id',session('id'))->where('group_id',$group)->first()?>
           <table class="tables" width="50%" border="0">
           <tr>
             <td>

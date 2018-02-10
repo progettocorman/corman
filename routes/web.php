@@ -60,7 +60,11 @@ Route::get('/tot_post', function () {
     return view('tot_post');
 });
 
+Route::get('/modifica_post', function () {
+    return view('modifica_post');
+});
 
+Route::post('/modifyPost', 'PostController@modifyPost');//modifica post
 
 Route::get('/group',function(){
     $id = session('id');
@@ -75,7 +79,6 @@ Route::get('/modifica_pubblicazione', function () { //mostra l'uri per la modifi
     return view('modifica_pubblicazione');
 });
 
-
 Route::post('modifyPublication', 'PublicationController@modifyPublication');//modifica pubblicazioni
 
 Route::get('/post', 'PostController@getPostView'); //restituisce la view post con passaggio parametri
@@ -86,8 +89,6 @@ Route::post('/publicPost','PostController@addUserPost');
 
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
 
-Route::post('/update_image_group', 'Group@imageUpdate');
-
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login
 Route::get('/settingaccount', 'UserController@passDataToAccount');//passa i dati all'account
@@ -96,6 +97,7 @@ Route::post('/publicPost','PostController@addUserPost');
 Route::get('/followers','UserController@getFollower');
 Route::get('/follows','UserController@getFollow');
 Route::get('/group','Group@getViewGroup');
+
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
 // Route::get('/test','Test@test');
