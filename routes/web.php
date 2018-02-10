@@ -29,6 +29,7 @@ Route::get('/logout', 'UserController@logout');//uscire dal profilo
 Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
 Route::get('/follow','Follow@followManager');
+Route::get('/createGroup','Group@createGroup');
 
 //ANTONIO
 Route::get('/formregister', function () {

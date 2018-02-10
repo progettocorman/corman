@@ -4,28 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Session;
 
 use \App\Partecipation;
 
 class Group extends Controller
 {
     //Crea un nuovo gruppo e setta l'utente come amministratore di tale gruppo
-    public static function createGroup(Request $request, $groupName, $scope, $groupDescription, $groupImage){
+  public static function createGroup(Request $request/*, $groupName, $scope, $groupDescription, $groupImage*/){
       $group = new \App\Group;
-      $group->group_name = $groupName;
-      $group->group_public = $scope;
+      $group->group_name = $request->input('group_name');
+      if($request->visibility[0] == "1")
+            $group->group_public = true;
+      else
+            $group->group_public = false;
+
       $group->created_by = $request->session()->get('id');
 
       if(isset($groupImage)) $group->group_image = $groupImage;
-      if(isset($groupDescription)) $group->group_description = $groupDescription;
+      if(isset($groupDescription)) $group->group_description = $request->input('description');
 
       // $group->searchable();
       $group->save();
 
       $groupId = \DB::table('groups')->select('id')->orderBy('id','desc')->first();
 
+
+
       Group::addUser($group->created_by, $groupId->id, true);
+
+      $number = 1/*\DB::table('partecipations')->select('*')->where('group_id',$groupId)->count()*/;
+      return view('group')
+              ->with('id',$groupId)
+              ->with('name',$group->group_name)
+              ->with('description',$group->group_description)
+              ->with('image',$group->group_image)
+              ->with('visibility',$group->group_public)
+              ->with('partecipants',$number);
     }
+
+
 
     //Elimina un gruppo
     public static function deleteGroup($groupId){
@@ -93,7 +111,10 @@ class Group extends Controller
     }
 
     public static function getViewGroup(Request $request){
-      $group_id = $request->group_id;
+
+        $group_id = $request->group_id;
+
+
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
       $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
       return view('group')
@@ -104,5 +125,8 @@ class Group extends Controller
               ->with('visibility',$query->group_public)
               ->with('partecipants',$number);
     }
+
+
+
 
 }

@@ -21,7 +21,7 @@
 
       </div>
       <div class="col-sm-8 text-left">
-        <form method="POST" action='modify_user_settings'>
+        <form method="get" action='createGroup'>
         {{csrf_field()}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -40,8 +40,8 @@
             <input type="text" class="form-control" name="group_name" >
          </td>
          <td>
-           <input type="radio" name="gender[]"  value='M' checked> Pubblico<br>
-           <input type="radio" name="gender[]" value='F'> Privato<br>
+           <input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
+           <input type="radio" name="visibility[]" value='0'> Privato<br>
           </td>
        </tr>
 
@@ -53,7 +53,7 @@
 
         <tr>
           <td>
-            <input type="email" class="form-control" name="description" aria-describedby="description">
+            <input type="text" class="form-control" name="description" aria-describedby="description">
           </td>
         </tr>
 
