@@ -57,8 +57,8 @@ Route::get('/tot_post', function () {
     return view('tot_post');
 });
 
-Route::get('/condivisione',function(){
-  return view('condivisione');
+Route::get('/faq',function(){
+  return view('faq');
 });
 
 
