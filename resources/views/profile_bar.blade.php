@@ -18,11 +18,11 @@
 
 <p>
   <a class="_t98z6" href="javascript:;" onclick="window.open('/followers', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
-        Follower: <span class="_fd86t" title="360">{{$user_follow}}</span>
+        Follower: <span class="_fd86t" title="360">{{$user_follower}}</span>
   </a>
 </p>
 <p>
   <a class="_t98z6" href="javascript:;" onclick="window.open('/follows', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
-        Followed: <span class="_fd86t" title="360">{{$user_follower}}</span>
+        Followed: <span class="_fd86t" title="360">{{$user_follow}}</span>
   </a>
 </p>

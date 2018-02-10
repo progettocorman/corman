@@ -161,7 +161,7 @@
                 <p> <?php echo e($result->title); ?>
 
                     <br> <?php echo e($result->type); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php if(sizeof($topic)!=0): ?><?php echo e($topic->topic_name); ?><?php endif; ?><br><br>
+                    
                     Published on: <?php echo e($result->venue); ?> <br>
                     <?php if(isset($result->volume)): ?>Volume:<?php echo e($result->volume); ?><?php endif; ?>
                     <?php if(isset($result->number)): ?>, Number: <?php echo e($result->number); ?> ,<?php endif; ?>
