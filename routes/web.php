@@ -28,7 +28,6 @@ Route::get('/most_followed', 'UserController@mostfollowed');//più seguiti
 Route::get('/logout', 'UserController@logout');//uscire dal profilo
 Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
-Route::get('/follow','Follow@followManager');
 
 //ANTONIO
 Route::get('/formregister', function () {
@@ -87,10 +86,6 @@ Route::get('/apiTest','Test@apiTest');
 // Route::get('/test','Test@test');
 
 
-
-Route::get('/modify_pub{$pub_id}', function () {
-    return view('publication_modify');
-});
 
 
 Route::post('/modify_publication', 'PublicationController@modify');

@@ -3,8 +3,6 @@
     $id = session('id');
     $query = DB::table('topics')->select('topic_name')->get();
     $types = DB::table('types')->select('value')->distinct()->get();
-    $pubid = $pub_id;
-    echo $pubid;
 ?>
 
 
@@ -24,7 +22,7 @@
 
       <div class="col-sm-8 text-left">
         <!----------------------------------------FORM ----------------------------------->
-        <form action="modify_publication" method="POST" enctype="multipart/form-data">
+        <form action="addPublication" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
         <table class="tables" width="100%" border="0">
             <tr>
