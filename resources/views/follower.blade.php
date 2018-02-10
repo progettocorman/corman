@@ -9,7 +9,7 @@
     </head>
     <body>
       <div class="container">
-            <h2 class="subheader">Follow</h2>
+            <h2 class="subheader">Follower</h2>
        <div class="list-group">
             @foreach($followers as $follower)
             <a> </a>

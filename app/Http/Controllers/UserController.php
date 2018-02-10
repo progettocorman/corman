@@ -192,12 +192,12 @@ class UserController extends Controller
     }
 
     public static function getNumberFollow($user_id){
-      $users = DB::table('friendships')->where('user_id',$user_id)->count();
+      $users = DB::table('friendships')->where('user_follow',$user_id)->count();
       return $users;
     }
 
     public static function getNumberFollower($user_id){
-      $users = DB::table('friendships')->where('user_follow',$user_id)->count();
+      $users = DB::table('friendships')->where('user_id',$user_id)->count();
       return $users;
     }
 

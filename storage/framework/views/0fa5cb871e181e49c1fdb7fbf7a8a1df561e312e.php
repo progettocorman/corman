@@ -1,6 +1,5 @@
 <?php
   $id= session('id');
-
   $publications = \DB::table('friendships')->select('friendships.user_id')->join('users_publications', 'users_publications.user_id', '=', 'friendships.user_id')
                             ->select('publication_id')
                             ->join('publications','publications.id','=','users_publications.publication_id')
@@ -9,7 +8,6 @@
                                    'users.name','users.second_name', 'users.last_name','users.user_image',
                                    'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type','publications.created_at'
                             )->where('friendships.user_follow',$id)->where('users_publications.visibility',0)->orWhere('users_publications.visibility',1)->where('friendships.user_follow',$id)->orderBy('publications.id','desc')->distinct()->get();
-
   $posts = \DB::table('friendships')->select('friendships.user_id')->join('users_posts', 'users_posts.user_id', '=', 'friendships.user_id')
                             ->select('posts_id')
                             ->join('posts','posts.id','=','users_posts.posts_id')
@@ -163,7 +161,7 @@
                 <p> <?php echo e($result->title); ?>
 
                     <br> <?php echo e($result->type); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
+                  
                     Published on: <?php echo e($result->venue); ?> <br>
                     <?php if(isset($result->volume)): ?>Volume:<?php echo e($result->volume); ?><?php endif; ?>
                     <?php if(isset($result->number)): ?>, Number: <?php echo e($result->number); ?> ,<?php endif; ?>
