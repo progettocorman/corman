@@ -35,8 +35,8 @@ Route::get('/formregister', function () {
     return view('formview');
 });
 
-Route::get('/modify', function () {
-    return view('modify');
+Route::get('/pubblicazionemod', function () {
+    return view('pubblicazionemod');
 });
 
 Route::get('/setting_group', function () {
