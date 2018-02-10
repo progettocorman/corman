@@ -27,4 +27,8 @@ class Follow extends Controller
       \App\Friendship::where('user_id',$my_id)->where('user_follow',$follower_id)
                                                 ->delete();
     }
+    public static function followManager(Request $request){
+      Follow::followRequest(session('id'),$request->to_id);
+      return redirect('/home');
+    }
 }

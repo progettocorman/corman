@@ -90,9 +90,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="/setVisibilityPub?visibility=0&publication_id={{$result->publication_id}}">Pubblico</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPub?visibility=1&publication_id={{$result->publication_id}}">Privato</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPub?visibility=2&publication_id={{$result->publication_id}}">Solo Io</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?id={{$id}}&visibility=0&publication_id={{$result->publication_id}}">Pubblico</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?id={{$id}}&visibility=1&publication_id={{$result->publication_id}}">Privato</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPub?id={{$id}}&visibility=2&publication_id={{$result->publication_id}}">Solo Io</a><br/>
          </div>
         </div>
         </td>@endif

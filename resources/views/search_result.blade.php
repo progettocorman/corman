@@ -21,7 +21,7 @@
         <tr>
           <td>
               <p><img src="/profile_images/{{$userInfo->user_image}}" style="width:56px;height:56px;"></p>
-              @if($followed == null && $user != session('id'))<button type="button" class="btn btn-primary active">Segui</button>
+              @if($followed == null && $user != session('id'))<button type="button" onClick="location.href='follow?to_id={{$user}}'" class="btn btn-primary active">Segui</button>
               @elseif($followed != null && $user != session('id'))<button type="button" class="btn btn-primary disabled">Segui già</button>@endif
           </td>
           <td>
