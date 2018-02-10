@@ -14,9 +14,9 @@ class CreateUsersPublicationsTable extends Migration
     public function up()
     {
       /*
-        0 = Just me Visibility
+        0 = Public Visibility
         1 = Private Visibility
-        2 = Public Visibility
+        2 = Just me Visibility
       */
         Schema::create('users_publications', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();

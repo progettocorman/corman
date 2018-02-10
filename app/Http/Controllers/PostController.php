@@ -26,7 +26,12 @@ class PostController extends Controller
           $user = \App\User::find($id);
           $post = new \App\Post;
           $post->text = $request->input('testo');
-          $visibility = 0 /*$request->input('visibility')*/;
+          foreach ($request->input('visibility') as $vis) {
+            if($vis == "publico")$visibility = 0;
+            if($vis == "privato")$visibility = 1;
+            if($vis == "solo io")$visibility = 2;
+          }
+          
           //$post->attac hments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
           $post->save();
           $post->users()->attach($id,['visibility' => $visibility]);
