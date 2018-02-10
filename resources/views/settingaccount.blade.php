@@ -140,7 +140,7 @@
         <div class="col-sm-2 sidenav">
           <div class="well">
             @include('profile_bar')
-            <button class="btn btn-primary" onClick="location.href='userprofile?{{session('id')}}'">Profile</button>
+            <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
           </div>
 
         </div>
