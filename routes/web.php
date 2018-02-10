@@ -20,6 +20,7 @@ Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al pro
 Route::get('/logout','UserController@logout');//logout utente da ogni pagina
 Route::get('/notAcc','Notification@notificationManager');
 //ENRICO E RICCARDO
+
 Route::get('/api','Api@dblpApi');//Aggiornamento automatico pubblicazioni
 Route::get('/search','Search@generalSearch');
 Route::post('/update_file', 'UpdateFile@fileUpdate');//Caricamento allegati
@@ -65,9 +66,14 @@ Route::get('/group',function(){
     ->with("affiliation",$query->affiliation);
 });//indirizzamneto ai gruppi
 
-Route::get('/test2', function () {
-    return view('test');
+
+
+Route::get('/modifica_pubblicazione', function () { //mostra l'uri per la modifica delle
+    return view('modifica_pubblicazione');
 });
+
+
+Route::post('modifyPublication', 'PublicationController@modifyPublication');//modifica pubblicazioni
 
 Route::get('/post', 'PostController@getPostView'); //restituisce la view post con passaggio parametri
 

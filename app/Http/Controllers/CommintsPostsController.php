@@ -21,12 +21,13 @@ class CommintsPostsController extends Controller
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public static function saveCommints(Request $request, $idpost)
+  //salva i commenti relativi un post nella tavella posts_commints, riceve in inpuit il commento e l'id del post
+  public  function savecommints(Request $request, $idpost)
   {
-   
+ 
     $id = session('id');
     $commintsposts = new \App\Posts_commints;
-    $commintsposts->value = $request->input('commintsvalue');
+    $commintsposts->value = $request->input('commint');
     $commintsposts->user_id = $id;
     $commintsposts->posts_id = $idpost;
     $commintsposts->save();
@@ -34,20 +35,21 @@ class CommintsPostsController extends Controller
   }
 
 
-  public static function showCommints($idpost)
+  //ha in input l'id del post e restituicse un array con tutti i commenti in ordine crescente
+  public  function showCommints($idpost)
   {
+    
     $query = DB::table('posts_commints')->select('*')->where('posts_id',$idpost)->orderby('created_at','cresc')->get();
-
     $commints = array();
     $i = 0;
-    
+
     foreach($query as $singlevalue){
         $queryname = DB::table('users')->select('name','last_name')->where('id',$singlevalue->user_id)->first();
-        $commints[i] = "$queryname->name  $queryname->last_name: $singlevalue->value";
-        $i=$i+1;
+        $commints[$i] = "$queryname->name  $queryname->last_name: $singlevalue->value";
+        $i++;
         }
-  
-    return $comints;
+
+    return  $commints;
   
    }
 
