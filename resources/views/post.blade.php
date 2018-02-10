@@ -9,6 +9,7 @@
   <div class="row content">
   <div class="col-sm-2 sidenav">
       @include('group_bar')
+
   </div>
       <div class="col-sm-8 text-left">
         <form method='post' action='publicPost' >
@@ -65,7 +66,14 @@
         @include('profile_bar')
             <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
         </div>
-
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      <p>@Copyright Team Corman</p>
       </div>
     </div>
     </div>

@@ -9,6 +9,7 @@
   <div class="row content">
   <div class="col-sm-2 sidenav">
   @include('group_bar')
+
   </div>
   <div>
 
@@ -17,13 +18,34 @@
       <div class="col-sm-8 text-left">
       @include('information_profile')
       @include('navbar_profile')
-
-
       </div>
       <div class="col-sm-2 sidenav">
         <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
         <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+      </br>
+      </br>
+      </br>
+    </br>
+    </br>
+    </br>
+  </br>
+  </br>
+  </br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+        <p>@Copyright Team Corman</p>
       </div>
+
     </div>
     </div>
   </body>

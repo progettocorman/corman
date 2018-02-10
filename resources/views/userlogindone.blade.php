@@ -31,7 +31,23 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('bootstrap')
+<style>
+div.box
+{
+    width:105%; height:auto ;
+    background:url(boxbk.png) no-repeat top left;
+    padding:1px 0;
+    font-size:10px;
+}
 
+div.box-inner
+{
+    height: 540px;
+    overflow:auto;
+    margin:25px 24px 0;
+    padding-right:2px;
+}
+</style>
   <body>
   @include('navbar')
 <div class="container-fluid text-center">
@@ -42,6 +58,7 @@
       <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
 
         @include('group_bar')
+
       </div>
     <div class="col-sm-8 text-left">
       <div class="box">
@@ -200,6 +217,14 @@
         @include('profile_bar')
         <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
       </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <p>@Copyright Team Corman</p>
     </div>
   </div>
   </div>

@@ -10,15 +10,34 @@ $affiliation = $inf->affiliation;
 <html lang="en">
 
   @include('bootstrap')
+  <style>
+  div.box
+  {
+      width:105%; height:auto ;
+      background:url(boxbk.png) no-repeat top left;
+      padding:1px 0;
+      font-size:10px;
+  }
 
+  div.box-inner
+  {
+      height: 540px;
+      overflow:auto;
+      margin:25px 24px 0;
+      padding-right:2px;
+  }
+  </style>
 <body>
   @include('navbar')
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav">
       @include('group_bar')
+
     </div>
     <div class="col-sm-8 text-left">
+      <div class="box">
+        <div class="box-inner">
       <h1> f.a.q.<h1>
       <h4> Approposito di Corman<h4>
         <h4> 1. Cos'è Corman? <h4>
@@ -77,6 +96,8 @@ $affiliation = $inf->affiliation;
         <h4> 14. Come posso seguire un'altro ricercatore? <h4>
           <h4> Per seguire un ricercatore basta ricercarlo (vedi domanda 12), una volta trovato premere il bottone
                "segui" <h4>
+               </div>
+             </div>
       <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
 
 
@@ -84,9 +105,18 @@ $affiliation = $inf->affiliation;
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')
-        <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
-      </div>
 
+        <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
+
+      </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <p>@Copyright Team Corman</p>
     </div>
   </div>
   </div>

@@ -38,7 +38,19 @@ body{
           <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
           <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
           @include('group_bar')
-
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <p>@Copyright Team Corman</p>
         </div>
         <div class="col-sm-8 text-left">
           <div class="alert alert-warning">

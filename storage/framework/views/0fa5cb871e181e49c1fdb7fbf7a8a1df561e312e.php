@@ -31,7 +31,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php echo $__env->make('bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<style>
+div.box
+{
+    width:105%; height:auto ;
+    background:url(boxbk.png) no-repeat top left;
+    padding:1px 0;
+    font-size:10px;
+}
 
+div.box-inner
+{
+    height: 540px;
+    overflow:auto;
+    margin:25px 24px 0;
+    padding-right:2px;
+}
+</style>
   <body>
   <?php echo $__env->make('navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div class="container-fluid text-center">
@@ -42,6 +58,7 @@
       <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
 
         <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
       </div>
     <div class="col-sm-8 text-left">
       <div class="box">
@@ -203,6 +220,14 @@
         <?php echo $__env->make('profile_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <button class="btn btn-primary" onClick="location.href='userprofile?id=<?php echo e(session('id')); ?>'">Profile</button>
       </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <p>@Copyright  Team Corman</p>
     </div>
   </div>
   </div>
