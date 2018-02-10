@@ -35,6 +35,8 @@
           </div>
         </div>
       </nav>
+      <div class="box">
+        <div class="box-inner">
       @if (sizeof($results)==0) <p>Non hai ancora fatto un post! Che aspetti?!</p>@endif
       @foreach ($results as $result)
       <!--Allegati  -->
@@ -109,7 +111,8 @@
         </tr>
       </table>
       @endforeach
-
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
