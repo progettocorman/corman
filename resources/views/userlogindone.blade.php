@@ -67,6 +67,7 @@
             <td>
                 <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
                   &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
+                  <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
             </td>
             <!-- <td>
             <a href="modify"><img src="image/modifica_1.png"></a>
@@ -133,6 +134,7 @@
               <td>
                   <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
                     &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
+                    <a href="condivisione?idpub={{$result->publication_id}}&tipo=1"><img src="image/condivisione.png"></a>
               </td>
               <!-- <td>
                 <div class="btn-group">
@@ -160,7 +162,7 @@
                 <p> {{$result->title}}
                     <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    @if(sizeof($topic)!=0){{$topic->topic_name}}@endif<br><br>
+
 
                     Published on: {{$result->venue}} <br>
                     @if(isset($result->volume))Volume:{{$result->volume}}@endif

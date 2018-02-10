@@ -60,6 +60,7 @@
         </td>
         <td>
         <a href="modify"><img src="image/modifica_1.png"></a>
+        <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
       </td>
         <td>
           <div class="btn-group">
