@@ -1,10 +1,14 @@
 <?php
   $id = $_GET['id'];
+
+  if(isset($_GET['ordBy'])){
+    $order = $_GET['ordBy'];
+  }else $order = "publications.created_at";
   $query = \DB::table('users_publications')->join('publications', 'users_publications.publication_id', '=', 'publications.id')->join('users','users.id','=','user_id')
-                            ->select('users_publications.publication_id','users_publications.visibility',
+                            ->select('users_publications.publication_id','users_publications.visibility as visibility',
                                    'users.name','users.second_name', 'users.last_name',
-                                   'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year', 'publications.type'
-                            )->where('user_id',$id)->orderBy('publications.created_at','desc')->distinct();
+                                   'publications.title','publications.venue','publications.volume','publications.number','publications.pages', 'publications.year as year', 'publications.type as type','publications.topics_id as topic'
+                            )->where('user_id',$id)->orderBy($order,'desc')->distinct();
  $results = $query->get();
  $inf = \DB::table('users')->select('*')->where('id',$id)->first();
  $user_image = $inf->user_image;
@@ -45,9 +49,11 @@
                <span class="caret"></span>
               </button>
              <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Ordina per topics</a><br/>
-              <a class="dropdown-item" href="#">Ordina per categorie</a><br/>
-              <a class="dropdown-item" href="#">Ordina per visibilità</a><br/>
+              <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Ordina per topics</a><br/>
+              <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Ordina per categorie</a><br/>
+              <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Ordina per visibilità</a><br/>
+              <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Ordina per data</a><br/>
+              <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Ordina per anno</a><br/>
              </div>
             </div>
           </td>
