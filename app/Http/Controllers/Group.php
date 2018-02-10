@@ -40,7 +40,8 @@ class Group extends Controller
               ->with('description',$group->group_description)
               ->with('image',$group->group_image)
               ->with('visibility',$group->group_public)
-              ->with('partecipants',$number);
+              ->with('partecipants',$number)
+              ->with('is_amministrator',true);
     }
 
 
@@ -113,17 +114,19 @@ class Group extends Controller
     public static function getViewGroup(Request $request){
 
         $group_id = $request->group_id;
-
+      //  $user_id = session('id');
 
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
       $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
+      $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
       return view('group')
               ->with('id',$query->id)
               ->with('name',$query->group_name)
               ->with('description',$query->group_description)
               ->with('image',$query->group_image)
               ->with('visibility',$query->group_public)
-              ->with('partecipants',$number);
+              ->with('partecipants',$number)
+              ->with('is_amministrator',$is_amministrator->is_amministrator);
     }
 
 

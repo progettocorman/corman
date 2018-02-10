@@ -1,7 +1,7 @@
 <?php
 $user_id = session('id');
 $groups_partecipation = DB::table('groups')->join('partecipations','groups.id','=','partecipations.group_id')
-                        ->select('groups.id','groups.group_name')->get();
+                        ->select('groups.id','groups.group_name')->where('user_id',$user_id)->get();
  ?>
 
 

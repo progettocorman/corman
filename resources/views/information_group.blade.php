@@ -24,6 +24,10 @@
   @else
       <h3>Privato</h3>
   @endif
+
+@if($is_amministrator)
+  <label>Sei un amministratore</label>
+@endif
   <h5>numero partecipanti : {{$partecipants}} </h5>
 </div>
 <h5>{{$description}}</h5>
