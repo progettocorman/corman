@@ -10,6 +10,11 @@ class Group extends Model
     use Searchable;
 
     protected $table = 'groups';
+
+    public function members(){
+        return $this->belongsToMany('\App\User','partecipations','group_id','user_id');
+    }
+
     public function toSearchableArray(){
       $array =  $this->toArray();
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 
 use \App\Partecipation;
 
@@ -67,6 +69,17 @@ public function modifyGroup(Request $request){
       $group->group_public = false;
 
     $group->save();
+
+
+    /*TODO: ritornare view Group con parametri
+      group_id
+      name
+      description
+      group_image
+      visibility
+      partecipants
+      is_amministrator
+    */
 }
 
 
@@ -198,5 +211,14 @@ public function modifyGroup(Request $request){
       // echo $data[1];
       Group::inviteUser($data[1],$data[0],session('id'));
       return redirect('/home');
+    }
+
+    public static function getMembers(){
+      $group_id = $_GET['group_id'];
+      $group = \App\Group::find($group_id);
+
+      $members = $group->members;
+
+      return view('members')->with(['members' => $members]);
     }
 }
