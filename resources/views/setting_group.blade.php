@@ -8,6 +8,23 @@
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/settingaccount.css" type="text/css" />
+
+<script>
+
+function crea()
+{
+document.setting_form.action = "createGroup";
+document.setting_form.submit();
+}
+function modifica()
+{
+    <?php if(isset($_GET['group_id'])){?>
+        document.setting_form.action = "modifyGroup";
+        document.setting_form.submit();
+    <?php } ?>
+}
+</script>
+
 </head>
 
 <body>
@@ -21,7 +38,7 @@
 
       </div>
       <div class="col-sm-8 text-left">
-        <form method="get" action='createGroup'>
+        <form method="get" name ="setting_form">
         {{csrf_field()}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -62,8 +79,12 @@
 
            <tr>
             <td>
-              <button type="submit" class="btn btn-primary">Crea</button>
-              <button class="btn btn-primary" type="button" onClick="location.href='modifyGroup'">Modifica</button>
+
+              <?php if(isset($_GET['group_id'])){?>
+                    <button class="btn btn-primary" type="submit" onClick="modifica()">Modifica</button>
+              <?php }else{ ?>
+                    <button class="btn btn-primary" type="submit" onClick="crea()">Crea</button>
+              <?php } ?>
             </td>
            </tr>
     </table>

@@ -125,11 +125,7 @@ div.box-inner
 
                 </td>
               </tr>
-              <tr>
-            <td>
-            <input class="Commenti" placeholder="Commenta" id="comment">
-            </td>
-            </tr>
+
           </table>
             <?php else: ?>
             <!--Allegati  -->
@@ -203,12 +199,10 @@ div.box-inner
 
                   </td>
                 </tr>
-                <tr>
-              <td>
-              <input class="Commenti" placeholder="Commenta" id="comment">
-              </td>
-              </tr>
-            </table>
+             </table>
+           </br>
+           </br>
+            </br>
             <?php endif; ?>
 
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

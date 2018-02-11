@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Session;
+
 
 use \App\Partecipation;
 
@@ -44,34 +44,34 @@ class Group extends Controller
               ->with('partecipants',$number)
               ->with('is_amministrator',true);
     }
-    public function modifyGroup(Request $request){
-  $group_id = $request->group_id;
-  $group = \App\Group::find($group_id);
 
-if($request->has('description') && $request->has('group_name')){
-  $group->group_name = $request->input('description');
-  $group->group_description = $request->input('group_name');
-  if($request->visibility[0] == "1")
-        $group->group_public = true;
-  else
-        $group->group_public = false;
 
-  $group->save();
+
+
+
+public function modifyGroup(Request $request){
+    //$group_id = /**/;
+    $group = \DB::table('groups')->where('id',$group_id)->first();
+
+    if($request->has('description') && $request->has('group_name')){
+
+        if(isset($groupDescription))
+            $group->group_name = $request->group_name;
+        if(isset($groupDescription))
+            $group->group_description = $request->description;
+
+    }
+    if($request->visibility[0] == "1")
+          $group->group_public = true;
+    else
+      $group->group_public = false;
+
+    $group->save();
 }
-/*
-$query = \DB::table('groups')->select('*')->where('id',$request->group_id)->first();
-$number =\DB::table('partecipations')->select('*')->where('group_id',$request->group_id)->count();
-return view('group')
-->with('id',$request->group_id)
-->with('name',$query->group_name)
-->with('description',$query->group_description)
-->with('image',$query->group_image)
-->with('visibility',$query->group_public)
-->with('partecipants',$number)
-->with('is_amministrator',true);*/
 
-Group::getViewGroup($request);
-}
+
+
+
 
 
 
@@ -144,6 +144,22 @@ Group::getViewGroup($request);
 
         $group_id = $request->group_id;
       //  $user_id = session('id');
+
+      $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
+      $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
+      $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
+      return view('group')
+              ->with('id',$query->id)
+              ->with('name',$query->group_name)
+              ->with('description',$query->group_description)
+              ->with('group_image',$query->group_image)
+              ->with('visibility',$query->group_public)
+              ->with('partecipants',$number)
+              ->with('is_amministrator',$is_amministrator->is_amministrator);
+    }
+
+    public static function getGroup($group_id){
+
 
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
       $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();

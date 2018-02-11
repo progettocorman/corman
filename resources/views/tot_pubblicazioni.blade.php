@@ -146,12 +146,11 @@
 
             </td>
           </tr>
-          <tr>
-        <td>
-        <input class="Commenti" placeholder="Commenta" id="comment">
-        </td>
-        </tr>
+
       </table>
+    </br>
+    </br>
+    </br>
       @endforeach
     </div>
    </div>
