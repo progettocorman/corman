@@ -13,7 +13,6 @@
     </div>
     <div class="col-sm-8 text-left">
       @include('information_group')
-      @include('navbar_group')
        <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
         <div class="riga">
           <hr>
@@ -26,9 +25,6 @@
         <div class="box">
           <div class="box-inner">
 
-<<<<<<< HEAD
-     
-=======
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
@@ -66,7 +62,6 @@
   </tr>
 
       </table>
->>>>>>> bd1b234e037c49ccdb534b0ab51f43ad5873e3f2
     </div>
    </div>
     </div>
