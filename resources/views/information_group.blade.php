@@ -34,7 +34,12 @@
     <button class="btn btn-primary" type="button" onClick="location.href='setting_group?group_id={{$group_id}}'">Settings</button>
   @endif
 <?php }?>
-  <h5>numero partecipanti : {{$partecipants}} </h5>
+<div class="_bnq48">
+  <a class="_t98z6" href="javascript:;" onclick="window.open('/members', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
+        Partecipanti <span class="_fd86t" title="360">{{$partecipants}}</span>
+  </a>
+</div>
+
 </div>
 <h5>{{$description}}</h5>
 </div>
