@@ -7,7 +7,23 @@
 </head>
 
   @include('bootstrap')
+  <style>
+  div.box
+  {
+      width:105%; height:auto ;
+      background:url(boxbk.png) no-repeat top left;
+      padding:1px 0;
+      font-size:10px;
+  }
 
+  div.box-inner
+  {
+      height: 540px;
+      overflow:auto;
+      margin:25px 24px 0;
+      padding-right:2px;
+  }
+  </style>
 <body>
   @include('navbar')
 <div class="container-fluid text-center">
@@ -17,6 +33,8 @@
 
     </div>
     <div class="col-sm-8 text-left">
+      <div class="box">
+        <div class="box-inner">
       @if(sizeof($users)==0) <p>Nessun Utente Trovato </p>@endif
       @foreach ($users as $user)
         <?php $userInfo = DB::table('users')->where('id',$user)->first() ?>
@@ -159,7 +177,8 @@
           </table>
           @endforeach
       @endforeach
-
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

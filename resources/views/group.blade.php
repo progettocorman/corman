@@ -41,11 +41,7 @@
     <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
     </td>
   </tr>
-  <tr>
-<td>
-<input class="Commenti" placeholder="Commenta" id="comment">
-</td>
-</tr>
+
       </table>
 
       <table class="tables" width="50%" border="0">
@@ -64,11 +60,7 @@
     <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
     </td>
   </tr>
-  <tr>
-  <td>
-  <input class="Commenti" placeholder="Commenta" id="comment">
-  </td>
-  </tr>
+
       </table>
     </div>
    </div>
