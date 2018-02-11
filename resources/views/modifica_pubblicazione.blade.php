@@ -171,11 +171,6 @@
               <td>
               <input type="file" name="fileUpload1" multiple>
             </td>
-            <td>
-              <input type="radio" name="visibility[]"  value='publico' checked> Pubblico
-              <input type="radio" name="visibility[]" value='privato'> Privato
-              <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
-            </td>
             </tr>
              <tr>
               <td>
@@ -193,17 +188,14 @@
 
             <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
         </div>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      <p>@Copyright Team Corman</p>
+
       </div>
     </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+    </br>
+      <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+  </nav>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

@@ -5,7 +5,7 @@
 .sidenav {
   padding-top: 20px;
   background-color: #f1f1f1;
-  height:130%
+  height:120%;
 
 }
 
@@ -82,12 +82,4 @@ div.box-inner
     overflow:auto;
     margin:25px 24px 0;
     padding-right:2px;
-}
-
-body{
-width:100%;
-height:100%;
-margin:0;
-padding:0;
-overflow:hidden;
 }

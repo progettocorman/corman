@@ -191,12 +191,13 @@ class PublicationController extends Controller
                                           ->where('second_name',$tempName[1])
                                           ->where('last_name',$tempName[2])->get();
 
-          }else{
+          }else if(sizeof($tempName)==2){
             //RICOSTRUZIONE DEL NOME DELL'AUTORE CHE SI STA CONSIDERANDO
             $authorName = $tempName[0]." ".$tempName[1];
             $coAuthors = \DB::table('users')->select('id','name','last_name')->where('name',$tempName[0])
                                           ->where('last_name',$tempName[1])->get();
               }
+              else return;
           /////////////////////////////////////////////////////////////////////////////////////
 
           //ARRAY DI COAUTORI TROVATI NEL DATABASE ED ELABORATI
@@ -239,8 +240,6 @@ class PublicationController extends Controller
     $iduser = session('id');
     $idpub = $request->input('idpub');
 
-
-
     $newDbKey = md5($request->input('title').$request->input('year'));
     \DB::table('publications')->where('id',$idpub)//id passato con get
     ->update(array('title' =>$request->input('title'),
@@ -261,23 +260,8 @@ class PublicationController extends Controller
       }
     }
 
-      /*ASSEGNA IL visibilità */
-      $visibility =  $_POST['visibility'];
-      foreach ($visibility as $values) {
-               $visibility_value = $values;
-              }
-
-     if($visibility_value == 'Pubblico'){
-        $number = 0;
-        }else if($visibility_value == 'Privato'){
-          $number = 1;
-        }else {
-           $number = 2;
-        }
-
-    \DB::table('users_publications')->select('author_name','visibility')->where('publication_id',$idpub)//id passato con get
-    ->update(array('author_name' =>$request->input('coautori'),
-                  'visibility'=> $number ));
+    \DB::table('users_publications')->select('author_name')->where('publication_id',$idpub)//id passato con get
+    ->update(array('author_name' =>$request->input('coautori')));
 
      return redirect('/tot_pubblicazioni?id='. $iduser);
   }

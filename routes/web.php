@@ -30,6 +30,7 @@ Route::get('/logout', 'UserController@logout');//uscire dal profilo
 Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
 Route::get('/follow','Follow@followManager');
+Route::get('/invite','Group@inviteManager');
 Route::get('/createGroup','Group@createGroup');
 Route::get('/condivisione', function () {  return view('condivisione');});
 Route::get('/condivisione2','CondivisionController@addcondivision');

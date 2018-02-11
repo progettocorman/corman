@@ -39,8 +39,7 @@ class UserController extends Controller
       //verifica se c'è già la email
        if($query != NULL){
         //todo ottimizzazione nel caso vi sia gia user con stessa mail
-        print "Email  $user->email già utilizzata";
-        return view('formview');
+        return view('formview')->with('error',"Mail already on use! Choose another one :)");
         }
 
       $user->password = md5($request->input('user_password'));
@@ -68,7 +67,7 @@ class UserController extends Controller
     $query = DB::table('users')->select('*')->where('email',$email)->first();
 
       if(!isset($query)){
-          return redirect('/?errore=email non presente ');
+          return view('welcome')->with('error',"Oh yeah...There's no such mail, try another one :o");
       }
 
       /**verifico correttezza di email e password ed evenuatuale presenza imagine profilo */
@@ -77,7 +76,7 @@ class UserController extends Controller
         $request->session()->put('password',$query->password);
         return view('userlogindone')->with("user_image", $query->user_image)->with("name", $query->name)->with("last_name", $query->last_name)->with("affiliation", $query->affiliation);
           }else{
-              return redirect('/?errore=password sbagliata ');
+              return view('welcome')->with('error',"Mmm...Seems like that's the wrong password, try another one :o");
               }
     }
 
