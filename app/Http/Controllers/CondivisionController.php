@@ -31,6 +31,8 @@ class CondivisionController
         $condivision->group_id = $pieces[2];
         $condivision->save();
       }
+
+      \App\Group::getGroup($pieces[2]);
     }
 
 }

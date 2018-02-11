@@ -9,6 +9,7 @@ class Group extends Model
 {
     use Searchable;
 
+    protected $table = 'groups';
     public function toSearchableArray(){
       $array =  $this->toArray();
 

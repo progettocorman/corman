@@ -8,15 +8,25 @@
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/settingaccount.css" type="text/css" />
-</head>
-<style>
-body{
-  width:100%;
-  height:100%;
-  padding:0;
-  overflow:hidden;
+
+<script>
+
+function crea()
+{
+document.setting_form.action = "createGroup";
+document.setting_form.submit();
 }
-</style>
+function modifica()
+{
+    <?php if(isset($_GET['group_id'])){?>
+        document.setting_form.action = "modifyGroup";
+        document.setting_form.submit();
+    <?php } ?>
+}
+</script>
+
+</head>
+
 <body>
   @include('navbar')
   <div class="container-fluid text-center">
@@ -28,7 +38,7 @@ body{
 
       </div>
       <div class="col-sm-8 text-left">
-        <form method="get" action='createGroup'>
+        <form method="get" name ="setting_form">
         {{csrf_field()}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -69,8 +79,12 @@ body{
 
            <tr>
             <td>
-              <button type="submit" class="btn btn-primary">Crea</button>
-              <button class="btn btn-primary" type="button" onClick="location.href='modifyGroup'">Modifica</button>
+
+              <?php if(isset($_GET['group_id'])){?>
+                    <button class="btn btn-primary" type="submit" onClick="modifica()">Modifica</button>
+              <?php }else{ ?>
+                    <button class="btn btn-primary" type="submit" onClick="crea()">Crea</button>
+              <?php } ?>
             </td>
            </tr>
     </table>
@@ -91,14 +105,10 @@ body{
           @include('profile_bar')
           <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
         </div>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      <p>@Copyright Team Corman</p>
+        <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+        </br>
+          <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+      </nav>
       </div>
     </div>
     </div>

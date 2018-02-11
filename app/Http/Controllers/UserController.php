@@ -120,8 +120,8 @@ class UserController extends Controller
          $queryemail = DB::table('users')->select('email')->where('email',$user->email)->first();
 
          if(($queryemail != NULL) && ($queryid->id != $id)){
-             print "Email  $user->email già utilizzata da altro user, sceglierne un'altra!";
-             return view('settingaccount')->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image)
+             $error = "Woops...Seems like that mail's already on use! Try another one :)";
+             return view('settingaccount')->with('error',$error)->with("name", $user->name)->with("second_name", $user->second_name)->with("email", $user->email)->with("user_image", $user->user_image)
                     ->with("last_name", $user->last_name)->with("research",$user->research)->with("birth_date", $user->birth_date)->with("affiliation", $user->affiliation);
             }
 

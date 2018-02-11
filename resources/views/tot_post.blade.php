@@ -109,12 +109,11 @@
 
             </td>
           </tr>
-          <tr>
-        <td>
-        <input class="Commenti" placeholder="Commenta" id="comment">
-        </td>
-        </tr>
+
       </table>
+    </br>
+    </br>
+    </br>
       @endforeach
     </div>
    </div>
@@ -124,18 +123,14 @@
         @include('profile_bar')
         <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
       </div>
-    </br>
-    </br>
-    </br>
-  </br>
-  </br>
-  </br>
-</br>
-      <p>@Copyright Team Corman</p>
+
     </div>
   </div>
   </div>
-
+  <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+  </br>
+    <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+</nav>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
