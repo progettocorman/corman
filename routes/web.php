@@ -9,12 +9,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
 //indirizza alla home
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'UserController@getHome'); //indirizzamneto alla home con passaggio parametri
-
+Route::get('/apiCall',function(Request $request){
+  $user = \DB::table('users')->where('id',session('id'))->first();
+  if(isset($user->second_name))$userName = $user->name."_".$user->second_name."_".$user->last_name;
+  else $userName = $user->name."_".$user->last_name;
+  // echo $userName;
+  \App\Http\Controllers\Api::dblpApi($request, $userName);
+  return redirect('/home');
+});
 Route::get('/userprofile', 'UserController@getProfile');//indirizzameneto al profilo utente con passaggio parametri
 
 Route::get('/logout','UserController@logout');//logout utente da ogni pagina

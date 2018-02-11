@@ -35,7 +35,7 @@
         </div>
         <div class="col-sm-8 text-left">
           @if (isset($error))<div class="alert alert-warning">
-            <strong>Warning!</strong><a href="#" class="alert-link">{{$error}}</a>.
+            <strong>Warning!</strong><a href="#" class="alert-link">$error</a>.
           </div>@endif
           <form method="POST" action='modify_user_settings'>
           {{csrf_field()}}
@@ -131,14 +131,35 @@
              </tr>
       </table>
           </form>
-          <td>
+        </br></br>
             <form method="POST"action='update_image_profile'  enctype="multipart/form-data">
               {{ csrf_field() }}
-               <input type="file"  onchange="readURL(this);" name="user_image" multiple>
+              <table>
+                <tr>
+                  <td>
+                    <label> Update Image</label>
+                  </td>
+                  <td>
+                  <label>Load Publications from dblp</label>
+                  </td>
+                </tr>
+                <tr>
+              <td> <input type="file"  onchange="readURL(this);" name="user_image" multiple>
                 <img id="blah2" src="http://placehold.it/180" alt="your image" width=100 height=50  name="image_profile" />
                 <button type="submit" class="btn btn-primary">Load</button>
+              </td>
+              <td>
+                  <a href='apiCall' type="submit" class="btn btn-primary">dblp Api</a>
+              </td>
+              <tr>
+              </table>
               </form>
-            </td>
+
+              </br></br></br>
+
+
+
+
         </div>
         <div class="col-sm-2 sidenav">
           <div class="well">
