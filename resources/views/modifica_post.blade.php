@@ -42,18 +42,7 @@
                 <textarea name="testo"  style="width: 100%; height: 100px;">{{$textValue}}</textarea>
               </td>
             </tr>
-            <tr>
-              <td>
-                 <p><label>Visibility</label></P>
-              </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="radio" name="visibility[]"  value='publico' checked> Pubblico<br>
-                  <input type="radio" name="visibility[]" value='privato'> Privato<br>
-                  <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
-                </td>
-              </tr>
+
               <tr>
               <td>
                 <label >Tag </label>
