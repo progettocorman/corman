@@ -158,6 +158,22 @@ public function modifyGroup(Request $request){
               ->with('is_amministrator',$is_amministrator->is_amministrator);
     }
 
+    public static function getViewGroup($group_id){
+
+
+      $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
+      $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
+      $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
+      return view('group')
+              ->with('id',$query->id)
+              ->with('name',$query->group_name)
+              ->with('description',$query->group_description)
+              ->with('group_image',$query->group_image)
+              ->with('visibility',$query->group_public)
+              ->with('partecipants',$number)
+              ->with('is_amministrator',$is_amministrator->is_amministrator);
+    }
+
     public static function imageUpdate(Request $request){
       $id = session('id');
       $group_id = $request->input('group_id');
