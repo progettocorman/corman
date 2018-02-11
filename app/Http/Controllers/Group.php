@@ -36,10 +36,10 @@ class Group extends Controller
 
       $number = 1/*\DB::table('partecipations')->select('*')->where('group_id',$groupId)->count()*/;
       return view('group')
-              ->with('id',$groupId)
+              ->with('group_id',$groupId)
               ->with('name',$group->group_name)
               ->with('description',$group->group_description)
-              ->with('image',$group->group_image)
+              ->with('group_image',$group->group_image)
               ->with('visibility',$group->group_public)
               ->with('partecipants',$number)
               ->with('is_amministrator',true);
