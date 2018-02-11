@@ -34,9 +34,9 @@
 
         </div>
         <div class="col-sm-8 text-left">
-          <div class="alert alert-warning">
-            <strong>Warning!</strong><a href="#" class="alert-link">Email già presente</a>.
-          </div>
+          @if (isset($error))<div class="alert alert-warning">
+            <strong>Warning!</strong><a href="#" class="alert-link">{{$error}}</a>.
+          </div>@endif
           <form method="POST" action='modify_user_settings'>
           {{csrf_field()}}
           <input type="hidden" name="_token" value="{{ csrf_token() }}">

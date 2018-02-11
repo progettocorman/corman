@@ -177,7 +177,10 @@ Group::getViewGroup($request);
     }
 
     public static function inviteManager(Request $request){
-      Notification::sendNotification(2, $request->to_id, $request->group, session('id'));
+      $data = explode("_",$request->groups);
+      // echo $data[0];
+      // echo $data[1];
+      Group::inviteUser($data[1],$data[0],session('id'));
       return redirect('/home');
     }
 }
