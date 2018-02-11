@@ -9,14 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/settingaccount.css" type="text/css" />
 </head>
-<style>
-body{
-  width:100%;
-  height:100%;
-  padding:0;
-  overflow:hidden;
-}
-</style>
+
 <body>
   @include('navbar')
   <div class="container-fluid text-center">
@@ -91,14 +84,10 @@ body{
           @include('profile_bar')
           <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
         </div>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      <p>@Copyright Team Corman</p>
+        <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+        </br>
+          <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+      </nav>
       </div>
     </div>
     </div>

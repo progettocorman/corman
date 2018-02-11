@@ -47,9 +47,11 @@
           </td>
       </tr>
 </table>
+<?php if(isset($error)): ?>
 <div class="alert alert-warning">
-  <strong>Warning!</strong><a href="#" class="alert-link">Password o email errata</a>.
+  <strong>Warning!</strong><a href="#" class="alert-link"><?php echo e($error); ?></a>.
 </div>
+<?php endif; ?>
     <button type="submit" class="btn btn-primary">SignIn</button>
   </form>
   </div>
@@ -66,6 +68,9 @@
   </div>
   </div>
 </div>
-
+<nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+</br>
+  <p>@Copyright  Team Corman || Contact us: progettocorman@gmail.com</p>
+</nav>
 </body>
 </html>

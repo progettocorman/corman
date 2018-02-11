@@ -22,14 +22,7 @@
           }
       }
 </script>
-<style>
-body{
-  width:100%;
-  height:100%;
-  padding:0;
-  overflow:hidden;
-}
-</style>
+
   <body>
     @include('navbar')
     <div class="container-fluid text-center">
@@ -38,19 +31,7 @@ body{
           <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
           <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
           @include('group_bar')
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        <p>@Copyright Team Corman</p>
+
         </div>
         <div class="col-sm-8 text-left">
           <div class="alert alert-warning">
@@ -173,7 +154,10 @@ body{
 
   </div>
 
-
+  <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+  </br>
+    <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+</nav>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
