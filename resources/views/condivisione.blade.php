@@ -33,7 +33,7 @@ $tipo= $_GET["tipo"];
                <td>
      <select name="nomegruppo">
           @foreach ($groupscondivisione as $groupcondivision)
- <option value="{{$groupcondivision->gruppoId}}-{{$idpub}}-{{$tipo}}-{{$id}}">{{$groupcondivision->nomeGruppo}}</option>
+          <option value="{{$groupcondivision->gruppoId}}-{{$idpub}}-{{$tipo}}-{{$id}}">{{$groupcondivision->nomeGruppo}}</option>
           @endforeach
  </select>
                </td>

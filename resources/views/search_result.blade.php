@@ -2,6 +2,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+
+</head>
 
   @include('bootstrap')
 
@@ -21,12 +24,26 @@
         <table class="tables" width="50%" border="0">
         <tr>
           <td>
-              <p><img src="/profile_images/{{$userInfo->user_image}}" style="width:56px;height:56px;"></p>
+              <p><a href="userprofile?id={{$user}}"><img src="/profile_images/{{$userInfo->user_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></a></p>
+
               @if($followed == null && $user != session('id'))<button type="button" onClick="location.href='follow?to_id={{$user}}'" class="btn btn-primary active">Segui</button>
               @elseif($followed != null && $user != session('id'))<button type="button" class="btn btn-primary disabled">Segui già</button>@endif
+
+              <?php $groupsF= DB::table('groups')->where('created_by',session('id'))->get()  ?>
+
+              <button type="button" onClick="showGroups({{$user}})" class="btn btn-primary active">Invita</button>
+            @if(sizeof($groupsF)!=0)  <script>
+                function showGroups(id){
+                  html= "<select name = \"groups\"> @foreach ($groupsF as $Group) <option onClick=\"location.href='invite?to_id={{$user}}$group={{$Group->id}}'\" value=\"{{$Group->id}}\">{{$Group->group_name}}</option>@endforeach</select>";
+                  document.getElementById("groupsHere"+String(id)).innerHTML = html;
+                  document.getElementById("bottonHere"+String(id)).innerHTML = "<button type=\"button\" onClick=\"location.href='invite?to_id={{$user}}&group={{$Group->id}}'\" class=\"btn btn-primary active\">Send Invite</button>";
+                }
+              </script>@endif
+              <p id ="groupsHere{{$user}}"></p>
+              <p id ="bottonHere{{$user}}"></p>
           </td>
           <td>
-              <p>{{$userInfo->name}} {{$userInfo->second_name}} {{$userInfo->last_name}}</p>
+              <p><a href="userprofile?id={{$user}}">{{$userInfo->name}} {{$userInfo->second_name}} {{$userInfo->last_name}}</a></p>
               <p>{{$userInfo->affiliation}}</p>
               <button class="btn btn-primary" onClick="location.href='userprofile?id={{$user}}'">User Profile</button></br></br>
           </td>
@@ -50,7 +67,7 @@
           <table class="tables" width="50%" border="0">
           <tr>
             <td>
-                <p><img src="/profile_images/{{$groupInfo->group_image}}" style="width:56px;height:56px;"></p>
+                <p><img src="/profile_images/{{$groupInfo->group_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></p>
               @if ($partecipation == null)  <button type="button" class="btn btn-primary active">Iscriviti</button>
               @else  <button type="button" class="btn btn-primary disabled">Già iscritto</button>@endif
             </td>
@@ -94,7 +111,8 @@
           <table class="tables" width="50%" border="0">
             <tr>
               <td>
-                  <p><img src="/profile_images/{{$author->user_image}}" style="width:56px;height:56px;">{{$author->name}} {{$author->second_name}} {{$author->last_name}}</p>
+                  <p><a href="userprofile?id={{$author->id}}"><img src="/profile_images/{{$author->user_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></a></p>
+                  <p><a href="userprofile?id={{$author->id}}">{{$author->name}} {{$author->second_name}} {{$author->last_name}}</a></p>
               </td>
             </tr>
            <tr>

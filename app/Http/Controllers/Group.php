@@ -176,5 +176,8 @@ Group::getViewGroup($request);
       return redirect('/group?group_id='.$group_id);
     }
 
-
+    public static function inviteManager(Request $request){
+      Notification::sendNotification(2, $request->to_id, $request->group, session('id'));
+      return redirect('/home');
+    }
 }
