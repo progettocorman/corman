@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 use DB;
 
@@ -24,7 +25,7 @@ class Group extends Controller
       $group->created_by = $request->session()->get('id');
 
       if(isset($groupImage)) $group->group_image = $groupImage;
-      else $group->group_image = 'deafaultgroup.png';
+      else $group->group_image = 'defaultgroup.png';
       if(isset($groupDescription)) $group->group_description = $request->input('description');
 
       // $group->searchable();
@@ -37,7 +38,7 @@ class Group extends Controller
       Group::addUser($group->created_by, $groupId->id, true);
 
       $number = 1/*\DB::table('partecipations')->select('*')->where('group_id',$groupId)->count()*/;
-      return view('group')
+      return redirect('group?group_id='.$groupId->id)
               ->with('group_id',$groupId)
               ->with('name',$group->group_name)
               ->with('description',$group->group_description)
@@ -52,35 +53,30 @@ class Group extends Controller
 
 
 public function modifyGroup(Request $request){
-    //$group_id = /**/;
-    $group = \DB::table('groups')->where('id',$group_id)->first();
+    $group_id = $request->input("groupid");
 
-    if($request->has('description') && $request->has('group_name')){
-
-        if(isset($groupDescription))
-            $group->group_name = $request->group_name;
-        if(isset($groupDescription))
-            $group->group_description = $request->description;
-
+    foreach ($request->input('visibility') as $vis) {
+      $visibility = $vis;
     }
-    if($request->visibility[0] == "1")
-          $group->group_public = true;
-    else
-      $group->group_public = false;
+    $group_name = $request->input('group_name');
+    $group_description = $request->input('description');
 
-    $group->save();
+    DB::table('groups')->where('id',$group_id)
+    ->update(array('group_name' =>$group_name,'group_description'=>$group_description,'group_public'=>$visibility));
 
+  $group = \DB::table('groups')->where('id',$group_id)->first();
+  $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
+  $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
 
-    /*TODO: ritornare view Group con parametri
-      group_id
-      name
-      description
-      group_image
-      visibility
-      partecipants
-      is_amministrator
-    */
-}
+  if(!isset($group->group_description))$group_description = "";
+    return redirect('group?group_id='.$group->id)
+          ->with('name',$group->group_name)
+          ->with('description',$group_description)
+          ->with('group_image',$group->group_image)
+          ->with('visibility',$group->group_public)
+          ->with('partecipants',$number)
+          ->with('is_amministrator',$is_amministrator->is_amministrator);
+        }
 
 
 
@@ -129,7 +125,7 @@ public function modifyGroup(Request $request){
       $groupScope = \DB::table('groups')->select('group_public')->where('id',$groupId)->first();
       //SE IL GRUPPO È PUBBLICO, AGGIUNGI L'UTENTE AL GRUPPO
       if($groupScope){
-        Test::addUser($userId,$groupId,false);
+        Group::addUser($userId,$groupId,false);
       }
       //ALTRIMENTI INVIA UNA NOTIFICA AD OGNI AMMINISTRATORE DEL GRUPPO
       else{
@@ -189,7 +185,8 @@ public function modifyGroup(Request $request){
 
     public static function imageUpdate(Request $request){
       $id = session('id');
-      $group_id = $request->input('group_id');
+      $group_id = $request->input('g_Id');
+
       $fileinpost = $request->file('group_image');
       if ( $fileinpost != null) {
           $file =  $fileinpost->store('group_images');
@@ -202,7 +199,20 @@ public function modifyGroup(Request $request){
           \DB::table('users')->where('id',$group_id)->update(['group_image'=>"defaultgroup.png" ]);
 
       }
-      return redirect('/group?group_id='.$group_id);
+
+      $group = \DB::table('groups')->where('id',$group_id)->first();
+      $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
+      $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
+
+      if(!isset($group->group_description))$group_description = "";
+      else $group_description = $group->group_description;
+        return redirect('group?group_id='.$group->id)
+              ->with('name',$group->group_name)
+              ->with('description',$group_description)
+              ->with('group_image',$group->group_image)
+              ->with('visibility',$group->group_public)
+              ->with('partecipants',$number)
+              ->with('is_amministrator',$is_amministrator->is_amministrator);
     }
 
     public static function inviteManager(Request $request){
@@ -210,6 +220,13 @@ public function modifyGroup(Request $request){
       // echo $data[0];
       // echo $data[1];
       Group::inviteUser($data[1],$data[0],session('id'));
+      return redirect('/home');
+    }
+
+    public static function joinManager(Request $request){
+      $user_id = session('id');
+      $group_id = $request->groupTo;
+      Group::joinGroup($user_id,$group_id);
       return redirect('/home');
     }
 

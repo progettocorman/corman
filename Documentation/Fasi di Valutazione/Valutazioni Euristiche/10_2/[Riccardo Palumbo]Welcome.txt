@@ -1,0 +1,142 @@
+//SCHERMATA WELCOME
+1.1
+	1.1.1 La schermata rende chiaro la posizione del sito in cui mi trovo, in quanto vi è una sezione di benvenuto che esplicita il fatto che ci si trovi in una pagina di benevenuto.
+	
+	1.1.2 La schermata mostra due vie possibili in maniera più o meno chiara (i bottoni mostrati)
+	
+	1.1.3 Si
+	
+1.2 
+	1.2.1 Vedo una sezione di benvenuto, con una descrizione del sito e del suo scopo.
+	Vedo un form che mi richiede email e password con un bottone che mi invita ad effettuare l'accesso.
+	Vedo un ulteriore bottone che mi invita a registrarmi.
+	
+	1.2.2 Lo scopo della pagina, che è quello di spiegare all'utente di cosa tratta il sistema in cui presumibilmente sta per entrare viene adempito correttamente, è esplicitato dalla sezione di benvenuto.
+	
+	1.2.3 Si, data la struttura minimale della pagina, tutto è in cima ed facilmente visibile
+	
+	1.2.4 Struttura minimale e semplice, tuttavia facilmente comprensibile solo a chi ha esperienza pregressa con interfacce simili, mancando di indicazioni su cosa fare (Es: A cosa serve il form? Lo si capisce solo intutivamente, non è esplicitato)
+	
+	1.2.5 No, non è presente nessuna informazione su chi è l'autore della pagina
+	
+	1.2.6 //
+
+1.3 
+	1.3.1 Si, il testo è facilmente percepibile
+	1.3.2 Si, i campi/link e pulsanti sono facilmente percepibili
+	1.3.3 Si, i " sono facilmente identificabili
+	
+	
+2.1
+	2.1.1 Parzialmente, molte etichette non sono presenti (per form di login e per pulsante di registrazione)
+	
+	2.1.2 //
+	
+2.2 
+	2.2.1 Il linguaggio è appropiato per le persone a cui è destinato il sito
+	
+	2.2.2 //Ignorare
+	
+	2.2.3 No, non è presente nessuna informazione su chi è l'autore della pagina e su come contattarlo
+	
+3.1
+	3.1.1 Si, viene evitata
+	3.1.2 Non necessario
+	3.1.3 Non necessario
+	3.1.4 Non presenti in quanto non necessari
+	3.1.5 Non necessari
+	3.1.6 Si, per via dei pochi elementi grafici
+
+3.2 
+	3.2.1 Non sono presenti messaggi di errore
+	3.2.2 Si
+	3.2.3 Si
+	3.2.4 Si
+	3.2.5 Non sono presenti tasti a scelta rapida
+	
+3.3
+	3.3.1 Si, sono usati in maniera corretta
+	3.3.2 Si, molto facilmente
+	3.3.3 No
+	3.3.4 Non sono presenti frames
+	
+4.1 
+	4.1.1 Si
+	4.1.2 Si
+
+4.2 
+	4.2.1 Il contenuto è valido e coerente con la trama del sito
+	4.2.2 La pagina è parzialmente credibile, per via della mancanza di riferimenti ad autori o amministratori del sito
+	4.2.3 Non ci sono fonti esterne
+	
+4.3 
+	4.3.1 Si, lo stile è mantenuto nella pagina e 
+	in tutta la navigazione nel sito
+	4.3.2 Si, il layout si mantiene consistente nelle varie interfacce del sito
+	4.3.3 Si, lo standard per i link è rispettato
+	4.3.4 Non apparentemente
+	
+5.1
+	5.1.1 Si, la navigazione è semplice e strutturalmente guidata
+	5.1.2 //Ignorare
+	5.1.3 //Ignorare
+	5.1.5 Parzialmente, sono presenti dei frames in cui sono mostrati i seguiti di un ricercatore
+	
+5.2 
+	5.2.1 Si, sono prevenuti attraverso controlli 
+	5.2.2 //Ignorare
+
+5.3 //Ignorare
+
+
+6.1 
+	6.1.1 No, i link non sono per niente opprimenti
+	6.1.2 No, non è presente quasi nessun tooltip
+
+6.2 
+	6.2.1 Si, i link sono sufficientemente descrittivi
+	6.2.2 //Ignorare
+	6.2.3 //Ignorare
+6.3
+	6.3.1//Ignorare	
+	6.3.2 Si, le immagini sono sufficientemente riconoscibili come cliccabili
+	6.3.3 Non sono presenti pagine esterne al sito
+
+7.1 
+	7.1.1 Si, nessun problema rilevato
+	7.1.2 Si, è fornito un meccanismo di ricerca che copre parzialmente lo spettro di contenuti ricercabili
+
+7.2
+	7.2.1 Si, è possibile andare in profondità a seconda della volontà
+	7.2.2 //Ignorare
+	
+8.1
+	8.1.1 Si, i pulsanti sono raggruppati per funzionalità
+	8.1.2 Non sono presenti link/paragrafi/pulsanti di importanza minore
+	8.1.3 Si, sono evitati termini non informativi
+	
+8.2 
+	8.2.1 Si, la struttura ed il contenuto minimale sono molto succinti e diretti
+	8.2.2 Non sono presenti dettagli
+	8.2.3//Ignorare
+	8.2.3 Non sono presenti lunghe liste
+	8.2.5 L'unico paragrafo presente, contiene un'unica idea
+
+8.3
+	8.3.1 Si, sono evitate immagini superflue
+	8.3.2 Si, sono evitati blinking e animazioni flash non necessarie
+
+9.1
+	9.1.1 No, non ci sono pagine di errore e gli stessi, sono comunicati in maniera sbagliata o non comunicati
+	
+10.1
+	10.1.1 No, non sono presenti sezioni di help
+	
+
+Resoconto: L'interfaccia è sufficientemente consistente e intuitiva, tuttavia presenta i seguenti problemi:
+		
+			-Sono mancanti informazioni su chi è l'autore del sito e chi lo amministra [Livello 3: Problema Rilevante]
+			-Sono mancanti alcune etichette sugli elementi presenti nella pagina [Livello 2: Problema Secondario]
+			-Sono mancanti tooltip per aiutare l'utente nell'interazione [Livello 2: Problema Secondario]
+			-Non vi è la possilità di modificare la dimensione dei caratteri [Livello 0: Non considerato come problema di usabilità]
+			-Sono mancanti feedback di eventuali errori e pagine di help per l'utente [Livello 4 : Catastrofe di usabilità]

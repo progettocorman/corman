@@ -43,7 +43,7 @@ Route::get('/createGroup','Group@createGroup');
 Route::get('/condivisione', function () {  return view('condivisione');});
 Route::get('/condivisione2','CondivisionController@addcondivision');
 Route::get('/createGroup','Group@createGroup');
-Route::get('/modifyGroup','Group@modifyGroup');
+Route::post('/modifyGroup','Group@modifyGroup');
 Route::get('/members','Group@getMembers');
 
 //ANTONIO
@@ -119,6 +119,7 @@ Route::post('/publicPost','PostController@addUserPost');
 Route::get('/followers','UserController@getFollower');
 Route::get('/follows','UserController@getFollow');
 Route::get('/group','Group@getViewGroup');
+Route::get('/joinGroup','Group@joinManager');
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');

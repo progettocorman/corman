@@ -2,6 +2,9 @@
 <?php
     $user_follow = \App\Http\Controllers\UserController::getNumberFollow(session('id'));
     $user_follower = \App\Http\Controllers\UserController::getNumberFollower(session('id'));
+    $group_id = $_GET['group_id'];
+    $group = \DB::table('groups')->where('id',$group_id)->first();
+    $partecipants = \DB::table('partecipations')->join("users","user_id","=","users.id")->where('group_id',$group_id)->get();
 
 ?>
 <style>
@@ -15,7 +18,7 @@ input.form-controll{
 <div class="_b0acm">
  <div class="_qdmzb">
    <div class="_62ai2">
-<p><img src="group_images/{{$group_image}}" style="width:20%;height:20%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px; float:left; margin-right: 5%;"></p>
+<p><img src="group_images/{{$group->group_image}}" style="width:20%;height:20%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px; float:left; margin-right: 5%;"></p>
 </div>
 </div>
 </div>
@@ -40,12 +43,13 @@ input.form-controll{
     <button class="btn btn-primary" type="button" onClick="location.href='setting_group?group_id={{$group_id}}'">Settings</button>
   @endif
 <?php }?>
-<div class="_bnq48">
-  <a class="_t98z6" href="javascript:;" onclick="window.open('/members?group_id={{$_GET['group_id']}}', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
-        Partecipanti <span class="_fd86t" title="360">{{$partecipants}}</span>
-  </a>
-</div>
-
+<ul class="_h9luf">
+  <div class="_bnq48">
+    <a class="_t98z6" href="javascript:;" onclick="window.open('/members?group_id={{$_GET['group_id']}}', 'titolo', 'width=400, height=200, resizable, status, scrollbars=1, location');">
+          Partecipanti: <span class="_fd86t" title="360">@foreach($partecipants as $partecipant)<a href="userprofile?id={{$partecipant->id}}">{{$partecipant->name}} {{$partecipant->second_name}} {{$partecipant->last_name}} </a>@endforeach</span>
+    </a>
+  </div>
+</ul>
 </div>
 <h5>{{$description}}</h5>
 </div>

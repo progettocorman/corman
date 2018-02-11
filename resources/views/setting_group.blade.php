@@ -1,3 +1,12 @@
+<?php
+  $group = \DB::table('groups')->where('id',$_GET['group_id'])->first();
+  $group_id = $_GET['group_id'];
+  $groupName =$group->group_name;
+  $groupDescription =$group->group_description;
+  $visibility = $group->group_public;
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,22 +17,6 @@
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/settingaccount.css" type="text/css" />
-
-<script>
-
-function crea()
-{
-document.setting_form.action = "createGroup";
-document.setting_form.submit();
-}
-function modifica()
-{
-    <?php if(isset($_GET['group_id'])){?>
-        document.setting_form.action = "modifyGroup";
-        document.setting_form.submit();
-    <?php } ?>
-}
-</script>
 
 </head>
 
@@ -38,11 +31,12 @@ function modifica()
 
       </div>
       <div class="col-sm-8 text-left">
-        <form method="get" name ="setting_form">
-        {{csrf_field()}}
+        <form method="POST" name ="setting_form" action="modifyGroup">
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <table class="tables" width="100%" border="0">
+          <input type="hidden" class="form-control" name="groupid" value="{{$group_id}}" required>
         <tr>
           <td>
             <label >Name*</label>
@@ -54,11 +48,13 @@ function modifica()
 
        <tr>
          <td>
-            <input type="text" class="form-control" name="group_name" >
+            <input type="text" class="form-control" name = "group_name" value = {{$groupName}} required >
          </td>
          <td>
-           <input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
+          @if($visibility == 1)<input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
            <input type="radio" name="visibility[]" value='0'> Privato<br>
+           @else <input type="radio" name="visibility[]"  value='1' > Pubblico<br>
+            <input type="radio" name="visibility[]" value='0' checked> Privato<br> @endif
           </td>
        </tr>
 
@@ -70,7 +66,7 @@ function modifica()
 
         <tr>
           <td>
-            <input type="text" class="form-control" name="description" aria-describedby="description">
+            <input type="text" class="form-control" name="description" value={{$groupDescription}}>
           </td>
         </tr>
 
@@ -80,11 +76,8 @@ function modifica()
            <tr>
             <td>
 
-              <?php if(isset($_GET['group_id'])){?>
-                    <button class="btn btn-primary" type="submit" onClick="modifica()">Modifica</button>
-              <?php }else{ ?>
-                    <button class="btn btn-primary" type="submit" onClick="crea()">Crea</button>
-              <?php } ?>
+              <button class="btn btn-primary" type="submit" >Modifica</button>
+
             </td>
            </tr>
     </table>
@@ -92,9 +85,10 @@ function modifica()
         </form>
         <br>
         <td>
-          <form method="POST" action='update_group_profile'  enctype="multipart/form-data">
+          <form method="POST" action='update_group_profile' enctype="multipart/form-data">
             {{ csrf_field() }}
              <input type="file"  onchange="readURL(this);" name="group_image" multiple>
+             <input type="hidden" name="g_Id" value="{{$group_id}}" required>
               <img id="blah2" src="http://placehold.it/180" alt="your image" width=100 height=50  name="image_group" />
               <button type="submit" class="btn btn-primary">Load</button>
             </form>

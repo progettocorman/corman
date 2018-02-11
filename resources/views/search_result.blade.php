@@ -87,13 +87,13 @@
           <tr>
             <td>
                 <p><img src="/profile_images/{{$groupInfo->group_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></p>
-              @if ($partecipation == null)  <button type="button" class="btn btn-primary active">Iscriviti</button>
+              @if ($partecipation == null)  <button type="button" onClick="location.href='joinGroup?groupTo={{$group}}' " class="btn btn-primary active">Iscriviti</button>
               @else  <button type="button" class="btn btn-primary disabled">Già iscritto</button>@endif
             </td>
             <td>
                 <p>{{$groupInfo->group_name}}</p>
                 <p>{{$groupInfo->group_description}}</p>
-                <button class="btn btn-primary" onClick="location.href=''">Vai al gruppo</button></br></br> <!--TODO-->
+                <button class="btn btn-primary" onClick="location.href='group?group_id={{$group}}'">Vai al gruppo</button></br></br> <!--TODO-->
             </td>
             </tr>
           </table>

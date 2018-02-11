@@ -1,0 +1,60 @@
+CANOVACCIO PER IL VALUTATORE:
+
+-Cosa non Fare:
+	-Non fate mai riferimenti a cosa servono oggetti in ogni pagina
+	-Non date mai suggerimenti su COME fare qualcosa ma solo CHIARIMENTI sul COSA deve fare e solo se ve lo chiede
+	-Non fatelo sentire a disagio se non riesce a fare qualcosa, piuttosto restate distaccati
+	-Interrompetelo solo se intuite che ha frainteso qualcosa
+	
+
+ 1.Fate sedere l'utente
+ 2.Spiegate a cosa serve il sito (NON LE PAGINE)
+ 3.Spiegate cosa dovrà fare lui ( Es: ti darò un foglietto e tu dovrai eseguire quello che ti richiede)
+ 4.Consegnate il foglietto del task
+	4.1 Non ditegli che c'è un tempo massimo per eseguire i task (5 min)
+		4.1.1 Se non riesce a finire in tempo, ditegli di fermarsi e completate voi il task SENZA FAR VEDERE ALL'UTENTE
+	4.2 Non fategli vedere gli altri task e non ditegli quanti sono
+ 5.Chiedegli di pensare ad alta voce quello che sta facendo ed esprimere pareri di ogni tipo
+	5.1 Se smette di pensare ad alta voce, ricordateglielo
+ 6.Finito un task, ci saranno delle cose che dovete fare voi, quindi non fategliele vedere
+ 
+ 
+ Task 1:
+	-Effettua la registrazione al sito
+	-Accedendo alle tue informazioni personali, modifica l'immagine di profilo
+	-Effettua il logout
+____________________________________________________________
+
+ Taks 2:
+	-Effettua il login
+	-Aggiungi una pubblicazione
+	-Modifica una pubblicazione (una modifica qualsiasi)
+	-Aggiungi un post
+	-Modifica un post, rendendolo pubblico
+	-Visualizza tutti i tuoi post e tutte le tue pubblicazioni
+_____________________________________________________________
+ Task 3:
+	-Ricerca un utente "X" 
+	-Richiedi di Seguire l'utente "X"
+	-Ricerca un gruppo "Y"
+	-Richiedi di entrare nel gruppo "Y" CREATO DA "X"
+	-Ricerca una pubblicazione "Z"
+	-Recati sul profilo di "X" che ha pubblicato "Z"
+____________________________________________________________
+
+VALUTATORE: ENTRA CON L'UTENTE X E ACCETTA IL SEGUI E LA PARTECIPAZIONE AL GRUPPO
+____________________________________________________________
+ Task 4:
+	-Crea un gruppo pubblico
+	-Ricerca l'utente "X" 
+	-Invita l'utente "X" nel gruppo
+____________________________________________________________
+
+VALUTATORE: ENTRA CON L'UTENTE X E ACCETTA L'INVITO AL GRUPPO
+____________________________________________________________
+Task 5:
+	-Rimuovi l'utente "X" dal tuo gruppo
+	-Condividi nel gruppo "Y" una tua pubblicazione
+	-Esci dal gruppo "Y"
+	-Effettua il logout
+	

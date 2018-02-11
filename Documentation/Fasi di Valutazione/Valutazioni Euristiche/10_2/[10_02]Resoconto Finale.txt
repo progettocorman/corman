@@ -1,0 +1,5 @@
+Dalle valutazioni effettuate, sono emersi fondamentalmente due problemi principali:
+	-Non è fornito alcun feedback alle azioni errate di un utente e non è presente nessuna pagina di supporto per l'utente:
+		[11/02 RISOLTO] -Sono stati inseriti Warning che avvisano l'utente dell'errore commesso.
+	-Il sito non è credibile in quanto non mostra chi sono gli autori e come contattarli:
+		[11/02 RISOLTO] -Aggiunto un footer in cui vengono mostrate tali informazioni.

@@ -1,0 +1,10 @@
+
+-Scala di Rating dei problemi, utilizzata da ogni Valutatore:
+
+-0 = Il Valutatore non ritiene sia effettivamente un Problema di Usabilità.
+-1 = Problema Irrilevante: Non necessariamente deve essere risolto.
+-2 = Problema Minore di Usabilità (Secondario): Priorità inferiore per la risoluzione.
+-3 = Problema Maggiore di Usabilità (Rilevante): Alta priorità per la risoluzione.
+-4 = Catastrofe di Usabilità (Problema Bloccante): Risoluzione imprescindibile, prima del rilascio del prodotto (Nielsen).
+
+

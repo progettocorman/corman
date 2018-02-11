@@ -1,0 +1,1 @@
+Tutti i test sono stati eseguiti dopo la risoluzion dei problemi individuati con la valutazione euristica eseguita in data 10_02
