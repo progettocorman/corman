@@ -13,6 +13,23 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
    <link rel="stylesheet" href="css/notifications.css" type="text/css" />
+   <style>
+   div.box
+   {
+       width:105%; height:auto ;
+       background:url(boxbk.png) no-repeat top left;
+       padding:1px 0;
+       font-size:10px;
+   }
+
+   div.box-inner
+   {
+       height: 540px;
+       overflow:auto;
+       margin:25px 24px 0;
+       padding-right:2px;
+   }
+   </style>
  </head>
 
   <body>
@@ -26,7 +43,8 @@
       <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
     </div>
     <div class="col-sm-8 text-left">
-
+      <div class="box">
+        <div class="box-inner">
       <table class="tables" width="50%" border="2">
         @foreach($notifications as $notification)
         <?php $sender = \DB::table('users')->where('id',$notification->sender_id)->first();  ?>
@@ -65,7 +83,8 @@
             </tr>
         @endforeach
       </table>
-
+    </div>
+   </div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
