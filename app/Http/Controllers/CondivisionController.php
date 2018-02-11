@@ -18,7 +18,7 @@ class CondivisionController
       echo "$pieces[0] $pieces[1] $pieces[2] $pieces[3] </br>";
       echo "FARE INDIRIZZAMENTO SU QUEL GRUPPO CON ID --> $pieces[2]";
 
-      $group_id = $pieces[2];
+      $group_id = $pieces[0];
 
       if($pieces[2]==1){
         $condivision= new CondivisionPublication;
@@ -37,17 +37,22 @@ class CondivisionController
         $condivision->save();
       }
 
+        $group = \DB::table('groups')->select('*')->where('id', $group_id)->first();
 
+        //var_dump($group);
+
+
+
+        return view('group')->with('group_id',$group->id)->with('name',$group->group_name)
+              ->with('description',$group->group_description)->with('group_image',$group->group_image)
+              ->with('visibility',$group->group_public);
           /*TODO: ritornare view Group con parametri
             group_id
             name
             description
             group_image
             visibility
-            partecipants
-            is_amministrator
           */
 
-
-
+    }
 }

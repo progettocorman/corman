@@ -1,13 +1,14 @@
 <?php
-  $groupid = $_GET['group_id'];
+  //$group_id = $_GET['group_id'];
   $iduser = session('id');
   
+  $partecipants = \DB::table('partecipations')->where('group_id',$group_id)->get();
   //per pubblicazioni nel gruppo
   $sharepublications = \DB::table('condivision_publications')->select('*')
   ->join('publications','condivision_publications.publication_id', '=','publications.id')
   ->join('users_publications','publications.id','=', 'users_publications.publication_id')
   ->join('users','users.id','=', 'users_publications.user_id')
-  ->where('group_id', $groupid)->orderBy('publications.created_at','desc')->distinct();
+  ->where('group_id', $group_id)->orderBy('publications.created_at','desc')->distinct();
 
   $resultpublications = $sharepublications->get();
   
@@ -18,7 +19,7 @@
   ->join('posts','condivision_posts.post_id', '=','posts.id')
   ->join('users','condivision_posts.user_id', '=','users.id')
   ->select( 'users.name','users.second_name', 'users.last_name','users.user_image')
-  ->where('group_id', $groupid)->orderBy('posts.created_at','desc')->distinct();
+  ->where('group_id', $group_id)->orderBy('posts.created_at','desc')->distinct();
   
   $resultposts = $shareposts->get();
 
