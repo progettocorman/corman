@@ -163,9 +163,7 @@
               <td>
                 <label>Allegati</label>
              </td>
-             <td>
-                <p><label>Visibility</label></P>
-             </td>
+           
            </tr>
              <tr>
               <td>

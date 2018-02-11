@@ -37,6 +37,7 @@
         <div class="box-inner">
       @if(sizeof($users)==0) <p>Nessun Utente Trovato </p>@endif
       @foreach ($users as $user)
+        @if ($user == session('id'))@continue @endif
         <?php $userInfo = DB::table('users')->where('id',$user)->first() ?>
         <?php $followed = DB::table('friendships')->where('user_id',$user)->where('user_follow',session('id'))->first()?>
         <table class="tables" width="50%" border="0">
@@ -47,14 +48,14 @@
               @if($followed == null && $user != session('id'))<button type="button" onClick="location.href='follow?to_id={{$user}}'" class="btn btn-primary active">Segui</button>
               @elseif($followed != null && $user != session('id'))<button type="button" class="btn btn-primary disabled">Segui già</button>@endif
 
-              <?php $groupsF= DB::table('groups')->where('created_by',session('id'))->get()  ?>
+              <?php $groupsF= DB::table('groups')->join('partecipations','group_id','=','id')->where('user_id',session('id'))->get()  ?>
 
               <button type="button" onClick="showGroups({{$user}})" class="btn btn-primary active">Invita</button>
             @if(sizeof($groupsF)!=0)  <script>
                 function showGroups(id){
-                  html= "<select name = \"groups\"> @foreach ($groupsF as $Group) <option onClick=\"location.href='invite?to_id={{$user}}$group={{$Group->id}}'\" value=\"{{$Group->id}}\">{{$Group->group_name}}</option>@endforeach</select>";
+                  html= " <form method='GET' action='invite' > <select name = \"groups\"> @foreach ($groupsF as $Group) <option value=\""+id+"_{{$Group->id}}\">{{$Group->group_name}}</option>@endforeach</select><button type=\"submit\" class=\"btn btn-primary active\">Send Invite</button></form>";
                   document.getElementById("groupsHere"+String(id)).innerHTML = html;
-                  document.getElementById("bottonHere"+String(id)).innerHTML = "<button type=\"button\" onClick=\"location.href='invite?to_id={{$user}}&group={{$Group->id}}'\" class=\"btn btn-primary active\">Send Invite</button>";
+
                 }
               </script>@endif
               <p id ="groupsHere{{$user}}"></p>
