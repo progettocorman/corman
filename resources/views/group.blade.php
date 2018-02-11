@@ -13,6 +13,7 @@
     </div>
     <div class="col-sm-8 text-left">
       @include('information_group')
+      @include('navbar_group')
        <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
         <div class="riga">
           <hr>
@@ -25,51 +26,7 @@
         <div class="box">
           <div class="box-inner">
 
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-            <p>Name e cognome utente del gruppo</p>
-        </td>
-        </tr>
-          <tr>
-        <td>
-        <p>Data</p>
-        </td>
-      </tr>
-      <tr>
-    <td>
-    <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
-    </td>
-  </tr>
-  <tr>
-<td>
-<input class="Commenti" placeholder="Commenta" id="comment">
-</td>
-</tr>
-      </table>
-
-      <table class="tables" width="50%" border="0">
-      <tr>
-        <td>
-            <p>Name e cognome utente del gruppo</p>
-        </td>
-        </tr>
-          <tr>
-        <td>
-        <p>Data</p>
-        </td>
-      </tr>
-      <tr>
-    <td>
-    <p>Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo v Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo Qui ci sarà la ricerca del partecipante al gruppo</p>
-    </td>
-  </tr>
-  <tr>
-  <td>
-  <input class="Commenti" placeholder="Commenta" id="comment">
-  </td>
-  </tr>
-      </table>
+     
     </div>
    </div>
     </div>

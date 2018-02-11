@@ -53,12 +53,20 @@ Route::get('/tot_pubblicazioni', function () {
     return view('tot_pubblicazioni');
 });
 
+Route::get('/tot_pubblicazioni_group', function () {
+    return view('tot_pubblicazioni_group');
+});
+
 Route::get('/notifications', function () {
     return view('notifications');
 });
 
 Route::get('/tot_post', function () {
     return view('tot_post');
+});
+
+Route::get('/tot_post_group', function () {
+    return view('tot_post_group');
 });
 
 Route::get('/modifica_post', function () {
