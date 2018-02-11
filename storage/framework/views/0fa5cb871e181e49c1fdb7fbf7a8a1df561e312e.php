@@ -54,7 +54,7 @@ div.box-inner
   <div class="row content">
       <div class="col-sm-2 sidenav">
       <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
       <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
 
         <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
