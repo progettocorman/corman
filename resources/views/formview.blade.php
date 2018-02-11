@@ -22,9 +22,9 @@
   <div class="container-fluid">
   <div class="row content">
   <div class="col-sm-6 sidenav">
-    <div class="alert alert-warning">
-      <strong>Warning!</strong><a href="#" class="alert-link">Email già presente</a>.
-    </div>
+  @if (isset($error))  <div class="alert alert-warning">
+      <strong>Warning!</strong><a href="#" class="alert-link">{{$error}}</a>.
+    </div>@endif
     <form method="POST" action='insert_form'>
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="form-group">

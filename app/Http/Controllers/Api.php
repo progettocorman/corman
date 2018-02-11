@@ -31,7 +31,7 @@ class Api extends Controller
       //SE L'UTENTE NON È PRESENTE IN dblp, RIPORTA MESSAGGIO
       if(!isset($jsonResult->result->hits->hit)){
         // echo "L'utente non è presente il dblp";//TODO MESSAGGIO ERRORE
-        // return redirect('/home');
+        return redirect('/home');
       }
       //ESTRAE IN MODO APPROPRIATO I DATI DI INTERESSE DALLA VARIABILE
       //Array che contiene i nomi dei campi da utilizzare come chiavi(tranne authors, trattato separatamente);
