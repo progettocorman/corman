@@ -47,9 +47,11 @@
           </td>
       </tr>
 </table>
+@if(isset($error))
 <div class="alert alert-warning">
-  <strong>Warning!</strong><a href="#" class="alert-link">Password o email errata</a>.
+  <strong>Warning!</strong><a href="#" class="alert-link">{{$error}}</a>.
 </div>
+@endif
     <button type="submit" class="btn btn-primary">SignIn</button>
   </form>
   </div>

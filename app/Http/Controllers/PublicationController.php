@@ -191,12 +191,13 @@ class PublicationController extends Controller
                                           ->where('second_name',$tempName[1])
                                           ->where('last_name',$tempName[2])->get();
 
-          }else{
+          }else if(sizeof($tempName)==2){
             //RICOSTRUZIONE DEL NOME DELL'AUTORE CHE SI STA CONSIDERANDO
             $authorName = $tempName[0]." ".$tempName[1];
             $coAuthors = \DB::table('users')->select('id','name','last_name')->where('name',$tempName[0])
                                           ->where('last_name',$tempName[1])->get();
               }
+              else return;
           /////////////////////////////////////////////////////////////////////////////////////
 
           //ARRAY DI COAUTORI TROVATI NEL DATABASE ED ELABORATI
