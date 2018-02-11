@@ -72,6 +72,7 @@ class PostController extends Controller
     {
       $iduser = session('id');
       $post_id = $request->input('postid');
+      echo $post_id;
       $post = \App\Post::find($post_id);
 
 
@@ -98,7 +99,7 @@ class PostController extends Controller
         DB::table('posts')->where('id',$post_id)
         ->update(array('text'=>$request->input('testo')));
 
-        return redirect('/userprofile?id='. $iduser);
+        return redirect('/tot_post?id='. $iduser);
     }
 
 

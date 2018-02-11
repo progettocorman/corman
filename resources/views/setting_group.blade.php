@@ -78,9 +78,9 @@ body{
         </form>
         <br>
         <td>
-          <form method="POST"action='update_image_profile'  enctype="multipart/form-data">
+          <form method="POST" action='update_group_profile'  enctype="multipart/form-data">
             {{ csrf_field() }}
-             <input type="file"  onchange="readURL(this);" name="user_image" multiple>
+             <input type="file"  onchange="readURL(this);" name="group_image" multiple>
               <img id="blah2" src="http://placehold.it/180" alt="your image" width=100 height=50  name="image_group" />
               <button type="submit" class="btn btn-primary">Load</button>
             </form>

@@ -91,6 +91,7 @@ Route::get('/pubblicazione', 'PublicationController@getPubblicazioneView');//  r
 Route::post('/publicPost','PostController@addUserPost');
 
 Route::post('/update_image_profile', 'UpdateImageProfile@imageUpdate'); //caricale imagini profilo nella cartella profile_images
+Route::post('/update_group_profile', 'Group@imageUpdate'); //caricale imagini gruppo nella cartella group_images
 
 Route::post('/insert_form', 'UserController@registerData');//registrazione al db
 Route::post('/login', 'UserController@loginData');//effettua login

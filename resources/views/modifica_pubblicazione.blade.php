@@ -7,7 +7,7 @@
 
     $publication = DB::table('publications')->select('*')->where('id',$idpub)->first();
     $tagspub = DB::table('publications_tag')->select('*')->where('publications_id',$idpub)->get();
-    $user_publications = DB::table('users_publications')->select('*')->where('publication_id',$idpub)->get();
+    $user_publications = DB::table('users_publications')->select('*')->where('publication_id',$idpub)->where('user_id',$id)->get();
 
     $title =  $publication->title;
     $venue = $publication->venue;
@@ -18,15 +18,16 @@
     $type = $publication->type;
 
     //PER I TAGS
-    $tags = null;
-   foreach($tagspub as $tag){
-        $tags = $tag->value ;
-        }
+    $tags = "";
+    foreach($tagspub as $tag){
+        $tags = $tags.",".$tag->value ;
+      }
 
     //PER I COAUTORI
+    $coauthors = "";
     foreach($user_publications as $coauthor){
-        $coautors =  $coauthor->author_name;
-       }
+        $coauthors = $coauthors.",".$coauthor->author_name;
+    }
 
 
 ?>
@@ -50,7 +51,7 @@
         <!----------------------------------------FORM ----------------------------------->
         <form action="modifyPublication" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
-        <input type="hidden" name="idpub" value="{{$idpub}}">
+        <input type="hidden" class="form-control" name="idpub" value="{{$idpub}}" required>
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
@@ -128,8 +129,8 @@
                 </td>
                 <td>
 
-                @if ($tags==null)<input type="text" name ="tags" placeholder="Nessun Tag" vadata-role="tagsinput" />
-                @else <input type="text" name ="tags" value="{{$tags}}" vadata-role="tagsinput" /> @endif
+                @if ($tags==null)<input type="text" name ="tags" value="" data-role="tagsinput" />
+                @else <input type="text" name ="tags" value="{{$tags}}" data-role="tagsinput" />@endif
 
 
                 </td>
@@ -148,7 +149,7 @@
                <tr>
 
                   <td>
-                       <input type="text" value={{$coautors}} name ="coautori" data-role="tagsinput" />
+                       <input type="text" value={{$coauthors}} name ="coautori" data-role="tagsinput" />
                   </td>
                   <td>
                     <select class="form-control" name="topics" placeholder="Topic">

@@ -62,9 +62,9 @@
 
             <tr>
               <td>
+                @if ($tags==null)<input type="text" name ="tags" value="" data-role="tagsinput" />
+                @else <input type="text" name ="tags" value="{{$tags}}" data-role="tagsinput" />@endif
 
-                @if ($tags==null)<input type="text" name ="tags" placeholder="Nessun Tag" vadata-role="tagsinput" />
-                @else <input type="text" name ="tags" value="{{$tags}}" vadata-role="tagsinput" /> @endif
               </td>
             </tr>
             <tr>

@@ -22,6 +22,7 @@ class Group extends Controller
       $group->created_by = $request->session()->get('id');
 
       if(isset($groupImage)) $group->group_image = $groupImage;
+      else $group->group_image = 'deafaultgroup.png';
       if(isset($groupDescription)) $group->group_description = $request->input('description');
 
       // $group->searchable();
@@ -151,7 +152,7 @@ Group::getViewGroup($request);
               ->with('id',$query->id)
               ->with('name',$query->group_name)
               ->with('description',$query->group_description)
-              ->with('image',$query->group_image)
+              ->with('group_image',$query->group_image)
               ->with('visibility',$query->group_public)
               ->with('partecipants',$number)
               ->with('is_amministrator',$is_amministrator->is_amministrator);
@@ -159,21 +160,21 @@ Group::getViewGroup($request);
 
     public static function imageUpdate(Request $request){
       $id = session('id');
-      $fileinpost = $request->file('user_image');
+      $group_id = $request->input('group_id');
+      $fileinpost = $request->file('group_image');
       if ( $fileinpost != null) {
-          $file =  $fileinpost->store('profile_images');
+          $file =  $fileinpost->store('group_images');
           Storage::delete($file);
           $nomefiledacaricare = explode("/", $file);
-          $filee = $fileinpost->move(public_path('profile_images'),$id.".png");
-          DB::table('users')->where('id',$id)->update(['user_image'=>$id.".png" ]);
-          $query = DB::table('users')->select('*')->where('id',$id)->first();
+          $filee = $fileinpost->move(public_path('group_images'),$group_id.".png");
+          \DB::table('groups')->where('id',$group_id)->update(['group_image'=>$group_id.".png" ]);
+
       }else{
-          DB::table('users')->where('id',$id)->update(['user_image'=>"defaultprofile.png" ]);
-          $query = DB::table('users')->select('*')->where('id',$id)->first();
+          \DB::table('users')->where('id',$group_id)->update(['group_image'=>"defaultgroup.png" ]);
+
       }
-
+      return redirect('/group?group_id='.$group_id);
     }
-
 
 
 }

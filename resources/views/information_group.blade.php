@@ -10,7 +10,7 @@
 <div class="_b0acm">
  <div class="_qdmzb">
    <div class="_62ai2">
-<p><img src="image/modifica_1.png" style="width:20%;height:20%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px; float:left; margin-right: 5%;"></p>
+<p><img src="group_images/{{$group_image}}" style="width:20%;height:20%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px; float:left; margin-right: 5%;"></p>
 </div>
 </div>
 </div>

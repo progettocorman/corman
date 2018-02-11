@@ -237,7 +237,9 @@ class PublicationController extends Controller
   public static function modifyPublication(Request $request){
     //Bisonga vedere come passare l'id della pubblicazione
     $iduser = session('id');
-    $idpub = $request->input('pubid');
+    $idpub = $request->input('idpub');
+
+
 
     $newDbKey = md5($request->input('title').$request->input('year'));
     \DB::table('publications')->where('id',$idpub)//id passato con get
@@ -250,8 +252,14 @@ class PublicationController extends Controller
                   'type'=>$request->input('type'),
                   'dbKey'=>$newDbKey ));
 
-    \DB::table('publications_tag')->where('publications_id',$idpub)//id passato con get
-    ->update(array('value' =>$request->input('tags')));
+  \DB::table('publications_tag')->where('publications_id',$idpub)->delete();
+
+  if($request->input('tags')!=null){
+    $tags =  explode(",",$request->input('tags'));
+    foreach ($tags as $tag) {
+      TagsPublicationsController::saveTags($tag,$idpub);
+      }
+    }
 
       /*ASSEGNA IL visibilità */
       $visibility =  $_POST['visibility'];
@@ -271,7 +279,7 @@ class PublicationController extends Controller
     ->update(array('author_name' =>$request->input('coautori'),
                   'visibility'=> $number ));
 
-     return redirect('/userprofile?id='. $iduser);
+     return redirect('/tot_pubblicazioni?id='. $iduser);
   }
 
   public static function modifyPublicationVisibility(Request $request){
