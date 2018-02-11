@@ -109,8 +109,11 @@
 
             </td>
           </tr>
-    
+
       </table>
+    </br>
+    </br>
+    </br>
       @endforeach
     </div>
    </div>

@@ -124,11 +124,7 @@ div.box-inner
 
                 </td>
               </tr>
-              <tr>
-            <td>
-            <input class="Commenti" placeholder="Commenta" id="comment">
-            </td>
-            </tr>
+
           </table>
             @else
             <!--Allegati  -->
@@ -200,12 +196,10 @@ div.box-inner
 
                   </td>
                 </tr>
-                <tr>
-              <td>
-              <input class="Commenti" placeholder="Commenta" id="comment">
-              </td>
-              </tr>
-            </table>
+             </table>
+           </br>
+           </br>
+            </br>
             @endif
 
       @endforeach
