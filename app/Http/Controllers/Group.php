@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 
 use \App\Partecipation;
 
@@ -67,6 +69,17 @@ public function modifyGroup(Request $request){
       $group->group_public = false;
 
     $group->save();
+
+
+    /*TODO: ritornare view Group con parametri
+      group_id
+      name
+      description
+      group_image
+      visibility
+      partecipants
+      is_amministrator
+    */
 }
 
 

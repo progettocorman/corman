@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use \App\CondivisionPost;
 use \App\CondivisionPublication;
 
+
+
+
 class CondivisionController
 {
     public static function addcondivision(Request $request) {
@@ -14,6 +17,8 @@ class CondivisionController
       $pieces = explode("-", $nomegruppo);
       echo "$pieces[0] $pieces[1] $pieces[2] $pieces[3] </br>";
       echo "FARE INDIRIZZAMENTO SU QUEL GRUPPO CON ID --> $pieces[2]";
+
+      $group_id = $pieces[2];
 
       if($pieces[2]==1){
         $condivision= new CondivisionPublication;
@@ -32,7 +37,17 @@ class CondivisionController
         $condivision->save();
       }
 
-      \App\Group::getGroup($pieces[2]);
-    }
+
+          /*TODO: ritornare view Group con parametri
+            group_id
+            name
+            description
+            group_image
+            visibility
+            partecipants
+            is_amministrator
+          */
+
+
 
 }

@@ -169,13 +169,11 @@
               @endforeach
             </p>
             </td>
-          </tr>
-          <tr>
-            <td>
-            <input class="Commenti" placeholder="Commenta" id="comment">
-            </td>
-        </tr>
+           </tr>
           </table>
+        </br>
+        </br>
+        </br>
           @endforeach
       @endforeach
     </div>
@@ -190,6 +188,8 @@
     </div>
   </div>
   </div>
+</br>
+</br>
   <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
   </br>
     <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
