@@ -79,23 +79,6 @@ class PostController extends Controller
       if($request->input('tags')!=null)\DB::table('posts_tags')->where('posts_id', $post_id)
         ->update(array('value' =>$request->input('tags')));
 
-      /*ASSEGNA IL visibilità */
-      $visibility = $_POST['visibility'];
-      foreach ($visibility as $values) {
-               $visibility_value = $values;
-              }
-
-     if($visibility_value == 'Pubblico'){
-        $number = 0;
-        }else if($visibility_value == 'Privato'){
-          $number = 1;
-        }else {
-           $number = 2;
-        }
-
-        DB::table('users_posts')->where('posts_id',$post_id)
-        ->update(array('visibility'=>$number));
-
         DB::table('posts')->where('id',$post_id)
         ->update(array('text'=>$request->input('testo')));
 

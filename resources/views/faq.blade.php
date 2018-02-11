@@ -35,11 +35,11 @@ $affiliation = $inf->affiliation;
       @include('group_bar')
 
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left"style="height:120%">
       <div class="box">
         <div class="box-inner">
       <h1> f.a.q.<h1>
-      <h4> Approposito di Corman<h4>
+      <h4> A proposito di Corman<h4>
         <h4> 1. Cos'è Corman? <h4>
           <h4> Corman è un social network adibito a ricercatori i quali sono interessati a condividere le proprie
                ricerche con altri ricercatori. <h4>
@@ -96,6 +96,9 @@ $affiliation = $inf->affiliation;
         <h4> 14. Come posso seguire un'altro ricercatore? <h4>
           <h4> Per seguire un ricercatore basta ricercarlo (vedi domanda 12), una volta trovato premere il bottone
                "segui" <h4>
+               </br>
+               </br>
+
                </div>
              </div>
       <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
@@ -109,17 +112,14 @@ $affiliation = $inf->affiliation;
         <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
 
       </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    <p>@Copyright Team Corman</p>
+
     </div>
   </div>
   </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+  </br>
+    <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+</nav>
  </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>

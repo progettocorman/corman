@@ -240,8 +240,6 @@ class PublicationController extends Controller
     $iduser = session('id');
     $idpub = $request->input('idpub');
 
-
-
     $newDbKey = md5($request->input('title').$request->input('year'));
     \DB::table('publications')->where('id',$idpub)//id passato con get
     ->update(array('title' =>$request->input('title'),
@@ -262,23 +260,8 @@ class PublicationController extends Controller
       }
     }
 
-      /*ASSEGNA IL visibilità */
-      $visibility =  $_POST['visibility'];
-      foreach ($visibility as $values) {
-               $visibility_value = $values;
-              }
-
-     if($visibility_value == 'Pubblico'){
-        $number = 0;
-        }else if($visibility_value == 'Privato'){
-          $number = 1;
-        }else {
-           $number = 2;
-        }
-
-    \DB::table('users_publications')->select('author_name','visibility')->where('publication_id',$idpub)//id passato con get
-    ->update(array('author_name' =>$request->input('coautori'),
-                  'visibility'=> $number ));
+    \DB::table('users_publications')->select('author_name')->where('publication_id',$idpub)//id passato con get
+    ->update(array('author_name' =>$request->input('coautori')));
 
      return redirect('/tot_pubblicazioni?id='. $iduser);
   }

@@ -22,32 +22,13 @@
       <div class="col-sm-2 sidenav">
         <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
         <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
-      </br>
-      </br>
-      </br>
-    </br>
-    </br>
-    </br>
-  </br>
-  </br>
-  </br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-        <p>@Copyright Team Corman</p>
-      </div>
-
+       </div>
     </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
+    </br>
+      <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
+  </nav>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
