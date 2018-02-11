@@ -1,4 +1,13 @@
-
+input.form-controll{
+  background-color: white;
+  text-decoration-color: white;
+  border-color: white;
+}
+input{
+  background-color: white;
+  text-decoration-color: white;
+  border-color: white;
+}
 ._mainc {
     margin-top: 2%;
     -webkit-box-orient: horizontal;

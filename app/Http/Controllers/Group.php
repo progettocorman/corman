@@ -212,4 +212,13 @@ public function modifyGroup(Request $request){
       Group::inviteUser($data[1],$data[0],session('id'));
       return redirect('/home');
     }
+
+    public static function getMembers(){
+      $group_id = $_GET['group_id'];
+      $group = \App\Group::find($group_id);
+
+      $members = $group->members;
+
+      return view('members')->with(['members' => $members]);
+    }
 }
