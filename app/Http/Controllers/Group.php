@@ -158,7 +158,7 @@ public function modifyGroup(Request $request){
               ->with('is_amministrator',$is_amministrator->is_amministrator);
     }
 
-    public static function getViewGroup($group_id){
+    public static function getGroup($group_id){
 
 
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();

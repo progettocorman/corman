@@ -32,7 +32,7 @@ class CondivisionController
         $condivision->save();
       }
 
-      \App\Group::getViewGroup($pieces[2]);
+      \App\Group::getGroup($pieces[2]);
     }
 
 }
