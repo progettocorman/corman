@@ -48,6 +48,7 @@ Route::post('/create_Group','Group@createGroup');
 Route::post('/modifyGroup','Group@modifyGroup');
 Route::get('/members','Group@getMembers');
 Route::get('/condivisioneposts_test','Test@condivisioneposts_test');
+Route::get('delete_group', 'Group@deleteGroup');
 
 //ANTONIO
 Route::get('/formregister', function () {

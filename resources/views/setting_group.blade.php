@@ -84,6 +84,12 @@
 
         </form>
         <br>
+    <table>
+      <tr>
+        <td><label>Update image</label></td>
+        <td><label>Delete group</label></td>
+      </tr>
+      <tr>
         <td>
           <form method="POST" action='update_group_profile' enctype="multipart/form-data">
             {{ csrf_field() }}
@@ -93,6 +99,11 @@
               <button type="submit" class="btn btn-primary">Load</button>
             </form>
           </td>
+          <td>
+            <a href="delete_group?group_id={{$group_id}}" class="btn btn-primary">Delete group</button>
+          </td>
+        </tr>
+    </table>
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">

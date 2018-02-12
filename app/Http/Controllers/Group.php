@@ -84,12 +84,14 @@ public function modifyGroup(Request $request){
 
 
     //Elimina un gruppo
-    public static function deleteGroup($groupId){
+    public static function deleteGroup(Request $request){
       // Elimina Tutte le Partecipazioni al gruppo
+      $groupId=$request->group_id;
       \App\Partecipation::where('group_id',$groupId)->delete();
       //Elimina il gruppo
       \App\Group::where('id',$groupId)->delete();
       //todo Notifiche a tutti i partecipanti, che il gruppo è stato rimosso
+      return redirect('/home');
     }
 
     //Aggiunge un utente ad un gruppo, con la possibilità di settarlo come amministratore di quel gruppo
