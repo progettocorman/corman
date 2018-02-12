@@ -55,7 +55,7 @@ div.box-inner
       <div class="col-sm-2 sidenav">
       <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
       <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
-      <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='createGroup'">New Group</button></br></br>
 
         <?php echo $__env->make('group_bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -87,16 +87,6 @@ div.box-inner
                   &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
                   <a href="condivisione?idpub=<?php echo e($result->posts_id); ?>&tipo=0"><img src="image/condivisione.png"></a>
             </td>
-            <!-- <td>
-            <a href="modify"><img src="image/modifica_1.png"></a>
-          </td> -->
-            <!--
-            <td>
-              <div class="btn-group">
-               <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-               <span class="caret"></span>
-              </button>
-            </div> -->
             </td>
             </tr>
               <tr>
@@ -151,23 +141,12 @@ div.box-inner
                     &nbsp;&nbsp;<?php echo e($result->name); ?> <?php echo e($result->second_name); ?> <?php echo e($result->last_name); ?></p>
                     <a href="condivisione?idpub=<?php echo e($result->publication_id); ?>&tipo=1"><img src="image/condivisione.png"></a>
               </td>
-              <!-- <td>
-                <div class="btn-group">
-                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                 <span class="caret"></span>
-                </button>
-               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Pubblico</a><br/>
-                <a class="dropdown-item" href="#">Solo amici</a><br/>
-                <a class="dropdown-item" href="#">Privato</a><br/>
-               </div>
-              </div>
-              </td> -->
+
               </tr>
                 <tr>
               <td>
                 <!--Data Pubblicazione -->
-              <p><?php echo e($result->year); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e($result->visibility); ?></p>
+              <p><?php echo e($result->year); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </td>
                   </tr>
                   <tr>
