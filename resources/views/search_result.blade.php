@@ -86,7 +86,7 @@
           <table class="tables" width="50%" border="0">
           <tr>
             <td>
-                <p><img src="/profile_images/{{$groupInfo->group_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></p>
+                <p><img src="/group_images/{{$groupInfo->group_image}}" style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;"></p>
               @if ($partecipation == null)  <button type="button" onClick="location.href='joinGroup?groupTo={{$group}}' " class="btn btn-primary active">Iscriviti</button>
               @else  <button type="button" class="btn btn-primary disabled">Già iscritto</button>@endif
             </td>

@@ -1,4 +1,7 @@
 <?php
+
+
+
   $group_id = $_GET['group_id'];
   $iduser = session('id');
 
@@ -56,9 +59,10 @@
 
     </div>
     <div class="col-sm-8 text-left">
-      @include('information_group')
+          
        <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
         <div class="riga">
+              @include('information_group')
           <hr>
           <h3></h3>
           <p></p>
@@ -67,6 +71,7 @@
           <p></p>
         </div>
         <div class="box">
+
           <div class="box-inner">
 
             @foreach ($results as $result)
