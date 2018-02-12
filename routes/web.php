@@ -122,6 +122,9 @@ Route::get('/followers','UserController@getFollower');
 Route::get('/follows','UserController@getFollow');
 Route::get('/group','Group@getViewGroup');
 Route::get('/joinGroup','Group@joinManager');
+Route::get('/setAdmin','Group@setAdmin');
+Route::get('/unsetAdmin','Group@unsetAdmin');
+Route::get('/removeUser','Group@removeUser');
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');

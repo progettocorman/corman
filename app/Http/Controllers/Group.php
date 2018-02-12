@@ -103,20 +103,30 @@ public function modifyGroup(Request $request){
     }
 
     //Elimina un utente da un gruppo
-    public static function removeUser($userId, $groupId){
+    public static function removeUser(Request $request){
+      $userId = $request->to_remove;
+      $groupId = $request->from;
       \App\Partecipation::where('user_id',$userId)->where('group_id',$groupId)->delete();
+
+      return redirect('/members?group_id='.$groupId);
       //todo Notifica all'utente che è stato eliminato
     }
 
     //Imposta un utente come amministratore
-    public static function setAdmin($userId,$groupId){
+    public static function setAdmin(Request $request){
+      $userId = $request->to_set;
+      $groupId = $request->where;
       $result = \DB::table('partecipations')->where('user_id', $userId)->where('group_id',$groupId)->update(['is_amministrator' => true]);
-      // if($result == NULL) return "Nessuna Modifica";
+
+      return redirect('/members?group_id='.$groupId);
     }
     //Rimuovi un utente dal ruolo di amministratore
-    public static function unsetAdmin($userId,$groupId){
+    public static function unsetAdmin(Request $request){
+      $userId = $request->to_unset;
+      $groupId = $request->where;
       $result = \DB::table('partecipations')->where('user_id', $userId)->where('group_id',$groupId)->update(['is_amministrator' => false]);
-      // if($result == NULL) return "Nessuna Modifica";
+
+      return redirect('/members?group_id='.$groupId);
     }
 
     //Richiede di partecipare ad un gruppo-> Se è pubblico, aggiunge l'utente al gruppo, altrimenti invia una notifica all'amministratore
@@ -236,6 +246,6 @@ public function modifyGroup(Request $request){
 
       $members = $group->members;
 
-      return view('members')->with(['members' => $members]);
+      return view('members')->with(['members' => $members])->with('groupId',$group_id);
     }
 }
