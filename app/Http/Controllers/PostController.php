@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TagsPostsController;
+use \App\CondivisionPost;
 use DB;
 
 class PostController extends Controller

@@ -5,6 +5,29 @@
   $group_id = $_GET['group_id'];
   $iduser = session('id');
 
+  $controlloiscrizione = \DB::table('partecipations')->select('user_id', 'group_id', 'is_amministrator')
+                      ->where('group_id', $group_id)
+                      ->where('user_id', $iduser)
+                      ->first();
+$flag = 0;
+$subscribed = 0;
+  if(sizeof($controlloiscrizione)!=0){
+    $flag = 1;
+    $subscribed = 1;
+  }
+  else {
+    $controlloiscrizione = \DB::table('groups')->select('id', 'group_public')
+                        ->where('id', $group_id)
+                        ->first();
+      if($controlloiscrizione->group_public==1){
+        $flag = 1;
+      }
+  }
+  $isadmin=0;
+  if($controlloiscrizione->is_amministrator==1){
+    $isadmin = 1;
+  }
+
   $partecipants = \DB::table('partecipations')->where('group_id',$group_id)->get();
   //per pubblicazioni nel gruppo
   $sharepublications = \DB::table('condivision_publications')->select('publication_id')
@@ -70,7 +93,10 @@
         <div class="box">
                 @include('information_group')
           <div class="box-inner">
-
+          @if($subscribed==1)
+            @include('insert_post_group')
+          @endif
+          @if($flag == 1)
             @foreach ($results as $result)
 
               @if (isset($result->posts_id))
@@ -192,6 +218,9 @@
                   @endif
 
             @endforeach
+            @else
+            Non sei iscritto al gruppo
+          @endif
           </div>
          </div>
           </div>

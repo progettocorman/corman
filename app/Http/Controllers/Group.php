@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use \App\CondivisionPost;
 
 use DB;
 
@@ -110,9 +111,45 @@ public function modifyGroup(Request $request){
       $groupId = $request->from;
       \App\Partecipation::where('user_id',$userId)->where('group_id',$groupId)->delete();
 
-      return redirect('/members?group_id='.$groupId);
+      return redirect('/group?group_id='.$groupId);
       //todo Notifica all'utente che è stato eliminato
     }
+
+    public static function insert_post_group(Request $request){
+      $group_id = $request->input('passa_group_id');
+      $id = session('id');
+      $user = \App\User::find($id);
+      $post = new \App\Post;
+      $post->text = $request->input('testo');
+
+      //$post->attac hments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
+      $post->save();
+
+      //sezione per  salvare i tags
+      $queryforid = DB::table('posts')->select('id')->orderBy('created_at', 'desc')->first();
+
+      $tags =  explode(",",$request->input('tags'));
+      foreach($tags as $tag){
+      TagsPostsController::saveTags($tag, $queryforid->id);
+      }
+     //sezione per salvare i tags//
+
+     $fileinpost = $request->file('fileUpload1');
+     if(isset($fileinpost)){
+        AttachmentController::addAttachment($queryforid->id, 1, $fileinpost);
+       }
+
+       $condivision= new CondivisionPost;
+       $condivision->user_id = $id;
+       $condivision->group_boolean=1;
+       $condivision->post_id = $queryforid->id;
+       $condivision->group_id = $group_id;
+       $condivision->save();
+
+
+      $query = DB::table('users')->select('*')->where('id', $id)->first();
+      return redirect('/group?group_id='.$group_id);
+}
 
     //Imposta un utente come amministratore
     public static function setAdmin(Request $request){
@@ -168,6 +205,12 @@ public function modifyGroup(Request $request){
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
       $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
       $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
+      if(sizeof($is_amministrator)==0){
+        $admin = 0;
+      }
+      else {
+        $admin = $is_amministrator->is_amministrator;
+      }
       return view('group')
               ->with('id',$query->id)
               ->with('name',$query->group_name)
@@ -175,7 +218,7 @@ public function modifyGroup(Request $request){
               ->with('group_image',$query->group_image)
               ->with('visibility',$query->group_public)
               ->with('partecipants',$number)
-              ->with('is_amministrator',$is_amministrator->is_amministrator);
+              ->with('is_amministrator',$admin);
     }
 
     public static function getGroup($group_id){
@@ -239,7 +282,7 @@ public function modifyGroup(Request $request){
       $group_id = $request->groupTo;
 
       Group::joinGroup($user_id,$group_id);
-      return redirect('/home');
+      return redirect('/group?group_id='.$group_id);
     }
 
     public static function getMembers(){

@@ -26,6 +26,13 @@ input.form-controll{
 <section class="_o6mpc">
 <div class="_ienqf">
 <h1>{{$name}} </h1>
+@if($subscribed==1)
+  @if($isadmin==0)
+    <button type="button" onClick="location.href = 'removeUser?to_remove={{session("id")}}&from={{$group_id}}'" class="btn btn-primary active">Unsubscribe</button>
+  @endif
+@else
+ <button type="button" onClick="location.href='joinGroup?groupTo={{$group_id}}' " class="btn btn-primary active">Subscribes</button>
+@endif
 <input type="text" class="form-controll" name="group_id">
 <div class"bla">
   @if($visibility==1)

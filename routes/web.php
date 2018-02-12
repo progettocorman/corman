@@ -49,6 +49,8 @@ Route::post('/modifyGroup','Group@modifyGroup');
 Route::get('/members','Group@getMembers');
 Route::get('/condivisioneposts_test','Test@condivisioneposts_test');
 Route::get('delete_group', 'Group@deleteGroup');
+Route::get('insert_post_group', function () {  return view('insert_post_group');});
+Route::post('insert_post_group2', 'Group@insert_post_group');
 
 //ANTONIO
 Route::get('/formregister', function () {
@@ -126,6 +128,7 @@ Route::get('/joinGroup','Group@joinManager');
 Route::get('/setAdmin','Group@setAdmin');
 Route::get('/unsetAdmin','Group@unsetAdmin');
 Route::get('/removeUser','Group@removeUser');
+
 
 ////////////////////////TESTING/////////////////////////////////////////////////////
 Route::get('/apiTest','Test@apiTest');
