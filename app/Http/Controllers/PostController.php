@@ -34,6 +34,7 @@ class PostController extends Controller
 
           //$post->attac hments = 0; COLONNA ELIMINATA NELLA NUOVA VERSIONE
           $post->save();
+
           $post->users()->attach($id,['visibility' => $visibility]);
 
           //sezione per  salvare i tags
@@ -45,9 +46,15 @@ class PostController extends Controller
           }
          //sezione per salvare i tags//
 
+         $fileinpost = $request->file('fileUpload1');
+         if(isset($fileinpost)){
+            AttachmentController::addAttachment($queryforid->id, 1, $fileinpost);
+           }
+
+
           $query = DB::table('users')->select('*')->where('id', $id)->first();
-          return view('/userprofile')->with('id',$user->id)->with("name",$query->name)->with("last_name",$query->last_name)
-          ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
+          // return redirect('/userprofile?id='.$user->id)->with("name",$query->name)->with("last_name",$query->last_name)
+          // ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
     }
 
     public static function modifyPostVisibility(Request $request)
@@ -72,8 +79,15 @@ class PostController extends Controller
     {
       $iduser = session('id');
       $post_id = $request->input('postid');
-      echo $post_id;
       $post = \App\Post::find($post_id);
+
+      $fileinpost =$request->file('fileUpload1');
+      //Aggiunta allegato
+      if(isset($fileinpost)){
+        //Ritira l'id della Pubblicazione appena aggiunta al db
+         AttachmentController::addAttachment($post_id, 0, $fileinpost);
+
+        }
 
 
       if($request->input('tags')!=null)\DB::table('posts_tags')->where('posts_id', $post_id)
@@ -82,7 +96,7 @@ class PostController extends Controller
         DB::table('posts')->where('id',$post_id)
         ->update(array('text'=>$request->input('testo')));
 
-        return redirect('/tot_post?id='. $iduser);
+        // return redirect('/tot_post?id='. $iduser);
     }
 
 

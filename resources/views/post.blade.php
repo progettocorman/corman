@@ -12,7 +12,7 @@
 
   </div>
       <div class="col-sm-8 text-left">
-        <form method='post' action='publicPost' >
+        <form action='publicPost' method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
         <table class="tables" width="100%" border="0">
             <tr>

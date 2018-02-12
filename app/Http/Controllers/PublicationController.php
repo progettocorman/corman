@@ -72,7 +72,7 @@ class PublicationController extends Controller
 
 
 
-    $fileinpost =$request->file('fileUpload1');
+    $fileinpost = $request->file('fileUpload1');
     //Aggiunta allegato
     if(isset($fileinpost)){
       //Ritira l'id della Pubblicazione appena aggiunta al db

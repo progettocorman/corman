@@ -23,9 +23,7 @@ class AttachmentController extends Controller
               $filee = $fileinpost->move(public_path('uploads'),$nomefiledacaricare[1]);
             }
       $pieces = explode(".", $file);
-             // Estensione $pieces[1]
-
-
+      
       //AGGIORNAMENTO DB
       if($type_subject == 0){ //post
         AttachmentController::addAttachmentToPost($id_subject,$file,$pieces[1]);
