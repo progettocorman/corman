@@ -205,7 +205,7 @@ public function modifyGroup(Request $request){
       $query = \DB::table('groups')->select('*')->where('id',$group_id)->first();
       $number =\DB::table('partecipations')->select('*')->where('group_id',$group_id)->count();
       $is_amministrator = \DB::table('partecipations')->select('*')->where('group_id',$group_id)->where('user_id',session('id'))->first();
-      if(sizeof($is_amministrator)==0){
+      if(sizeof((array)$is_amministrator)==0){
         $admin = 0;
       }
       else {
