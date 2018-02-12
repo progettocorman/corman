@@ -53,8 +53,8 @@ class PostController extends Controller
 
 
           $query = DB::table('users')->select('*')->where('id', $id)->first();
-          // return redirect('/userprofile?id='.$user->id)->with("name",$query->name)->with("last_name",$query->last_name)
-          // ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
+          return redirect('/userprofile?id='.$user->id)->with("name",$query->name)->with("last_name",$query->last_name)
+          ->with("user_image", $user->user_image)->with("affiliation",$user->affiliation);
     }
 
     public static function modifyPostVisibility(Request $request)
