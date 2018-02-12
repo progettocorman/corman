@@ -59,10 +59,10 @@
 
     </div>
     <div class="col-sm-8 text-left">
-          
+
        <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
         <div class="riga">
-              @include('information_group')
+
           <hr>
           <h3></h3>
           <p></p>
@@ -71,7 +71,7 @@
           <p></p>
         </div>
         <div class="box">
-
+                @include('information_group')
           <div class="box-inner">
 
             @foreach ($results as $result)

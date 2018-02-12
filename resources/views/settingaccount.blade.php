@@ -35,7 +35,7 @@
         </div>
         <div class="col-sm-8 text-left">
           @if (isset($error))<div class="alert alert-warning">
-            <strong>Warning!</strong><a href="#" class="alert-link">$error</a>.
+            <strong>Warning!</strong><a href="#" class="alert-link">{{$error}}</a>.
           </div>@endif
           <form method="POST" action='modify_user_settings'>
           {{csrf_field()}}
