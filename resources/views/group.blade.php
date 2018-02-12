@@ -11,7 +11,7 @@
                       ->first();
 $flag = 0;
 $subscribed = 0;
-  if(sizeof($controlloiscrizione)!=0){
+  if(sizeof((array)$controlloiscrizione)!=0){
     $flag = 1;
     $subscribed = 1;
   }
