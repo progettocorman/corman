@@ -54,7 +54,7 @@ VALUTATORE: ENTRA CON L'UTENTE X E ACCETTA L'INVITO AL GRUPPO
 ____________________________________________________________
 Task 5:
 	-Rimuovi l'utente "X" dal tuo gruppo
-	-Condividi nel gruppo "Y" una tua pubblicazione
+	-Condividi nel gruppo "Y" una tua post
 	-Esci dal gruppo "Y"
 	-Effettua il logout
 	
