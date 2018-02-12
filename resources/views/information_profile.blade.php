@@ -3,7 +3,7 @@
     $user_follow = \App\Http\Controllers\UserController::getNumberFollow(session('id'));
     $user_follower = \App\Http\Controllers\UserController::getNumberFollower(session('id'));
 
-    $user = \DB::table('users')->where('id',session('id'))->first();
+    $user = \DB::table('users')->where('id',$_GET['id'])->first();
 ?>
 
 <link rel="stylesheet" href="css/information_profile.css" type="text/css" />
