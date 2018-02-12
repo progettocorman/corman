@@ -95,7 +95,7 @@
           <label>Email address*</label>
         </td>
         <td>
-         <label>Password*</label>
+            <label>Confirm email*</label>
         </td>
       </tr>
 
@@ -104,7 +104,19 @@
           <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
         </td>
         <td>
+          <input type="email" class="form-control" name="user_email2" aria-describedby="emailHelp" placeholder="Enter email">
+        </td>
+      </tr>
+      <tr>
+        <td> <label>Password</label></td>
+        <td><label>Confirm password</label></td>
+      </tr>
+      <tr>
+        <td>
          <input type="password" class="form-control" name="user_password"  aria-describedby="emailHelp" placeholder="Password" required>
+        </td>
+        <td>
+           <input type="password" class="form-control" name="user_password2"  aria-describedby="emailHelp" placeholder="Password" required>
         </td>
       </tr>
 
