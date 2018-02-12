@@ -21,15 +21,12 @@
 
 
   //per post nel gruppo
-  $shareposts = \DB::table('condivision_posts')->select('post_id')
-    ->join('posts','condivision_posts.post_id', '=','posts.id')
-    ->join('users_posts', 'users_posts.user_id', '=', 'condivision_posts.user_id')
-    ->join('users','users_posts.user_id', '=','users.id')
-    ->select('users_posts.posts_id', 'users_posts.visibility',
-           'users.name','users.second_name', 'users.last_name','users.user_image',
-           'posts.text','posts.created_at')
-    ->where('group_id', $group_id)->where('users_posts.visibility',0)->orWhere('group_id', $group_id)->where('users_posts.visibility',1)->orderBy('posts.created_at','desc')->distinct();
-
+  $shareposts = \DB::table('condivision_posts')->select('post_id as posts_id', 'users_posts.visibility','users.name','users.second_name', 'users.last_name','users.user_image','posts.text','posts.created_at')
+                ->join('posts','condivision_posts.post_id', '=','posts.id')
+                ->join('users_posts', 'users_posts.user_id', '=', 'condivision_posts.user_id')
+                ->join('users','users_posts.user_id', '=','users.id')
+                ->where('group_id', $group_id)->where('users_posts.visibility',0)->orWhere('group_id', $group_id)->where('users_posts.visibility',1)->orderBy('posts.created_at','desc')
+                ->distinct();
   $resultposts = $shareposts->get();
 
 
@@ -195,6 +192,18 @@
                   @endif
 
             @endforeach
+          </div>
+         </div>
+          </div>
+          <div class="col-sm-2 sidenav">
+            <div class="well">
+              @include('profile_bar')
+              <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>
+            </div>
+           </div>
+        </div>
+        </div>
+      </br>
   <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
   </br>
     <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>

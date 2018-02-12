@@ -40,7 +40,7 @@
       @include('group_bar')
 
       <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
-      <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
     </div>
     <div class="col-sm-8 text-left">
       <div class="box">

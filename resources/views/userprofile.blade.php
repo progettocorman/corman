@@ -21,10 +21,11 @@
       </div>
       <div class="col-sm-2 sidenav">
         <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
-        <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
+        <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
        </div>
     </div>
     </div>
+  </br>
     <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
     </br>
       <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>

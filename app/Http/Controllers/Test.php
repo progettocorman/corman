@@ -89,4 +89,15 @@ class Test extends Controller{
       //LIBERA LA RISORSA ALLOCATA
       curl_close($ch);
   }
+
+  public static function condivisioneposts_test (){
+      $shareposts = \DB::table('condivision_posts')->select('post_id as posts_id', 'users_posts.visibility','users.name','users.second_name', 'users.last_name','users.user_image','posts.text','posts.created_at')
+                    ->join('posts','condivision_posts.post_id', '=','posts.id')
+                    ->join('users_posts', 'users_posts.user_id', '=', 'condivision_posts.user_id')
+                    ->join('users','users_posts.user_id', '=','users.id')
+                    ->where('group_id', 2)->where('users_posts.visibility',0)->orWhere('group_id', 2)->where('users_posts.visibility',1)->orderBy('posts.created_at','desc')
+                    ->distinct()
+                    ->get();
+      var_dump($shareposts);
+  }
 }
