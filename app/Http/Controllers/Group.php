@@ -14,7 +14,7 @@ use \App\Partecipation;
 class Group extends Controller
 {
     //Crea un nuovo gruppo e setta l'utente come amministratore di tale gruppo
-  public static function createGroup(Request $request/*, $groupName, $scope, $groupDescription, $groupImage*/){
+  public static function createGroup(Request $request){
       $group = new \App\Group;
       $group->group_name = $request->input('group_name');
       if($request->visibility[0] == "1")
@@ -24,11 +24,10 @@ class Group extends Controller
 
       $group->created_by = $request->session()->get('id');
 
-      if(isset($groupImage)) $group->group_image = $groupImage;
-      else $group->group_image = 'defaultgroup.png';
-      if(isset($groupDescription)) $group->group_description = $request->input('description');
+      $group->group_image = 'defaultgroup.png';
 
-      // $group->searchable();
+      $group->group_description = $request->input('description');
+
       $group->save();
 
       $groupId = \DB::table('groups')->select('id')->orderBy('id','desc')->first();
@@ -124,7 +123,7 @@ public function modifyGroup(Request $request){
     public static function joinGroup($userId, $groupId){
       $groupScope = \DB::table('groups')->select('group_public')->where('id',$groupId)->first();
       //SE IL GRUPPO È PUBBLICO, AGGIUNGI L'UTENTE AL GRUPPO
-      if($groupScope){
+      if($groupScope->group_public){
         Group::addUser($userId,$groupId,false);
       }
       //ALTRIMENTI INVIA UNA NOTIFICA AD OGNI AMMINISTRATORE DEL GRUPPO
@@ -226,6 +225,7 @@ public function modifyGroup(Request $request){
     public static function joinManager(Request $request){
       $user_id = session('id');
       $group_id = $request->groupTo;
+
       Group::joinGroup($user_id,$group_id);
       return redirect('/home');
     }

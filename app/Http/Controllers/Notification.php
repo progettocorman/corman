@@ -41,7 +41,11 @@ class Notification extends Controller
                                  ->delete();
               break;
           case 2://Notifica di invito a partecipare ad un gruppo
-              Group::addUser($user_id,$object_id,false);
+              $groupScope = \DB::table('groups')->select('group_public')->where('id',$object_id)->first();
+              if($groupScope->group_public != 1){
+                Group::joinGroup($user_id,$object_id);
+              }
+                Group::addUser($user_id,$object_id,false);
               break;
          case 3://Notifica di segui
               Follow::addFriendship($sender_id, $user_id);

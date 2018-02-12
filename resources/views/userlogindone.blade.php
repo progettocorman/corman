@@ -55,7 +55,7 @@ div.box-inner
       <div class="col-sm-2 sidenav">
       <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
       <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
-      <button class="btn btn-primary" onClick="location.href='setting_group'">New Group</button></br></br>
+      <button class="btn btn-primary" onClick="location.href='createGroup'">New Group</button></br></br>
 
         @include('group_bar')
 
@@ -87,16 +87,6 @@ div.box-inner
                   &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
                   <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
             </td>
-            <!-- <td>
-            <a href="modify"><img src="image/modifica_1.png"></a>
-          </td> -->
-            <!--
-            <td>
-              <div class="btn-group">
-               <button type="button" class="botn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-               <span class="caret"></span>
-              </button>
-            </div> -->
             </td>
             </tr>
               <tr>
@@ -150,23 +140,12 @@ div.box-inner
                     &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
                     <a href="condivisione?idpub={{$result->publication_id}}&tipo=1"><img src="image/condivisione.png"></a>
               </td>
-              <!-- <td>
-                <div class="btn-group">
-                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                 <span class="caret"></span>
-                </button>
-               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Pubblico</a><br/>
-                <a class="dropdown-item" href="#">Solo amici</a><br/>
-                <a class="dropdown-item" href="#">Privato</a><br/>
-               </div>
-              </div>
-              </td> -->
+
               </tr>
                 <tr>
               <td>
                 <!--Data Pubblicazione -->
-              <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$result->visibility}}</p>
+              <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </td>
                   </tr>
                   <tr>

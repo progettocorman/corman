@@ -39,10 +39,12 @@ Route::get('/setVisibilityPost','PostController@modifyPostVisibility');
 Route::get('/setVisibilityPub','PublicationController@modifyPublicationVisibility');
 Route::get('/follow','Follow@followManager');
 Route::get('/invite','Group@inviteManager');
-Route::get('/createGroup','Group@createGroup');
 Route::get('/condivisione', function () {  return view('condivisione');});
 Route::get('/condivisione2','CondivisionController@addcondivision');
-Route::get('/createGroup','Group@createGroup');
+Route::get('/createGroup',function(){
+    return view('createGroup');
+});
+Route::post('/create_Group','Group@createGroup');
 Route::post('/modifyGroup','Group@modifyGroup');
 Route::get('/members','Group@getMembers');
 
