@@ -33,6 +33,8 @@ class UserController extends Controller
       $user->affiliation = $request->input('user_affiliation');
 
       $user->email = $request->input('user_email');
+      $mail2 = $request->input('user_email2');
+
       $user->user_image = "defaultprofile.png";
       $query = DB::table('users')->select('email')->where('email',$user->email)->first();
 
@@ -41,7 +43,15 @@ class UserController extends Controller
         //todo ottimizzazione nel caso vi sia gia user con stessa mail
         return view('formview')->with('error',"Mail already on use! Choose another one :)");
         }
+        if($user->email!=$mail2){
+            return view('formview')->with('error',"E-mail does not match! Try again! :(");
+        }
+      $password = $request->input('user_password');
+      $password2 = $request->input('user_password2');
 
+      if($password!=$password2){
+          return view('formview')->with('error',"Password does not match! Try again! :(");
+      }
       $user->password = md5($request->input('user_password'));
       $user->research = $request->input('user_research');
       $user->save();
