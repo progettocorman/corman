@@ -69,7 +69,26 @@ $subscribed = 0;
 <html lang="en">
 
   @include('bootstrap')
+  <style>
+  .ciao{
+    height: 10%;
+  }
+  div.box
+  {
+      width:105%; height:auto;
+      background:url(boxbk.png) no-repeat top left;
+      padding:1px 0;
+      font-size:10px;
+  }
 
+  div.box-inner
+  {
+      height: 337px;
+      overflow:auto;
+      margin:25px 24px 0;
+      padding-right:2px;
+  }
+  </style>
 <body>
   @include('navbar')
 <div class="container-fluid text-center">
@@ -90,75 +109,22 @@ $subscribed = 0;
           <p></p>
           <p></p>
         </div>
-        <div class="box">
+
+          <div class="ciao">
                 @include('information_group')
-          <div class="box-inner">
-          @if($subscribed==1)
-            @include('insert_post_group')
-          @endif
-          @if($flag == 1)
-            @foreach ($results as $result)
+                <div class="box">
+            <div class="box-inner">
+            @if($subscribed==1)
+              @include('insert_post_group')
+            @endif
+            @if($flag == 1)
+              @foreach ($results as $result)
 
-              @if (isset($result->posts_id))
-                <!--Allegati  -->
-                  <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
-               <!--Tags -->
-                  <?php $tags = DB::table('posts_tags')->select('value')->where('posts_id',$result->posts_id)->get(); ?>
-
-                  <div class="riga">
-                    <hr>
-                    <h3></h3>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                  </div>
-
-                <table class="tables" width="50%" border="0">
-                <tr>
-                  <td>
-                      <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
-                        &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
-                        <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
-                  </td>
-
-                  </td>
-                  </tr>
-                    <tr>
-                  <td>
-                    <!--Data Post -->
-                  <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                  </td>
-                      </tr>
-                      <tr>
-                    <td>
-
-                      <!--Dati del Post  -->
-                    <p> {{$result->text}}</p>
-                    <!--Allegati  -->
-                    <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
-                          <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
-                      @endforeach
-                    </p>
-                    <!--Tags-->
-                    <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> @foreach($tags as $tag)
-                        <!--TODO visualizzazione tag-->
-                        #{{$tag->value}}
-                      @endforeach
-                    </p>
-
-                      </td>
-                    </tr>
-
-                </table>
-                  @else
-
+                @if (isset($result->posts_id))
                   <!--Allegati  -->
-                    <?php $attachments = DB::table('attachments_publications')->select('*')->where('publication_id',$result->publication_id)->get(); ?>
+                    <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
                  <!--Tags -->
-                    <?php $tags = DB::table('publications_tag')->select('value')->where('publications_id',$result->publication_id)->get(); ?>
-                  <!--Topic -->
-                    <?php $topic = DB::table('publications')->join('topics','topics_id','=','topics.id')->select('topic_name')->where('publications.id',$result->publication_id)->first(); ?>
+                    <?php $tags = DB::table('posts_tags')->select('value')->where('posts_id',$result->posts_id)->get(); ?>
 
                     <div class="riga">
                       <hr>
@@ -174,29 +140,22 @@ $subscribed = 0;
                     <td>
                         <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
                           &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
-                          <a href="condivisione?idpub={{$result->publication_id}}&tipo=1"><img src="image/condivisione.png"></a>
+                          <a href="condivisione?idpub={{$result->posts_id}}&tipo=0"><img src="image/condivisione.png"></a>
                     </td>
 
+                    </td>
                     </tr>
                       <tr>
                     <td>
-                      <!--Data Pubblicazione -->
-                    <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                      <!--Data Post -->
+                    <p>{{$result->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </td>
                         </tr>
                         <tr>
                       <td>
 
-                        <!--Dati della Pubblicazione  -->
-                      <p> {{$result->title}}
-                          <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-                          Published on: {{$result->venue}} <br>
-                          @if(isset($result->volume))Volume:{{$result->volume}}@endif
-                          @if(isset($result->number)), Number: {{$result->number}} ,@endif
-                          @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
+                        <!--Dati del Post  -->
+                      <p> {{$result->text}}</p>
                       <!--Allegati  -->
                       <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
                             <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
@@ -211,18 +170,84 @@ $subscribed = 0;
 
                         </td>
                       </tr>
-                   </table>
-                 </br>
-                 </br>
-                  </br>
-                  @endif
 
-            @endforeach
-            @else
-            Non sei iscritto al gruppo
-          @endif
-          </div>
-         </div>
+                  </table>
+                    @else
+
+                    <!--Allegati  -->
+                      <?php $attachments = DB::table('attachments_publications')->select('*')->where('publication_id',$result->publication_id)->get(); ?>
+                   <!--Tags -->
+                      <?php $tags = DB::table('publications_tag')->select('value')->where('publications_id',$result->publication_id)->get(); ?>
+                    <!--Topic -->
+                      <?php $topic = DB::table('publications')->join('topics','topics_id','=','topics.id')->select('topic_name')->where('publications.id',$result->publication_id)->first(); ?>
+
+                      <div class="riga">
+                        <hr>
+                        <h3></h3>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                      </div>
+
+                    <table class="tables" width="50%" border="0">
+                    <tr>
+                      <td>
+                          <p><img src="/profile_images/{{$result->user_image}}"style="width:25%; height:25%; -moz-border-radius: 180px; -webkit-border-radius:180px; border-radius:180px;">
+                            &nbsp;&nbsp;{{$result->name}} {{$result->second_name}} {{$result->last_name}}</p>
+                            <a href="condivisione?idpub={{$result->publication_id}}&tipo=1"><img src="image/condivisione.png"></a>
+                      </td>
+
+                      </tr>
+                        <tr>
+                      <td>
+                        <!--Data Pubblicazione -->
+                      <p>{{$result->year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                      </td>
+                          </tr>
+                          <tr>
+                        <td>
+
+                          <!--Dati della Pubblicazione  -->
+                        <p> {{$result->title}}
+                            <br> {{$result->type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                            Published on: {{$result->venue}} <br>
+                            @if(isset($result->volume))Volume:{{$result->volume}}@endif
+                            @if(isset($result->number)), Number: {{$result->number}} ,@endif
+                            @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
+                        <!--Allegati  -->
+                        <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+                              <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
+                          @endforeach
+                        </p>
+                        <!--Tags-->
+                        <p><?php if(sizeof($tags)!=0) echo "Tag: " ?> @foreach($tags as $tag)
+                            <!--TODO visualizzazione tag-->
+                            #{{$tag->value}}
+                          @endforeach
+                        </p>
+
+                          </td>
+                        </tr>
+                     </table>
+                   </br>
+                   </br>
+                    </br>
+                      </br>
+                        </br>
+                    @endif
+
+              @endforeach
+              @else
+              Non sei iscritto al gruppo
+            @endif
+            </div>
+           </div>
+              </div>
+
           </div>
           <div class="col-sm-2 sidenav">
             <div class="well">
@@ -232,7 +257,8 @@ $subscribed = 0;
            </div>
         </div>
         </div>
-      </br>
+          </br>
+
   <nav class="navbar navbar-default navbar-fixed-bottom"style="text-align:center;height:5%;background-color:#C0C0C0">
   </br>
     <p>@Copyright Team Corman || Contact us: progettocorman@gmail.com</p>
