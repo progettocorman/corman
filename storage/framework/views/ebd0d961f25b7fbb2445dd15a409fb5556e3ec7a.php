@@ -22,9 +22,7 @@
   <div class="container-fluid">
   <div class="row content">
   <div class="col-sm-6 sidenav">
-  <?php if(isset($error)): ?>  <div class="alert alert-warning">
-      <strong>Warning!</strong><a href="#" class="alert-link"><?php echo e($error); ?></a>.
-    </div><?php endif; ?>
+
     <form method="POST" action='insert_form'>
       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
       <div class="form-group">
@@ -97,6 +95,7 @@
         <td>
             <label>Confirm email*</label>
         </td>
+
       </tr>
 
       <tr>
@@ -139,6 +138,14 @@
     <p></p>
     <p></p>
       <button type="button" onClick="location.href='/'"class="btn btn-primary">Login</button>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+      <?php if(isset($error)): ?>  <div class="alert alert-warning">
+          <strong>Warning!</strong><a href="#" class="alert-link"><?php echo e($error); ?></a>.
+        </div><?php endif; ?>
     </div>
     </div>
     </div>

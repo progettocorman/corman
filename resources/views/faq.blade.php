@@ -10,24 +10,7 @@ $affiliation = $inf->affiliation;
 <html lang="en">
 
   @include('bootstrap')
-  <style>
-  div.box
-  {
-      width:105%; height:auto ;
-      background:url(boxbk.png) no-repeat top left;
-      padding:1px 0;
-      font-size:10px;
-  }
-
-  div.box-inner
-  {
-      height: 540px;
-      overflow:auto;
-      margin:25px 24px 0;
-      padding-right:2px;
-  }
-  </style>
-<body>
+ <body>
   @include('navbar')
 <div class="container-fluid text-center">
   <div class="row content">
@@ -36,8 +19,7 @@ $affiliation = $inf->affiliation;
 
     </div>
     <div class="col-sm-8 text-left"style="height:120%">
-      <div class="box">
-        <div class="box-inner">
+
       <h1> f.a.q.<h1>
       <h4> A proposito di Corman<h4>
         <h4> 1. Cos'è Corman? <h4>
@@ -99,9 +81,7 @@ $affiliation = $inf->affiliation;
                </br>
                </br>
 
-               </div>
-             </div>
-      <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
+       <link rel="stylesheet" href="css/navbar_profile.css" type="text/css" />
 
 
     </div>

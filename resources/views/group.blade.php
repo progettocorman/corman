@@ -73,22 +73,7 @@ $subscribed = 0;
   .ciao{
     height: 10%;
   }
-  div.box
-  {
-      width:105%; height:auto;
-      background:url(boxbk.png) no-repeat top left;
-      padding:1px 0;
-      font-size:10px;
-  }
-
-  div.box-inner
-  {
-      height: 337px;
-      overflow:auto;
-      margin:25px 24px 0;
-      padding-right:2px;
-  }
-  </style>
+   </style>
 <body>
   @include('navbar')
 <div class="container-fluid text-center">
@@ -111,9 +96,7 @@ $subscribed = 0;
         </div>
 
           <div class="ciao">
-                @include('information_group')
-                <div class="box">
-            <div class="box-inner">
+              @include('information_group')
             @if($subscribed==1)
               @include('insert_post_group')
             @endif
@@ -134,6 +117,7 @@ $subscribed = 0;
                       <p></p>
                       <p></p>
                     </div>
+                  </br>
 
                   <table class="tables" width="50%" border="0">
                   <tr>
@@ -172,6 +156,9 @@ $subscribed = 0;
                       </tr>
 
                   </table>
+                  </br>
+                  </br>
+                  
                     @else
 
                     <!--Allegati  -->
@@ -233,11 +220,9 @@ $subscribed = 0;
                           </td>
                         </tr>
                      </table>
-                   </br>
-                   </br>
-                    </br>
-                      </br>
-                        </br>
+                     </br>
+                     </br>
+
                     @endif
 
               @endforeach
@@ -246,10 +231,7 @@ $subscribed = 0;
             @endif
             </div>
            </div>
-              </div>
-
-          </div>
-          <div class="col-sm-2 sidenav">
+           <div class="col-sm-2 sidenav">
             <div class="well">
               @include('profile_bar')
               <button class="btn btn-primary" onClick="location.href='userprofile?id={{session('id')}}'">Profile</button>

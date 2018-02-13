@@ -30,7 +30,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="image/exit.png"></a>
           <ul class="dropdown-menu">
-            <li><a href="/logout">Exit </a></li>
+            <li><a href="/logout">Logout </a></li>
             <p>____________________</p>
             <li><a href="/f.a.q">Help </a></li>
           </ul>

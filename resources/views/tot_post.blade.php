@@ -39,8 +39,7 @@
           </div>
         </div>
       </nav>
-      <div class="box">
-        <div class="box-inner">
+
       @if (sizeof($results)==0) <p>Non hai ancora fatto un post! Che aspetti?!</p>@endif
       @foreach ($results as $result)
       <!--Allegati  -->
@@ -56,7 +55,7 @@
           <p></p>
           <p></p>
         </div>
-
+      
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
@@ -115,9 +114,7 @@
     </br>
     </br>
       @endforeach
-    </div>
-   </div>
-    </div>
+     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
         @include('profile_bar')
