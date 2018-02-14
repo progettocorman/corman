@@ -14,7 +14,7 @@
     </head>
     <body>
       <div class="container">
-            <h2 class="subheader">Member</h2>
+            <h2 class="subheader">Members</h2>
        <div class="list-group">
             @foreach($members as $member)
             <?php $is_amministrator = \DB::table('partecipations')->select('is_amministrator')->where('user_id',$member->id)->where('group_id',$groupId)->first();?>

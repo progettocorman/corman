@@ -128,11 +128,13 @@
   </div>
 </form>
   </div>
-  <div class="col-sm-6 text-left">
-    <h1>Welcome</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <hr>
-    <h3></h3>
+  <div class="col-sm-6 text-left" >
+    <div style="text-align: center;"><img src="image/logo.png"  width="30%"></div>
+    <br><font color="#2e6da4" size="6" ><b>Welcome to Corman!</b></font>
+    <p>Corman is a plattform well suited for researchers. It allows you to share your papers (every kind of!) with other reasearcher, it makes easier to find and preserve all your papers and supports the creation of collaborative groups to increase productivity.
+      <br>Corman overcomes other scientific research engines, which only offer indexing, making reasearch life easier and agile!
+      <br>Down there, you can join the community and improve your work!</br>
+    </p>
     <p></p>
     <p></p>
     <p></p>

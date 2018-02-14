@@ -45,6 +45,7 @@
 
       </div>
      <div class="col-sm-8 text-left">
+      @if (sizeof($results)==0) <p>Seems like you're not following anybody! Try it!</p>@endif
       @foreach ($results as $result)
 
         @if (isset($result->posts_id))
@@ -83,7 +84,7 @@
                 <!--Dati del Post  -->
               <p> {{$result->text}}</p>
               <!--Allegati  -->
-              <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+              <p><?php if(sizeof($attachments)!=0) echo "Attachments: " ?> @foreach($attachments as $attachment)
                     <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
                 @endforeach
               </p>
@@ -144,7 +145,7 @@
                     @if(isset($result->number)), Number: {{$result->number}} ,@endif
                     @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
                 <!--Allegati  -->
-                <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+                <p><?php if(sizeof($attachments)!=0) echo "Attachments: " ?> @foreach($attachments as $attachment)
                       <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
                   @endforeach
                 </p>

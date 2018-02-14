@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Follow </title>
+        <title>Followed </title>
         <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,7 +9,7 @@
     </head>
     <body>
 <div class="container">
-      <h2 class="subheader">Follow</h2>
+      <h2 class="subheader">Followed</h2>
  <div class="list-group">
       @foreach($follows as $follow)
       <a> </a>

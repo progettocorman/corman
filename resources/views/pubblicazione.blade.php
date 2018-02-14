@@ -140,9 +140,9 @@
               <input type="file" name="fileUpload1" multiple>
             </td>
             <td>
-              <input type="radio" name="visibility[]"  value='publico' checked> Pubblico
-              <input type="radio" name="visibility[]" value='privato'> Privato
-              <input type="radio" name="visibility[]" value='solo io'> Solo io<br>
+              <input type="radio" name="visibility[]"  value='publico' checked> Public
+              <input type="radio" name="visibility[]" value='privato'> Private
+              <input type="radio" name="visibility[]" value='solo io'> Just me<br>
             </td>
             </tr>
              <tr>

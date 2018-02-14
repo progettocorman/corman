@@ -101,11 +101,11 @@
             </td>
             <td>
               <select class="form-control" name="user_research" value= {{$research}} required>
-                <option>Artificial Intelligent</option>
+                <option>Artificial Intelligence</option>
                 <option>Security</option>
                 <option>Semantic web</option>
-                <option>Other</option>
-                <option>Other two</option>
+                <option>Interaction Paradigms</option>
+                <option>Others</option>
               </select>
             </td>
           </tr>
@@ -126,7 +126,7 @@
 
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">modify</button>
+                <button type="submit" class="btn btn-primary">Modify</button>
               </td>
              </tr>
       </table>

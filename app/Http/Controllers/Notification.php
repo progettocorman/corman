@@ -45,7 +45,7 @@ class Notification extends Controller
               if($groupScope->group_public != 1){
                 Group::joinGroup($user_id,$object_id);
               }
-                Group::addUser($user_id,$object_id,false);
+                else Group::addUser($user_id,$object_id,false);
               break;
          case 3://Notifica di segui
               Follow::addFriendship($sender_id, $user_id);

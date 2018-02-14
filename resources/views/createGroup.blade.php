@@ -40,7 +40,7 @@
             <label >Name*</label>
           </td>
           <td>
-            <label >Visibilità</label>
+            <label >Visibility</label>
           </td>
         </tr>
 
@@ -49,14 +49,14 @@
             <input type="text" class="form-control" name = "group_name" placeholder="Group Name" required >
          </td>
          <td>
-        <input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
-           <input type="radio" name="visibility[]" value='0'> Privato<br>
+        <input type="radio" name="visibility[]"  value='1' checked> Public<br>
+           <input type="radio" name="visibility[]" value='0'> Private<br>
           </td>
        </tr>
 
         <tr>
           <td>
-            <label>Descrizione</label>
+            <label>Description</label>
          </td>
         </tr>
 

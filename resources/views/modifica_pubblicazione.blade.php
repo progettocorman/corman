@@ -55,10 +55,10 @@
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
-                <label >Titolo</label>
+                <label >Title</label>
               </td>
               <td>
-                <label >Rivista</label>
+                <label >Magazine</label>
               </td>
             </tr>
 
@@ -77,7 +77,7 @@
                  <label >Volume</label>
               </td>
               <td>
-                  <label >Numero</label>
+                  <label >Number</label>
               </td>
             </tr>
 
@@ -93,10 +93,10 @@
 
             <tr>
               <td>
-                <label>Pagine</label>
+                <label>Pages</label>
               </td>
               <td>
-                 <label>Anno di pubblicazione</label>
+                 <label>Year of Publication</label>
               </td>
             </tr>
 
@@ -112,7 +112,7 @@
 
               <tr>
                 <td>
-                  <label>Tipologia</label>
+                  <label>Type</label>
                 </td>
                 <td>
                   <label>Tag</label>
@@ -137,7 +137,7 @@
               </tr>
               <tr>
                 <td>
-                     <label>Co-Autori</label>
+                     <label>Co-Authors</label>
                  </td>
                  <td>
                   <label>Topic</label>
@@ -161,9 +161,9 @@
                 </tr>
             <tr>
               <td>
-                <label>Allegati</label>
+                <label>Attachments</label>
              </td>
-           
+
            </tr>
              <tr>
               <td>
@@ -172,7 +172,7 @@
             </tr>
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">Pubblica</button>
+                <button type="submit" class="btn btn-primary">Publish</button>
               </td>
              </tr>
         </table>

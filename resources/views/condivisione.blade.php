@@ -26,7 +26,7 @@ $tipo= $_GET["tipo"];
          <table class="tables" width="100%" border="0">
              <tr>
                <td>
-                 <label >Scegli gruppo dove condividere</label>
+                 <label >Where do you want to share it?</label>
                </td>
              </tr>
              <tr>
@@ -42,7 +42,7 @@ $tipo= $_GET["tipo"];
 
               <tr>
                <td>
-                 <button type="submit" class="btn btn-primary">Condividi</button>
+                 <button type="submit" class="btn btn-primary">Share</button>
                </td>
               </tr>
          </table>

@@ -50,11 +50,11 @@
                <span class="caret"></span>
               </button>
              <div class="dropdown-menu">
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Ordina per topics</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Ordina per categorie</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Ordina per visibilità</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Ordina per data</a><br/>
-               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Ordina per anno</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=topic">Order by topics</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=type">Order by categories</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=visibility">Order by visibility</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}">Order by date</a><br/>
+               <a class="dropdown-item" href="tot_pubblicazioni?id={{$id}}&ordBy=year">Order by year</a><br/>
              </div>
             </div>
           </td>
@@ -66,6 +66,7 @@
           </div>
         </div>
        </nav>
+       @if (sizeof($results)==0) <p>You haven't still posted anything!</p>@endif
       @foreach ($results as $result)
       <!--Allegati  -->
         <?php $attachments = DB::table('attachments_publications')->select('*')->where('publication_id',$result->publication_id)->get(); ?>
@@ -131,7 +132,7 @@
               @if(isset($result->number)), Number: {{$result->number}} ,@endif
               @if(isset($result->pages))Pages: {{$result->pages}}</p>@endif
           <!--Allegati  -->
-          <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+          <p><?php if(sizeof($attachments)!=0) echo "Attachments: " ?> @foreach($attachments as $attachment)
                 <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
             @endforeach
           </p>

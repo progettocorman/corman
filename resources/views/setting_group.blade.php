@@ -25,8 +25,8 @@
   <div class="container-fluid text-center">
     <div class="row content">
       <div class="col-sm-2 sidenav">
-        <button class="btn btn-primary" onClick="location.href='post'">Crea Post</button></br></br>
-        <button class="btn btn-primary" onClick="location.href='pubblicazione'">Crea Pubblicazione</button></br></br>
+        <button class="btn btn-primary" onClick="location.href='post'">New Post</button></br></br>
+        <button class="btn btn-primary" onClick="location.href='pubblicazione'">New Publication</button></br></br>
         @include('group_bar')
 
       </div>
@@ -42,7 +42,7 @@
             <label >Name*</label>
           </td>
           <td>
-            <label >Visibilità</label>
+            <label >Visibility</label>
           </td>
         </tr>
 
@@ -51,16 +51,16 @@
             <input type="text" class="form-control" name = "group_name" value = {{$groupName}} required >
          </td>
          <td>
-          @if($visibility == 1)<input type="radio" name="visibility[]"  value='1' checked> Pubblico<br>
-           <input type="radio" name="visibility[]" value='0'> Privato<br>
-           @else <input type="radio" name="visibility[]"  value='1' > Pubblico<br>
-            <input type="radio" name="visibility[]" value='0' checked> Privato<br> @endif
+          @if($visibility == 1)<input type="radio" name="visibility[]"  value='1' checked> Public<br>
+           <input type="radio" name="visibility[]" value='0'> Private<br>
+           @else <input type="radio" name="visibility[]"  value='1' > Public<br>
+            <input type="radio" name="visibility[]" value='0' checked> Private<br> @endif
           </td>
        </tr>
 
         <tr>
           <td>
-            <label>Descrizione</label>
+            <label>Description</label>
          </td>
         </tr>
 
@@ -76,7 +76,7 @@
            <tr>
             <td>
 
-              <button class="btn btn-primary" type="submit" >Modifica</button>
+              <button class="btn btn-primary" type="submit" >Modify</button>
 
             </td>
            </tr>

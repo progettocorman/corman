@@ -24,7 +24,7 @@ $subscribed = 0;
       }
   }
   $isadmin=0;
-  if($controlloiscrizione->is_amministrator==1){
+  if(isset($controlloiscrizione->is_amministrator) && $controlloiscrizione->is_amministrator==1){
     $isadmin = 1;
   }
 
@@ -53,8 +53,19 @@ $subscribed = 0;
   $resultposts = $shareposts->get();
 
 
+  $shareposts = \DB::table('condivision_posts')->select('post_id as posts_id','users.name','users.second_name', 'users.last_name','users.user_image','posts.text','posts.created_at')
+                ->join('posts','condivision_posts.post_id', '=','posts.id')
+                ->join('users','condivision_posts.user_id', '=','users.id')
+                ->where('group_id', $group_id)->orderBy('posts.created_at','desc')
+                ->distinct();
+  $groupPosts = $shareposts->get();
+
  $results = array();
   $i = 0;
+  foreach ($groupPosts as $post) {
+    $results[$i] = $post;
+    $i++;
+  }
   foreach ($resultpublications as $publication) {
     $results[$i] = $publication;
     $i++;
@@ -96,11 +107,12 @@ $subscribed = 0;
         </div>
 
           <div class="ciao">
-              @include('information_group')
+            @include('information_group')
             @if($subscribed==1)
               @include('insert_post_group')
             @endif
             @if($flag == 1)
+            @if (sizeof($results)==0) <p>You haven't still posted anything!</p>@endif
               @foreach ($results as $result)
 
                 @if (isset($result->posts_id))
@@ -158,7 +170,7 @@ $subscribed = 0;
                   </table>
                   </br>
                   </br>
-                  
+
                     @else
 
                     <!--Allegati  -->

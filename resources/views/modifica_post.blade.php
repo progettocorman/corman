@@ -34,7 +34,7 @@
         <table class="tables" width="100%" border="0">
             <tr>
               <td>
-                <label >Modifica il tuo post </label>
+                <label >Modify your post </label>
               </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
             </tr>
              <tr>
               <td>
-                <button type="submit" class="btn btn-primary">Pubblica</button>
+                <button type="submit" class="btn btn-primary">Post</button>
               </td>
              </tr>
         </table>

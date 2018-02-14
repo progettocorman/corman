@@ -30,7 +30,7 @@
      <tr>
       <td>
         <input type="hidden" name = "passa_group_id" value="{{$group_id}}" />
-        <button type="submit" class="btn btn-primary">Share</button>
+        <button type="submit" class="btn btn-primary">Post</button>
       </td>
      </tr>
 </table>

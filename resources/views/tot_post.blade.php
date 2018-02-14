@@ -40,7 +40,7 @@
         </div>
       </nav>
 
-      @if (sizeof($results)==0) <p>Non hai ancora fatto un post! Che aspetti?!</p>@endif
+      @if (sizeof($results)==0) <p>You haven't still published anything!</p>@endif
       @foreach ($results as $result)
       <!--Allegati  -->
         <?php $attachments = DB::table('attachments_posts')->select('*')->where('posts_id',$result->posts_id)->get(); ?>
@@ -55,7 +55,7 @@
           <p></p>
           <p></p>
         </div>
-      
+
       <table class="tables" width="50%" border="0">
       <tr>
         <td>
@@ -71,9 +71,9 @@
            <span class="caret"></span>
           </button>
          <div class="dropdown-menu">
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Pubblico</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Privato</a><br/>
-          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Solo io</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=0&post_id={{$result->posts_id}}">Public</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=1&post_id={{$result->posts_id}}">Private</a><br/>
+          <a class="dropdown-item" href="/setVisibilityPost?id={{$id}}&visibility=2&post_id={{$result->posts_id}}">Just me</a><br/>
          </div>
         </div>
         </td>
@@ -82,9 +82,9 @@
         <td>
           <!--Data Post -->
           <p>{{$result->created_at}} @if(isset($result->visibility)) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                @if($result->visibility == 0)Pubblico
-                                                  @elseif($result->visibility == 1) Privato
-                                                  @elseif($result->visibility == 2) Solo Io
+                                                @if($result->visibility == 0)Public
+                                                  @elseif($result->visibility == 1) Private
+                                                  @elseif($result->visibility == 2) Just me
                                                 @endif
                                       @endif</p>
         </td>
@@ -95,7 +95,7 @@
             <!--Dati del Post  -->
           <p> {{$result->text}}</p>
           <!--Allegati  -->
-          <p><?php if(sizeof($attachments)!=0) echo "Allegati: " ?> @foreach($attachments as $attachment)
+          <p><?php if(sizeof($attachments)!=0) echo "Attachments: " ?> @foreach($attachments as $attachment)
                 <a href={{$attachment->namefile}}> {{$attachment->typefile}} </a>
             @endforeach
           </p>

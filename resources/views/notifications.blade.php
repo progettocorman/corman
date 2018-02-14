@@ -27,7 +27,7 @@
       <button class="btn btn-primary" onClick="location.href='pubblicazione'"><font size="1px"> New Publication</font></button></br></br>
     </div>
     <div class="col-sm-8 text-left">
-      
+
       <table class="tables" width="50%" border="2">
         @foreach($notifications as $notification)
         <?php $sender = \DB::table('users')->where('id',$notification->sender_id)->first();  ?>
@@ -37,30 +37,30 @@
               <p><a href="userprofile?id={{$sender->id}}">{{$sender->name}} {{$sender->second_name}} {{$sender->last_name}}</a> @switch($notification->type_id)
                                     @case(0)
                                         <?php $publication = \DB::table('publications')->where('id',$notification->object_id)->first();  ?>
-                                        ha aggiunto la pubblicazione "{{$publication->title}}" di cui potresti essere coautore
+                                        added the publications "{{$publication->title}}" which you may be co-author
                                         @break
 
                                     @case(1)
                                         <?php $group = \DB::table('groups')->where('id',$notification->object_id)->first();  ?>
-                                        ha richiesto di partecipare al tuo gruppo "{{$group->group_name}}"
+                                        requested to join you group "{{$group->group_name}}"
                                         @break
 
                                     @case(2)
                                         <?php $group = \DB::table('groups')->where('id',$notification->object_id)->first(); ?>
-                                        ti ha invitato a partecipare al gruppo "{{$group->group_name}}"
+                                      invited you to the group "{{$group->group_name}}"
                                         @break
                                     @case(3)
-                                        ha richiesto di seguirti
+                                        would like to follow you
                                 @endswitch
                             </p>
             </td>
 
             <td>
               <td>
-                <button class="pushA" onClick="location.href = 'notAcc?accept=1&s={{$notification->sender_id}}&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Accetta </button>
+                <button class="pushA" onClick="location.href = 'notAcc?accept=1&s={{$notification->sender_id}}&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Accept </button>
               </td>
               <td>
-                <button class="pushR" onClick="location.href = 'notAcc?accept=0&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Rifiuta </button>
+                <button class="pushR" onClick="location.href = 'notAcc?accept=0&u={{$notification->user_id}}&o={{$notification->object_id}}&t={{$notification->type_id}}'" type=”submit”>  Refuse </button>
               </td>
             </td>
             </tr>
